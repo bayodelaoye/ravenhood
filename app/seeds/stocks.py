@@ -1,6 +1,7 @@
 from app.models import db, Stock, environment, SCHEMA
 from sqlalchemy.sql import text
 import yfinance as yf
+from .stocks_ticker_list import iSharesRussell3000ETF
 
 # Adds a demo user, you can add other users here if you want
 def seed_stocks():
@@ -15,7 +16,7 @@ def seed_stocks():
             description=stock.get_info()['longBusinessSummary'] if 'longBusinessSummary' in stock.get_info() else 'unavailable',
             ceo=stock.get_info()['companyOfficers'][0]['name'] if 'companyOfficers' in stock.get_info() else 'unavailable',
             employees=stock.get_info()['fullTimeEmployees'] if 'fullTimeEmployees' in stock.get_info() else -1,
-            headquarters=stock.get_info()['city'] + stock.get_info()['state'] if 'city' in stock.get_info() or 'state' in stock.get_info() else -1,
+            headquarters=stock.get_info()['city'] + stock.get_info()['state'] if 'city' in stock.get_info() and 'state' in stock.get_info() else 'unavailable',
             founded=1,
             market_cap_billions=stock.get_info()['marketCap'] if 'marketCap' in stock.get_info() else -1,
             price_earnings_ratio=stock.get_info()['trailingPE'] if 'trailingPE' in stock.get_info() else -1,
