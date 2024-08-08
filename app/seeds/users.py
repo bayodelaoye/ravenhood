@@ -16,7 +16,7 @@ def seed_users():
         zip=12345,
         phone=1231122345,
         ssn=123456789,
-        birthday=date(2004,8,8),
+        birthday=date(2004, 8, 8),
         citizenship='United States'
         )
     # marnie = User(
