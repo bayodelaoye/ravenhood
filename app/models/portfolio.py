@@ -1,4 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+from datetime import datetime
 from .portfolio_stocks import portfolio_stocks
 
 class Portfolio(db.Model):
@@ -13,8 +14,8 @@ class Portfolio(db.Model):
     cash_balance = db.Column(db.Numeric(10, 2), nullable = False)
     total_amount = db.Column(db.Numeric(10, 2), nullable = False)
     is_active = db.Column(db.Boolean, nullable = False)
-    created_at = db.Column(db.DateTime, nullable = False)
-    updated_at = db.Column(db.DateTime, nullable = False)
+    created_at = db.Column(db.DateTime, nullable = False, default=datetime.now())
+    updated_at = db.Column(db.DateTime, nullable = False, default=datetime.now())
 
     user = db.relationship("User", back_populates="portfolios")
 

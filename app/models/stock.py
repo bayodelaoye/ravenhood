@@ -1,4 +1,5 @@
 from .db import db, environment, SCHEMA
+from datetime import datetime
 from .portfolio_stocks import portfolio_stocks
 from .watch_list_stocks import watch_list_stocks
 
@@ -27,8 +28,8 @@ class Stock(db.Model):
     volume = db.Column(db.Integer, nullable = False)
     fifty_two_week_high = db.Column(db.Numeric(5, 2), nullable = False)
     fifty_two_week_low = db.Column(db.Numeric(5, 2), nullable = False)
-    created_at = db.Column(db.DateTime, nullable = False)
-    updated_at = db.Column(db.DateTime, nullable = False)
+    created_at = db.Column(db.DateTime, nullable = False, default=datetime.now())
+    updated_at = db.Column(db.DateTime, nullable = False, default=datetime.now())
 
     stock_portfolio_stocks = db.relationship(
         "Portfolio",
