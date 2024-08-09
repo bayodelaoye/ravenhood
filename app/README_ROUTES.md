@@ -240,16 +240,16 @@ user's information.
     }
     ```
 
-## SPOTS
+## STOCKS
 
-### Get all Spots
+### Get all Stocks
 
-Returns all the spots.
+Returns all the stocks.
 
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /api/spots
+  * URL: /api/stocks
   * Body: none
 
 * Successful Response
@@ -260,7 +260,7 @@ Returns all the spots.
 
     ```json
     {
-      "Spots": [
+      "Stocks": [
         {
           "id": 1,
           "ownerId": 1,
@@ -282,54 +282,14 @@ Returns all the spots.
     }
     ```
 
-### Get all Spots owned by the Current User
+### Get details of a Stock from an id
 
-Returns all the spots owned (created) by the current user.
-
-* Require Authentication: true
-* Request
-  * Method: GET
-  * URL: /api/spots/current
-  * Body: none
-
-* Successful Response
-  * Status Code: 200
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "Spots": [
-        {
-          "id": 1,
-          "ownerId": 1,
-          "address": "123 Disney Lane",
-          "city": "San Francisco",
-          "state": "California",
-          "country": "United States of America",
-          "lat": 37.7645358,
-          "lng": -122.4730327,
-          "name": "App Academy",
-          "description": "Place where web developers are created",
-          "price": 123,
-          "createdAt": "2021-11-19 20:39:36",
-          "updatedAt": "2021-11-19 20:39:36",
-          "avgRating": 4.5,
-          "previewImage": "image url"
-        }
-      ]
-    }
-    ```
-
-### Get details of a Spot from an id
-
-Returns the details of a spot specified by its id.
+Returns the details of a Stock specified by its id.
 
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /api/spots/:spotId
+  * URL: /api/stock/:stockId
   * Body: none
 
 * Successful Response
@@ -383,18 +343,232 @@ Returns the details of a spot specified by its id.
 
     ```json
     {
-      "message": "Spot couldn't be found"
+      "message": "Stock couldn't be found"
     }
     ```
 
-### Create a Spot
+===========================NEEDED?==================================
+### Get all Stocks owned by the Current User
 
-Creates and returns a new spot.
+Returns all the stocks owned (created) by the current user.
+
+* Require Authentication: true
+* Request
+  * Method: GET
+  * URL: /api/stocks/current
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "stocks": [
+        {
+          "id": 1,
+          "ownerId": 1,
+          "address": "123 Disney Lane",
+          "city": "San Francisco",
+          "state": "California",
+          "country": "United States of America",
+          "lat": 37.7645358,
+          "lng": -122.4730327,
+          "name": "App Academy",
+          "description": "Place where web developers are created",
+          "price": 123,
+          "createdAt": "2021-11-19 20:39:36",
+          "updatedAt": "2021-11-19 20:39:36",
+          "avgRating": 4.5,
+          "previewImage": "image url"
+        }
+      ]
+    }
+    ```
+==================================================================================
+
+
+
+
+
+===============================================================================================================
+
+## PORTFOLIOS
+
+### Get all portfolios of current user
+
+Returns all the portfolios of current user by userId
+
+* Require Authentication: false
+* Request
+  * Method: GET
+  * URL: /api/users/:userId/portfolios
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "Portfolios": [
+        {
+          "id": 1,
+          "ownerId": 1,
+          "address": "123 Disney Lane",
+          "city": "San Francisco",
+          "state": "California",
+          "country": "United States of America",
+          "lat": 37.7645358,
+          "lng": -122.4730327,
+          "name": "App Academy",
+          "description": "Place where web developers are created",
+          "price": 123,
+          "createdAt": "2021-11-19 20:39:36",
+          "updatedAt": "2021-11-19 20:39:36",
+          "avgRating": 4.5,
+          "previewImage": "image url"
+        }
+      ]
+    }
+    ```
+
+### Get details of a Portfolio from an id
+
+Returns the details of a Portfolio specified by its id.
+
+* Require Authentication: false
+* Request
+  * Method: GET
+  * URL: /api/portfolios/:portfolioId
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+
+    {
+      "id": 1,
+      "ownerId": 1,
+      "address": "123 Disney Lane",
+      "city": "San Francisco",
+      "state": "California",
+      "country": "United States of America",
+      "lat": 37.7645358,
+      "lng": -122.4730327,
+      "name": "App Academy",
+      "description": "Place where web developers are created",
+      "price": 123,
+      "createdAt": "2021-11-19 20:39:36",
+      "updatedAt": "2021-11-19 20:39:36" ,
+      "numReviews": 5,
+      "avgStarRating": 4.5,
+      "SpotImages": [
+        {
+          "id": 1,
+          "url": "image url",
+          "preview": true
+        },
+        {
+          "id": 2,
+          "url": "image url",
+          "preview": false
+        }
+      ],
+      "Owner": {
+        "id": 1,
+        "firstName": "John",
+        "lastName": "Smith"
+      }
+    }
+    ```
+
+* Error response: Couldn't find a Spot with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "Portfolio couldn't be found"
+    }
+    ```
+
+
+
+### Get all Portfolios by a User's id
+
+Returns all the portfolios that belong to a user specified by id.
+
+* Require Authentication: false
+* Request
+  * Method: GET
+  * URL: /api/users/:userId/portfolios
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "portfolio": [
+        {
+          "id": 1,
+          "userId": 1,
+          "spotId": 1,
+          "review": "This was an awesome spot!",
+          "stars": 5,
+          "createdAt": "2021-11-19 20:39:36",
+          "updatedAt": "2021-11-19 20:39:36" ,
+          "User": {
+            "id": 1,
+            "firstName": "John",
+            "lastName": "Smith"
+          },
+          "ReviewImages": [
+            {
+              "id": 1,
+              "url": "image url"
+            }
+          ],
+        }
+      ]
+    }
+    ```
+
+* Error response: Couldn't find a Portfolio with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "No portfolios found"
+    }
+    ```
+
+
+### Create a Portfolio
+
+Creates and returns a new portfolio.
 
 * Require Authentication: true
 * Request
   * Method: POST
-  * URL: /api/spots
+  * URL: /api/portfolios
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -460,61 +634,15 @@ Creates and returns a new spot.
     }
     ```
 
-### Add an Image to a Spot based on the Spot's id
+### Edit a Portfolio
 
-Create and return a new image for a spot specified by id.
-
-* Require Authentication: true
-* Require proper authorization: Spot must belong to the current user
-* Request
-  * Method: POST
-  * URL: /api/spots/:spotId/images
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "url": "image url",
-      "preview": true
-    }
-    ```
-
-* Successful Response
-  * Status Code: 200
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "id": 1,
-      "url": "image url",
-      "preview": true
-    }
-    ```
-
-* Error response: Couldn't find a Spot with the specified id
-  * Status Code: 404
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "message": "Spot couldn't be found"
-    }
-    ```
-
-### Edit a Spot
-
-Updates and returns an existing spot.
+Updates and returns an existing portfolio.
 
 * Require Authentication: true
-* Require proper authorization: Spot must belong to the current user
+* Require proper authorization: portfolio must belong to the current user
 * Request
   * Method: PUT
-  * URL: /api/spots/:spotId
+  * URL: /api/portfolios/:portfolioId
   * Headers:
     * Content-Type: application/json
   * Body:
@@ -580,7 +708,7 @@ Updates and returns an existing spot.
     }
     ```
 
-* Error response: Couldn't find a Spot with the specified id
+* Error response: Couldn't find a portfolio with the specified id
   * Status Code: 404
   * Headers:
     * Content-Type: application/json
@@ -588,19 +716,19 @@ Updates and returns an existing spot.
 
     ```json
     {
-      "message": "Spot couldn't be found"
+      "message": "Portfolio couldn't be found"
     }
     ```
 
-### Delete a Spot
+### Delete a Portfolio
 
-Deletes an existing spot.
+Deletes an existing portfolio.
 
 * Require Authentication: true
-* Require proper authorization: Spot must belong to the current user
+* Require proper authorization: Portfolio must belong to the current user
 * Request
   * Method: DELETE
-  * URL: /api/spots/:spotId
+  * URL: /api/portfolios/:portfolioId
   * Body: none
 
 * Successful Response
@@ -615,7 +743,7 @@ Deletes an existing spot.
     }
     ```
 
-* Error response: Couldn't find a Spot with the specified id
+* Error response: Couldn't find a Portfolio with the specified id
   * Status Code: 404
   * Headers:
     * Content-Type: application/json
@@ -623,20 +751,33 @@ Deletes an existing spot.
 
     ```json
     {
-      "message": "Spot couldn't be found"
+      "message": "Portfolio couldn't be found"
     }
     ```
 
-## REVIEWS
 
-### Get all Reviews of the Current User
 
-Returns all the reviews written by the current user.
+
+
+
+
+
+
+
+
+
+
+## WATCHLISTS
+
+
+### Get all default watchlists
+
+Returns all the Watchlist written by the current user.
 
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /api/reviews/current
+  * URL: /api/watchlists/default
   * Body: none
 
 * Successful Response
@@ -647,7 +788,7 @@ Returns all the reviews written by the current user.
 
     ```json
     {
-      "Reviews": [
+      "Watchlists": [
         {
           "id": 1,
           "userId": 1,
@@ -685,14 +826,15 @@ Returns all the reviews written by the current user.
     }
     ```
 
-### Get all Reviews by a Spot's id
 
-Returns all the reviews that belong to a spot specified by id.
+### Get all watchlists of the Current User
 
-* Require Authentication: false
+Returns all the Watchlist written by the current user.
+
+* Require Authentication: true
 * Request
   * Method: GET
-  * URL: /api/spots/:spotId/reviews
+  * URL: /api/watchlists/current
   * Body: none
 
 * Successful Response
@@ -703,7 +845,65 @@ Returns all the reviews that belong to a spot specified by id.
 
     ```json
     {
-      "Reviews": [
+      "Watchlists": [
+        {
+          "id": 1,
+          "userId": 1,
+          "spotId": 1,
+          "review": "This was an awesome spot!",
+          "stars": 5,
+          "createdAt": "2021-11-19 20:39:36",
+          "updatedAt": "2021-11-19 20:39:36" ,
+          "User": {
+            "id": 1,
+            "firstName": "John",
+            "lastName": "Smith"
+          },
+          "Spot": {
+            "id": 1,
+            "ownerId": 1,
+            "address": "123 Disney Lane",
+            "city": "San Francisco",
+            "state": "California",
+            "country": "United States of America",
+            "lat": 37.7645358,
+            "lng": -122.4730327,
+            "name": "App Academy",
+            "price": 123,
+            "previewImage": "image url"
+          },
+          "ReviewImages": [
+            {
+              "id": 1,
+              "url": "image url"
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+
+
+### Get a watchlist by id
+
+Returns a watchlist specified by id.
+
+* Require Authentication: true
+* Request
+  * Method: GET
+  * URL: /api/watchlists/:watchlistId
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "Watchlist": [
         {
           "id": 1,
           "userId": 1,
@@ -736,25 +936,25 @@ Returns all the reviews that belong to a spot specified by id.
 
     ```json
     {
-      "message": "Spot couldn't be found"
+      "message": "Watchlist couldn't be found"
     }
     ```
 
-### Create a Review for a Spot based on the Spot's id
+### Create a watchlist for current user
 
-Create and return a new review for a spot specified by id.
+Create and return a new watchlist for a user specified by id.
 
 * Require Authentication: true
 * Request
   * Method: POST
-  * URL: /api/spots/:spotId/reviews
+  * URL: /api/users/:userId/watchlists
   * Headers:
     * Content-Type: application/json
   * Body:
 
     ```json
     {
-      "review": "This was an awesome spot!",
+      "watchlist": "This was an awesome spot!",
       "stars": 5,
     }
     ```
@@ -793,7 +993,7 @@ Create and return a new review for a spot specified by id.
     }
     ```
 
-* Error response: Couldn't find a Spot with the specified id
+* Error response: Couldn't find a user with the specified id
   * Status Code: 404
   * Headers:
     * Content-Type: application/json
@@ -801,11 +1001,11 @@ Create and return a new review for a spot specified by id.
 
     ```json
     {
-      "message": "Spot couldn't be found"
+      "message": "Watchlist couldn't be created"
     }
     ```
 
-* Error response: Review from the current user already exists for the Spot
+* Error response: Watchlist from the current user already exists for the Spot
   * Status Code: 500
   * Headers:
     * Content-Type: application/json
@@ -813,9 +1013,19 @@ Create and return a new review for a spot specified by id.
 
     ```json
     {
-      "message": "User already has a review for this spot"
+      "message": "Watchlist already exists"
     }
     ```
+
+
+
+
+
+
+
+
+
+
 
 ### Add an Image to a Review based on the Review's id
 
