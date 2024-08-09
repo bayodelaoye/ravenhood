@@ -12,3 +12,11 @@ fetch("api/portfolios/", {
     is_active: true,
   }),
 });
+
+// Read portfolio by user_id
+fetch("api/portfolios/1", {
+  method: "GET",
+  headers: {
+    "content-type": "application/json",
+  },
+});
