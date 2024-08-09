@@ -45,6 +45,7 @@ def update_portfolio_name(id):
             portfolio.portfolio_portfolio_stocks.append(stock)
         db.session.commit()
 
+    # needs to be looked at
     if 'remove' in body:
         for i in body['remove']:
             remove_stock = Stock.query.get(i)
