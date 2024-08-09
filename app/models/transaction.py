@@ -18,3 +18,15 @@ class Transaction(db.Model):
     updated_at = db.Column(db.DateTime, nullable = False, default=datetime.now())
 
     portfolio = db.relationship("Portfolio", back_populates="transactions")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "portfolio_id": self.portfolio_id,
+            "type": self.type,
+            "date": self.date,
+            "stock": self.stock,
+            "quantity": self.quantity,
+            "transaction_price": self.transaction_price,
+            "created_at": self.created_at
+        }

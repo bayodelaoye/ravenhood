@@ -64,7 +64,5 @@ class Stock(db.Model):
             "open_price": self.open_price,
             "volume": self.volume,
             "fifty_two_week_high": self.fifty_two_week_high,
-            "fifty_two_week_low": self.fifty_two_week_low,
-            "created_at": self.created_at,
-            "updated_at": self.updated_at,
+            "fifty_two_week_low": self.fifty_two_week_low
         }

@@ -26,3 +26,14 @@ class Portfolio(db.Model):
         secondary=portfolio_stocks,
         back_populates="stock_portfolio_stocks",
     )
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "portfolio_name": self.portfolio_name,
+            "cash_balance": self.cash_balance,
+            "total_amount": self.total_amount,
+            "is_active": self.is_active,
+            "updated_at": self.updated_at
+        }   
