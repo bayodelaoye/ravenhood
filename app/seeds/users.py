@@ -1,7 +1,7 @@
 from app.models import db, User, environment, SCHEMA
 from sqlalchemy.sql import text
 from datetime import date
-
+from werkzeug.security import generate_password_hash
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     for user in [
@@ -10,7 +10,7 @@ def seed_users():
             "last_name": 'User',
             "email": 'demo@aa.io', 
             "username": 'demo', 
-            "hashed_password": 'password',
+            "hashed_password": generate_password_hash('password'),
             "address": "1234 Street",
             "city": 'New York',
             "state": 'NY',
@@ -25,7 +25,7 @@ def seed_users():
             "last_name": 'Jakubovsky',
             "email": 'gjakubovsky1@digg.com', 
             "username": 'gjakubovsky1', 
-            "hashed_password": 'uG6|E}$=Rq',
+            "hashed_password": generate_password_hash('uG6|E}$=Rq'),
             "address": "70 Washington Square South",
             "city": 'Philadelphia',
             "state": 'PA',
@@ -40,7 +40,7 @@ def seed_users():
             "last_name": 'Hadigate',
             "email": 'chadigate3@ucla.edu', 
             "username": 'chadigate3', 
-            "hashed_password": 'qX8"e*yX~g66HHjI',
+            "hashed_password": generate_password_hash('qX8"e*yX~g66HHjI'),
             "address": "7 Washington Pl",
             "city": 'Austin',
             "state": 'TX',

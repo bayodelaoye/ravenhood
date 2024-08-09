@@ -17,6 +17,7 @@ def seed_portfolio_stocks():
         stock = Stock.query.get(portfolio_stock['stock_id'])
         portfolio.portfolio_portfolio_stocks.append(stock)
     db.session.commit()
+    
 
 
 # Uses a raw SQL query to TRUNCATE or DELETE the users table. SQLAlchemy doesn't
