@@ -29,8 +29,8 @@ class Stock(db.Model):
     volume = db.Column(db.Integer, nullable=False)
     fifty_two_week_high = db.Column(db.Numeric(5, 2), nullable=False)
     fifty_two_week_low = db.Column(db.Numeric(5, 2), nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
-    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    created_at = db.Column(db.DateTime, default=datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.now())
 
     stock_portfolio_stocks = db.relationship(
         "Portfolio",

@@ -23,8 +23,8 @@ class User(db.Model, UserMixin):
     ssn = db.Column(db.Numeric(9, 0), nullable = False, unique = True)
     birthday = db.Column(db.Date, nullable = False)
     citizenship = db.Column(db.String(20), nullable = False)
-    created_at = db.Column(db.DateTime, nullable = False, default=datetime.now())
-    updated_at = db.Column(db.DateTime, nullable = False, default=datetime.now())
+    created_at = db.Column(db.DateTime, default=datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.now())
 
     portfolios = db.relationship("Portfolio", back_populates="user")
 

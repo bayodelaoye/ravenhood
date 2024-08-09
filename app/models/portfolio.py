@@ -14,8 +14,8 @@ class Portfolio(db.Model):
     cash_balance = db.Column(db.Numeric(10, 2), nullable = False)
     total_amount = db.Column(db.Numeric(10, 2), nullable = False)
     is_active = db.Column(db.Boolean, nullable = False)
-    created_at = db.Column(db.DateTime, nullable = False, default=datetime.now())
-    updated_at = db.Column(db.DateTime, nullable = False, default=datetime.now())
+    created_at = db.Column(db.DateTime, default=datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.now())
 
     user = db.relationship("User", back_populates="portfolios")
 

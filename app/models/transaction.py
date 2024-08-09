@@ -14,8 +14,8 @@ class Transaction(db.Model):
     stock = db.Column(db.String(5), nullable = False)
     quantity = db.Column(db.Integer, nullable = False)
     transaction_price = db.Column(db.Numeric(5, 2), nullable = False)
-    created_at = db.Column(db.DateTime, nullable = False, default=datetime.now())
-    updated_at = db.Column(db.DateTime, nullable = False, default=datetime.now())
+    created_at = db.Column(db.DateTime, default=datetime.now())
+    updated_at = db.Column(db.DateTime, default=datetime.now())
 
     portfolio = db.relationship("Portfolio", back_populates="transactions")
 
