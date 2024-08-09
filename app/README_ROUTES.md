@@ -397,66 +397,12 @@ Returns all the stocks owned (created) by the current user.
 
 ## PORTFOLIOS
 
-### Get all Portfolios
-
-Returns all the portfolios
-
-* Require Authentication: false
-* Request
-  * Method: GET
-  * URL: /api/portfolios
-  * Body: none
-
-* Successful Response
-  * Status Code: 200
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "Portfolios": [
-        {
-          "id": 1,
-          "userId": 1,
-          "spotId": 1,
-          "review": "This was an awesome spot!",
-          "stars": 5,
-          "createdAt": "2021-11-19 20:39:36",
-          "updatedAt": "2021-11-19 20:39:36" ,
-          "User": {
-            "id": 1,
-            "firstName": "John",
-            "lastName": "Smith"
-          },
-          "ReviewImages": [
-            {
-              "id": 1,
-              "url": "image url"
-            }
-          ],
-        }
-      ]
-    }
-    ```
-
-* Error response: Couldn't find a Portfolio with the specified id
-  * Status Code: 404
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "message": "No portfolios found"
-    }
-    ```
-
 ### Get all portfolios of current user
 
 Returns all the portfolios of current user by userId
 
-* Require Authentication: false
+* Require Authentication: true
+* Require proper authorization: all portfolios must belong to the current user
 * Request
   * Method: GET
   * URL: /api/users/:userId/portfolios
@@ -492,71 +438,7 @@ Returns all the portfolios of current user by userId
     }
     ```
 
-### Get details of a Portfolio from an id
 
-Returns the details of a Portfolio specified by its id.
-
-* Require Authentication: false
-* Request
-  * Method: GET
-  * URL: /api/portfolios/:portfolioId
-  * Body: none
-
-* Successful Response
-  * Status Code: 200
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-
-    {
-      "id": 1,
-      "ownerId": 1,
-      "address": "123 Disney Lane",
-      "city": "San Francisco",
-      "state": "California",
-      "country": "United States of America",
-      "lat": 37.7645358,
-      "lng": -122.4730327,
-      "name": "App Academy",
-      "description": "Place where web developers are created",
-      "price": 123,
-      "createdAt": "2021-11-19 20:39:36",
-      "updatedAt": "2021-11-19 20:39:36" ,
-      "numReviews": 5,
-      "avgStarRating": 4.5,
-      "SpotImages": [
-        {
-          "id": 1,
-          "url": "image url",
-          "preview": true
-        },
-        {
-          "id": 2,
-          "url": "image url",
-          "preview": false
-        }
-      ],
-      "Owner": {
-        "id": 1,
-        "firstName": "John",
-        "lastName": "Smith"
-      }
-    }
-    ```
-
-* Error response: Couldn't find a Spot with the specified id
-  * Status Code: 404
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "message": "Portfolio couldn't be found"
-    }
-    ```
 
 ### Create a Portfolio
 
@@ -633,7 +515,7 @@ Creates and returns a new portfolio.
 
 ### Edit a Portfolio
 
-Updates and returns an existing portfolio.
+Updates and returns an existing portfolio by Id.
 
 * Require Authentication: true
 * Require proper authorization: portfolio must belong to the current user
@@ -719,7 +601,7 @@ Updates and returns an existing portfolio.
 
 ### Delete a Portfolio
 
-Deletes an existing portfolio.
+Deletes an existing portfolio by Id.
 
 * Require Authentication: true
 * Require proper authorization: Portfolio must belong to the current user
@@ -749,6 +631,62 @@ Deletes an existing portfolio.
     ```json
     {
       "message": "Portfolio couldn't be found"
+    }
+    ```
+
+### Get all Portfolios
+
+Returns all the portfolios for admin use only
+
+* Require Authentication: true
+* Require Authorization: true the current user must have admin priveledges 
+* Request
+  * Method: GET
+  * URL: /api/portfolios
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "Portfolios": [
+        {
+          "id": 1,
+          "userId": 1,
+          "spotId": 1,
+          "review": "This was an awesome spot!",
+          "stars": 5,
+          "createdAt": "2021-11-19 20:39:36",
+          "updatedAt": "2021-11-19 20:39:36" ,
+          "User": {
+            "id": 1,
+            "firstName": "John",
+            "lastName": "Smith"
+          },
+          "ReviewImages": [
+            {
+              "id": 1,
+              "url": "image url"
+            }
+          ],
+        }
+      ]
+    }
+    ```
+
+* Error response: Couldn't find a Portfolio with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "No portfolios found"
     }
     ```
 
