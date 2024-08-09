@@ -49,9 +49,9 @@ def update_portfolio_name(id):
     if 'remove' in body:
         for i in body['remove']:
             remove_stock = Stock.query.get(i)
-            stock = Portfolio.query.options(joinedload(Portfolio.portfolio_portfolio_stocks)).filter(Stock.id == remove_stock.id).first()
+            # stock = Portfolio.query.options(joinedload(Portfolio.portfolio_portfolio_stocks)).filter(Stock.id == remove_stock.id).first()
             portfolio.portfolio_portfolio_stocks.remove(remove_stock)
-            db.session.commit()
+        db.session.commit()
 
 
     if 'cash' in body:
