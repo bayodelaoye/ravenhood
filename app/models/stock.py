@@ -18,7 +18,7 @@ class Stock(db.Model):
     ceo = db.Column(db.String(20), nullable=False)
     employees = db.Column(db.Integer, nullable=False)
     headquarters = db.Column(db.String(50), nullable=False)
-    founded = db.Column(db.Integer, nullable=False)
+    founded = db.Column(db.String(4), nullable=False)
     market_cap_billions = db.Column(db.BigInteger, nullable=False)
     price_earnings_ratio = db.Column(db.Numeric(5, 2), nullable=False)
     dividend_yield = db.Column(db.Numeric(3, 2), nullable=False)
