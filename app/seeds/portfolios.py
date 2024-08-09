@@ -3,16 +3,16 @@ from sqlalchemy.sql import text
 
 # Adds a demo user, you can add other users here if you want
 def seed_portfolios():
-
-    new_portfolio = Portfolio(
-        user_id=1,
-        portfolio_name='Test',
-        cash_balance=0,
-        total_amount=0,
-        is_active=True
-        )
-
-    db.session.add(new_portfolio)
+    for portfolio in [
+        {
+            "user_id": 1,
+            "portfolio_name": 'Retirement',
+            "cash_balance": 0,
+            "total_amount": 0,
+            "is_active": True
+        }
+    ]:
+        db.session.add(Portfolio(**portfolio))
     db.session.commit()
 
 

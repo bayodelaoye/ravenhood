@@ -4,29 +4,54 @@ from datetime import date
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        first_name='Demo',
-        last_name='User',
-        email='demo@aa.io', 
-        username='Demo', 
-        hashed_password='password',
-        address="123 Street",
-        city='New York',
-        state='NY',
-        zip=12345,
-        phone=1231122345,
-        ssn=123456789,
-        birthday=date(2004, 8, 8),
-        citizenship='United States'
-        )
-    # marnie = User(
-    #     username='marnie', email='marnie@aa.io', password='password')
-    # bobbie = User(
-    #     username='bobbie', email='bobbie@aa.io', password='password')
-
-    db.session.add(demo)
-    # db.session.add(marnie)
-    # db.session.add(bobbie)
+    for user in [
+        {
+            "first_name": 'Demo',
+            "last_name": 'User',
+            "email": 'demo@aa.io', 
+            "username": 'demo', 
+            "hashed_password": 'password',
+            "address": "1234 Street",
+            "city": 'New York',
+            "state": 'NY',
+            "zip": 45135,
+            "phone": 1231122345,
+            "ssn": 123456789,
+            "birthday": date(1998, 5, 9),
+            "citizenship": 'United States'
+        },
+        {
+            "first_name": 'Guilbert',
+            "last_name": 'Jakubovsky',
+            "email": 'gjakubovsky1@digg.com', 
+            "username": 'gjakubovsky1', 
+            "hashed_password": 'uG6|E}$=Rq',
+            "address": "70 Washington Square South",
+            "city": 'Philadelphia',
+            "state": 'PA',
+            "zip":  10003,
+            "phone": 9925169159,
+            "ssn": 555555555,
+            "birthday": date(1990, 2, 5),
+            "citizenship": 'United States'
+        },
+        {
+            "first_name": 'Cindie',
+            "last_name": 'Hadigate',
+            "email": 'chadigate3@ucla.edu', 
+            "username": 'chadigate3', 
+            "hashed_password": 'qX8"e*yX~g66HHjI',
+            "address": "7 Washington Pl",
+            "city": 'Austin',
+            "state": 'TX',
+            "zip": 44837,
+            "phone": 2896997809,
+            "ssn": 333333333,
+            "birthday": date(1985, 12, 9),
+            "citizenship": 'United States'
+        },
+    ]:
+        db.session.add(User(**user))
     db.session.commit()
 
 

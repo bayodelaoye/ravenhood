@@ -1,2064 +1,2065 @@
 nasdaq = [
-{
-"name": "A",
-"founded": "1905"
-},
-{
-"name": "AA",
-"founded": "1881"
-},
-{
-"name": "AACG",
-"founded": "2007"
-},
-{
-"name": "AACI",
-"founded": "2007"
-},
-{
-    "name": "AESI",
-    "founded": "2020"
-},
-{
-    "name": "AEVA",
-    "founded": "2020"
-},
-{
-    "name": "AEYE",
-    "founded": "2012"
-},
-{
-    "name": "AEZS",
-    "founded": "2001"
-},
-{
-    "name": "AFB",
-    "founded": "1939"
-},
-{
-    "name": "AFBI",
-    "founded": "2000"
-},
-{
-    "name": "AFCG",
-    "founded": "2004"
-},
-{
-    "name": "AFG",
-    "founded": "1959"
-},
-{
-    "name": "AFGB",
-    "founded": "2003"
-},
-{
-    "name": "AFGC",
-    "founded": "2020"
-},
-{
-    "name": "AFGD",
-    "founded": "2022"
-},
-{
-    "name": "AFGE",
-    "founded": "2022"
-},
-{
-    "name": "AFJKU",
-    "founded": "2021"
-},
-{
-    "name": "AFL",
-    "founded": "1959"
-},
-{
-    "name": "AFMD",
-    "founded": "2011"
-},
-{
-    "name": "AFRI",
-    "founded": "2019"
-},
-{
-    "name": "AFRM",
-    "founded": "2012"
-},
-{
-    "name": "AFYA",
-    "founded": "2018"
-},
-{
-    "name": "AG",
-    "founded": "1968"
-},
-{
-    "name": "AGAE",
-    "founded": "2020"
-},
-{
-    "name": "BUR",
-    "founded": "2006"
-},
-{
-    "name": "BURL",
-    "founded": "1972"
-},
-{
-    "name": "BURU",
-    "founded": "2006"
-},
-{
-    "name": "BUSE",
-    "founded": "1902"
-},
-{
-    "name": "BV",
-    "founded": "2007"
-},
-{
-    "name": "BVFL",
-    "founded": "2007"
-},
-{
-    "name": "BVN",
-    "founded": "1997"
-},
-{
-    "name": "BVS",
-    "founded": "2007"
-},
-{
-    "name": "BW",
-    "founded": "1996"
-},
-{
-    "name": "BWA",
-    "founded": "1925"
-},
-{
-    "name": "BWAY",
-    "founded": "2000"
-},
-{
-    "name": "BWB",
-    "founded": "2000"
-},
-{
-    "name": "BWBBP",
-    "founded": "2020"
-},
-{
-    "name": "BWEN",
-    "founded": "2000"
-},
-{
-    "name": "BWFG",
-    "founded": "1993"
-},
-{
-    "name": "BWG",
-    "founded": "2004"
-},
-{
-    "name": "BWIN",
-    "founded": "2006"
-},
-{
-    "name": "BWLP",
-    "founded": "2015"
-},
-{
-    "name": "BWMN",
-    "founded": "2004"
-},
-{
-    "name": "BWMX",
-    "founded": "2018"
-},
-{
-    "name": "CNH",
-    "founded": "1999"
-},
-{
-    "name": "CNI",
-    "founded": "1918"
-},
-{
-    "name": "CNK",
-    "founded": "1987"
-},
-{
-    "name": "CNL",
-    "founded": "1961"
-},
-{
-    "name": "CNM",
-    "founded": "1980"
-},
-{
-    "name": "CNMD",
-    "founded": "1984"
-},
-{
-    "name": "CNNE",
-    "founded": "2021"
-},
-{
-    "name": "CNO",
-    "founded": "2004"
-},
-{
-    "name": "CNOB",
-    "founded": "1996"
-},
-{
-    "name": "CNOBP",
-    "founded": "1996"
-},
-{
-    "name": "CNP",
-    "founded": "1901"
-},
-{
-    "name": "CNQ",
-    "founded": "1971"
-},
-{
-    "name": "CNS",
-    "founded": "1999"
-},
-{
-    "name": "CNSL",
-    "founded": "1997"
-},
-{
-    "name": "CNSP",
-    "founded": "2006"
-},
-{
-    "name": "CNTA",
-    "founded": "2008"
-},
-{
-    "name": "CNTB",
-    "founded": "2011"
-},
-{
-    "name": "CNTM",
-    "founded": "2004"
-},
-{
-    "name": "CNTX",
-    "founded": "2020"
-},
-{
-    "name": "DHAI",
-    "founded": "2021"
-},
-{
-    "name": "DHC",
-    "founded": "2014"
-},
-{
-    "name": "DHCNI",
-    "founded": "2014"
-},
-{
-    "name": "DHF",
-    "founded": "1987"
-},
-{
-    "name": "DHI",
-    "founded": "2002"
-},
-{
-    "name": "DHIL",
-    "founded": "2008"
-},
-{
-    "name": "DHR",
-    "founded": "1969"
-},
-{
-    "name": "DHT",
-    "founded": "2006"
-},
-{
-    "name": "DHX",
-    "founded": "2005"
-},
-{
-    "name": "DHY",
-    "founded": "2002"
-},
-{
-    "name": "DIAX",
-    "founded": "2018"
-},
-{
-    "name": "DIBS",
-    "founded": "2018"
-},
-{
-    "name": "DIN",
-    "founded": "1981"
-},
-{
-    "name": "DINO",
-    "founded": "2007"
-},
-{
-    "name": "DIOD",
-    "founded": "1983"
-},
-{
-    "name": "DIS",
-    "founded": "1923"
-},
-{
-    "name": "DIST",
-    "founded": "2007"
-},
-{
-    "name": "DIT",
-    "founded": "2011"
-},
-{
-    "name": "ERC",
-    "founded": "2012"
-},
-{
-    "name": "ERH",
-    "founded": "2006"
-},
-{
-    "name": "ERIC",
-    "founded": "1876"
-},
-{
-    "name": "ERIE",
-    "founded": "1925"
-},
-{
-    "name": "ERII",
-    "founded": "1997"
-},
-{
-    "name": "ERJ",
-    "founded": "1969"
-},
-{
-    "name": "ERNA",
-    "founded": "2009"
-},
-{
-    "name": "ERO",
-    "founded": "2006"
-},
-{
-    "name": "ES",
-    "founded": "1926"
-},
-{
-    "name": "ESAB",
-    "founded": "1904"
-},
-{
-    "name": "ESCA",
-    "founded": "1988"
-},
-{
-    "name": "ESE",
-    "founded": "1939"
-},
-{
-    "name": "ESEA",
-    "founded": "1989"
-},
-{
-    "name": "ESGL",
-    "founded": "2021"
-},
-{
-    "name": "ESGR",
-    "founded": "2008"
-},
-{
-    "name": "ESGRO",
-    "founded": "2008"
-},
-{
-    "name": "ESGRP",
-    "founded": "2008"
-},
-{
-    "name": "ESHA",
-    "founded": "1994"
-},
-{
-    "name": "ESI",
-    "founded": "1984"
-},
-{
-    "name": "FFC",
-    "founded": "1987"
-},
-{
-    "name": "FFIC",
-    "founded": "1863"
-},
-{
-    "name": "FFIE",
-    "founded": "2017"
-},
-{
-    "name": "FFIN",
-    "founded": "1989"
-},
-{
-    "name": "FFIV",
-    "founded": "1989"
-},
-{
-    "name": "FFNW",
-    "founded": "1985"
-},
-{
-    "name": "FFWM",
-    "founded": "2004"
-},
-{
-    "name": "FG",
-    "founded": "2002"
-},
-{
-    "name": "FGB",
-    "founded": "2006"
-},
-{
-    "name": "FGBI",
-    "founded": "2001"
-},
-{
-    "name": "FGBIP",
-    "founded": "2001"
-},
-{
-    "name": "FGEN",
-    "founded": "1991"
-},
-{
-    "name": "FGF",
-    "founded": "2010"
-},
-{
-    "name": "FGFPP",
-    "founded": "2010"
-},
-{
-    "name": "FGI",
-    "founded": "2007"
-},
-{
-    "name": "FGN",
-    "founded": "2008"
-},
-{
-    "name": "FHB",
-    "founded": "1998"
-},
-{
-    "name": "FHI",
-    "founded": "1990"
-},
-{
-    "name": "FHN",
-    "founded": "1864"
-},
-{
-    "name": "GENK",
-    "founded": "2016"
-},
-{
-    "name": "GEO",
-    "founded": "1993"
-},
-{
-    "name": "GEOS",
-    "founded": "2006"
-},
-{
-    "name": "GERN",
-    "founded": "1997"
-},
-{
-    "name": "GES",
-    "founded": "1919"
-},
-{
-    "name": "GETY",
-    "founded": "2008"
-},
-{
-    "name": "GEV",
-    "founded": "2006"
-},
-{
-    "name": "GEVO",
-    "founded": "2005"
-},
-{
-    "name": "GF",
-    "founded": "2007"
-},
-{
-    "name": "GFAI",
-    "founded": "2006"
-},
-{
-    "name": "GFF",
-    "founded": "1901"
-},
-{
-    "name": "GFI",
-    "founded": "1968"
-},
-{
-    "name": "GFL",
-    "founded": "1995"
-},
-{
-    "name": "GFR",
-    "founded": "2005"
-},
-{
-    "name": "GFS",
-    "founded": "1984"
-},
-{
-    "name": "GGAL",
-    "founded": "1905"
-},
-{
-    "name": "GGB",
-    "founded": "1955"
-},
-{
-    "name": "GGG",
-    "founded": "1901"
-},
-{
-    "name": "GGN",
-    "founded": "2004"
-},
-{
-    "name": "GGR",
-    "founded": "2008"
-},
-{
-    "name": "HMNF",
-    "founded": "2008"
-},
-{
-    "name": "HMST",
-    "founded": "1989"
-},
-{
-    "name": "HMY",
-    "founded": "1998"
-},
-{
-    "name": "HNI",
-    "founded": "1944"
-},
-{
-    "name": "HNNA",
-    "founded": "2003"
-},
-{
-    "name": "HNNAZ",
-    "founded": "2003"
-},
-{
-    "name": "HNRA",
-    "founded": "2007"
-},
-{
-    "name": "HNRG",
-    "founded": "2006"
-},
-{
-    "name": "HNST",
-    "founded": "2016"
-},
-{
-    "name": "HNVR",
-    "founded": "2000"
-},
-{
-    "name": "HNW",
-    "founded": "1995"
-},
-{
-    "name": "HOFT",
-    "founded": "1983"
-},
-{
-    "name": "HOFV",
-    "founded": "2014"
-},
-{
-    "name": "HOG",
-    "founded": "1903"
-},
-{
-    "name": "HOLO",
-    "founded": "2007"
-},
-{
-    "name": "HOLX",
-    "founded": "1969"
-},
-{
-    "name": "HOMB",
-    "founded": "1999"
-},
-{
-    "name": "HON",
-    "founded": "1885"
-},
-{
-    "name": "HONE",
-    "founded": "2011"
-},
-{
-    "name": "IDXX",
-    "founded": "1983"
-},
-{
-    "name": "IDYA",
-    "founded": "2014"
-},
-{
-    "name": "IE",
-    "founded": "1997"
-},
-{
-    "name": "IEP",
-    "founded": "1993"
-},
-{
-    "name": "IESC",
-    "founded": "2006"
-},
-{
-    "name": "IEX",
-    "founded": "1998"
-},
-{
-    "name": "IFBD",
-    "founded": "2019"
-},
-{
-    "name": "IFF",
-    "founded": "1889"
-},
-{
-    "name": "IFIN",
-    "founded": "2006"
-},
-{
-    "name": "IFN",
-    "founded": "2001"
-},
-{
-    "name": "IFRX",
-    "founded": "2007"
-},
-{
-    "name": "IFS",
-    "founded": "2002"
-},
-{
-    "name": "IGA",
-    "founded": "2008"
-},
-{
-    "name": "IGC",
-    "founded": "2008"
-},
-{
-    "name": "IGD",
-    "founded": "2003"
-},
-{
-    "name": "IGI",
-    "founded": "2006"
-},
-{
-    "name": "IGIC",
-    "founded": "2001"
-},
-{
-    "name": "IGMS",
-    "founded": "2006"
-},
-{
-    "name": "IGR",
-    "founded": "2003"
-},
-{
-    "name": "IGT",
-    "founded": "1990"
-},
-{
-    "name": "IGTA",
-    "founded": "2017"
-},
-{
-    "name": "JELD",
-    "founded": "1962"
-},
-{
-    "name": "JEQ",
-    "founded": "2004"
-},
-{
-    "name": "JEWL",
-    "founded": "2012"
-},
-{
-    "name": "JFBR",
-    "founded": "1989"
-},
-{
-    "name": "JFIN",
-    "founded": "2004"
-},
-{
-    "name": "JFR",
-    "founded": "1991"
-},
-{
-    "name": "JFU",
-    "founded": "2004"
-},
-{
-    "name": "JG",
-    "founded": "2014"
-},
-{
-    "name": "JGH",
-    "founded": "2001"
-},
-{
-    "name": "JHG",
-    "founded": "1999"
-},
-{
-    "name": "JHI",
-    "founded": "2003"
-},
-{
-    "name": "JHS",
-    "founded": "2002"
-},
-{
-    "name": "JHX",
-    "founded": "1885"
-},
-{
-    "name": "JILL",
-    "founded": "1999"
-},
-{
-    "name": "JJSF",
-    "founded": "1975"
-},
-{
-    "name": "JKHY",
-    "founded": "1992"
-},
-{
-    "name": "JKS",
-    "founded": "2006"
-},
-{
-    "name": "JL",
-    "founded": "2011"
-},
-{
-    "name": "JLL",
-    "founded": "1999"
-},
-{
-    "name": "JLS",
-    "founded": "2002"
-},
-{
-    "name": "JMIA",
-    "founded": "2012"
-},
-{
-    "name": "KMPR",
-    "founded": "1985"
-},
-{
-    "name": "KMT",
-    "founded": "1961"
-},
-{
-    "name": "KMX",
-    "founded": "1993"
-},
-{
-    "name": "KN",
-    "founded": "2005"
-},
-{
-    "name": "KNDI",
-    "founded": "2002"
-},
-{
-    "name": "KNF",
-    "founded": "2008"
-},
-{
-    "name": "KNOP",
-    "founded": "2013"
-},
-{
-    "name": "KNSA",
-    "founded": "2015"
-},
-{
-    "name": "KNSL",
-    "founded": "2014"
-},
-{
-    "name": "KNTK",
-    "founded": "2016"
-},
-{
-    "name": "KNW",
-    "founded": "2005"
-},
-{
-    "name": "KNX",
-    "founded": "1989"
-},
-{
-    "name": "KO",
-    "founded": "1892"
-},
-{
-    "name": "KOD",
-    "founded": "2000"
-},
-{
-    "name": "KODK",
-    "founded": "1888"
-},
-{
-    "name": "KOF",
-    "founded": "1993"
-},
-{
-    "name": "KOP",
-    "founded": "1988"
-},
-{
-    "name": "KOPN",
-    "founded": "1984"
-},
-{
-    "name": "KORE",
-    "founded": "2011"
-},
-{
-    "name": "KOS",
-    "founded": "1988"
-},
-{
-    "name": "KOSS",
-    "founded": "1958"
-},
-{
-    "name": "LBRDK",
-    "founded": "2010"
-},
-{
-    "name": "LBRDP",
-    "founded": "2010"
-},
-{
-    "name": "LBRT",
-    "founded": "2016"
-},
-{
-    "name": "LBTYA",
-    "founded": "2008"
-},
-{
-    "name": "LBTYB",
-    "founded": "2008"
-},
-{
-    "name": "LBTYK",
-    "founded": "2008"
-},
-{
-    "name": "LC",
-    "founded": "1994"
-},
-{
-    "name": "LCFY",
-    "founded": "2015"
-},
-{
-    "name": "LCID",
-    "founded": "2007"
-},
-{
-    "name": "LCII",
-    "founded": "2011"
-},
-{
-    "name": "LCNB",
-    "founded": "1877"
-},
-{
-    "name": "LCTX",
-    "founded": "1999"
-},
-{
-    "name": "LCUT",
-    "founded": "1975"
-},
-{
-    "name": "LCW",
-    "founded": "2007"
-},
-{
-    "name": "LDI",
-    "founded": "2009"
-},
-{
-    "name": "LDOS",
-    "founded": "1969"
-},
-{
-    "name": "LDP",
-    "founded": "2008"
-},
-{
-    "name": "LDTC",
-    "founded": "2020"
-},
-{
-    "name": "LDWY",
-    "founded": "2021"
-},
-{
-    "name": "MATH",
-    "founded": "2013"
-},
-{
-    "name": "MATV",
-    "founded": "1980"
-},
-{
-    "name": "MATW",
-    "founded": "1901"
-},
-{
-    "name": "MATX",
-    "founded": "1985"
-},
-{
-    "name": "MAV",
-    "founded": "1988"
-},
-{
-    "name": "MAX",
-    "founded": "1995"
-},
-{
-    "name": "MAXN",
-    "founded": "2005"
-},
-{
-    "name": "MAYS",
-    "founded": "1933"
-},
-{
-    "name": "MBAVU",
-    "founded": "2021"
-},
-{
-    "name": "MBC",
-    "founded": "1993"
-},
-{
-    "name": "MBCN",
-    "founded": "2003"
-},
-{
-    "name": "MBI",
-    "founded": "1991"
-},
-{
-    "name": "MBIN",
-    "founded": "2008"
-},
-{
-    "name": "MBINM",
-    "founded": "2020"
-},
-{
-    "name": "MBINN",
-    "founded": "2020"
-},
-{
-    "name": "MBINO",
-    "founded": "2020"
-},
-{
-    "name": "MBIO",
-    "founded": "2003"
-},
-{
-    "name": "MBLY",
-    "founded": "2007"
-},
-{
-    "name": "MBNKP",
-    "founded": "2021"
-},
-{
-    "name": "MBOT",
-    "founded": "2007"
-},
-{
-    "name": "MBRX",
-    "founded": "2008"
-},
-{
-    "name": "NEOV",
-    "founded": "2002"
-},
-{
-    "name": "NEP",
-    "founded": "2014"
-},
-{
-    "name": "NEPH",
-    "founded": "2009"
-},
-{
-    "name": "NERV",
-    "founded": "2010"
-},
-{
-    "name": "NET",
-    "founded": "2009"
-},
-{
-    "name": "NETD",
-    "founded": "2020"
-},
-{
-    "name": "NEU",
-    "founded": "1908"
-},
-{
-    "name": "NEUE",
-    "founded": "2011"
-},
-{
-    "name": "NEWP",
-    "founded": "2006"
-},
-{
-    "name": "NEWT",
-    "founded": "1996"
-},
-{
-    "name": "NEWTG",
-    "founded": "2020"
-},
-{
-    "name": "NEWTI",
-    "founded": "2020"
-},
-{
-    "name": "NEWTZ",
-    "founded": "2020"
-},
-{
-    "name": "NEXA",
-    "founded": "1956"
-},
-{
-    "name": "NEXN",
-    "founded": "2020"
-},
-{
-    "name": "NEXT",
-    "founded": "1998"
-},
-{
-    "name": "NFBK",
-    "founded": "1934"
-},
-{
-    "name": "NFE",
-    "founded": "2000"
-},
-{
-    "name": "NFG",
-    "founded": "1935"
-},
-{
-    "name": "NFGC",
-    "founded": "2008"
-},
-{
-    "name": "ONDS",
-    "founded": "2011"
-},
-{
-    "name": "ONEW",
-    "founded": "2011"
-},
-{
-    "name": "ONFO",
-    "founded": "2016"
-},
-{
-    "name": "ONIT",
-    "founded": "2020"
-},
-{
-    "name": "ONL",
-    "founded": "2021"
-},
-{
-    "name": "ONMD",
-    "founded": "2004"
-},
-{
-    "name": "ONON",
-    "founded": "2007"
-},
-{
-    "name": "ONTF",
-    "founded": "2021"
-},
-{
-    "name": "ONTO",
-    "founded": "2007"
-},
-{
-    "name": "ONVO",
-    "founded": "2009"
-},
-{
-    "name": "ONYX",
-    "founded": "1991"
-},
-{
-    "name": "ONYXU",
-    "founded": "2021"
-},
-{
-    "name": "OOMA",
-    "founded": "2004"
-},
-{
-    "name": "OP",
-    "founded": "2008"
-},
-{
-    "name": "OPAD",
-    "founded": "2020"
-},
-{
-    "name": "OPAL",
-    "founded": "2021"
-},
-{
-    "name": "OPBK",
-    "founded": "2006"
-},
-{
-    "name": "OPCH",
-    "founded": "1990"
-},
-{
-    "name": "OPEN",
-    "founded": "2015"
-},
-{
-    "name": "OPFI",
-    "founded": "2015"
-},
-{
-    "name": "PDD",
-    "founded": "2015"
-},
-{
-    "name": "PDEX",
-    "founded": "2005"
-},
-{
-    "name": "PDFS",
-    "founded": "2000"
-},
-{
-    "name": "PDI",
-    "founded": "2004"
-},
-{
-    "name": "PDLB",
-    "founded": "2020"
-},
-{
-    "name": "PDM",
-    "founded": "1987"
-},
-{
-    "name": "PDO",
-    "founded": "2021"
-},
-{
-    "name": "PDS",
-    "founded": "1997"
-},
-{
-    "name": "PDSB",
-    "founded": "2004"
-},
-{
-    "name": "PDT",
-    "founded": "2001"
-},
-{
-    "name": "PDX",
-    "founded": "2006"
-},
-{
-    "name": "PDYN",
-    "founded": "2021"
-},
-{
-    "name": "PDYNW",
-    "founded": "2021"
-},
-{
-    "name": "PEB",
-    "founded": "1997"
-},
-{
-    "name": "PEBK",
-    "founded": "2006"
-},
-{
-    "name": "PEBO",
-    "founded": "1983"
-},
-{
-    "name": "PECO",
+    {
+        "name": "A",
+        "founded": "1905"
+    },
+    {
+    "name": "AA",
     "founded": "1881"
-},
-{
-    "name": "QLI",
-    "founded": "2005"
-},
-{
-    "name": "QLYS",
-    "founded": "1997"
-},
-{
-    "name": "QMCO",
-    "founded": "1987"
-},
-{
-    "name": "QMMM",
-    "founded": "2012"
-},
-{
-    "name": "QNCX",
-    "founded": "2020"
-},
-{
-    "name": "QNRX",
-    "founded": "2021"
-},
-{
-    "name": "QNST",
-    "founded": "1988"
-},
-{
-    "name": "QOMO",
-    "founded": "2020"
-},
-{
-    "name": "QOMOU",
-    "founded": "2021"
-},
-{
-    "name": "QQQX",
-    "founded": "2009"
-},
-{
-    "name": "QRHC",
+    },
+    # {
+    # "name": "AACG",
+    # "founded": "2007"
+    # },
+    {
+    "name": "AACI",
     "founded": "2007"
-},
-{
-    "name": "QRTEA",
-    "founded": "1999"
-},
-{
-    "name": "QRTEB",
-    "founded": "1999"
-},
-{
-    "name": "QRTEP",
-    "founded": "1999"
-},
-{
-    "name": "QRVO",
-    "founded": "2013"
-},
-{
-    "name": "QS",
-    "founded": "2013"
-},
-{
-    "name": "QSG",
-    "founded": "1998"
-},
-{
-    "name": "QSI",
-    "founded": "1987"
-},
-{
-    "name": "QSR",
-    "founded": "1955"
-},
-{
-    "name": "RAPT",
-    "founded": "2016"
-},
-{
-    "name": "RARE",
-    "founded": "2008"
-},
-{
-    "name": "RAVE",
-    "founded": "2004"
-},
-{
-    "name": "RAY",
-    "founded": "1928"
-},
-{
-    "name": "RAYA",
-    "founded": "2001"
-},
-{
-    "name": "RBA",
-    "founded": "2004"
-},
-{
-    "name": "RBB",
-    "founded": "1999"
-},
-{
-    "name": "RBBN",
-    "founded": "2000"
-},
-{
-    "name": "RBC",
-    "founded": "1869"
-},
-{
-    "name": "RBCAA",
-    "founded": "2006"
-},
-{
-    "name": "RBCP",
-    "founded": "2002"
-},
-{
-    "name": "RBKB",
-    "founded": "1905"
-},
-{
-    "name": "RBLX",
-    "founded": "2004"
-},
-{
-    "name": "RBOT",
-    "founded": "2008"
-},
-{
-    "name": "RBRK",
-    "founded": "2000"
-},
-{
-    "name": "RC",
-    "founded": "1987"
-},
-{
-    "name": "RCAT",
-    "founded": "2011"
-},
-{
-    "name": "RCB",
-    "founded": "2007"
-},
-{
-    "name": "RCC",
-    "founded": "2003"
-},
-{
-    "name": "SAT",
-    "founded": "1998"
-},
-{
-    "name": "SATL",
-    "founded": "2018"
-},
-{
-    "name": "SATS",
-    "founded": "1993"
-},
-{
-    "name": "SATX",
-    "founded": "2006"
-},
-{
-    "name": "SAVA",
-    "founded": "2011"
-},
-{
-    "name": "SAVE",
-    "founded": "2009"
-},
-{
-    "name": "SAY",
-    "founded": "2006"
-},
-{
-    "name": "SAZ",
-    "founded": "1995"
-},
-{
-    "name": "SB",
-    "founded": "2012"
-},
-{
-    "name": "SBAC",
-    "founded": "1989"
-},
-{
-    "name": "SBBA",
-    "founded": "2015"
-},
-{
-    "name": "SBCF",
-    "founded": "1999"
-},
-{
-    "name": "SBET",
-    "founded": "2020"
-},
-{
-    "name": "SBEV",
-    "founded": "2009"
-},
-{
-    "name": "SBFG",
-    "founded": "2007"
-},
-{
-    "name": "SBFM",
-    "founded": "2003"
-},
-{
-    "name": "SBGI",
-    "founded": "1999"
-},
-{
-    "name": "SBH",
-    "founded": "1962"
-},
-{
-    "name": "TALO",
-    "founded": "2009"
-},
-{
-    "name": "TANH",
-    "founded": "2016"
-},
-{
-    "name": "TAOP",
-    "founded": "2009"
-},
-{
-    "name": "TAP",
-    "founded": "1844"
-},
-{
-    "name": "TARA",
-    "founded": "2007"
-},
-{
-    "name": "TARS",
-    "founded": "2012"
-},
-{
-    "name": "TASK",
-    "founded": "2000"
-},
-{
-    "name": "TATT",
-    "founded": "1907"
-},
-{
-    "name": "TAYD",
-    "founded": "1987"
-},
-{
-    "name": "TBB",
-    "founded": "2000"
-},
-{
-    "name": "TBBB",
-    "founded": "2005"
-},
-{
-    "name": "TBBK",
-    "founded": "1999"
-},
-{
-    "name": "TBC",
-    "founded": "1998"
-},
-{
-    "name": "TBI",
-    "founded": "1986"
-},
-{
-    "name": "TBIO",
-    "founded": "2006"
-},
-{
-    "name": "TBLA",
-    "founded": "2020"
-},
-{
-    "name": "TBLD",
-    "founded": "2021"
-},
-{
-    "name": "TBLT",
-    "founded": "2004"
-},
-{
-    "name": "TBMC",
-    "founded": "2002"
-},
-{
-    "name": "TBN",
-    "founded": "1977"
-},
-{
-    "name": "UONEK",
-    "founded": "2021"
-},
-{
-    "name": "UP",
-    "founded": "2005"
-},
-{
-    "name": "UPBD",
-    "founded": "2017"
-},
-{
-    "name": "UPC",
-    "founded": "2021"
-},
-{
-    "name": "UPLD",
-    "founded": "1995"
-},
-{
-    "name": "UPS",
-    "founded": "1907"
-},
-{
-    "name": "UPST",
-    "founded": "2012"
-},
-{
-    "name": "UPWK",
-    "founded": "2015"
-},
-{
-    "name": "UPXI",
-    "founded": "1998"
-},
-{
-    "name": "URBN",
-    "founded": "1970"
-},
-{
-    "name": "URG",
-    "founded": "2006"
-},
-{
-    "name": "URGN",
-    "founded": "2004"
-},
-{
-    "name": "URI",
-    "founded": "1964"
-},
-{
-    "name": "UROY",
-    "founded": "2017"
-},
-{
-    "name": "USA",
-    "founded": "1983"
-},
-{
-    "name": "USAC",
-    "founded": "2014"
-},
-{
-    "name": "USAP",
-    "founded": "2011"
-},
-{
-    "name": "USAS",
-    "founded": "1961"
-},
-{
-    "name": "USAU",
-    "founded": "2017"
-},
-{
-    "name": "USB",
-    "founded": "1863"
-},
-{
-    "name": "USCB",
-    "founded": "2003"
-},
-{
-    "name": "VALE",
-    "founded": "1942"
-},
-{
-    "name": "VALN",
-    "founded": "2000"
-},
-{
-    "name": "VALU",
-    "founded": "2008"
-},
-{
-    "name": "VANI",
-    "founded": "2006"
-},
-{
-    "name": "VATE",
-    "founded": "2005"
-},
-{
-    "name": "VBF",
-    "founded": "1990"
-},
-{
-    "name": "VBFC",
-    "founded": "1987"
-},
-{
-    "name": "VBNK",
-    "founded": "2006"
-},
-{
-    "name": "VBTX",
-    "founded": "2007"
-},
-{
-    "name": "VC",
-    "founded": "2004"
-},
-{
-    "name": "VCEL",
-    "founded": "2000"
-},
-{
-    "name": "VCIG",
-    "founded": "2015"
-},
-{
-    "name": "VCNX",
-    "founded": "2008"
-},
-{
-    "name": "VCSA",
-    "founded": "1998"
-},
-{
-    "name": "VCTR",
-    "founded": "1997"
-},
-{
-    "name": "VCV",
-    "founded": "2005"
-},
-{
-    "name": "VCYT",
-    "founded": "1999"
-},
-{
-    "name": "VECO",
-    "founded": "1984"
-},
-{
-    "name": "VEEE",
-    "founded": "2006"
-},
-{
-    "name": "VEEV",
-    "founded": "2009"
-},
-{
-    "name": "VEL",
-    "founded": "2001"
-},
-{
-    "name": "WFRD",
-    "founded": "2001"
-},
-{
-    "name": "WGO",
-    "founded": "1958"
-},
-{
-    "name": "WGS",
-    "founded": "2004"
-},
-{
-    "name": "WH",
-    "founded": "1922"
-},
-{
-    "name": "WHD",
-    "founded": "2004"
-},
-{
-    "name": "WHF",
-    "founded": "2009"
-},
-{
-    "name": "WHFCL",
-    "founded": "2009"
-},
-{
-    "name": "WHG",
-    "founded": "1990"
-},
-{
-    "name": "WHLM",
-    "founded": "1960"
-},
-{
-    "name": "WHLR",
-    "founded": "2005"
-},
-{
-    "name": "WHLRD",
-    "founded": "2005"
-},
-{
-    "name": "WHLRP",
-    "founded": "2005"
-},
-{
-    "name": "WHR",
-    "founded": "1911"
-},
-{
-    "name": "WIA",
-    "founded": "1998"
-},
-{
-    "name": "WILC",
-    "founded": "1997"
-},
-{
-    "name": "WIMI",
-    "founded": "2013"
-},
-{
-    "name": "WINA",
-    "founded": "1970"
-},
-{
-    "name": "WING",
-    "founded": "1994"
-},
-{
-    "name": "WINT",
-    "founded": "2002"
-},
-{
-    "name": "WINV",
-    "founded": "2011"
-},
-{
-    "name": "XNCR",
-    "founded": "1995"
-},
-{
-    "name": "XNET",
-    "founded": "2012"
-},
-{
-    "name": "XOM",
-    "founded": "1870"
-},
-{
-    "name": "XOMA",
-    "founded": "1981"
-},
-{
-    "name": "XOMAO",
-    "founded": "1870"
-},
-{
-    "name": "XOMAP",
-    "founded": "1870"
-},
-{
-    "name": "XOS",
-    "founded": "2018"
-},
-{
-    "name": "XP",
-    "founded": "2001"
-},
-{
-    "name": "XPEL",
-    "founded": "2003"
-},
-{
-    "name": "XPER",
-    "founded": "2004"
-},
-{
-    "name": "XPEV",
-    "founded": "2014"
-},
-{
-    "name": "XPL",
-    "founded": "2003"
-},
-{
-    "name": "XPO",
-    "founded": "1989"
-},
-{
-    "name": "XPOF",
-    "founded": "1989"
-},
-{
-    "name": "XPON",
-    "founded": "2002"
-},
-{
-    "name": "XPRO",
-    "founded": "1999"
-},
-{
-    "name": "XRAY",
-    "founded": "1897"
-},
-{
-    "name": "XRTX",
-    "founded": "2015"
-},
-{
-    "name": "XRX",
-    "founded": "1906"
-},
-{
-    "name": "XTIA",
-    "founded": "2007"
-},
-{
-    "name": "YMAB",
-    "founded": "2011"
-},
-{
-    "name": "YMM",
-    "founded": "2015"
-},
-{
-    "name": "YORW",
-    "founded": "2014"
-},
-{
-    "name": "YOSH",
-    "founded": "1999"
-},
-{
-    "name": "YOTA",
-    "founded": "2000"
-},
-{
-    "name": "YOTAU",
-    "founded": "2000"
-},
-{
-    "name": "YOU",
-    "founded": "2014"
-},
-{
-    "name": "YPF",
-    "founded": "1922"
-},
-{
-    "name": "YQ",
-    "founded": "2018"
-},
-{
-    "name": "YRD",
-    "founded": "2005"
-},
-{
-    "name": "YSG",
-    "founded": "2011"
-},
-{
-    "name": "YTRA",
-    "founded": "2015"
-},
-{
-    "name": "YUM",
-    "founded": "1997"
-},
-{
-    "name": "YUMC",
-    "founded": "2015"
-},
-{
-    "name": "YY",
-    "founded": "2011"
-},
-{
-    "name": "YYAI",
-    "founded": "2016"
-},
-{
-    "name": "YYGH",
-    "founded": "2019"
-},
-{
-    "name": "Z",
-    "founded": "2015"
-},
-{
-    "name": "ZAPP",
-    "founded": "2017"
-},
-{
-    "name": "ZEO",
-    "founded": "2020"
-},
-{
-    "name": "ZEPP",
-    "founded": "2020"
-},
-{
-    "name": "ZETA",
-    "founded": "2007"
-},
-{
-    "name": "ZEUS",
-    "founded": "1966"
-},
-{
-    "name": "ZG",
-    "founded": "2014"
-},
-{
-    "name": "ZGN",
-    "founded": "2009"
-},
-{
-    "name": "ZH",
-    "founded": "2002"
-},
-{
-    "name": "ZI",
-    "founded": "2008"
-},
-{
-    "name": "ZIM",
-    "founded": "1945"
-},
-{
-    "name": "ZIMV",
-    "founded": "2021"
-},
-{
-    "name": "ZION",
-    "founded": "1999"
-},
-{
-    "name": "ZIONL",
-    "founded": "2020"
-},
-{
-    "name": "ZIONO",
-    "founded": "2020"
-},
-{
-    "name": "ZIONP",
-    "founded": "2020"
-},
-{
-    "name": "ZIP",
-    "founded": "2020"
-},
-{
-    "name": "ZJYL",
-    "founded": "2020"
-},
-{
-    "name": "ZK",
-    "founded": "1997"
-},
-{
-    "name": "ZKH",
-    "founded": "2004"
-},
-{
-    "name": "ZKIN",
-    "founded": "2010"
-},
-{
-    "name": "ZLAB",
-    "founded": "2014"
-}
+    },
+    {"name": "AAPL", "founded": "1976"},
+    {
+        "name": "AESI",
+        "founded": "2020"
+    },
+    {
+        "name": "AEVA",
+        "founded": "2020"
+    },
+    {
+        "name": "AEYE",
+        "founded": "2012"
+    },
+    {
+        "name": "AEZS",
+        "founded": "2001"
+    },
+    {
+        "name": "AFB",
+        "founded": "1939"
+    },
+    {
+        "name": "AFBI",
+        "founded": "2000"
+    },
+    {
+        "name": "AFCG",
+        "founded": "2004"
+    },
+    {
+        "name": "AFG",
+        "founded": "1959"
+    },
+    {
+        "name": "AFGB",
+        "founded": "2003"
+    },
+    {
+        "name": "AFGC",
+        "founded": "2020"
+    },
+    {
+        "name": "AFGD",
+        "founded": "2022"
+    },
+    {
+        "name": "AFGE",
+        "founded": "2022"
+    },
+    {
+        "name": "AFJKU",
+        "founded": "2021"
+    },
+    {
+        "name": "AFL",
+        "founded": "1959"
+    },
+    {
+        "name": "AFMD",
+        "founded": "2011"
+    },
+    {
+        "name": "AFRI",
+        "founded": "2019"
+    },
+    {
+        "name": "AFRM",
+        "founded": "2012"
+    },
+    {
+        "name": "AFYA",
+        "founded": "2018"
+    },
+    {
+        "name": "AG",
+        "founded": "1968"
+    },
+    {
+        "name": "AGAE",
+        "founded": "2020"
+    },
+    {
+        "name": "BUR",
+        "founded": "2006"
+    },
+    {
+        "name": "BURL",
+        "founded": "1972"
+    },
+    {
+        "name": "BURU",
+        "founded": "2006"
+    },
+    {
+        "name": "BUSE",
+        "founded": "1902"
+    },
+    {
+        "name": "BV",
+        "founded": "2007"
+    },
+    {
+        "name": "BVFL",
+        "founded": "2007"
+    },
+    {
+        "name": "BVN",
+        "founded": "1997"
+    },
+    {
+        "name": "BVS",
+        "founded": "2007"
+    },
+    {
+        "name": "BW",
+        "founded": "1996"
+    },
+    {
+        "name": "BWA",
+        "founded": "1925"
+    },
+    {
+        "name": "BWAY",
+        "founded": "2000"
+    },
+    {
+        "name": "BWB",
+        "founded": "2000"
+    },
+    {
+        "name": "BWBBP",
+        "founded": "2020"
+    },
+    {
+        "name": "BWEN",
+        "founded": "2000"
+    },
+    {
+        "name": "BWFG",
+        "founded": "1993"
+    },
+    {
+        "name": "BWG",
+        "founded": "2004"
+    },
+    {
+        "name": "BWIN",
+        "founded": "2006"
+    },
+    {
+        "name": "BWLP",
+        "founded": "2015"
+    },
+    {
+        "name": "BWMN",
+        "founded": "2004"
+    },
+    {
+        "name": "BWMX",
+        "founded": "2018"
+    },
+    {
+        "name": "CNH",
+        "founded": "1999"
+    },
+    {
+        "name": "CNI",
+        "founded": "1918"
+    },
+    {
+        "name": "CNK",
+        "founded": "1987"
+    },
+    {
+        "name": "CNL",
+        "founded": "1961"
+    },
+    {
+        "name": "CNM",
+        "founded": "1980"
+    },
+    {
+        "name": "CNMD",
+        "founded": "1984"
+    },
+    {
+        "name": "CNNE",
+        "founded": "2021"
+    },
+    {
+        "name": "CNO",
+        "founded": "2004"
+    },
+    {
+        "name": "CNOB",
+        "founded": "1996"
+    },
+    {
+        "name": "CNOBP",
+        "founded": "1996"
+    },
+    {
+        "name": "CNP",
+        "founded": "1901"
+    },
+    {
+        "name": "CNQ",
+        "founded": "1971"
+    },
+    {
+        "name": "CNS",
+        "founded": "1999"
+    },
+    {
+        "name": "CNSL",
+        "founded": "1997"
+    },
+    {
+        "name": "CNSP",
+        "founded": "2006"
+    },
+    {
+        "name": "CNTA",
+        "founded": "2008"
+    },
+    {
+        "name": "CNTB",
+        "founded": "2011"
+    },
+    {
+        "name": "CNTM",
+        "founded": "2004"
+    },
+    {
+        "name": "CNTX",
+        "founded": "2020"
+    },
+    {
+        "name": "DHAI",
+        "founded": "2021"
+    },
+    {
+        "name": "DHC",
+        "founded": "2014"
+    },
+    {
+        "name": "DHCNI",
+        "founded": "2014"
+    },
+    {
+        "name": "DHF",
+        "founded": "1987"
+    },
+    {
+        "name": "DHI",
+        "founded": "2002"
+    },
+    {
+        "name": "DHIL",
+        "founded": "2008"
+    },
+    {
+        "name": "DHR",
+        "founded": "1969"
+    },
+    {
+        "name": "DHT",
+        "founded": "2006"
+    },
+    {
+        "name": "DHX",
+        "founded": "2005"
+    },
+    {
+        "name": "DHY",
+        "founded": "2002"
+    },
+    {
+        "name": "DIAX",
+        "founded": "2018"
+    },
+    {
+        "name": "DIBS",
+        "founded": "2018"
+    },
+    {
+        "name": "DIN",
+        "founded": "1981"
+    },
+    {
+        "name": "DINO",
+        "founded": "2007"
+    },
+    {
+        "name": "DIOD",
+        "founded": "1983"
+    },
+    {
+        "name": "DIS",
+        "founded": "1923"
+    },
+    {
+        "name": "DIST",
+        "founded": "2007"
+    },
+    {
+        "name": "DIT",
+        "founded": "2011"
+    },
+    {
+        "name": "ERC",
+        "founded": "2012"
+    },
+    {
+        "name": "ERH",
+        "founded": "2006"
+    },
+    {
+        "name": "ERIC",
+        "founded": "1876"
+    },
+    {
+        "name": "ERIE",
+        "founded": "1925"
+    },
+    {
+        "name": "ERII",
+        "founded": "1997"
+    },
+    {
+        "name": "ERJ",
+        "founded": "1969"
+    },
+    {
+        "name": "ERNA",
+        "founded": "2009"
+    },
+    {
+        "name": "ERO",
+        "founded": "2006"
+    },
+    {
+        "name": "ES",
+        "founded": "1926"
+    },
+    {
+        "name": "ESAB",
+        "founded": "1904"
+    },
+    {
+        "name": "ESCA",
+        "founded": "1988"
+    },
+    {
+        "name": "ESE",
+        "founded": "1939"
+    },
+    {
+        "name": "ESEA",
+        "founded": "1989"
+    },
+    {
+        "name": "ESGL",
+        "founded": "2021"
+    },
+    {
+        "name": "ESGR",
+        "founded": "2008"
+    },
+    {
+        "name": "ESGRO",
+        "founded": "2008"
+    },
+    {
+        "name": "ESGRP",
+        "founded": "2008"
+    },
+    {
+        "name": "ESHA",
+        "founded": "1994"
+    },
+    {
+        "name": "ESI",
+        "founded": "1984"
+    },
+    {
+        "name": "FFC",
+        "founded": "1987"
+    },
+    {
+        "name": "FFIC",
+        "founded": "1863"
+    },
+    {
+        "name": "FFIE",
+        "founded": "2017"
+    },
+    {
+        "name": "FFIN",
+        "founded": "1989"
+    },
+    {
+        "name": "FFIV",
+        "founded": "1989"
+    },
+    {
+        "name": "FFNW",
+        "founded": "1985"
+    },
+    {
+        "name": "FFWM",
+        "founded": "2004"
+    },
+    {
+        "name": "FG",
+        "founded": "2002"
+    },
+    {
+        "name": "FGB",
+        "founded": "2006"
+    },
+    {
+        "name": "FGBI",
+        "founded": "2001"
+    },
+    {
+        "name": "FGBIP",
+        "founded": "2001"
+    },
+    {
+        "name": "FGEN",
+        "founded": "1991"
+    },
+    {
+        "name": "FGF",
+        "founded": "2010"
+    },
+    {
+        "name": "FGFPP",
+        "founded": "2010"
+    },
+    {
+        "name": "FGI",
+        "founded": "2007"
+    },
+    {
+        "name": "FGN",
+        "founded": "2008"
+    },
+    {
+        "name": "FHB",
+        "founded": "1998"
+    },
+    {
+        "name": "FHI",
+        "founded": "1990"
+    },
+    {
+        "name": "FHN",
+        "founded": "1864"
+    },
+    {
+        "name": "GENK",
+        "founded": "2016"
+    },
+    {
+        "name": "GEO",
+        "founded": "1993"
+    },
+    {
+        "name": "GEOS",
+        "founded": "2006"
+    },
+    {
+        "name": "GERN",
+        "founded": "1997"
+    },
+    {
+        "name": "GES",
+        "founded": "1919"
+    },
+    {
+        "name": "GETY",
+        "founded": "2008"
+    },
+    {
+        "name": "GEV",
+        "founded": "2006"
+    },
+    {
+        "name": "GEVO",
+        "founded": "2005"
+    },
+    {
+        "name": "GF",
+        "founded": "2007"
+    },
+    {
+        "name": "GFAI",
+        "founded": "2006"
+    },
+    {
+        "name": "GFF",
+        "founded": "1901"
+    },
+    {
+        "name": "GFI",
+        "founded": "1968"
+    },
+    {
+        "name": "GFL",
+        "founded": "1995"
+    },
+    {
+        "name": "GFR",
+        "founded": "2005"
+    },
+    {
+        "name": "GFS",
+        "founded": "1984"
+    },
+    {
+        "name": "GGAL",
+        "founded": "1905"
+    },
+    {
+        "name": "GGB",
+        "founded": "1955"
+    },
+    {
+        "name": "GGG",
+        "founded": "1901"
+    },
+    {
+        "name": "GGN",
+        "founded": "2004"
+    },
+    {
+        "name": "GGR",
+        "founded": "2008"
+    },
+    {
+        "name": "HMNF",
+        "founded": "2008"
+    },
+    {
+        "name": "HMST",
+        "founded": "1989"
+    },
+    {
+        "name": "HMY",
+        "founded": "1998"
+    },
+    {
+        "name": "HNI",
+        "founded": "1944"
+    },
+    {
+        "name": "HNNA",
+        "founded": "2003"
+    },
+    {
+        "name": "HNNAZ",
+        "founded": "2003"
+    },
+    {
+        "name": "HNRA",
+        "founded": "2007"
+    },
+    {
+        "name": "HNRG",
+        "founded": "2006"
+    },
+    {
+        "name": "HNST",
+        "founded": "2016"
+    },
+    {
+        "name": "HNVR",
+        "founded": "2000"
+    },
+    {
+        "name": "HNW",
+        "founded": "1995"
+    },
+    {
+        "name": "HOFT",
+        "founded": "1983"
+    },
+    {
+        "name": "HOFV",
+        "founded": "2014"
+    },
+    {
+        "name": "HOG",
+        "founded": "1903"
+    },
+    {
+        "name": "HOLO",
+        "founded": "2007"
+    },
+    {
+        "name": "HOLX",
+        "founded": "1969"
+    },
+    {
+        "name": "HOMB",
+        "founded": "1999"
+    },
+    {
+        "name": "HON",
+        "founded": "1885"
+    },
+    {
+        "name": "HONE",
+        "founded": "2011"
+    },
+    {
+        "name": "IDXX",
+        "founded": "1983"
+    },
+    {
+        "name": "IDYA",
+        "founded": "2014"
+    },
+    {
+        "name": "IE",
+        "founded": "1997"
+    },
+    {
+        "name": "IEP",
+        "founded": "1993"
+    },
+    {
+        "name": "IESC",
+        "founded": "2006"
+    },
+    {
+        "name": "IEX",
+        "founded": "1998"
+    },
+    {
+        "name": "IFBD",
+        "founded": "2019"
+    },
+    {
+        "name": "IFF",
+        "founded": "1889"
+    },
+    {
+        "name": "IFIN",
+        "founded": "2006"
+    },
+    {
+        "name": "IFN",
+        "founded": "2001"
+    },
+    {
+        "name": "IFRX",
+        "founded": "2007"
+    },
+    {
+        "name": "IFS",
+        "founded": "2002"
+    },
+    {
+        "name": "IGA",
+        "founded": "2008"
+    },
+    {
+        "name": "IGC",
+        "founded": "2008"
+    },
+    {
+        "name": "IGD",
+        "founded": "2003"
+    },
+    {
+        "name": "IGI",
+        "founded": "2006"
+    },
+    {
+        "name": "IGIC",
+        "founded": "2001"
+    },
+    {
+        "name": "IGMS",
+        "founded": "2006"
+    },
+    {
+        "name": "IGR",
+        "founded": "2003"
+    },
+    {
+        "name": "IGT",
+        "founded": "1990"
+    },
+    {
+        "name": "IGTA",
+        "founded": "2017"
+    },
+    {
+        "name": "JELD",
+        "founded": "1962"
+    },
+    {
+        "name": "JEQ",
+        "founded": "2004"
+    },
+    {
+        "name": "JEWL",
+        "founded": "2012"
+    },
+    {
+        "name": "JFBR",
+        "founded": "1989"
+    },
+    {
+        "name": "JFIN",
+        "founded": "2004"
+    },
+    {
+        "name": "JFR",
+        "founded": "1991"
+    },
+    {
+        "name": "JFU",
+        "founded": "2004"
+    },
+    {
+        "name": "JG",
+        "founded": "2014"
+    },
+    {
+        "name": "JGH",
+        "founded": "2001"
+    },
+    {
+        "name": "JHG",
+        "founded": "1999"
+    },
+    {
+        "name": "JHI",
+        "founded": "2003"
+    },
+    {
+        "name": "JHS",
+        "founded": "2002"
+    },
+    {
+        "name": "JHX",
+        "founded": "1885"
+    },
+    {
+        "name": "JILL",
+        "founded": "1999"
+    },
+    {
+        "name": "JJSF",
+        "founded": "1975"
+    },
+    {
+        "name": "JKHY",
+        "founded": "1992"
+    },
+    {
+        "name": "JKS",
+        "founded": "2006"
+    },
+    {
+        "name": "JL",
+        "founded": "2011"
+    },
+    {
+        "name": "JLL",
+        "founded": "1999"
+    },
+    {
+        "name": "JLS",
+        "founded": "2002"
+    },
+    {
+        "name": "JMIA",
+        "founded": "2012"
+    },
+    {
+        "name": "KMPR",
+        "founded": "1985"
+    },
+    {
+        "name": "KMT",
+        "founded": "1961"
+    },
+    {
+        "name": "KMX",
+        "founded": "1993"
+    },
+    {
+        "name": "KN",
+        "founded": "2005"
+    },
+    {
+        "name": "KNDI",
+        "founded": "2002"
+    },
+    {
+        "name": "KNF",
+        "founded": "2008"
+    },
+    {
+        "name": "KNOP",
+        "founded": "2013"
+    },
+    {
+        "name": "KNSA",
+        "founded": "2015"
+    },
+    {
+        "name": "KNSL",
+        "founded": "2014"
+    },
+    {
+        "name": "KNTK",
+        "founded": "2016"
+    },
+    {
+        "name": "KNW",
+        "founded": "2005"
+    },
+    {
+        "name": "KNX",
+        "founded": "1989"
+    },
+    {
+        "name": "KO",
+        "founded": "1892"
+    },
+    {
+        "name": "KOD",
+        "founded": "2000"
+    },
+    {
+        "name": "KODK",
+        "founded": "1888"
+    },
+    {
+        "name": "KOF",
+        "founded": "1993"
+    },
+    {
+        "name": "KOP",
+        "founded": "1988"
+    },
+    {
+        "name": "KOPN",
+        "founded": "1984"
+    },
+    {
+        "name": "KORE",
+        "founded": "2011"
+    },
+    {
+        "name": "KOS",
+        "founded": "1988"
+    },
+    {
+        "name": "KOSS",
+        "founded": "1958"
+    },
+    {
+        "name": "LBRDK",
+        "founded": "2010"
+    },
+    {
+        "name": "LBRDP",
+        "founded": "2010"
+    },
+    {
+        "name": "LBRT",
+        "founded": "2016"
+    },
+    {
+        "name": "LBTYA",
+        "founded": "2008"
+    },
+    {
+        "name": "LBTYB",
+        "founded": "2008"
+    },
+    {
+        "name": "LBTYK",
+        "founded": "2008"
+    },
+    {
+        "name": "LC",
+        "founded": "1994"
+    },
+    {
+        "name": "LCFY",
+        "founded": "2015"
+    },
+    {
+        "name": "LCID",
+        "founded": "2007"
+    },
+    {
+        "name": "LCII",
+        "founded": "2011"
+    },
+    {
+        "name": "LCNB",
+        "founded": "1877"
+    },
+    {
+        "name": "LCTX",
+        "founded": "1999"
+    },
+    {
+        "name": "LCUT",
+        "founded": "1975"
+    },
+    {
+        "name": "LCW",
+        "founded": "2007"
+    },
+    {
+        "name": "LDI",
+        "founded": "2009"
+    },
+    {
+        "name": "LDOS",
+        "founded": "1969"
+    },
+    {
+        "name": "LDP",
+        "founded": "2008"
+    },
+    {
+        "name": "LDTC",
+        "founded": "2020"
+    },
+    {
+        "name": "LDWY",
+        "founded": "2021"
+    },
+    {
+        "name": "MATH",
+        "founded": "2013"
+    },
+    {
+        "name": "MATV",
+        "founded": "1980"
+    },
+    {
+        "name": "MATW",
+        "founded": "1901"
+    },
+    {
+        "name": "MATX",
+        "founded": "1985"
+    },
+    {
+        "name": "MAV",
+        "founded": "1988"
+    },
+    {
+        "name": "MAX",
+        "founded": "1995"
+    },
+    {
+        "name": "MAXN",
+        "founded": "2005"
+    },
+    {
+        "name": "MAYS",
+        "founded": "1933"
+    },
+    {
+        "name": "MBAVU",
+        "founded": "2021"
+    },
+    {
+        "name": "MBC",
+        "founded": "1993"
+    },
+    {
+        "name": "MBCN",
+        "founded": "2003"
+    },
+    {
+        "name": "MBI",
+        "founded": "1991"
+    },
+    {
+        "name": "MBIN",
+        "founded": "2008"
+    },
+    {
+        "name": "MBINM",
+        "founded": "2020"
+    },
+    {
+        "name": "MBINN",
+        "founded": "2020"
+    },
+    {
+        "name": "MBINO",
+        "founded": "2020"
+    },
+    {
+        "name": "MBIO",
+        "founded": "2003"
+    },
+    {
+        "name": "MBLY",
+        "founded": "2007"
+    },
+    {
+        "name": "MBNKP",
+        "founded": "2021"
+    },
+    {
+        "name": "MBOT",
+        "founded": "2007"
+    },
+    {
+        "name": "MBRX",
+        "founded": "2008"
+    },
+    {
+        "name": "NEOV",
+        "founded": "2002"
+    },
+    {
+        "name": "NEP",
+        "founded": "2014"
+    },
+    {
+        "name": "NEPH",
+        "founded": "2009"
+    },
+    {
+        "name": "NERV",
+        "founded": "2010"
+    },
+    {
+        "name": "NET",
+        "founded": "2009"
+    },
+    {
+        "name": "NETD",
+        "founded": "2020"
+    },
+    {
+        "name": "NEU",
+        "founded": "1908"
+    },
+    {
+        "name": "NEUE",
+        "founded": "2011"
+    },
+    {
+        "name": "NEWP",
+        "founded": "2006"
+    },
+    {
+        "name": "NEWT",
+        "founded": "1996"
+    },
+    {
+        "name": "NEWTG",
+        "founded": "2020"
+    },
+    {
+        "name": "NEWTI",
+        "founded": "2020"
+    },
+    {
+        "name": "NEWTZ",
+        "founded": "2020"
+    },
+    {
+        "name": "NEXA",
+        "founded": "1956"
+    },
+    {
+        "name": "NEXN",
+        "founded": "2020"
+    },
+    {
+        "name": "NEXT",
+        "founded": "1998"
+    },
+    {
+        "name": "NFBK",
+        "founded": "1934"
+    },
+    {
+        "name": "NFE",
+        "founded": "2000"
+    },
+    {
+        "name": "NFG",
+        "founded": "1935"
+    },
+    {
+        "name": "NFGC",
+        "founded": "2008"
+    },
+    {
+        "name": "ONDS",
+        "founded": "2011"
+    },
+    {
+        "name": "ONEW",
+        "founded": "2011"
+    },
+    {
+        "name": "ONFO",
+        "founded": "2016"
+    },
+    {
+        "name": "ONIT",
+        "founded": "2020"
+    },
+    {
+        "name": "ONL",
+        "founded": "2021"
+    },
+    {
+        "name": "ONMD",
+        "founded": "2004"
+    },
+    {
+        "name": "ONON",
+        "founded": "2007"
+    },
+    {
+        "name": "ONTF",
+        "founded": "2021"
+    },
+    {
+        "name": "ONTO",
+        "founded": "2007"
+    },
+    {
+        "name": "ONVO",
+        "founded": "2009"
+    },
+    {
+        "name": "ONYX",
+        "founded": "1991"
+    },
+    {
+        "name": "ONYXU",
+        "founded": "2021"
+    },
+    {
+        "name": "OOMA",
+        "founded": "2004"
+    },
+    {
+        "name": "OP",
+        "founded": "2008"
+    },
+    {
+        "name": "OPAD",
+        "founded": "2020"
+    },
+    {
+        "name": "OPAL",
+        "founded": "2021"
+    },
+    {
+        "name": "OPBK",
+        "founded": "2006"
+    },
+    {
+        "name": "OPCH",
+        "founded": "1990"
+    },
+    {
+        "name": "OPEN",
+        "founded": "2015"
+    },
+    {
+        "name": "OPFI",
+        "founded": "2015"
+    },
+    {
+        "name": "PDD",
+        "founded": "2015"
+    },
+    {
+        "name": "PDEX",
+        "founded": "2005"
+    },
+    {
+        "name": "PDFS",
+        "founded": "2000"
+    },
+    {
+        "name": "PDI",
+        "founded": "2004"
+    },
+    {
+        "name": "PDLB",
+        "founded": "2020"
+    },
+    {
+        "name": "PDM",
+        "founded": "1987"
+    },
+    {
+        "name": "PDO",
+        "founded": "2021"
+    },
+    {
+        "name": "PDS",
+        "founded": "1997"
+    },
+    {
+        "name": "PDSB",
+        "founded": "2004"
+    },
+    {
+        "name": "PDT",
+        "founded": "2001"
+    },
+    {
+        "name": "PDX",
+        "founded": "2006"
+    },
+    {
+        "name": "PDYN",
+        "founded": "2021"
+    },
+    {
+        "name": "PDYNW",
+        "founded": "2021"
+    },
+    {
+        "name": "PEB",
+        "founded": "1997"
+    },
+    {
+        "name": "PEBK",
+        "founded": "2006"
+    },
+    {
+        "name": "PEBO",
+        "founded": "1983"
+    },
+    {
+        "name": "PECO",
+        "founded": "1881"
+    },
+    {
+        "name": "QLI",
+        "founded": "2005"
+    },
+    {
+        "name": "QLYS",
+        "founded": "1997"
+    },
+    {
+        "name": "QMCO",
+        "founded": "1987"
+    },
+    {
+        "name": "QMMM",
+        "founded": "2012"
+    },
+    {
+        "name": "QNCX",
+        "founded": "2020"
+    },
+    {
+        "name": "QNRX",
+        "founded": "2021"
+    },
+    {
+        "name": "QNST",
+        "founded": "1988"
+    },
+    {
+        "name": "QOMO",
+        "founded": "2020"
+    },
+    {
+        "name": "QOMOU",
+        "founded": "2021"
+    },
+    {
+        "name": "QQQX",
+        "founded": "2009"
+    },
+    {
+        "name": "QRHC",
+        "founded": "2007"
+    },
+    {
+        "name": "QRTEA",
+        "founded": "1999"
+    },
+    {
+        "name": "QRTEB",
+        "founded": "1999"
+    },
+    {
+        "name": "QRTEP",
+        "founded": "1999"
+    },
+    {
+        "name": "QRVO",
+        "founded": "2013"
+    },
+    {
+        "name": "QS",
+        "founded": "2013"
+    },
+    {
+        "name": "QSG",
+        "founded": "1998"
+    },
+    {
+        "name": "QSI",
+        "founded": "1987"
+    },
+    {
+        "name": "QSR",
+        "founded": "1955"
+    },
+    {
+        "name": "RAPT",
+        "founded": "2016"
+    },
+    {
+        "name": "RARE",
+        "founded": "2008"
+    },
+    {
+        "name": "RAVE",
+        "founded": "2004"
+    },
+    {
+        "name": "RAY",
+        "founded": "1928"
+    },
+    {
+        "name": "RAYA",
+        "founded": "2001"
+    },
+    {
+        "name": "RBA",
+        "founded": "2004"
+    },
+    {
+        "name": "RBB",
+        "founded": "1999"
+    },
+    {
+        "name": "RBBN",
+        "founded": "2000"
+    },
+    {
+        "name": "RBC",
+        "founded": "1869"
+    },
+    {
+        "name": "RBCAA",
+        "founded": "2006"
+    },
+    {
+        "name": "RBCP",
+        "founded": "2002"
+    },
+    {
+        "name": "RBKB",
+        "founded": "1905"
+    },
+    {
+        "name": "RBLX",
+        "founded": "2004"
+    },
+    {
+        "name": "RBOT",
+        "founded": "2008"
+    },
+    {
+        "name": "RBRK",
+        "founded": "2000"
+    },
+    {
+        "name": "RC",
+        "founded": "1987"
+    },
+    {
+        "name": "RCAT",
+        "founded": "2011"
+    },
+    {
+        "name": "RCB",
+        "founded": "2007"
+    },
+    {
+        "name": "RCC",
+        "founded": "2003"
+    },
+    {
+        "name": "SAT",
+        "founded": "1998"
+    },
+    {
+        "name": "SATL",
+        "founded": "2018"
+    },
+    {
+        "name": "SATS",
+        "founded": "1993"
+    },
+    {
+        "name": "SATX",
+        "founded": "2006"
+    },
+    {
+        "name": "SAVA",
+        "founded": "2011"
+    },
+    {
+        "name": "SAVE",
+        "founded": "2009"
+    },
+    {
+        "name": "SAY",
+        "founded": "2006"
+    },
+    {
+        "name": "SAZ",
+        "founded": "1995"
+    },
+    {
+        "name": "SB",
+        "founded": "2012"
+    },
+    {
+        "name": "SBAC",
+        "founded": "1989"
+    },
+    {
+        "name": "SBBA",
+        "founded": "2015"
+    },
+    {
+        "name": "SBCF",
+        "founded": "1999"
+    },
+    {
+        "name": "SBET",
+        "founded": "2020"
+    },
+    {
+        "name": "SBEV",
+        "founded": "2009"
+    },
+    {
+        "name": "SBFG",
+        "founded": "2007"
+    },
+    {
+        "name": "SBFM",
+        "founded": "2003"
+    },
+    {
+        "name": "SBGI",
+        "founded": "1999"
+    },
+    {
+        "name": "SBH",
+        "founded": "1962"
+    },
+    {
+        "name": "TALO",
+        "founded": "2009"
+    },
+    {
+        "name": "TANH",
+        "founded": "2016"
+    },
+    {
+        "name": "TAOP",
+        "founded": "2009"
+    },
+    {
+        "name": "TAP",
+        "founded": "1844"
+    },
+    {
+        "name": "TARA",
+        "founded": "2007"
+    },
+    {
+        "name": "TARS",
+        "founded": "2012"
+    },
+    {
+        "name": "TASK",
+        "founded": "2000"
+    },
+    {
+        "name": "TATT",
+        "founded": "1907"
+    },
+    {
+        "name": "TAYD",
+        "founded": "1987"
+    },
+    {
+        "name": "TBB",
+        "founded": "2000"
+    },
+    {
+        "name": "TBBB",
+        "founded": "2005"
+    },
+    {
+        "name": "TBBK",
+        "founded": "1999"
+    },
+    {
+        "name": "TBC",
+        "founded": "1998"
+    },
+    {
+        "name": "TBI",
+        "founded": "1986"
+    },
+    {
+        "name": "TBIO",
+        "founded": "2006"
+    },
+    {
+        "name": "TBLA",
+        "founded": "2020"
+    },
+    {
+        "name": "TBLD",
+        "founded": "2021"
+    },
+    {
+        "name": "TBLT",
+        "founded": "2004"
+    },
+    {
+        "name": "TBMC",
+        "founded": "2002"
+    },
+    {
+        "name": "TBN",
+        "founded": "1977"
+    },
+    {
+        "name": "UONEK",
+        "founded": "2021"
+    },
+    {
+        "name": "UP",
+        "founded": "2005"
+    },
+    {
+        "name": "UPBD",
+        "founded": "2017"
+    },
+    {
+        "name": "UPC",
+        "founded": "2021"
+    },
+    {
+        "name": "UPLD",
+        "founded": "1995"
+    },
+    {
+        "name": "UPS",
+        "founded": "1907"
+    },
+    {
+        "name": "UPST",
+        "founded": "2012"
+    },
+    {
+        "name": "UPWK",
+        "founded": "2015"
+    },
+    {
+        "name": "UPXI",
+        "founded": "1998"
+    },
+    {
+        "name": "URBN",
+        "founded": "1970"
+    },
+    {
+        "name": "URG",
+        "founded": "2006"
+    },
+    {
+        "name": "URGN",
+        "founded": "2004"
+    },
+    {
+        "name": "URI",
+        "founded": "1964"
+    },
+    {
+        "name": "UROY",
+        "founded": "2017"
+    },
+    {
+        "name": "USA",
+        "founded": "1983"
+    },
+    {
+        "name": "USAC",
+        "founded": "2014"
+    },
+    {
+        "name": "USAP",
+        "founded": "2011"
+    },
+    {
+        "name": "USAS",
+        "founded": "1961"
+    },
+    {
+        "name": "USAU",
+        "founded": "2017"
+    },
+    {
+        "name": "USB",
+        "founded": "1863"
+    },
+    {
+        "name": "USCB",
+        "founded": "2003"
+    },
+    {
+        "name": "VALE",
+        "founded": "1942"
+    },
+    {
+        "name": "VALN",
+        "founded": "2000"
+    },
+    {
+        "name": "VALU",
+        "founded": "2008"
+    },
+    {
+        "name": "VANI",
+        "founded": "2006"
+    },
+    {
+        "name": "VATE",
+        "founded": "2005"
+    },
+    {
+        "name": "VBF",
+        "founded": "1990"
+    },
+    {
+        "name": "VBFC",
+        "founded": "1987"
+    },
+    {
+        "name": "VBNK",
+        "founded": "2006"
+    },
+    {
+        "name": "VBTX",
+        "founded": "2007"
+    },
+    {
+        "name": "VC",
+        "founded": "2004"
+    },
+    {
+        "name": "VCEL",
+        "founded": "2000"
+    },
+    {
+        "name": "VCIG",
+        "founded": "2015"
+    },
+    {
+        "name": "VCNX",
+        "founded": "2008"
+    },
+    {
+        "name": "VCSA",
+        "founded": "1998"
+    },
+    {
+        "name": "VCTR",
+        "founded": "1997"
+    },
+    {
+        "name": "VCV",
+        "founded": "2005"
+    },
+    {
+        "name": "VCYT",
+        "founded": "1999"
+    },
+    {
+        "name": "VECO",
+        "founded": "1984"
+    },
+    {
+        "name": "VEEE",
+        "founded": "2006"
+    },
+    {
+        "name": "VEEV",
+        "founded": "2009"
+    },
+    {
+        "name": "VEL",
+        "founded": "2001"
+    },
+    {
+        "name": "WFRD",
+        "founded": "2001"
+    },
+    {
+        "name": "WGO",
+        "founded": "1958"
+    },
+    {
+        "name": "WGS",
+        "founded": "2004"
+    },
+    {
+        "name": "WH",
+        "founded": "1922"
+    },
+    {
+        "name": "WHD",
+        "founded": "2004"
+    },
+    {
+        "name": "WHF",
+        "founded": "2009"
+    },
+    {
+        "name": "WHFCL",
+        "founded": "2009"
+    },
+    {
+        "name": "WHG",
+        "founded": "1990"
+    },
+    {
+        "name": "WHLM",
+        "founded": "1960"
+    },
+    {
+        "name": "WHLR",
+        "founded": "2005"
+    },
+    {
+        "name": "WHLRD",
+        "founded": "2005"
+    },
+    {
+        "name": "WHLRP",
+        "founded": "2005"
+    },
+    {
+        "name": "WHR",
+        "founded": "1911"
+    },
+    {
+        "name": "WIA",
+        "founded": "1998"
+    },
+    {
+        "name": "WILC",
+        "founded": "1997"
+    },
+    {
+        "name": "WIMI",
+        "founded": "2013"
+    },
+    {
+        "name": "WINA",
+        "founded": "1970"
+    },
+    {
+        "name": "WING",
+        "founded": "1994"
+    },
+    {
+        "name": "WINT",
+        "founded": "2002"
+    },
+    {
+        "name": "WINV",
+        "founded": "2011"
+    },
+    {
+        "name": "XNCR",
+        "founded": "1995"
+    },
+    {
+        "name": "XNET",
+        "founded": "2012"
+    },
+    {
+        "name": "XOM",
+        "founded": "1870"
+    },
+    {
+        "name": "XOMA",
+        "founded": "1981"
+    },
+    {
+        "name": "XOMAO",
+        "founded": "1870"
+    },
+    {
+        "name": "XOMAP",
+        "founded": "1870"
+    },
+    {
+        "name": "XOS",
+        "founded": "2018"
+    },
+    {
+        "name": "XP",
+        "founded": "2001"
+    },
+    {
+        "name": "XPEL",
+        "founded": "2003"
+    },
+    {
+        "name": "XPER",
+        "founded": "2004"
+    },
+    {
+        "name": "XPEV",
+        "founded": "2014"
+    },
+    {
+        "name": "XPL",
+        "founded": "2003"
+    },
+    {
+        "name": "XPO",
+        "founded": "1989"
+    },
+    {
+        "name": "XPOF",
+        "founded": "1989"
+    },
+    {
+        "name": "XPON",
+        "founded": "2002"
+    },
+    {
+        "name": "XPRO",
+        "founded": "1999"
+    },
+    {
+        "name": "XRAY",
+        "founded": "1897"
+    },
+    {
+        "name": "XRTX",
+        "founded": "2015"
+    },
+    {
+        "name": "XRX",
+        "founded": "1906"
+    },
+    {
+        "name": "XTIA",
+        "founded": "2007"
+    },
+    {
+        "name": "YMAB",
+        "founded": "2011"
+    },
+    {
+        "name": "YMM",
+        "founded": "2015"
+    },
+    {
+        "name": "YORW",
+        "founded": "2014"
+    },
+    {
+        "name": "YOSH",
+        "founded": "1999"
+    },
+    {
+        "name": "YOTA",
+        "founded": "2000"
+    },
+    {
+        "name": "YOTAU",
+        "founded": "2000"
+    },
+    {
+        "name": "YOU",
+        "founded": "2014"
+    },
+    {
+        "name": "YPF",
+        "founded": "1922"
+    },
+    {
+        "name": "YQ",
+        "founded": "2018"
+    },
+    {
+        "name": "YRD",
+        "founded": "2005"
+    },
+    {
+        "name": "YSG",
+        "founded": "2011"
+    },
+    {
+        "name": "YTRA",
+        "founded": "2015"
+    },
+    {
+        "name": "YUM",
+        "founded": "1997"
+    },
+    {
+        "name": "YUMC",
+        "founded": "2015"
+    },
+    {
+        "name": "YY",
+        "founded": "2011"
+    },
+    {
+        "name": "YYAI",
+        "founded": "2016"
+    },
+    {
+        "name": "YYGH",
+        "founded": "2019"
+    },
+    {
+        "name": "Z",
+        "founded": "2015"
+    },
+    {
+        "name": "ZAPP",
+        "founded": "2017"
+    },
+    {
+        "name": "ZEO",
+        "founded": "2020"
+    },
+    {
+        "name": "ZEPP",
+        "founded": "2020"
+    },
+    {
+        "name": "ZETA",
+        "founded": "2007"
+    },
+    {
+        "name": "ZEUS",
+        "founded": "1966"
+    },
+    {
+        "name": "ZG",
+        "founded": "2014"
+    },
+    {
+        "name": "ZGN",
+        "founded": "2009"
+    },
+    {
+        "name": "ZH",
+        "founded": "2002"
+    },
+    {
+        "name": "ZI",
+        "founded": "2008"
+    },
+    {
+        "name": "ZIM",
+        "founded": "1945"
+    },
+    {
+        "name": "ZIMV",
+        "founded": "2021"
+    },
+    {
+        "name": "ZION",
+        "founded": "1999"
+    },
+    {
+        "name": "ZIONL",
+        "founded": "2020"
+    },
+    {
+        "name": "ZIONO",
+        "founded": "2020"
+    },
+    {
+        "name": "ZIONP",
+        "founded": "2020"
+    },
+    {
+        "name": "ZIP",
+        "founded": "2020"
+    },
+    {
+        "name": "ZJYL",
+        "founded": "2020"
+    },
+    {
+        "name": "ZK",
+        "founded": "1997"
+    },
+    {
+        "name": "ZKH",
+        "founded": "2004"
+    },
+    {
+        "name": "ZKIN",
+        "founded": "2010"
+    },
+    {
+        "name": "ZLAB",
+        "founded": "2014"
+    }
 ]
 
 # Russel 3000 ETF

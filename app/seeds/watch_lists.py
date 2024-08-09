@@ -6,11 +6,11 @@ def seed_watch_lists():
     for watch_list in [
         {
             "user_id": 1,
-            "name": "Name WatchList"
+            "name": "Tech Titans & Growth Gems"
         },
         {
             "user_id": 1,
-            "name": "Second WatchList"
+            "name": "Dividend Dynamos & Value Picks"
         }
     ]:
         db.session.add(WatchList(**watch_list))
