@@ -397,6 +397,61 @@ Returns all the stocks owned (created) by the current user.
 
 ## PORTFOLIOS
 
+### Get all Portfolios
+
+Returns all the portfolios
+
+* Require Authentication: false
+* Request
+  * Method: GET
+  * URL: /api/portfolios
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "Portfolios": [
+        {
+          "id": 1,
+          "userId": 1,
+          "spotId": 1,
+          "review": "This was an awesome spot!",
+          "stars": 5,
+          "createdAt": "2021-11-19 20:39:36",
+          "updatedAt": "2021-11-19 20:39:36" ,
+          "User": {
+            "id": 1,
+            "firstName": "John",
+            "lastName": "Smith"
+          },
+          "ReviewImages": [
+            {
+              "id": 1,
+              "url": "image url"
+            }
+          ],
+        }
+      ]
+    }
+    ```
+
+* Error response: Couldn't find a Portfolio with the specified id
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+      "message": "No portfolios found"
+    }
+    ```
+
 ### Get all portfolios of current user
 
 Returns all the portfolios of current user by userId
@@ -502,64 +557,6 @@ Returns the details of a Portfolio specified by its id.
       "message": "Portfolio couldn't be found"
     }
     ```
-
-
-
-### Get all Portfolios by a User's id
-
-Returns all the portfolios that belong to a user specified by id.
-
-* Require Authentication: false
-* Request
-  * Method: GET
-  * URL: /api/users/:userId/portfolios
-  * Body: none
-
-* Successful Response
-  * Status Code: 200
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "portfolio": [
-        {
-          "id": 1,
-          "userId": 1,
-          "spotId": 1,
-          "review": "This was an awesome spot!",
-          "stars": 5,
-          "createdAt": "2021-11-19 20:39:36",
-          "updatedAt": "2021-11-19 20:39:36" ,
-          "User": {
-            "id": 1,
-            "firstName": "John",
-            "lastName": "Smith"
-          },
-          "ReviewImages": [
-            {
-              "id": 1,
-              "url": "image url"
-            }
-          ],
-        }
-      ]
-    }
-    ```
-
-* Error response: Couldn't find a Portfolio with the specified id
-  * Status Code: 404
-  * Headers:
-    * Content-Type: application/json
-  * Body:
-
-    ```json
-    {
-      "message": "No portfolios found"
-    }
-    ```
-
 
 ### Create a Portfolio
 
