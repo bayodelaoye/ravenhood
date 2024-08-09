@@ -25,6 +25,7 @@ class Portfolio(db.Model):
         "Stock",
         secondary=portfolio_stocks,
         back_populates="stock_portfolio_stocks",
+        cascade="delete, all"
     )
 
     def to_dict(self):
@@ -37,3 +38,4 @@ class Portfolio(db.Model):
             "is_active": self.is_active,
             "updated_at": self.updated_at
         }   
+        
