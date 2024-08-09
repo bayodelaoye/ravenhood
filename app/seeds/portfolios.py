@@ -7,8 +7,8 @@ def seed_portfolios():
         {
             "user_id": 1,
             "portfolio_name": 'Retirement',
-            "cash_balance": 0,
-            "total_amount": 0,
+            "cash_balance": 100,
+            "total_amount": 1050.02,
             "is_active": True
         }
     ]:

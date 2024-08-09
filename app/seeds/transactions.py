@@ -10,8 +10,24 @@ def seed_transactions():
             "type": 'BUY',
             "date": date(2018, 8, 8),
             "stock": "AAPL",
-            "quantity": 20,
+            "quantity": 3,
             "transaction_price": 627.39
+        },
+        {
+            "portfolio_id": 1,
+            "type": 'BUY',
+            "date": date(2023, 1, 9),
+            "stock": "GOOG",
+            "quantity": 5,
+            "transaction_price": 498.20
+        },
+        {
+            "portfolio_id": 1,
+            "type": 'SELL',
+            "date": date(2024, 3, 18),
+            "stock": "AAPL",
+            "quantity": 1,
+            "transaction_price": 175.57
         }
     ]:
         db.session.add(Transaction(**transaction))

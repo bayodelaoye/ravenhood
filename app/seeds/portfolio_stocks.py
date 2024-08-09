@@ -6,16 +6,12 @@ def seed_portfolio_stocks():
     for portfolio_stock in [
         {
             "portfolio_id": 1,
-            "stock_id": 1
+            "stock_id": 4
         },
         {
             "portfolio_id": 1,
-            "stock_id": 2
+            "stock_id": 139
         },
-        {
-            "portfolio_id": 1,
-            "stock_id": 3
-        }
     ]:     
         portfolio = Portfolio.query.get(portfolio_stock['portfolio_id'])
         stock = Stock.query.get(portfolio_stock['stock_id'])

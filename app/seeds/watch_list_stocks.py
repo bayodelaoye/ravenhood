@@ -5,16 +5,28 @@ from sqlalchemy.sql import text
 def seed_watch_list_stocks():
     for watch_list_stock in [
         {
-            "stock_id": 1,
+            "stock_id": 139,
             "watchlist_id": 1
         },
         {
-            "stock_id": 2,
+            "stock_id": 105,
             "watchlist_id": 1
         },
         {
-            "stock_id": 3,
+            "stock_id": 84,
             "watchlist_id": 1
+        },
+        {
+            "stock_id": 271,
+            "watchlist_id": 2
+        },
+        {
+            "stock_id": 305,
+            "watchlist_id": 2
+        },
+        {
+            "stock_id": 353,
+            "watchlist_id": 2
         },
     ]:     
         watch_list = WatchList.query.get(watch_list_stock['watchlist_id'])

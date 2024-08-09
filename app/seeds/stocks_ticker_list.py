@@ -4,18 +4,17 @@ nasdaq = [
         "founded": "1905"
     },
     {
-    "name": "AA",
-    "founded": "1881"
+        "name": "AA",
+        "founded": "1881"
     },
-    # {
-    # "name": "AACG",
-    # "founded": "2007"
-    # },
     {
-    "name": "AACI",
-    "founded": "2007"
+        "name": "AACI",
+        "founded": "2007"
     },
-    {"name": "AAPL", "founded": "1976"},
+    {
+        "name": "AAPL", 
+        "founded": "1976"
+    },
     {
         "name": "AESI",
         "founded": "2020"
@@ -93,8 +92,8 @@ nasdaq = [
         "founded": "1968"
     },
     {
-        "name": "AGAE",
-        "founded": "2020"
+        "name":'AMZN', 
+        "founded": "1994"
     },
     {
         "name": "BUR",
@@ -553,8 +552,8 @@ nasdaq = [
         "founded": "2004"
     },
     {
-        "name": "GGR",
-        "founded": "2008"
+        "name":'GOOG', 
+        "founded": "1998"
     },
     {
         "name": "HMNF",
@@ -797,8 +796,8 @@ nasdaq = [
         "founded": "2002"
     },
     {
-        "name": "JMIA",
-        "founded": "2012"
+        "name":'JNJ', 
+        "founded": "1886"
     },
     {
         "name": "KMPR",
@@ -1037,12 +1036,12 @@ nasdaq = [
         "founded": "2021"
     },
     {
-        "name": "MBOT",
-        "founded": "2007"
+        "name":'META', 
+        "founded": "2004"
     },
     {
-        "name": "MBRX",
-        "founded": "2008"
+        "name": 'MSFT', 
+        "founded": "1975"
     },
     {
         "name": "NEOV",
@@ -1117,8 +1116,8 @@ nasdaq = [
         "founded": "2000"
     },
     {
-        "name": "NFG",
-        "founded": "1935"
+        "name": 'NVDA', 
+        "founded": "1993"
     },
     {
         "name": "NFGC",
@@ -1549,10 +1548,6 @@ nasdaq = [
         "founded": "1998"
     },
     {
-        "name": "TBI",
-        "founded": "1986"
-    },
-    {
         "name": "TBIO",
         "founded": "2006"
     },
@@ -1575,6 +1570,10 @@ nasdaq = [
     {
         "name": "TBN",
         "founded": "1977"
+    },
+    {
+        "name": "TSLA", 
+        "founded": "2003"
     },
     {
         "name": "UONEK",

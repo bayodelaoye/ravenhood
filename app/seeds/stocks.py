@@ -6,9 +6,9 @@ from .stocks_ticker_list import nasdaq
 
 # Adds a demo user, you can add other users here if you want
 def seed_stocks():
-    stocks = [{'name':'AAPL', "founded": "1976"}, {"name": 'MSFT', "founded": "1975"}, {"name":'NVDA', "founded": "10"}]
+    stocks = [{'name':'TSLA', "founded": "2003"}, {"name": 'NVDA', "founded": "1993"}, {"name":'JNJ', "founded": "1886"}]
 
-    for i in stocks:
+    for i in nasdaq:
         stock = yf.Ticker(i['name'])
         new_stock = Stock(
             company_name=stock.get_info()['shortName'] if 'shortName' in stock.get_info() else 'Unavailable', 
@@ -20,7 +20,7 @@ def seed_stocks():
             headquarters=stock.get_info()['city'] + ", " + stock.get_info()['state'] if 'city' in stock.get_info() and 'state' in stock.get_info() else 'Unavailable',
             founded=i['founded'],
             market_cap_billions=stock.get_info()['marketCap'] if 'marketCap' in stock.get_info() else -1,
-            price_earnings_ratio=round(stock.get_info()['trailingPE'], 2) if 'trailingPE' in stock.get_info() else -1,
+            price_earnings_ratio=round(float(stock.get_info()['trailingPE']), 2) if 'trailingPE' in stock.get_info() else -1,
             dividend_yield=round(stock.get_info()['dividendYield'] * 100, 2) if 'dividendYield' in stock.get_info() else -1,
             average_volume=stock.get_info()['averageVolume'] if 'averageVolume' in stock.get_info() else -1,
             high_today=round(stock.get_info()['dayHigh'], 2) if 'dayHigh' in stock.get_info() else -1,
