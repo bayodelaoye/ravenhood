@@ -1,34 +1,32 @@
 from app.models import db, Stock, environment, SCHEMA
 from sqlalchemy.sql import text
 import yfinance as yf
-from .stocks_ticker_list import iSharesRussell3000ETF
 from .stocks_ticker_list import nasdaq
+import math
 
 # Adds a demo user, you can add other users here if you want
 def seed_stocks():
-    stocks = [{'name':'TSLA', "founded": "2003"}, {"name": 'NVDA', "founded": "1993"}, {"name":'JNJ', "founded": "1886"}]
-
     for i in nasdaq:
         stock = yf.Ticker(i['name'])
         new_stock = Stock(
             company_name=stock.get_info()['shortName'] if 'shortName' in stock.get_info() else None, 
             ticker_symbol=stock.get_info()['symbol'] if 'symbol' in stock.get_info() else None,
-            current_price=stock.history()['Close'].iloc[-1] if not stock.history().empty else None,
+            current_price=round(stock.history()['Close'].iloc[-1], 2) if not stock.history().empty else None,
             description=stock.get_info()['longBusinessSummary'] if 'longBusinessSummary' in stock.get_info() else None,
             ceo=stock.get_info()['companyOfficers'][0]['name'] if 'companyOfficers' in stock.get_info() else None,
             employees=stock.get_info()['fullTimeEmployees'] if 'fullTimeEmployees' in stock.get_info() else None,
             headquarters=stock.get_info()['city'] + ", " + stock.get_info()['state'] if 'city' in stock.get_info() and 'state' in stock.get_info() else None,
             founded=i['founded'],
             market_cap_billions=stock.get_info()['marketCap'] if 'marketCap' in stock.get_info() else None,
-            price_earnings_ratio=stock.get_info()['trailingPE'] if 'trailingPE' in stock.get_info() else None,
-            dividend_yield=stock.get_info()['dividendYield'] if 'dividendYield' in stock.get_info() else None,
+            price_earnings_ratio=float(stock.get_info()['trailingPE']) if 'trailingPE' in stock.get_info() and not math.isinf(float(stock.get_info()['trailingPE'])) else None,
+            dividend_yield=round(stock.get_info()['dividendYield'] * 100, 2) if 'dividendYield' in stock.get_info() else None,
             average_volume=stock.get_info()['averageVolume'] if 'averageVolume' in stock.get_info() else None,
-            high_today=stock.get_info()['dayHigh'] if 'dayHigh' in stock.get_info() else None,
-            low_today=stock.get_info()['dayLow'] if 'dayLow' in stock.get_info() else None,
-            open_price=stock.get_info()['open'] if 'open' in stock.get_info() else None,
+            high_today=round(stock.get_info()['dayHigh'], 2) if 'dayHigh' in stock.get_info() else None,
+            low_today=round(stock.get_info()['dayLow'], 2) if 'dayLow' in stock.get_info() else None,
+            open_price=round(stock.get_info()['open'], 2) if 'open' in stock.get_info() else None,
             volume=stock.get_info()['volume'] if 'volume' in stock.get_info() else None,
-            fifty_two_week_high=stock.get_info()['fiftyTwoWeekHigh'] if 'fiftyTwoWeekHigh' in stock.get_info() else None,
-            fifty_two_week_low=stock.get_info()['fiftyTwoWeekLow'] if 'fiftyTwoWeekLow' in stock.get_info() else None,
+            fifty_two_week_high=round(stock.get_info()['fiftyTwoWeekHigh'], 2) if 'fiftyTwoWeekHigh' in stock.get_info() else None,
+            fifty_two_week_low=round(stock.get_info()['fiftyTwoWeekLow'], 2) if 'fiftyTwoWeekLow' in stock.get_info() else None,
             )
         db.session.add(new_stock)
     db.session.commit()

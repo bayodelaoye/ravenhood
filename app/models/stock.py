@@ -3,7 +3,6 @@ from datetime import datetime
 from .portfolio_stocks import portfolio_stocks
 from .watch_list_stocks import watch_list_stocks
 
-
 class Stock(db.Model):
     __tablename__ = "stocks"
 
@@ -13,22 +12,22 @@ class Stock(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     company_name = db.Column(db.String(100), nullable=True)
     ticker_symbol = db.Column(db.String(5), nullable=True)
-    current_price = db.Column(db.Numeric(30, 25), nullable=True)
+    current_price = db.Column(db.Numeric(5, 2), nullable=True)
     description = db.Column(db.Text, nullable=True)
-    ceo = db.Column(db.String(20), nullable=True)
+    ceo = db.Column(db.String(50), nullable=True)
     employees = db.Column(db.Integer, nullable=True)
     headquarters = db.Column(db.String(50), nullable=True)
     founded = db.Column(db.String(4), nullable=True)
-    market_cap_billions = db.Column(db.Numeric(30, 25), nullable=True)
-    price_earnings_ratio = db.Column(db.Numeric(30, 25), nullable=True)
-    dividend_yield = db.Column(db.Numeric(30, 25), nullable=True)
+    market_cap_billions = db.Column(db.BigInteger, nullable=True)
+    price_earnings_ratio = db.Column(db.Numeric(5, 2), nullable=True)
+    dividend_yield = db.Column(db.Numeric(4, 2), nullable=True)
     average_volume = db.Column(db.Integer, nullable=True)
-    high_today = db.Column(db.Numeric(30, 25), nullable=True)
-    low_today = db.Column(db.Numeric(30, 25), nullable=True)
-    open_price = db.Column(db.Numeric(30, 25), nullable=True)
+    high_today = db.Column(db.Numeric(5, 2), nullable=True)
+    low_today = db.Column(db.Numeric(5, 2), nullable=True)
+    open_price = db.Column(db.Numeric(5, 2), nullable=True)
     volume = db.Column(db.Integer, nullable=True)
-    fifty_two_week_high = db.Column(db.Numeric(30, 25), nullable=True)
-    fifty_two_week_low = db.Column(db.Numeric(30, 25), nullable=True)
+    fifty_two_week_high = db.Column(db.Numeric(5, 2), nullable=True)
+    fifty_two_week_low = db.Column(db.Numeric(5, 2), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
 

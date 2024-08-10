@@ -28,6 +28,7 @@ wtforms = "==3.0.1"
 importlib-metadata = "==6.9.0"
 zipp = "==3.17.0"
 yfinance = "*"
+numpy = "==1.23.5"
 
 [dev-packages]
 
