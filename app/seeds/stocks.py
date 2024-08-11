@@ -18,7 +18,7 @@ def seed_stocks():
             headquarters=stock.get_info()['city'] + ", " + stock.get_info()['state'] if 'city' in stock.get_info() and 'state' in stock.get_info() else None,
             founded=i['founded'],
             market_cap_billions=stock.get_info()['marketCap'] if 'marketCap' in stock.get_info() else None,
-            price_earnings_ratio=float(stock.get_info()['trailingPE']) if 'trailingPE' in stock.get_info() and not math.isinf(float(stock.get_info()['trailingPE'])) else None,
+            price_earnings_ratio=round(float(stock.get_info()['trailingPE']), 2) if 'trailingPE' in stock.get_info() and not math.isinf(float(stock.get_info()['trailingPE'])) else None,
             dividend_yield=round(stock.get_info()['dividendYield'] * 100, 2) if 'dividendYield' in stock.get_info() else None,
             average_volume=stock.get_info()['averageVolume'] if 'averageVolume' in stock.get_info() else None,
             high_today=round(stock.get_info()['dayHigh'], 2) if 'dayHigh' in stock.get_info() else None,
