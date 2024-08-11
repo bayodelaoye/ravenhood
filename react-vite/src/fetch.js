@@ -68,7 +68,7 @@ fetch("api/portfolios/1", {
     "content-type": "application/json",
   },
   body: JSON.stringify({
-    cash: 0,
+    cash: 100,
   }),
 });
 
@@ -157,8 +157,7 @@ fetch("/api/transactions", {
   body: JSON.stringify({
     portfolio_id: 1,
     type: "BUY",
-    date: new Date("2024-06-02"),
-    stock: "GOOG",
+    ticker: "GOOG",
     quantity: 10,
     transaction_price: 1653.9,
   }),
@@ -178,4 +177,15 @@ fetch("/api/transactions/1", {
   headers: {
     "content-type": "application/json",
   },
+});
+
+// Search for a stock
+fetch("api/stocks/search", {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    name: aaci,
+  }),
 });

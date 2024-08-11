@@ -39,58 +39,15 @@ def update_portfolio_name(id):
     db.session.commit()
     return {"message": "Updated portfolio name"}
 
-@portfolio_routes.route('/<int:id>/add', methods=['PUT'])
+@portfolio_routes.route('/<int:id>/cash', methods=['PUT'])
 @login_required
-def add_to_portfolio(id):
-    body = request.get_json()
-    portfolio_stock = Portfolio.join(PortfolioStocks).filter(PortfolioStocks.stock_id == body['stock_id']).first()
-    portfolio = Portfolio.query.get(id)
-    stock = Stock.query.get(body['stock_id']['stock'])
-
-    if portfolio.cash_balance < stock.current_price * body['stock_id']['amount']:
-        return {"message": "Insufficient balance to purchase shares of stock"}
-    else:
-        if portfolio_stock:
-            portfolio.portfolio_portfolio_stocks.shares += body['stock_id']['amount']
-            portfolio.cash_balance -= stock.current_price * body['stock_id']['amount']
-            db.session.commit()
-            sum = 0
-            for i in portfolio.to_dict_with_stocks()['stocks']:
-                sum += i.current_price * portfolio.portfolio_portfolio_stocks.shares
-            test = [total * 3 for total in range(2)]
-            #############print(test, sum(test))
-            portfolio.total_amount = sum + portfolio.cash_balance
-            db.session.commit()
-            return {"message": "Added more shares of stock to portfolio"}
-        else :
-            portfolio.portfolio_portfolio_stocks.append(stock)
-            portfolio.portfolio_portfolio_stocks.shares = body['stock_id']['amount']
-            portfolio.cash_balance -= stock.current_price * body['stock_id']['amount']
-            db.session.commit()
-            return {"message": "Added stock to portfolio"}
-
-@portfolio_routes.route('/<int:id>/remove', methods=['PUT'])
-@login_required
-def remove_from_portfolio(id):
+def add_cash(id):
     body = request.get_json()
     portfolio = Portfolio.query.get(id)
-
-    amount = portfolio.portfolio_portfolio_stocks.shares - body['stock_id']['amount']
-    if amount == 0:
-        stock = Stock.query.get(body['stock_id']['stock'])
-        portfolio.portfolio_portfolio_stocks.remove(stock)
-        return {"message": "Removed stock from portfolio"}
-    elif amount > 0:
-        portfolio.portfolio_portfolio_stocks.shares -= body['stock_id']['amount']
-        return {"message": "Sold " + body['stock_id']['amount'] + " shares of stock"}
-    elif amount < 0:
-        return {"message": "Can't sell more than what's in your portfolio"}
+    portfolio.cash_balance += body['cash']
     db.session.commit()
+    return {"message": "Deposited cash into portfolio"}
 
-    # if 'cash' in body:
-    #     portfolio.cash_balance = body['cash']
-    #     db.session.commit()
-     
 @portfolio_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_portfolio(id):
