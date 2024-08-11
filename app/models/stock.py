@@ -10,13 +10,13 @@ class Stock(db.Model):
         __table_args__ = {"schema": SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    company_name = db.Column(db.String(100), nullable=True)
+    company_name = db.Column(db.String(255), nullable=True)
     ticker_symbol = db.Column(db.String(5), nullable=True)
     current_price = db.Column(db.Numeric(7, 2), nullable=True)
     description = db.Column(db.Text, nullable=True)
-    ceo = db.Column(db.String(50), nullable=True)
+    ceo = db.Column(db.String(255), nullable=True)
     employees = db.Column(db.Integer, nullable=True)
-    headquarters = db.Column(db.String(50), nullable=True)
+    headquarters = db.Column(db.String(255), nullable=True)
     founded = db.Column(db.String(4), nullable=True)
     market_cap_billions = db.Column(db.BigInteger, nullable=True)
     price_earnings_ratio = db.Column(db.Numeric(7, 2), nullable=True)
