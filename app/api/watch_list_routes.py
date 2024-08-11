@@ -8,21 +8,25 @@ watch_list_routes = Blueprint("watch_lists", __name__)
 @login_required
 def new_watch_list():
     watch_list = request.get_json()
-    new_portfolio = Portfolio(
+    new_watch_list = WatchList(
         user_id=current_user.get_id(), 
-        portfolio_name=portfolio['portfolio_name'],
-        cash_balance=portfolio['cash_balance'], 
-        total_amount=portfolio['total_amount'],
-        is_active=portfolio['is_active'])
-    db.session.add(new_portfolio)
+        name=watch_list['name']
+    )
+    db.session.add(new_watch_list)
     db.session.commit()
-    return {"Portfolio": new_portfolio.to_dict()}
+    return {"watch_list": new_watch_list.to_dict()}
+
+@watch_list_routes.route('/')
+@login_required
+def all_watch_lists():
+    watch_lists = WatchList.query.all()
+    return {"watch_lists": [watch_list.to_dict() for watch_list in watch_lists]}
 
 @watch_list_routes.route('/<int:user_id>')
 @login_required
-def user_portfolio(user_id):
-    portfolios = Portfolio.query.filter(Portfolio.user_id==user_id).all()
-    return {"Portfolios": [portfolio.to_dict() for portfolio in portfolios]}
+def user_watch_lists(user_id):
+    watch_lists = WatchList.query.filter(WatchList.user_id==user_id).all()
+    return {"watch_lists": [watch_list.to_dict() for watch_list in watch_lists]}
 
 @watch_list_routes.route('/<int:id>', methods=['PUT'])
 @login_required

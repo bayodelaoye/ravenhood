@@ -1,19 +1,26 @@
 // Create a portfolio
-fetch("api/portfolios/", {
+fetch("api/portfolios", {
   method: "POST",
   headers: {
     "content-type": "application/json",
   },
   body: JSON.stringify({
-    user_id: 2,
-    portfolio_name: "Test",
+    portfolio_name: "New portfolio",
     cash_balance: 100,
     total_amount: 200,
     is_active: true,
   }),
 });
 
-// Read portfolio by user_id
+// Read all portfolios
+fetch("api/portfolios/", {
+  method: "GET",
+  headers: {
+    "content-type": "application/json",
+  },
+});
+
+// Read all portfolios by user_id
 fetch("api/portfolios/1", {
   method: "GET",
   headers: {
@@ -21,7 +28,7 @@ fetch("api/portfolios/1", {
   },
 });
 
-// Update a portfolio
+// Update a portfolio by id
 fetch("api/portfolios/1", {
   method: "PUT",
   headers: {
@@ -38,6 +45,33 @@ fetch("api/portfolios/1", {
 // Delete a portfolio by id
 fetch("api/portfolios/2", {
   method: "DELETE",
+  headers: {
+    "content-type": "application/json",
+  },
+});
+
+// Create a watch_list
+fetch("api/watch_lists", {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    name: "New watchlist",
+  }),
+});
+
+// Read all watch_lists
+fetch("api/watch_lists/", {
+  method: "GET",
+  headers: {
+    "content-type": "application/json",
+  },
+});
+
+// Read all watch_lists by user_id
+fetch("api/watch_lists/1", {
+  method: "GET",
   headers: {
     "content-type": "application/json",
   },

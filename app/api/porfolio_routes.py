@@ -16,13 +16,19 @@ def new_portfolio():
         is_active=portfolio['is_active'])
     db.session.add(new_portfolio)
     db.session.commit()
-    return {"Portfolio": new_portfolio.to_dict()}
+    return {"portfolio": new_portfolio.to_dict()}
+
+@portfolio_routes.route('/')
+@login_required
+def all_portfolios():
+    portfolios = Portfolio.query.all()
+    return {"portfolios": [portfolio.to_dict() for portfolio in portfolios]}
 
 @portfolio_routes.route('/<int:user_id>')
 @login_required
-def user_portfolio(user_id):
+def user_portfolios(user_id):
     portfolios = Portfolio.query.filter(Portfolio.user_id==user_id).all()
-    return {"Portfolios": [portfolio.to_dict() for portfolio in portfolios]}
+    return {"portfolios": [portfolio.to_dict() for portfolio in portfolios]}
 
 @portfolio_routes.route('/<int:id>', methods=['PUT'])
 @login_required
@@ -31,7 +37,7 @@ def update_portfolio_name(id):
     body = request.get_json()
 
     if portfolio == None:
-        return {"message": 'There is no portfolio with that is'}
+        return {"message": 'There is no portfolio with that id'}
     
     if 'name' in body:
         portfolio.portfolio_name = body['name']

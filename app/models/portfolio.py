@@ -39,7 +39,7 @@ class Portfolio(db.Model):
             "updated_at": self.updated_at
         }   
     
-    def to_dict_to_user(self):
+    def to_dict_with_stocks(self):
         return {
             "id": self.id,
             "portfolio_name": self.portfolio_name,
@@ -47,6 +47,6 @@ class Portfolio(db.Model):
             "total_amount": self.total_amount,
             "is_active": self.is_active,
             "updated_at": self.updated_at,
-            #"stocks": [stock.to_dict() for stock in self.portfolio_portfolio_stocks]
+            "stocks": [stock.to_dict() for stock in self.portfolio_portfolio_stocks]
         }
         
