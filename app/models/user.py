@@ -57,3 +57,22 @@ class User(db.Model, UserMixin):
             "birthday": self.birthday,
             "citizenship": self.citizenship
         }
+    
+    def to_dict_with_portfolios_and_watch_lists(self):
+        return {
+            'id': self.id,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            'email': self.email,
+            'username': self.username,
+            "address": self.address,
+            "city": self.city,
+            "state": self.state,
+            "zip": self.zip,
+            "phone": self.phone,
+            "ssn": self.ssn,
+            "birthday": self.birthday,
+            "citizenship": self.citizenship,
+            "portfolios": [portfolio.to_dict_to_user() for portfolio in self.portfolios],
+            "watch_list": [watch_list.to_dict_to_user() for watch_list in self.watch_lists]
+        }
