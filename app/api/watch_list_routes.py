@@ -64,8 +64,8 @@ def update_portfolio_name(id):
      
 @watch_list_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
-def delete_portfolio(id):
-    portfolio = Portfolio.query.get(id)
-    db.session.delete(portfolio)
+def delete_watch_list(id):
+    watch_list = WatchList.query.get(id)
+    db.session.delete(watch_list)
     db.session.commit()
-    return {"message": "Portfolio deleted"}
+    return {"message": "Watch list deleted"}

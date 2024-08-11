@@ -28,7 +28,7 @@ fetch("api/portfolios/1", {
   },
 });
 
-// Update a portfolio by id
+// Update a portfolio by its id
 fetch("api/portfolios/1", {
   method: "PUT",
   headers: {
@@ -42,7 +42,7 @@ fetch("api/portfolios/1", {
   }),
 });
 
-// Delete a portfolio by id
+// Delete a portfolio by its id
 fetch("api/portfolios/2", {
   method: "DELETE",
   headers: {
@@ -72,6 +72,14 @@ fetch("api/watch_lists/", {
 // Read all watch_lists by user_id
 fetch("api/watch_lists/1", {
   method: "GET",
+  headers: {
+    "content-type": "application/json",
+  },
+});
+
+// Delete a watch list by its id
+fetch("api/watch_lists/3", {
+  method: "DELETE",
   headers: {
     "content-type": "application/json",
   },
