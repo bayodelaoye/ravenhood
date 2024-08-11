@@ -28,6 +28,39 @@ fetch("api/portfolios/1", {
   },
 });
 
+// Update a portfolio's name by its id
+fetch("api/portfolios/1", {
+  method: "PUT",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    portfolio_name: "New Portfolio Name",
+  }),
+});
+
+// Add shares and or stock to portfolio by its id
+fetch("api/portfolios/1/add", {
+  method: "PUT",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    stock_id: { stock: 515, amount: 10 },
+  }),
+});
+
+// Remove shares and or stock from portfolio by its id
+fetch("api/portfolios/1/remove", {
+  method: "PUT",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    stock_id: { stock: 515, amount: 10 },
+  }),
+});
+
 // Update a portfolio by its id
 fetch("api/portfolios/1", {
   method: "PUT",
@@ -35,9 +68,6 @@ fetch("api/portfolios/1", {
     "content-type": "application/json",
   },
   body: JSON.stringify({
-    add: [5, 6, 7, 8],
-    remove: [],
-    name: "Update Name",
     cash: 0,
   }),
 });
@@ -77,7 +107,7 @@ fetch("api/watch_lists/1", {
   },
 });
 
-// Update a watch list name by its id
+// Update a watch list's name by its id
 fetch("api/watch_lists/1", {
   method: "PUT",
   headers: {

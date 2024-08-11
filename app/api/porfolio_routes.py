@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Portfolio, db, Stock
+from app.models import Portfolio, db, Stock, PortfolioStocks
 
 portfolio_routes = Blueprint("portfolios", __name__)
 
@@ -33,36 +33,50 @@ def user_portfolios(user_id):
 @portfolio_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def update_portfolio_name(id):
-    portfolio = Portfolio.query.get(id)
     body = request.get_json()
+    portfolio = Portfolio.query.get(id)
+    portfolio.portfolio_name = body['portfolio_name']
+    db.session.commit()
+    return {"message": "Updated portfolio name"}
 
-    if portfolio == None:
-        return {"message": 'There is no portfolio with that id'}
-    
-    if 'name' in body:
-        portfolio.portfolio_name = body['name']
-        db.session.commit()
+@portfolio_routes.route('/<int:id>/add', methods=['PUT'])
+@login_required
+def add_to_portfolio(id):
+    body = request.get_json()
+    portfolio_stock = Portfolio.join(PortfolioStocks).filter(PortfolioStocks.stock_id == body['stock_id']).first()
+    portfolio = Portfolio.query.get(id)
 
-    if 'add' in body:
-        for i in body['add']:
-            stock = Stock.query.get(i)
-            portfolio.portfolio_portfolio_stocks.append(stock)
-        db.session.commit()
+    if portfolio_stock:
+        portfolio.portfolio_portfolio_stocks.shares += body['stock_id']['amount']
+        return {"message": "Added more shares of stock to portfolio"}
+    else :
+        stock = Stock.query.get(body['stock_id']['stock'])
+        portfolio.portfolio_portfolio_stocks.append(stock)
+        portfolio.portfolio_portfolio_stocks.shares = body['stock_id']['amount']
+    db.session.commit()
+    return {"message": "Added stock to portfolio"}
 
-    # needs to be looked at
-    if 'remove' in body:
-        for i in body['remove']:
-            remove_stock = Stock.query.get(i)
-            # stock = Portfolio.query.options(joinedload(Portfolio.portfolio_portfolio_stocks)).filter(Stock.id == remove_stock.id).first()
-            portfolio.portfolio_portfolio_stocks.remove(remove_stock)
-        db.session.commit()
+@portfolio_routes.route('/<int:id>/remove', methods=['PUT'])
+@login_required
+def remove_from_portfolio(id):
+    body = request.get_json()
+    portfolio = Portfolio.query.get(id)
 
+    amount = portfolio.portfolio_portfolio_stocks.shares - body['stock_id']['amount']
+    if amount == 0:
+        stock = Stock.query.get(body['stock_id']['stock'])
+        portfolio.portfolio_portfolio_stocks.remove(stock)
+        return {"message": "Removed stock from portfolio"}
+    elif amount > 0:
+        portfolio.portfolio_portfolio_stocks.shares -= body['stock_id']['amount']
+        return {"message": "Sold " + body['stock_id']['amount'] + " shares of stock"}
+    elif amount < 0:
+        return {"message": "Can't sell more than what's in your portfolio"}
+    db.session.commit()
 
-    if 'cash' in body:
-        portfolio.cash_balance = body['cash']
-        db.session.commit()
-
-    return {"message": "Updated portfolio"}
+    # if 'cash' in body:
+    #     portfolio.cash_balance = body['cash']
+    #     db.session.commit()
      
 @portfolio_routes.route('/<int:id>', methods=['DELETE'])
 @login_required

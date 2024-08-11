@@ -30,7 +30,7 @@ def user_watch_lists(user_id):
 
 @watch_list_routes.route('/<int:id>', methods=['PUT'])
 @login_required
-def change_watch_list_name(id):
+def update_watch_list_name(id):
     body = request.get_json()
     watch_list = WatchList.query.get(id)
     watch_list.name = body['name']
