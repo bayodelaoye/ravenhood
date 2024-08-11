@@ -3,7 +3,6 @@ from app.models import Stock
 
 stock_routes = Blueprint("stocks", __name__)
 
-
 @stock_routes.route("/")
 def all_stocks():
     stocks = Stock.query.all()

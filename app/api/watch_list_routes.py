@@ -1,13 +1,13 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Portfolio, db, Stock
+from app.models import WatchList, db
 
-portfolio_routes = Blueprint("portfolios", __name__)
+watch_list_routes = Blueprint("watch_lists", __name__)
 
-@portfolio_routes.route('/', methods=['POST'])
+@watch_list_routes.route('/', methods=['POST'])
 @login_required
-def new_portfolio():
-    portfolio = request.get_json()
+def new_watch_list():
+    watch_list = request.get_json()
     new_portfolio = Portfolio(
         user_id=current_user.get_id(), 
         portfolio_name=portfolio['portfolio_name'],
@@ -18,13 +18,13 @@ def new_portfolio():
     db.session.commit()
     return {"Portfolio": new_portfolio.to_dict()}
 
-@portfolio_routes.route('/<int:user_id>')
+@watch_list_routes.route('/<int:user_id>')
 @login_required
 def user_portfolio(user_id):
     portfolios = Portfolio.query.filter(Portfolio.user_id==user_id).all()
     return {"Portfolios": [portfolio.to_dict() for portfolio in portfolios]}
 
-@portfolio_routes.route('/<int:id>', methods=['PUT'])
+@watch_list_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def update_portfolio_name(id):
     portfolio = Portfolio.query.get(id)
@@ -58,7 +58,7 @@ def update_portfolio_name(id):
 
     return {"message": "Updated portfolio"}
      
-@portfolio_routes.route('/<int:id>', methods=['DELETE'])
+@watch_list_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_portfolio(id):
     portfolio = Portfolio.query.get(id)
