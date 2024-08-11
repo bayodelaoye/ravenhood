@@ -17,6 +17,7 @@ from .models import (
 from .api.auth_routes import auth_routes
 from .api.porfolio_routes import portfolio_routes
 from .api.stock_routes import stock_routes
+from .api.transaction_routes import transaction_routes
 from .api.user_routes import user_routes
 from .api.watch_list_routes import watch_list_routes
 
@@ -44,6 +45,7 @@ app.config.from_object(Config)
 app.register_blueprint(auth_routes, url_prefix="/api/auth")
 app.register_blueprint(portfolio_routes, url_prefix="/api/portfolios")
 app.register_blueprint(stock_routes, url_prefix="/api/stocks")
+app.register_blueprint(transaction_routes, url_prefix="/api/transactions")
 app.register_blueprint(user_routes, url_prefix="/api/users")
 app.register_blueprint(watch_list_routes, url_prefix="/api/watch_lists")
 db.init_app(app)

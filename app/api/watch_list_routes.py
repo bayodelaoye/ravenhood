@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import WatchList, db
+from app.models import WatchList, db, Stock
 
 watch_list_routes = Blueprint("watch_lists", __name__)
 
@@ -30,37 +30,32 @@ def user_watch_lists(user_id):
 
 @watch_list_routes.route('/<int:id>', methods=['PUT'])
 @login_required
-def update_portfolio_name(id):
-    portfolio = Portfolio.query.get(id)
+def change_watch_list_name(id):
     body = request.get_json()
+    watch_list = WatchList.query.get(id)
+    watch_list.name = body['name']
+    db.session.commit()
+    return {"message": "Updated watch list name"}
 
-    if portfolio == None:
-        return {"message": 'There is no portfolio with that is'}
-    
-    if 'name' in body:
-        portfolio.portfolio_name = body['name']
-        db.session.commit()
+@watch_list_routes.route('/<int:id>/add', methods=['PUT'])
+@login_required
+def add_to_watch_list(id):
+    body = request.get_json()
+    watch_list = WatchList.query.get(id)
+    stock = Stock.query.get(body['stock_id'])
+    watch_list.watch_list_watch_list_stocks.append(stock)
+    db.session.commit()
+    return {"message": "Added stock to watch list"}
 
-    if 'add' in body:
-        for i in body['add']:
-            stock = Stock.query.get(i)
-            portfolio.portfolio_portfolio_stocks.append(stock)
-        db.session.commit()
-
-    # needs to be looked at
-    if 'remove' in body:
-        for i in body['remove']:
-            remove_stock = Stock.query.get(i)
-            # stock = Portfolio.query.options(joinedload(Portfolio.portfolio_portfolio_stocks)).filter(Stock.id == remove_stock.id).first()
-            portfolio.portfolio_portfolio_stocks.remove(remove_stock)
-        db.session.commit()
-
-
-    if 'cash' in body:
-        portfolio.cash_balance = body['cash']
-        db.session.commit()
-
-    return {"message": "Updated portfolio"}
+@watch_list_routes.route('/<int:id>/remove', methods=['PUT'])
+@login_required
+def remove_from_watch_list(id):
+    body = request.get_json()
+    watch_list = WatchList.query.get(id)
+    stock = Stock.query.get(body['stock_id'])
+    watch_list.watch_list_watch_list_stocks.remove(stock)
+    db.session.commit()
+    return {"message": "Removed stock from watch list"}
      
 @watch_list_routes.route('/<int:id>', methods=['DELETE'])
 @login_required

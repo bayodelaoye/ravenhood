@@ -5,7 +5,7 @@ fetch("api/portfolios", {
     "content-type": "application/json",
   },
   body: JSON.stringify({
-    portfolio_name: "New portfolio",
+    portfolio_name: "New Portfolio",
     cash_balance: 100,
     total_amount: 200,
     is_active: true,
@@ -57,7 +57,7 @@ fetch("api/watch_lists", {
     "content-type": "application/json",
   },
   body: JSON.stringify({
-    name: "New watchlist",
+    name: "New Watch List",
   }),
 });
 
@@ -77,9 +77,74 @@ fetch("api/watch_lists/1", {
   },
 });
 
+// Update a watch list name by its id
+fetch("api/watch_lists/1", {
+  method: "PUT",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    name: "New Watch List Name",
+  }),
+});
+
+// Add stock to watch list by its id
+fetch("api/watch_lists/1/add", {
+  method: "PUT",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    stock_id: 515,
+  }),
+});
+
+// Remove stock from watch list by its id
+fetch("api/watch_lists/1/remove", {
+  method: "PUT",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    stock_id: 515,
+  }),
+});
+
 // Delete a watch list by its id
 fetch("api/watch_lists/3", {
   method: "DELETE",
+  headers: {
+    "content-type": "application/json",
+  },
+});
+
+// Create a transaction
+fetch("/api/transactions", {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify({
+    portfolio_id: 1,
+    type: "BUY",
+    date: new Date("2024-06-02"),
+    stock: "GOOG",
+    quantity: 10,
+    transaction_price: 1653.9,
+  }),
+});
+
+// Read all transactions
+fetch("/api/transactions/", {
+  method: "GET",
+  headers: {
+    "content-type": "application/json",
+  },
+});
+
+// Read all transactions by portfolio_id
+fetch("/api/transactions/1", {
+  method: "GET",
   headers: {
     "content-type": "application/json",
   },
