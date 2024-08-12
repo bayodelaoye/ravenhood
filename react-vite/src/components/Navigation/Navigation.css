@@ -1,16 +1,16 @@
 header {
-    padding: 0 1rem 0 1rem;
+    padding: 0 1rem 0 0rem;
     display: flex;
     align-items: center;
     justify-content: left;
-    border: 1px gray dashed;
     font-family: "Capsule Sans Display", system-ui, -apple-system, "system-ui", "Segoe UI", Helvetica, Arial, sans-serif;
+    /* border: 1px gray dashed; */
 }
 
 #logoAndSearchBarContainer{
     display: flex;
     align-items: center;
-    margin: 0 1rem 0 0;
+    margin: 0 .5rem 0 0;
 }
 
 #logo {
