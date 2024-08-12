@@ -1,24 +1,25 @@
 import { json, redirect } from "react-router-dom";
 
 export const stocksLoader = async () => {
-      const response = await fetch("/api/stocks");
+	const response = await fetch("/api/stocks");
 
-      if (response.ok) {
-            const allStocks = await response.json()
-            return allStocks.stocks
-      }
-}
+	if (response.ok) {
+		const allStocks = await response.json();
+		return allStocks.stocks;
+	}
+};
 
 export const allLoader = async () => {
-      const urls = [`/api/stocks/`, `/api/portfolios/`];
+	const urls = [`/api/stocks/`, `/api/portfolios/`];
 
-      const fetchPromises = urls.map((url) => fetch(url).then((response) => response.json()))
+	const fetchPromises = urls.map((url) =>
+		fetch(url).then((response) => response.json()),
+	);
 
-      const [stocks, portfolios] = await Promise.all(fetchPromises)
+	const [stocks, portfolios] = await Promise.all(fetchPromises);
 
-      return json({stocks, portfolios})
-
-}
+	return json({ stocks, portfolios });
+};
 
 // export const getStockId = async ({ params }) => {
 // 	const response = await fetch("/api/stocks");
