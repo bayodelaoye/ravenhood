@@ -1,5 +1,5 @@
 // Create a portfolio
-fetch("api/portfolios", {
+fetch("api/portfolios/", {
   method: "POST",
   headers: {
     "content-type": "application/json",
@@ -39,30 +39,8 @@ fetch("api/portfolios/1", {
   }),
 });
 
-// Add shares and or stock to portfolio by its id
-fetch("api/portfolios/1/add", {
-  method: "PUT",
-  headers: {
-    "content-type": "application/json",
-  },
-  body: JSON.stringify({
-    stock_id: { stock: 515, amount: 10 },
-  }),
-});
-
-// Remove shares and or stock from portfolio by its id
-fetch("api/portfolios/1/remove", {
-  method: "PUT",
-  headers: {
-    "content-type": "application/json",
-  },
-  body: JSON.stringify({
-    stock_id: { stock: 515, amount: 10 },
-  }),
-});
-
-// Update a portfolio by its id
-fetch("api/portfolios/1", {
+// Update a portfolio's cash balance by its id
+fetch("api/portfolios/1/cash", {
   method: "PUT",
   headers: {
     "content-type": "application/json",
@@ -81,7 +59,7 @@ fetch("api/portfolios/2", {
 });
 
 // Create a watch_list
-fetch("api/watch_lists", {
+fetch("api/watch_lists/", {
   method: "POST",
   headers: {
     "content-type": "application/json",
@@ -149,7 +127,7 @@ fetch("api/watch_lists/3", {
 });
 
 // Create a transaction
-fetch("/api/transactions", {
+fetch("/api/transactions/", {
   method: "POST",
   headers: {
     "content-type": "application/json",
@@ -179,6 +157,22 @@ fetch("/api/transactions/1", {
   },
 });
 
+// Read all stocks
+fetch("api/stocks/", {
+  method: "GET",
+  headers: {
+    "content-type": "application/json",
+  },
+});
+
+// Read stock by its id
+fetch("api/stocks/1", {
+  method: "GET",
+  headers: {
+    "content-type": "application/json",
+  },
+});
+
 // Search for a stock
 fetch("api/stocks/search", {
   method: "POST",
@@ -186,6 +180,6 @@ fetch("api/stocks/search", {
     "content-type": "application/json",
   },
   body: JSON.stringify({
-    name: aaci,
+    name: "aaci",
   }),
 });
