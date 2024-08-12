@@ -1,0 +1,76 @@
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.watchlist-description {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+}
+
+.watchlist-options {
+    display: flex;
+    flex-direction: row;
+}
+
+.watchlist-stocks-headers-sort {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px lightgray solid;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+}
+
+.stock-information {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.stock {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px lightgray solid;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+}
+
+.sublist-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.watchlist-sort-button {
+    width: 95px;
+}
+
+.watchlist-sort-button-name {
+    width: 250px;
+}
+
+.stock-name {
+    width: 250px
+}
+
+.stock-link {
+    width: 95px;
+}
+
+.subwatchlist:hover {
+    cursor: pointer;
+}
+
+.subwatchlist {
+    display: flex;
+    justify-content: space-between;
+}
+
+.watchlist-name p {
+    width: 250px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
