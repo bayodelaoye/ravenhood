@@ -1,32 +1,44 @@
-#FaMagnifyingGlass {
-    color: white;
-    background-color: #FE595D;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 75%;
-}
-
 
 #SearchBarForm {
     display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
     border: 1px lightgray solid;
-    border-radius: 25px;
-    padding-left: 1rem;
+    border-radius: 5px;
 }
 
-.SearchBarLabel {
+#SearchBarLabel {
+    display: flex;
+    align-items: left;
+    justify-content: center;
     margin: 0;
     padding: 0;
     color: #222222;
     font-size: .60rem;
+    border: 4px green solid;
 }
 
-.SearchBarInput {
-    margin: 0;
+#FaMagnifyingGlass {
+    color: grey;
+    background-color: transparent;
+    margin: 0 .5rem 0 .5rem;
     padding: 0;
-
+    font-size: small;
+    border: grey 2px dotted;
 }
 
-defaultValues {
+
+
+#SearchBarInput {
+    border: none;
+    font-size: smaller;
+    border: 2px dashed orange;
+}
+
+#SearchBarInput:active {
+    border: none;
+}
+
+/* defaultValues {
     color: #6E6E6E;
-}
+} */

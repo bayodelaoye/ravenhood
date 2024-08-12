@@ -1,20 +1,11 @@
-
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import logo from './Logo/ravenhoodLogo.png';
-import ProfileButton from './ProfileButton';
-import { IoHome } from "react-icons/io5";
+import SearchBar from "./SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
-import * as spotsActions from "../../spots"
-
-
-// import OpenModalButton from "../OpenModalButton/OpenModalButton";
-// import LoginFormModal from "../LoginFormModal/LoginFormModal";
-// import SignupFormModal from "../SignupFormModal/SignupFormModal";
+// import * as searchActions from "../../spots"
 
 import './Navigation.css';
-import { useEffect } from "react";
-
 
 const Navigation = ({isLoaded}) => {
     const sessionUser = useSelector(state => state.session.user);
@@ -23,29 +14,8 @@ const Navigation = ({isLoaded}) => {
 
     const runSearch = () => {
         async () =>
-        await dispatch(spotsActions.search()).then(() => navigate(`/'`));
+        await dispatch(searchActions.search()).then(() => navigate(`/'`));
     }
-
-    useEffect(() => {
-
-        const runCurrentSpots = () => {
-              dispatch(spotsActions.getCurrentUserSpots())
-        }
-
-        if(sessionUser) runCurrentSpots()
-    })
-
-    useEffect(()=> {
-
-        async () => {
-     //    console.log("DISPATCH LINE 21 LAYOUT.jsx");
-         return dispatch(spotsActions.search());
-        }
-
-       },[dispatch])
-
-
-
 
     // console.log("NAVIGATION COMPONENT RAN");
     return(
@@ -53,22 +23,30 @@ const Navigation = ({isLoaded}) => {
         <a href="/">
             <img id="logo" src={logo} alt="logo"></img>
         </a>
-        {/* <SearchBar /> */}
+        <SearchBar />
 
-        <ul>
+        <ul id="TopNavBarUl">
             <li>
-                {sessionUser ?
-                <NavLink to="/spots/new" id="NavLinkToCreateNewSpot">Create a New Spot</NavLink>
-                : ""}
+                <NavLink to="/api/portfolios" className="TopNavBarNavLink">Rewards</NavLink>
             </li>
-            <li id="homeLi">
-                <NavLink id="NavLinkToHome" ><IoHome onClick={runSearch} id="IoHome"/></NavLink>
-            </li>
-            {isLoaded && (
             <li>
-                <ProfileButton user={sessionUser} />
+                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Investing</NavLink>
             </li>
-            )}
+            <li>
+                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Crypto</NavLink>
+            </li>
+            <li>
+                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Spending</NavLink>
+            </li>
+            <li>
+                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Retirement</NavLink>
+            </li>
+            <li>
+                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Notifications</NavLink>
+            </li>
+            <li>
+                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Account</NavLink>
+            </li>
         </ul>
     </header>
     );
