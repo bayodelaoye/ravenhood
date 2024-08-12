@@ -2,15 +2,22 @@ header {
     padding: 0 1rem 0 1rem;
     display: flex;
     align-items: center;
-    justify-content:space-between;
-    border: 1px gray solid;
-    border-radius: 25px;
+    justify-content: left;
+    border: 1px gray dashed;
+    font-family: "Capsule Sans Display", system-ui, -apple-system, "system-ui", "Segoe UI", Helvetica, Arial, sans-serif;
+
+}
+
+#logoAndSearchBarContainer{
+    display: flex;
+    align-items: center;
 }
 
 #logo {
-    height: 1.5rem;
+    height: 2rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
     filter: invert(0%) sepia(0%) saturate(3000%) hue-rotate(300deg) brightness(100%) contrast(1000%);
-
 }
 
 #logo:hover{
@@ -24,18 +31,19 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: left;
 }
 
 .TopNavBarNavLink {
     color: black;
     font-weight: bold;
-    font-size: xx-small;
+    font-size: small;
     text-wrap: nowrap;
     text-decoration: none;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
 }
 
 .TopNavBarNavLink:hover {
     cursor: pointer;
-    color: rgb(51, 214, 6);
+    color: rgb(43, 189, 3);
 }

@@ -20,10 +20,13 @@ const Navigation = ({isLoaded}) => {
     // console.log("NAVIGATION COMPONENT RAN");
     return(
      <header>
+        <div id='logoAndSearchBarContainer'>
         <a href="/">
             <img id="logo" src={logo} alt="logo"></img>
         </a>
+
         <SearchBar />
+        </div>
 
         <ul id="TopNavBarUl">
             <li>
