@@ -1,3 +1,50 @@
-.profile-dropdown {
-  position: absolute;
+header {
+    padding: 0 1rem 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    /* border: 1px gray solid;
+    border-radius: 25px; */
+}
+
+#logo {
+    height: 3rem;
+}
+
+#NavLinkToCreateNewSpot {
+    color: #FE595D;
+    font-weight: bold;
+    margin-right: 2rem;
+    text-wrap: nowrap;
+}
+
+#NavLinkToCreateNewSpot:hover {
+    cursor: pointer;
+    color: black;
+}
+
+#IoHome {
+    height: 30px;
+    width: 30px;
+    color: #FE595D;
+}
+
+#IoHome:hover {
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#homeLi {
+    padding-right: 2rem;
+}
+
+
+#NavLinkToHome {
+    color:  #FE595D;
 }

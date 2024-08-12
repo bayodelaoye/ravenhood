@@ -1,0 +1,32 @@
+#FaMagnifyingGlass {
+    color: white;
+    background-color: #FE595D;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 75%;
+}
+
+
+#SearchBarForm {
+    display: flex;
+    border: 1px lightgray solid;
+    border-radius: 25px;
+    padding-left: 1rem;
+}
+
+.SearchBarLabel {
+    margin: 0;
+    padding: 0;
+    color: #222222;
+    font-size: .60rem;
+}
+
+.SearchBarInput {
+    margin: 0;
+    padding: 0;
+
+}
+
+defaultValues {
+    color: #6E6E6E;
+}
