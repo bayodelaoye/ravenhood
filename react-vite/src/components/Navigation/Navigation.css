@@ -5,12 +5,12 @@ header {
     justify-content: left;
     border: 1px gray dashed;
     font-family: "Capsule Sans Display", system-ui, -apple-system, "system-ui", "Segoe UI", Helvetica, Arial, sans-serif;
-
 }
 
 #logoAndSearchBarContainer{
     display: flex;
     align-items: center;
+    margin: 0 1rem 0 0;
 }
 
 #logo {
@@ -32,6 +32,7 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: left;
+    padding: 0;
 }
 
 .TopNavBarNavLink {

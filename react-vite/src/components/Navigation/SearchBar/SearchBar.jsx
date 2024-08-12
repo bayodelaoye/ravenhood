@@ -38,7 +38,6 @@ function SearchBar() {
             id="SearchBarInput"
             type="text"
             placeholder='Search'
-            value={""}
             onChange={(e) => setSearch(e.target.value)}
           />
         </label>
