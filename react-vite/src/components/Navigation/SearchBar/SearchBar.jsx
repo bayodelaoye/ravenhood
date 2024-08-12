@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { FaMagnifyingGlass } from "react-icons/fa6";
 // import * as searchActions from '../../../search'
@@ -6,13 +6,28 @@ import { useNavigate } from 'react-router-dom';
 
 import './SearchBar.css';
 
+const searchables = [{"AAPL": "Apple Inc."}, {"AMZN": "Amazon"}, {"ZOOZ": "Zoo Zoo Inc"}]
+
 function SearchBar() {
 
   const navigate = useNavigate();
 
   const [search, setSearch] = useState("Search");
 
+  const [searchSuggestions, setSearchSuggestions] = useState("");
+
   const [errors, setErrors] = useState({});
+
+
+
+  useEffect(() => {
+    const suggestions = searchables.filter(searchable =>
+      searchable.toLowerCare().includes(search)
+    )
+    setSearchSuggestions(suggestions);
+    console.log("searchSuggestions: ", searchSuggestions)
+
+  }, [search])
 
   const handleSubmit = (e) => {
     e.preventDefault();
