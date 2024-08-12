@@ -3,7 +3,7 @@ export const getStockId = async (ticker) => {
 
   const response = await fetch("/api/stocks");
   const data = await response.json();
-  const stocks = data.stocks;
+  const stocks = data.stocks.stocks;
   let stockId = stocks.find(stock => stock.ticker === ticker);
   return stockId
 
@@ -13,7 +13,7 @@ export const getTicker = async (stockId) => {
 
   const response = await fetch("/api/stocks");
   const data = await response.json();
-  const stocks = data.stocks;
+  const stocks = data.stocks.stocks;
   let stockId = stocks.find(stock => stock.stockId === stockId);
   return ticker
 
