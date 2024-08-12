@@ -9,8 +9,14 @@
 }
 
 :root {
-  --main-blue: #3253b6;
+  --base-green: #00c805;
+  --hover-green: rgba(0, 180, 5, 1);
+  --hover-light-green: rgba(0, 200, 5, 0.1);
+  --buy-box-shadow: rgba(0, 0, 0, 0.06);
   --off-white: #f5f5f9;
+  --light-gray: #d3d3d3;
+  --lightest-gray: #ebebeb;
+  --input-hover: rgba(128, 135, 140, 1);
   --dark: #000000;
   --white: #ffffff;
 }

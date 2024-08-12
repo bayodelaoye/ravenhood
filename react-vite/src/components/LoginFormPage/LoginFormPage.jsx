@@ -5,72 +5,71 @@ import { Navigate, useNavigate, useLoaderData } from "react-router-dom";
 import "./LoginForm.css";
 
 function LoginFormPage() {
-	const navigate = useNavigate();
-      const allStocks = useLoaderData()
-	const dispatch = useDispatch();
-	const sessionUser = useSelector((state) => state.session.user);
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-      const [errors, setErrors] = useState({});
-      
-      console.log("here is all stocks", allStocks);
+  const navigate = useNavigate();
+  const allStocks = useLoaderData();
+  const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
 
-	if (sessionUser) return <Navigate to="/" replace={true} />;
+  console.log("here is all stocks", allStocks);
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
+  if (sessionUser) return <Navigate to="/" replace={true} />;
 
-		const serverResponse = await dispatch(
-			thunkLogin({
-				email,
-				password,
-			}),
-		);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-		if (serverResponse) {
-			setErrors(serverResponse);
-		} else {
-			navigate("/");
-		}
-	};
+    const serverResponse = await dispatch(
+      thunkLogin({
+        email,
+        password,
+      })
+    );
 
-	return (
-		<>
-			<h1>Log In</h1>
-			{errors.length > 0 &&
-                        errors.map((message) => <p key={message}>{message}</p>)}
-                  {allStocks.map((stock) => (
-                        <div key={stock.id}>
-                              {stock.company_name}
-                              {stock.average_volume}
-                        </div>
-                  
-                  ))}
-			<form onSubmit={handleSubmit}>
-				<label>
-					Email
-					<input
-						type="text"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-						required
-					/>
-				</label>
-				{errors.email && <p>{errors.email}</p>}
-				<label>
-					Password
-					<input
-						type="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						required
-					/>
-				</label>
-				{errors.password && <p>{errors.password}</p>}
-				<button type="submit">Log In</button>
-			</form>
-		</>
-	);
+    if (serverResponse) {
+      setErrors(serverResponse);
+    } else {
+      navigate("/");
+    }
+  };
+
+  return (
+    <>
+      <h1>Log In</h1>
+      {errors.length > 0 &&
+        errors.map((message) => <p key={message}>{message}</p>)}
+      {allStocks.map((stock) => (
+        <div key={stock.id}>
+          {stock.company_name}
+          {stock.average_volume}
+        </div>
+      ))}
+      <form onSubmit={handleSubmit}>
+        <label>
+          Email
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+        {errors.email && <p>{errors.email}</p>}
+        <label>
+          Password
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        {errors.password && <p>{errors.password}</p>}
+        <button type="submit">Log In</button>
+      </form>
+    </>
+  );
 }
 
 export default LoginFormPage;
