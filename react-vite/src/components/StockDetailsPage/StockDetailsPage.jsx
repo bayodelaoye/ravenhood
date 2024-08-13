@@ -3,11 +3,13 @@ import { IoIosArrowDown } from "react-icons/io";
 import "./StockDetailsPage.css";
 import { useEffect, useState } from "react";
 import LineGraph from "../LineGraph/LineGraph";
+import { useSelector, useDispatch } from "react-redux";
 
 function StockDetailsPage() {
   const stockDetails = useLoaderData();
   const [shares, setShares] = useState(0);
   const [timeLineBtn, setTimeLineBtn] = useState("");
+  const currentUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     if (timeLineBtn === "") {

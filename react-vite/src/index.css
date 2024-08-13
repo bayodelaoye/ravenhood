@@ -19,6 +19,15 @@
   --input-hover: rgba(128, 135, 140, 1);
   --dark: #000000;
   --white: #ffffff;
+  --purple: #4d3f72;
+  --hover-purple: rgba(77, 83, 114, 0.1);
+  --light-purple: #8a7c9c;
+  --time-line: #948e9a;
+  --lilac: #8a7c9c;
+  --gray: #c5c0c9;
+  --platinum: #dfe0e5;
+  --dark-platinum: #b4b1b1;
+  --light-platinum: #c8cbcd;
 }
 
 a {
