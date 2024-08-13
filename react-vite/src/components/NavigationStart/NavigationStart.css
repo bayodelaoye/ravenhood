@@ -43,9 +43,6 @@
 
 #NavigationStartLogoImg{
   height: 2.5rem;
-
-
-
 }
 
 #NavigationStartLogoImg:hover{
@@ -61,7 +58,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  border: 1px orange dashed;
 }
 
 .NavigationStartUlLi{
@@ -81,19 +77,13 @@
 
 /* =======================BUTTONS================================= */
 
-.NavigationStartUlLiButtonLi{
+/* .NavigationStartUlLiButtonLi{
   color: white;
 }
 
 .NavigationStartUlLiButtonLi:hover{
   color: #BFC0C6;
   cursor: pointer;
-}
+} */
 
-.NavigationStartUlLiP{
-  font-size: small;
-}
-
-.profile-dropdown {
-  position: absolute;
-}
+/* .profile-dropdown { position: absolute; } */

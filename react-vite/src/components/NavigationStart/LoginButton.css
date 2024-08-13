@@ -1,0 +1,13 @@
+#NavigationStartButtonLogin{
+    color: white;
+    padding: 1rem 2rem;
+    border: 1px white solid;
+    border-radius: 25px;
+    background-color: transparent;
+}
+
+#NavigationStartButtonLogin:hover{
+    color: #BFC0C6;
+    border: 1px #BFC0C6 solid;
+    cursor: pointer;
+}

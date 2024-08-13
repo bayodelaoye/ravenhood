@@ -1,0 +1,14 @@
+#NavigationStartButtonSignup{
+    color: white;
+    padding: 1rem 2rem;
+    border: 1px #4D3F72 solid;
+    border-radius: 25px;
+    background-color: #4D3F72;
+}
+
+#NavigationStartButtonSignup:hover{
+    color: #BFC0C6;
+    background-color: #5a4e7b;
+    cursor: pointer;
+
+}
