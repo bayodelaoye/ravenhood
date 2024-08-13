@@ -9,6 +9,7 @@ import { useModal } from "../../context/Modal";
 
 import './Watchlist.css'
 import ChangeWatchListName from "./ChangeListNameModal";
+import CreateWatchList from "./CreateWatchlistModal";
 
 
 const Watchlist = () => {
@@ -145,6 +146,17 @@ const Watchlist = () => {
         )
     }
 
+    const handleCreateWatchlist = () => {
+        setModalContent(
+            <div>
+                <CreateWatchList
+                    onClose={closeModal}
+                    user={user}
+                    current={currentWatchList.id}
+                />
+            </div>
+        )
+    }
 
     //---------------------------------------------------------------------------
 
@@ -248,7 +260,9 @@ const Watchlist = () => {
                             <h3>Lists</h3>
                         </div>
                         <div className="watchlist-add">
-                            <p>+</p>
+                            <div className="create-watchlist" ref={ulRef}>
+                                <button type='submit' className="create-watchlist-button" onClick={(e) => { e.stopPropagation(); handleCreateWatchlist(); }}>+</button>
+                            </div>
                         </div>
                     </header>
                     {

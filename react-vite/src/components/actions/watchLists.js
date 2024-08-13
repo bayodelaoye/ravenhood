@@ -57,5 +57,23 @@ export const deleteWatchlist = async ({ request }) => {
         }
     }
 
+    if (intent === 'create-watchlist') {
+        console.log(data)
+        const response = await fetch(`/api/watch_lists/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: data.watchlistname
+            })
+        })
+        if (response.ok) {
+            const message = response.json();
+            console.log(message)
+            return message
+        }
+    }
+
     return null
 }
