@@ -37,17 +37,21 @@ function NavigationStart() {
           </li>
           <li className="NavigationStartUlLi NavigationStartUlLiButtonLi">
             <p className="NavigationStartUlLiP">Log in
-              <ProfileButton />
+
             </p>
+
 
           </li>
           <li className="NavigationStartUlLi NavigationStartUlLiButtonLi">
             <p className="NavigationStartUlLiP">Log in
-              <ProfileButton />
+
             </p>
+
 
           </li>
         </ul>
+        <ProfileButton />
+        <ProfileButton />
       </header>
     </>
   );

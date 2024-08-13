@@ -1,8 +1,6 @@
 import { LuUserCircle2 } from "react-icons/lu"
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-// import * as sessionActions from '../../session';
-// import * as spotsActions from '../../spots';
 import OpenModalButton from '../OpenModalButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
