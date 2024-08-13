@@ -5,6 +5,7 @@ __pycache__/
 .DS_Store
 .vscode/
 __pycache__
+node_modules
 # comment these out if you're using dev containers or GH actions
 .github
 .docker
