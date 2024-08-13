@@ -13,8 +13,13 @@
 }
 
 #NavigationStartButtonSignup:hover{
-    color: #BFC0C6;
-    background-color: #5a4e7b;
+    /* color: #BFC0C6; */
     cursor: pointer;
+    background: linear-gradient(
+		270deg,
+		#3a3056 2.68%,
+		#a3a6a8 104.69%,
+		#b7b8bc 61.25%
+	);
 
 }
