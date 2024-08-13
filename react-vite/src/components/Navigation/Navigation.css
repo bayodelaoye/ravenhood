@@ -1,3 +1,50 @@
-.profile-dropdown {
-  position: absolute;
+header {
+    padding: 0 1rem 0 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-family: "Capsule Sans Display", system-ui, -apple-system, "system-ui", "Segoe UI", Helvetica, Arial, sans-serif;
+    /* border: 1px gray dashed; */
+}
+
+#logoAndSearchBarContainer{
+    display: flex;
+    align-items: center;
+    margin: 0 .5rem 0 0;
+}
+
+#logo {
+    height: 2rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    filter: invert(0%) sepia(0%) saturate(3000%) hue-rotate(300deg) brightness(100%) contrast(1000%);
+}
+
+#logo:hover{
+    color: black;
+    filter: invert(100%) sepia(100%) saturate(2000%) hue-rotate(50deg) brightness(100%) contrast(1000%);
+    cursor: pointer;
+}
+
+#TopNavBarUl {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    padding: 0;
+}
+
+.TopNavBarNavLink {
+    color: black;
+    font-weight: bold;
+    font-size: small;
+    text-wrap: nowrap;
+    text-decoration: none;
+    margin-right: 1.5rem;
+}
+
+.TopNavBarNavLink:hover {
+    cursor: pointer;
+    color: rgb(43, 189, 3);
 }

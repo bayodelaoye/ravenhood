@@ -1,0 +1,50 @@
+
+#SearchBarForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px lightgray solid;
+    border-radius: 2.5px;
+}
+
+#SearchBarLabel {
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    color: #222222;
+    font-size: .60rem;
+    /* border: 2px green solid; */
+}
+
+#FaMagnifyingGlass {
+    color: grey;
+    background-color: transparent;
+    margin: 0 .5rem 0 .5rem;
+    padding: .5rem .2rem .2rem .2rem;
+    font-size: 1.25rem;
+    /* border: grey 2px dotted; */
+}
+
+#SearchBarInput {
+    border: none;
+    font-size: small;
+    width: 22rem;
+    height: 2rem;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+#SearchBarInput:focus {
+    outline: none;
+}
+
+#SearchBarButton {
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    color: #222222;
+    font-size: .5rem;
+}
