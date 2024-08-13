@@ -32,24 +32,53 @@ function generateStockPrices(numPrices, minPrice, maxPrice) {
 }
 
 function LineGraph({ stock }) {
+  const dateArray = [];
+  let month = null;
+  const today = new Date();
+
+  for (let i = 0; i < 51; i++) {
+    const date = new Date();
+    date.setDate(today.getDate() - i);
+
+    if (date.getMonth() + 1 === 1) {
+      month = "JAN";
+    } else if (date.getMonth() + 1 === 2) {
+      month = "FEB";
+    } else if (date.getMonth() + 1 === 3) {
+      month = "MAR";
+    } else if (date.getMonth() + 1 === 4) {
+      month = "APR";
+    } else if (date.getMonth() + 1 === 5) {
+      month = "MAY";
+    } else if (date.getMonth() + 1 === 6) {
+      month = "JUN";
+    } else if (date.getMonth() + 1 === 7) {
+      month = "JUL";
+    } else if (date.getMonth() + 1 === 8) {
+      month = "AUG";
+    } else if (date.getMonth() + 1 === 9) {
+      month = "SEP";
+    } else if (date.getMonth() + 1 === 10) {
+      month = "OCT";
+    } else if (date.getMonth() + 1 === 11) {
+      month = "NOV";
+    } else if (date.getMonth() + 1 === 12) {
+      month = "DEC";
+    }
+
+    dateArray.push(month + " " + date.getDate());
+  }
   const lineChartData = {
-    labels: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
+    labels: dateArray.reverse(),
     datasets: [
       {
         data: generateStockPrices(
-          200,
+          100,
           stock.fifty_two_week_high,
           stock.fifty_two_week_low
         ),
         borderColor: "#00c805",
+        borderWidth: 2.5,
         type: "line",
         backgroundColor: "black",
         pointBorderColor: "rgba(0, 0, 0, 0)",
@@ -63,6 +92,7 @@ function LineGraph({ stock }) {
   };
 
   const options = {
+    maintainAspectRatio: false,
     responsive: true,
     plugins: {
       legend: {
@@ -99,7 +129,7 @@ function LineGraph({ stock }) {
 
   return (
     <div className="stock-graph">
-      <Line data={lineChartData} options={options} />
+      <Line data={lineChartData} width={"5%"} options={options} />
     </div>
   );
 }
