@@ -1,13 +1,35 @@
 .stock-details-container {
   display: flex;
-  gap: 900px;
-  margin-right: 50px;
+  gap: 30px;
+}
+
+.stock-info-container {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+
+.company-name-price {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+}
+
+.company-name-price h3 {
+  font-weight: 490;
+  font-size: 28px;
+}
+
+.company-name-price p {
+  font-weight: 490;
+  font-size: 28px;
 }
 
 .buy-sell-watch-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 50px;
 }
 
 .buy-container {

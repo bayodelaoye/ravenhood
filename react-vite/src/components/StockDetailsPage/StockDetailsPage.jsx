@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import "./StockDetailsPage.css";
 import { useState } from "react";
+import LineGraph from "../LineGraph/LineGraph";
 
 function StockDetailsPage() {
   const stockDetails = useLoaderData();
@@ -11,7 +12,11 @@ function StockDetailsPage() {
     <>
       <div className="stock-details-container">
         <div className="stock-info-container">
-          <p>Test</p>
+          <div className="company-name-price">
+            <h3>{stockDetails.company_name}</h3>
+            <p>${stockDetails.current_price}</p>
+          </div>
+          <LineGraph stock={stockDetails} />
         </div>
         <div className="buy-sell-watch-container">
           <div className="buy-container">
@@ -51,7 +56,7 @@ function StockDetailsPage() {
                 Sign up for a Ravenhood brokerage account to buy or sell{" "}
                 {stockDetails.company_name}
                 stock and options commission-free. Other fees may apply. See
-                Ravenhood Financial's fee schedule to learn more.
+                Ravenhood Financial&apos;s fee schedule to learn more.
               </p>
             </div>
             <button className="sign-up-buy-btn">Sign Up to Buy</button>
