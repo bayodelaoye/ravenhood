@@ -1,3 +1,74 @@
+#NavigationStartHeader{
+  padding: 0 1rem 0 0rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  font-family: "Capsule Sans Display", system-ui, -apple-system, "system-ui", "Segoe UI", Helvetica, Arial, sans-serif;
+  background-color: black;
+
+  border: 1px solid #BFC0C6;
+}
+
+/* =======================START LOGO=============================== */
+
+#NavigationStartLogoContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  margin: 0 1rem 0 0;
+  padding: 1rem;
+  border-right: 1px solid #BFC0C6;
+}
+
+#NavigationStartLogoText{
+  font-size: x-large;
+  color: white;
+  margin: 0 .5rem 0 0;
+}
+
+#NavigationStartLogoText:hover{
+  color: #BFC0C6;
+}
+
+#NavigationStartLogoImg{
+  height: 2.5rem;
+  color: white;
+}
+
+/* =======================START UL================================= */
+
+#NavigationStartUl{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px orange dashed;
+}
+
+.NavigationStartUlLi{
+  margin: 0 1rem 0 0;
+  list-style-type: none;
+}
+
+.NavigationStartUlLiNavLink{
+  font-size: large;
+  color: white;
+}
+
+.NavigationStartUlLiNavLink:hover {
+  color: #BFC0C6;
+}
+
+
+/* =======================BUTTONS================================= */
+
+.NavigationStartUlLiP{
+  font-size: small;
+  color: white;
+}
+
 .profile-dropdown {
   position: absolute;
 }

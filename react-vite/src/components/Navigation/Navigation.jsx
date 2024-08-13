@@ -21,7 +21,7 @@ const Navigation = ({isLoaded}) => {
     return(
      <header>
         <div id='logoAndSearchBarContainer'>
-        <a href="/">
+        <a href="">
             <img id="logo" src={ravenhoodLogoPurple} alt="logo"></img>
         </a>
 
