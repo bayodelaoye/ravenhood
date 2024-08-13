@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { FaMagnifyingGlass } from "react-icons/fa6";
-// import * as searchActions from '../../../search'
 import { useNavigate } from 'react-router-dom';
+// import * as searchActions from '../../../search'
 
 import './SearchBar.css';
 
-const searchables = [{"AAPL": "Apple Inc."}, {"AMZN": "Amazon"}, {"ZOOZ": "Zoo Zoo Inc"}]
+const searchables = ["AAPL", "AMZN", "ZOOZ"]
 
 function SearchBar() {
 
@@ -14,7 +13,7 @@ function SearchBar() {
 
   const [search, setSearch] = useState("Search");
 
-  const [searchSuggestions, setSearchSuggestions] = useState("");
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
 
   const [errors, setErrors] = useState({});
 
@@ -22,12 +21,17 @@ function SearchBar() {
 
   useEffect(() => {
     const suggestions = searchables.filter(searchable =>
-      searchable.toLowerCare().includes(search)
+      searchable.toLowerCase().includes(search) || searchable.toUpperCase().includes(search)
     )
     setSearchSuggestions(suggestions);
+    console.log("suggestions: ", suggestions)
     console.log("searchSuggestions: ", searchSuggestions)
 
   }, [search])
+
+  // const handleChange = (e) => {
+  //   setSearch(e.target.value)
+  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,6 +49,7 @@ function SearchBar() {
 
 
   return (
+    <>
     <form id="SearchBarForm" onSubmit={handleSubmit}>
 
         <label id="SearchBarLabel">
@@ -60,6 +65,13 @@ function SearchBar() {
       <button type="submit" id="SearchBarButton">submit
       </button>
     </form>
+
+    <ul id="SearchBarSuggestionsUl">
+       {/* {searchSuggestions.length !== 0 ? searchSuggestions.map(ele => <li key="key">{ele}</li>) : ""} */}
+    </ul>
+    </>
+
+
   )
 }
 

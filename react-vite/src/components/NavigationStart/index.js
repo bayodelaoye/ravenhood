@@ -1,3 +1,3 @@
-import Navigation from './Navigation';
+import NavigationStart from './NavigationStart';
 
-export default Navigation;
+export default NavigationStart;
