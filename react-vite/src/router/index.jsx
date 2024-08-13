@@ -3,11 +3,11 @@ import LoginFormPage from "../components/LoginFormPage";
 import SignupFormPage from "../components/SignupFormPage";
 import HomePage from "../components/HomePage";
 import Layout from "./Layout";
-
 import { stocksLoader, allLoader } from "../loaders";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
+import { createTransaction } from "../components/actions/transactions";
 import { stockDetailsLoader } from "../components/loaders/stocks";
 import StockDetailsPage from "../components/StockDetailsPage";
 
@@ -28,6 +28,7 @@ export const router = createBrowserRouter([
         path: "/stocks/:stockId",
         loader: stockDetailsLoader,
         element: <StockDetailsPage />,
+        action: createTransaction,
       },
       {
         path: "watchlist/:user_id/:watchlist_num",

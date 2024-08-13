@@ -129,6 +129,26 @@
   font-size: 25px;
 }
 
+.buy-sell {
+  width: 250px;
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.select-buy-sell {
+  margin-top: 20px;
+  height: 30px;
+}
+
+.slect-buy-sell:focus {
+  outline: 0;
+  border-color: var(--purple);
+  border-radius: 3px;
+}
+
 .shares-amount {
   display: flex;
   justify-content: space-between;
@@ -202,6 +222,18 @@
   transition: background-color 0.25s ease;
 }
 
+.transaction {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.transaction-btn {
+  width: 250px;
+}
+
 .sign-up-buy-btn:hover {
   border: none;
   background-color: var(--light-purple);
@@ -222,4 +254,12 @@
 .watch-list-btn:hover {
   cursor: pointer;
   background-color: var(--hover-purple);
+}
+
+.form-errors {
+  color: var(--errors);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding-top: 80px; */
 }
