@@ -4,33 +4,33 @@ import { thunkAuthenticate } from "../../redux/session";
 const store = configureStore();
 
 export const userPortfolios = async ({ params }) => {
-      await store.dispatch(thunkAuthenticate()); // making sure the user session state is up to date and not using the previous state
+  await store.dispatch(thunkAuthenticate()); // making sure the user session state is up to date and not using the previous state
 
-	const state = store.getState(); // getting the updated state
-      const currentUser = state.session.user;
-      // console.log(currentUser);
-      
-	const userId = params?.id || currentUser?.id;
+  const state = store.getState(); // getting the updated state
+  const currentUser = state.session.user;
+  // console.log(currentUser);
 
-	if (!userId) {
-		console.error("No user id available");
-		return null;
-	}
+  const userId = params?.id || currentUser?.id;
 
-	const response = await fetch(`/api/users/${userId}/portfolios`);
+  if (!userId) {
+    console.error("No user id available");
+    return null;
+  }
 
-	if (
-		response.ok &&
-		response.headers.get("content-type")?.includes("application/json")
-	) {
-		const userPortfolios = await response.json();
-		// console.log("HERE", userPortfolios);
+  const response = await fetch(`/api/users/${userId}/portfolios`);
 
-		return userPortfolios.portfolios;
-	} else {
-		console.error(
-			"Failed to fetch user portfolios or received non-JSON response",
-		);
-		return null;
-	}
+  if (
+    response.ok &&
+    response.headers.get("content-type")?.includes("application/json")
+  ) {
+    const userPortfolios = await response.json();
+    // console.log("HERE", userPortfolios);
+
+    return userPortfolios.portfolios;
+  } else {
+    console.error(
+      "Failed to fetch user portfolios or received non-JSON response"
+    );
+    return null;
+  }
 };
