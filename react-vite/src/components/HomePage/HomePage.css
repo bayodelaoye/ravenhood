@@ -14,7 +14,6 @@
 
 .nu-headers,
 .special-heading {
-	-webkit-text-decoration: unset;
 	text-decoration: unset;
 	-webkit-text-fill-color: transparent;
 	background: linear-gradient(
@@ -56,24 +55,14 @@
 }
 
 #section-2-nu-home {
--webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     background-image: linear-gradient(74.84deg, #4D3F72 18.12%, #8A7C9C 81.46%);
-    -webkit-background-size: cover;
     background-size: cover;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     font-size: 13px;
     height: 62px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
     justify-content: center;
     line-height: 18px;
     padding: 0px 25px;

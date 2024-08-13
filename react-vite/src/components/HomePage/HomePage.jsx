@@ -7,6 +7,7 @@ import LoginFormModal from "../LoginFormModal";
 import LimitationsModal from "./LimitationsModal";
 import { FaCircleInfo } from "react-icons/fa6";
 import Tilt from "react-parallax-tilt";
+import Footer from "../Footer";
 
 const HomePage = () => {
 	const sessionUser = useSelector((state) => state.session.user);
@@ -88,6 +89,7 @@ const HomePage = () => {
 							</a>{" "}
 						</p>
 					</div>
+					<Footer />
 				</>
 			)}
 			<Outlet />
