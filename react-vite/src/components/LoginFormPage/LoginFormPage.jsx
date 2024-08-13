@@ -6,14 +6,14 @@ import "./LoginForm.css";
 
 function LoginFormPage() {
   const navigate = useNavigate();
-  const allStocks = useLoaderData();
+//   const allStocks = useLoaderData();
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
-  console.log("here is all stocks", allStocks);
+//   console.log("here is all stocks", allStocks);
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
@@ -39,12 +39,12 @@ function LoginFormPage() {
       <h1>Log In</h1>
       {errors.length > 0 &&
         errors.map((message) => <p key={message}>{message}</p>)}
-      {allStocks.map((stock) => (
+      {/* {allStocks.map((stock) => (
         <div key={stock.id}>
           {stock.company_name}
           {stock.average_volume}
         </div>
-      ))}
+      ))} */}
       <form onSubmit={handleSubmit}>
         <label>
           Email

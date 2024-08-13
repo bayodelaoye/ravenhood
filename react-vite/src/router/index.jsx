@@ -1,16 +1,14 @@
-import { createBrowserRouter } from 'react-router-dom';
-import LoginFormPage from '../components/LoginFormPage';
-import SignupFormPage from '../components/SignupFormPage';
+import { createBrowserRouter } from "react-router-dom";
+import LoginFormPage from "../components/LoginFormPage";
+import SignupFormPage from "../components/SignupFormPage";
 import HomePage from "../components/HomePage";
-import Layout from './Layout';
-
-
-import { stocksLoader, allLoader } from "../loaders";
+import Layout from "./Layout";
+import { userPortfolios } from "../components/loaders/portfolios";
+import { modifyPortfolio } from "../components/actions/portfolios";
+import Portfolio from "../components/Portfolio";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
-import { stockDetailsLoader } from "../components/loaders/stocks";
-import StockDetailsPage from "../components/StockDetailsPage";
 
 
 export const router = createBrowserRouter([
@@ -18,7 +16,8 @@ export const router = createBrowserRouter([
 		element: <Layout />,
 		children: [
 			{
-				path: "/",
+                        path: "/",
+                        loader: userPortfolios,
 				element: <HomePage />,
 			},
 			{
@@ -28,16 +27,36 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "signup",
-				loader: allLoader,
 				element: <SignupFormPage />,
+			},
+			// {
+			// 	path: "users/:id/portfolios",
+			// 	loader: userPortfolios,
+			// 	element: <Portfolio />,
+			// },
+			{
+				path: "portfolios/new",
+				loader: userPortfolios,
+				element: <Portfolio />,
+				action: modifyPortfolio,
+			},
+			{
+				path: "portfolios/:id",
+				loader: userPortfolios,
+				element: <Portfolio />,
+			},
+			{
+				path: "portfolios/:id/cash",
+				loader: userPortfolios,
+				element: <Portfolio />,
+				action: modifyPortfolio,
 			},
 			{
 				path: "watchlist/:user_id/:watchlist_num",
 				loader: watchlistLoader,
 				element: <Watchlist />,
-				action: deleteWatchlist
-			}
-
+				action: deleteWatchlist,
+			},
 		],
 	},
 ]);
