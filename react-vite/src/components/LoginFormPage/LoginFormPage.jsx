@@ -47,7 +47,6 @@ function LoginFormPage() {
 			{errors.length > 0 &&
 				errors.map((message) => <p key={message}>{message}</p>)}
 
-<<<<<<< HEAD
   return (
     <>
       <h1>Log In</h1>
@@ -78,7 +77,6 @@ function LoginFormPage() {
       </form>
     </>
   );
-=======
 			<form onSubmit={handleSubmit}>
 				<label>
 					Email
@@ -104,7 +102,6 @@ function LoginFormPage() {
 			</form>
 		</>
 	);
->>>>>>> e12b0f4ca254589bd9c9f4f259f7790c719f7ca2
 }
 
 export default LoginFormPage;
