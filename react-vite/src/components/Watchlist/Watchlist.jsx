@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams, Form } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
@@ -40,9 +40,7 @@ const Watchlist = () => {
         }
     }
 
-    function deleteStockFromList(stockid) {
-        console.log(stockid)
-    }
+
 
     return (
         <div className="main-container">
@@ -111,7 +109,12 @@ const Watchlist = () => {
                                             </div>
                                         </div>
                                         <div className="stock-delete">
-                                            <p className="stock-link" onClick={() => deleteStockFromList(stock.id)}>X</p>
+                                            {/* DELETE USING ACTION */}
+                                            <Form method="put" action={`/watchlist/${user.id}/${currentWatchList.id}`}>
+                                                <button type="submit" className="stock-link">X</button>
+                                                <input type='hidden' name="stock_id" value={stock.id} />
+                                                <input type='hidden' name="watchlist_id" value={currentWatchList.id} />
+                                            </Form>
                                         </div>
                                     </div>
                                 ))

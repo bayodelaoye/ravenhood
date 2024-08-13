@@ -5,6 +5,7 @@ import Layout from "./Layout";
 import { stocksLoader, allLoader } from "../loaders";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
+import { deleteStock } from "../components/actions/watchLists";
 
 export const router = createBrowserRouter([
 	{
@@ -27,7 +28,8 @@ export const router = createBrowserRouter([
 			{
 				path: "watchlist/:user_id/:watchlist_num",
 				loader: watchlistLoader,
-				element: <Watchlist />
+				element: <Watchlist />,
+				action: deleteStock
 			}
 
 		],
