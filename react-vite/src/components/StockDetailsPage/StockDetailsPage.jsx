@@ -86,6 +86,141 @@ function StockDetailsPage() {
               ALL
             </div>
           </div>
+          <div className="stock-details">
+            <div className="about-company about-info-bold">
+              About {stockDetails.ticker_symbol}
+            </div>
+            <div className="company-description">
+              <p>
+                {stockDetails.description
+                  ? stockDetails.description
+                  : "Unavailable"}
+              </p>
+            </div>
+            <div className="company-info-container">
+              <div className="info-text">
+                <p className="about-info-bold">CEO</p>
+                <p>{stockDetails.ceo ? stockDetails.ceo : "Unavailable"}</p>
+              </div>
+              <div className="info-text">
+                <p className="about-info-bold">Employees</p>
+                <p>
+                  {stockDetails.employees
+                    ? stockDetails.employees
+                    : "Unavailable"}
+                </p>
+              </div>
+              <div className="info-text">
+                <p className="about-info-bold">Headquarters</p>
+                <p>
+                  {stockDetails.headquarters
+                    ? stockDetails.headquarters
+                    : "Unavailable"}
+                </p>
+              </div>
+              <div className="info-text">
+                <p className="about-info-bold">Founded</p>
+                <p>
+                  {stockDetails.founded ? stockDetails.founded : "Unavailable"}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="stock-details">
+            <div className="about-company about-info-bold">
+              {stockDetails.ticker_symbol} Key Statistics
+            </div>
+
+            <div className="company-info-container">
+              <div className="company-info-col">
+                <div className="info-text">
+                  <p className="about-info-bold">Market cap</p>
+                  <p>
+                    {stockDetails.market_cap_billions
+                      ? stockDetails.market_cap_billions
+                      : "Unavailable"}
+                  </p>
+                </div>
+                <div className="info-text">
+                  <p className="about-info-bold">High today</p>
+                  <p>
+                    {stockDetails.high_today
+                      ? stockDetails.high_today
+                      : "Unavailable"}
+                  </p>
+                </div>
+                <div className="info-text">
+                  <p className="about-info-bold">52 Week high</p>
+                  <p>
+                    {stockDetails.fifty_two_week_high
+                      ? stockDetails.fifty_two_week_high
+                      : "Unavailable"}
+                  </p>
+                </div>
+              </div>
+              <div className="company-info-col">
+                <div className="info-text">
+                  <p className="about-info-bold">Price-Earnings ratio</p>
+                  <p>
+                    {stockDetails.price_earnings_ratio
+                      ? stockDetails.price_earnings_ratio
+                      : "Unavailable"}
+                  </p>
+                </div>
+                <div className="info-text">
+                  <p className="about-info-bold">Low today</p>
+                  <p>
+                    {stockDetails.low_today
+                      ? stockDetails.low_today
+                      : "Unavailable"}
+                  </p>
+                </div>
+                <div className="info-text">
+                  <p className="about-info-bold">52 Week low</p>
+                  <p>
+                    {stockDetails.fifty_two_week_low
+                      ? stockDetails.fifty_two_week_low
+                      : "Unavailable"}
+                  </p>
+                </div>
+              </div>
+              <div className="company-info-col">
+                <div className="info-text">
+                  <p className="about-info-bold">Dividend yield</p>
+                  <p>
+                    {stockDetails.dividend_yield
+                      ? stockDetails.dividend_yield
+                      : "Unavailable"}
+                  </p>
+                </div>
+                <div className="info-text">
+                  <p className="about-info-bold">Open price</p>
+                  <p>
+                    {stockDetails.open_price
+                      ? stockDetails.open_price
+                      : "Unavailable"}
+                  </p>
+                </div>
+              </div>
+              <div className="company-info-col">
+                <div className="info-text">
+                  <p className="about-info-bold">Average volume</p>
+                  <p>
+                    {stockDetails.average_volume
+                      ? stockDetails.average_volume
+                      : "Unavailable"}
+                  </p>
+                </div>
+                <div className="info-text">
+                  <p className="about-info-bold">Volume</p>
+                  <p>
+                    {stockDetails.volume ? stockDetails.volume : "Unavailable"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="buy-sell-watch-container">
           <div className="buy-container">
