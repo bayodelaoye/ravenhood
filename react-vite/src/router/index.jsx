@@ -36,7 +36,35 @@ export const router = createBrowserRouter([
 				loader: watchlistLoader,
 				element: <Watchlist />,
 				action: deleteWatchlist
-			}
+			},
+			{
+				path: "/us",
+				children: [
+
+
+				],
+			},
+			{
+				path: "/creditcard",
+				element: <HomePage />,
+			},
+			{
+				path: "/gold",
+				element: <HomePage />,
+			},
+			{
+				path: "/learn",
+				element: <HomePage />,
+			},
+			{
+				path: "/news",
+				element: <HomePage />,
+			},
+			{
+				path: "/support",
+				element: <HomePage />,
+			},
+
 
 		],
 	},

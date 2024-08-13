@@ -74,6 +74,10 @@
   color: #BFC0C6;
 }
 
+.NavigationStartUlLiNavLink:active {
+  color: #4D4072;
+}
+
 
 /* =======================BUTTONS================================= */
 
