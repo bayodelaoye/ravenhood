@@ -1,4 +1,4 @@
-import { useLoaderData, Form, useFetcher } from "react-router-dom";
+import { useLoaderData, Form, useNavigate } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import "./StockDetailsPage.css";
 import { useEffect, useState } from "react";
@@ -15,6 +15,7 @@ function StockDetailsPage() {
   const [timeLineBtn, setTimeLineBtn] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const navigate = useNavigate();
   const currentUser = useSelector((state) => state.session.user);
   const listOfUserPortfolios = useSelector(
     (state) => state.portfolios?.userPortfolios?.portfolios
@@ -47,10 +48,8 @@ function StockDetailsPage() {
 
     if (portfolioType === "") errors.portfolio = "Must select a portfolio";
 
-    if (isNaN(Number(shares)) || shares === 0 || shares === "0") {
+    if (isNaN(Number(shares)) || shares === 0 || shares === "0")
       errors.shares = "Must input a valid number of shares";
-      console.log("Test");
-    }
 
     setFormErrors(errors);
   }, [dispatch, timeLineBtn, transactionType, shares, portfolioType]);
@@ -84,6 +83,8 @@ function StockDetailsPage() {
         const message = await response.json();
         return message;
       }
+
+      navigate(`/users/${portfolioType}`);
     }
   };
 

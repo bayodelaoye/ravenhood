@@ -203,6 +203,9 @@
   font-weight: 550;
 }
 
+.margin {
+  margin-bottom: 20px;
+}
 .how-to-buy {
   display: flex;
   flex-direction: column;
@@ -261,5 +264,4 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding-top: 80px; */
 }
