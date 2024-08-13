@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
 import "./SignupForm.css";
+import { useLoaderData } from "react-router-dom";
 
 function SignupFormModal() {
   const dispatch = useDispatch();
