@@ -1,12 +1,30 @@
 import { useLoaderData } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import "./StockDetailsPage.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LineGraph from "../LineGraph/LineGraph";
 
 function StockDetailsPage() {
   const stockDetails = useLoaderData();
   const [shares, setShares] = useState(0);
+  const [timeLineBtn, setTimeLineBtn] = useState("");
+
+  useEffect(() => {
+    if (timeLineBtn === "") {
+    } else {
+      const className = timeLineBtn.split(" ")[1];
+      const element = document.querySelector("." + className);
+      const timeLines = document.getElementsByClassName("time-line-btn");
+
+      for (let i = 0; i < timeLines.length; i++) {
+        if (timeLines[i].classList.contains("active")) {
+          timeLines[i].classList.remove("active");
+        }
+      }
+
+      element.classList.add("active");
+    }
+  }, [timeLineBtn]);
 
   return (
     <>
@@ -17,6 +35,57 @@ function StockDetailsPage() {
             <p>${stockDetails.current_price}</p>
           </div>
           <LineGraph stock={stockDetails} />
+          <div className="time-line">
+            <div
+              className="time-line-btn one-day"
+              value="one-day"
+              onClick={(e) => setTimeLineBtn(e.target.className)}
+            >
+              1D
+            </div>
+            <div
+              className="time-line-btn one-week"
+              onClick={(e) => setTimeLineBtn(e.target.className)}
+            >
+              1W
+            </div>
+            <div
+              className="time-line-btn one-month"
+              onClick={(e) => setTimeLineBtn(e.target.className)}
+            >
+              1M
+            </div>
+            <div
+              className="time-line-btn three-month active"
+              onClick={(e) => setTimeLineBtn(e.target.className)}
+            >
+              3M
+            </div>
+            <div
+              className="time-line-btn ytd"
+              onClick={(e) => setTimeLineBtn(e.target.className)}
+            >
+              YTD
+            </div>
+            <div
+              className="time-line-btn one-year"
+              onClick={(e) => setTimeLineBtn(e.target.className)}
+            >
+              1Y
+            </div>
+            <div
+              className="time-line-btn five-year"
+              onClick={(e) => setTimeLineBtn(e.target.className)}
+            >
+              5Y
+            </div>
+            <div
+              className="time-line-btn all"
+              onClick={(e) => setTimeLineBtn(e.target.className)}
+            >
+              ALL
+            </div>
+          </div>
         </div>
         <div className="buy-sell-watch-container">
           <div className="buy-container">

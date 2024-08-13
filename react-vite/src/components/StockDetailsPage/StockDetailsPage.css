@@ -27,6 +27,28 @@
   font-size: 28px;
 }
 
+.time-line {
+  display: flex;
+  gap: 10px;
+  letter-spacing: 3px;
+}
+
+.time-line-btn {
+  cursor: pointer;
+  font-weight: 550;
+}
+
+.time-line-btn:hover {
+  color: var(--base-green);
+  border-bottom: 2px solid var(--base-green);
+}
+
+.time-line-btn.active {
+  padding-bottom: 5px;
+  color: var(--base-green);
+  border-bottom: 2px solid var(--base-green);
+}
+
 .buy-sell-watch-container {
   display: flex;
   flex-direction: column;
