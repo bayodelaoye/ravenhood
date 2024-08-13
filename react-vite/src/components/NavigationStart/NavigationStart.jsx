@@ -35,13 +35,13 @@ function NavigationStart() {
           <li className="NavigationStartUlLi">
             <NavLink to="/" className="NavigationStartUlLiNavLink">US</NavLink>
           </li>
-          <li className="NavigationStartUlLi">
+          <li className="NavigationStartUlLi NavigationStartUlLiButtonLi">
             <p className="NavigationStartUlLiP">Log in
               <ProfileButton />
             </p>
 
           </li>
-          <li className="NavigationStartUlLi">
+          <li className="NavigationStartUlLi NavigationStartUlLiButtonLi">
             <p className="NavigationStartUlLiP">Log in
               <ProfileButton />
             </p>
