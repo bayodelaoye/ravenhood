@@ -74,3 +74,16 @@
     white-space: nowrap;
     overflow: hidden;
 }
+
+.hidden {
+    display: none;
+}
+
+.profile-dropdown {
+    background-color: white;
+    border: black solid 2px
+}
+
+.toggle-dropdown {
+    width: 10rem;
+}

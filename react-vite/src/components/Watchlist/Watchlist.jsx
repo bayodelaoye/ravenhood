@@ -2,13 +2,17 @@ import { useLoaderData, useNavigate, useParams, Form } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
+import ConfirmDeleteWatchlist from "./DeleteWatchlistModal";
+
 import { useState, useEffect, useRef } from "react";
+import { useModal } from "../../context/Modal";
 
 import './Watchlist.css'
+import ChangeWatchListName from "./ChangeListNameModal";
 
 
 const Watchlist = () => {
-
+    const navigate = useNavigate();
     // URL :user_id
     const { user_id, watchlist_num } = useParams()
     // Current session's user
@@ -16,9 +20,8 @@ const Watchlist = () => {
 
     // Validator - INVALID USER
     if (user_id != user.id) {
-        window.alert("Invalid permission!")
         return (
-            <h1>Invalid</h1>
+            <h1>INVALID PERMISSIONS</h1>
         )
     }
 
@@ -32,7 +35,7 @@ const Watchlist = () => {
     const totalStocks = Object.keys(currentWatchList.stocks).length
 
     //---------------------------------BEHAVIOR------------------------------------
-    const navigate = useNavigate();
+
 
     function toWatchlist(listid) {
         return () => {
@@ -40,6 +43,110 @@ const Watchlist = () => {
         }
     }
 
+
+
+
+    //---------------------------------DROP-DOWNS------------------------------------
+    const [showWatchlistDeleteMenu, setshowWatchlistDeleteMenu] = useState(false);
+
+    const ulRef = useRef();
+
+    const toggleWatchlistDeleteMenu = (e) => {
+        e.stopPropagation(); // Keep click from bubbling up to document and triggering closeMenu
+        setshowWatchlistDeleteMenu(!showWatchlistDeleteMenu);
+    };
+
+    useEffect(() => {
+        if (!showWatchlistDeleteMenu) return;
+
+        const closeMenu = (e) => {
+            if (ulRef.current && !ulRef.current.contains(e.target)) {
+                setshowWatchlistDeleteMenu(false);
+            }
+        };
+
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener("click", closeMenu);
+    }, [showWatchlistDeleteMenu]);
+
+    const watchlistdeleteUlClassName = "profile-dropdown" + (showWatchlistDeleteMenu ? "" : " hidden");
+
+    // ===================================================================================
+
+    const DropdownComponent = ({ title, value }) => {
+        const [isOpen, setIsOpen] = useState(false);
+        const ulRef = useRef();
+
+        const toggleWatchlistDeleteMenu = (e) => {
+            e.stopPropagation(); // Keep click from bubbling up to document and triggering closeMenu
+            setIsOpen(!isOpen);
+        };
+
+        useEffect(() => {
+            if (!isOpen) return;
+
+            const closeMenu = (e) => {
+                if (ulRef.current && !ulRef.current.contains(e.target)) {
+                    setIsOpen(false);
+                }
+            };
+
+            document.addEventListener('click', closeMenu);
+
+            return () => document.removeEventListener("click", closeMenu);
+        }, [isOpen]);
+
+        const toggleOpen = "toggle-dropdown" + (isOpen ? "" : " hidden");
+
+        return (
+            <div style={{ position: 'relative' }}>
+                <button onClick={toggleWatchlistDeleteMenu}>{title}</button>
+
+                <div ref={ulRef} className={toggleOpen} style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid black', zIndex: 1 }}>
+                    <p onClick={(e) => { e.stopPropagation(); handleChangeNameWatchList(value) }}>Edit List</p>
+                    <p type='submit' className="delete-watchlist-button" onClick={(e) => { e.stopPropagation(); handleDeleteWatchlist(value); }}>Delete List</p>
+                </div>
+
+            </div>
+        );
+    };
+
+
+    // ===================================================================================
+
+    //---------------------------------Modal------------------------------------
+    const { setModalContent, closeModal } = useModal();
+
+    const handleDeleteWatchlist = (watchlist) => {
+
+        setModalContent(
+            <div>
+                <ConfirmDeleteWatchlist
+                    onClose={closeModal}
+                    watchlist={watchlist}
+                    totalStocks={Object.keys(watchlist.stocks).length}
+                    user={user}
+                />
+            </div>
+        )
+
+    }
+
+    const handleChangeNameWatchList = (watchlist) => {
+        setModalContent(
+            <div>
+                <ChangeWatchListName
+                    onClose={closeModal}
+                    watchlist={watchlist}
+                    user={user}
+                />
+            </div>
+        )
+    }
+
+
+    //---------------------------------------------------------------------------
 
 
     return (
@@ -53,6 +160,11 @@ const Watchlist = () => {
                     <div className="watchlist-description">
                         <div className="watchlist-information">
                             <div className="watchlist-name">
+
+                                {/* <form>
+                                    <input type='text' value={currentWatchList.name}></input>
+                                </form>
+                                : <h2>{currentWatchList.name}</h2> */}
                                 <h2>{currentWatchList.name}</h2>
                             </div>
                             <div className="watchlist-totalstock">
@@ -64,7 +176,11 @@ const Watchlist = () => {
                                 <p>SORT DROPDOWN</p>
                             </div>
                             <div className="watchlist-delete">
-                                <p>DELETE ME</p>
+                                <button className="delete-watchlist-button" onClick={toggleWatchlistDeleteMenu}>...</button>
+
+                                <div className={watchlistdeleteUlClassName} ref={ulRef}>
+                                    <button type='submit' className="delete-watchlist-button" onClick={(e) => { e.stopPropagation(); handleDeleteWatchlist(currentWatchList); }}>Delete {currentWatchList.name}</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -111,7 +227,10 @@ const Watchlist = () => {
                                         <div className="stock-delete">
                                             {/* DELETE USING ACTION */}
                                             <Form method="put" action={`/watchlist/${user.id}/${currentWatchList.id}`}>
-                                                <button type="submit" className="stock-link">X</button>
+                                                <button type="submit"
+                                                    name='intent'
+                                                    value='delete-stock'
+                                                    className="stock-link">X</button>
                                                 <input type='hidden' name="stock_id" value={stock.id} />
                                                 <input type='hidden' name="watchlist_id" value={currentWatchList.id} />
                                             </Form>
@@ -138,9 +257,9 @@ const Watchlist = () => {
                                 className='row subwatchlist'
                                 id={`watchlist${list.id}`}
                                 key={`watchlist${list.id}`}
-                                onClick={toWatchlist(list.id)}
+
                             >
-                                <div className="subwatchlist-description row">
+                                <div className="subwatchlist-description row" onClick={toWatchlist(list.id)}>
                                     <div className="watchlist-icon">
                                         <p>💰</p>
                                     </div>
@@ -150,7 +269,8 @@ const Watchlist = () => {
                                 </div>
 
                                 <div className="subwatchlist-options">
-                                    <p>...</p>
+                                    <DropdownComponent key={list.id} id={list.id} value={list} title={"..."} />
+
                                 </div>
 
                             </div>
@@ -161,6 +281,8 @@ const Watchlist = () => {
         </div>
     );
 }
+
+
 
 
 export default Watchlist
