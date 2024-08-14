@@ -93,10 +93,14 @@ function StockDetailsPage() {
         return message;
       }
 
-      // navigate(`/users/${portfolioType}`);
       setFormErrors({
         "fetch-error": message["message"],
       });
+
+      if (Object.values(formErrors).length >= 1) {
+      } else {
+        // navigate(`/users/${portfolioType}`);
+      }
     }
   };
 
