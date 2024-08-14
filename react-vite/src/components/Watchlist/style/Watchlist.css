@@ -126,6 +126,7 @@
 
 .toggle-dropdown {
     width: max-content;
+    border-radius: 3px;
 }
 
 
