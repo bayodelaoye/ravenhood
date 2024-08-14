@@ -29,19 +29,19 @@ function NavigationStart() {
 
 
           <li className="NavigationStartUlLi">
-            <NavLink to="/" className="NavigationStartUlLiNavLink">Credit Card</NavLink>
+            <NavLink to="/creditcard" className="NavigationStartUlLiNavLink">Credit Card</NavLink>
           </li>
           <li className="NavigationStartUlLi">
-            <NavLink to="/" className="NavigationStartUlLiNavLink">Gold</NavLink>
+            <NavLink to="/gold" className="NavigationStartUlLiNavLink">Gold</NavLink>
           </li>
           <li className="NavigationStartUlLi">
-            <NavLink to="/" className="NavigationStartUlLiNavLink">Learn</NavLink>
+            <NavLink to="/learn" className="NavigationStartUlLiNavLink">Learn</NavLink>
           </li>
           <li className="NavigationStartUlLi">
-            <NavLink to="/" className="NavigationStartUlLiNavLink">Sherwood News</NavLink>
+            <NavLink to="/sherwoodnews" className="NavigationStartUlLiNavLink">Sherwood News</NavLink>
           </li>
           <li className="NavigationStartUlLi">
-            <NavLink to="/" className="NavigationStartUlLiNavLink">Support</NavLink>
+            <NavLink to="/support" className="NavigationStartUlLiNavLink">Support</NavLink>
           </li>
 
           <li className="NavigationStartUlLi">

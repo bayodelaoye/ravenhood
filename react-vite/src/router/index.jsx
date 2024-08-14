@@ -10,9 +10,25 @@ import Profile from "../components/Profile";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
+
 import { stockDetailsLoader } from "../components/loaders/stocks";
 import WatchlistAll from "../components/Watchlist/WatchlistUser_All";
 import StockDetailsPage from "../components/StockDetailsPage";
+import Invest from "../components/NavigationStart/Offerings/Invest.jsx";
+import Crypto from "../components/NavigationStart/Offerings/Crypto.jsx";
+import Retirement from "../components/NavigationStart/Offerings/Retirement.jsx";
+import Options from "../components/NavigationStart/Offerings/Options.jsx";
+import CreditCard from "../components/NavigationStart/Dummies/CreditCard.jsx";
+import Gold from "../components/NavigationStart/Dummies/Gold.jsx";
+import Learn from "../components/NavigationStart/Dummies/Learn.jsx";
+import SherwoodNews from "../components/NavigationStart/Dummies/SherwoodNews.jsx";
+import Support from "../components/NavigationStart/Dummies/Support.jsx";
+// import Rewards from "../components/Navigation/NavDummies/Rewards.jsx";
+// import Crypto2 from "../components/Navigation/NavDummies/Crypto2.jsx";
+// import Spending from "../components/Navigation/NavDummies/Spending.jsx";
+// import Retirement2 from "../components/Navigation/NavDummies/Retirement2.jsx";
+// import Notifications from "../components/Navigation/NavDummies/Notifications.jsx";
+
 
 export const router = createBrowserRouter([
 	{
@@ -65,36 +81,77 @@ export const router = createBrowserRouter([
 				loader: watchlistLoader,
 				action: deleteWatchlist,
 			},
+
+		// =============Not Loggedin aka NavigationStart=============
 			{
+				path: "/invest",
+				element: <Invest />,
+			},
+			{
+				path: "/crypto",
+				element: <Crypto />,
+			},
+			{
+				path: "/retirement",
+				element: <Retirement />,
+			},
+			{
+				path: "/options",
+				element: <Options />,
+			},
+            {
 				path: "/us",
-				children: [],
+				// children: [
+				// ],
 			},
 			{
 				path: "/creditcard",
-				element: <HomePage />,
+				element: <CreditCard />,
 			},
 			{
-				path: "/rewards",
-				element: <HomePage />,
+				path: "/gold",
+				element: <Gold />,
 			},
 			{
 				path: "/learn",
-				element: <HomePage />,
+				element: <Learn />,
 			},
 			{
-				path: "/news",
-				element: <HomePage />,
+				path: "/sherwoodnews",
+				element: <SherwoodNews />,
 			},
 			{
 				path: "/support",
-				element: <HomePage />,
+				element: <Support />,
 			},
+
+			// =============Loggedin aka Navigation=============
+			// {
+			// 	path: "/rewards",
+			// 	element: <Rewards />,
+			// },
+			// {
+			// 	path: "/crypto2",
+			// 	element: <Crypto2 />,
+			// },
+			// {
+			// 	path: "/spending",
+			// 	element: <Spending />,
+			// },
+			// {
+			// 	path: "/retirement2",
+			// 	element: <Retirement2 />,
+			// },
+			// {
+			// 	path: "/notifications",
+			// 	element: <Notifications />,
+			// },
 			{
 				path: "/stocks/:stockId",
 				loader: stockDetailsLoader,
 				element: <StockDetailsPage />,
 			},
-			{
+            {
 				path: "*",
 				element: (
 					<div>
@@ -105,7 +162,9 @@ export const router = createBrowserRouter([
 						</p>
 					</div>
 				),
-			},
+			}
+
+
 		],
 	},
 ]);
