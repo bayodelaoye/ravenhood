@@ -18,17 +18,19 @@ def new_portfolio():
     db.session.commit()
     return {"portfolio": new_portfolio.to_dict()}
 
-@portfolio_routes.route('/')
-@login_required
-def all_portfolios():
-    portfolios = Portfolio.query.all()
-    return {"portfolios": [portfolio.to_dict() for portfolio in portfolios]}
+# @portfolio_routes.route('/')
+# @login_required
+# def all_portfolios():
+#     portfolios = Portfolio.query.all()
+#     return {"portfolios": [portfolio.to_dict() for portfolio in portfolios]}
 
-@portfolio_routes.route('/<int:user_id>')
-@login_required
-def user_portfolios(user_id):
-    portfolios = Portfolio.query.filter(Portfolio.user_id==user_id).all()
-    return {"portfolios": [portfolio.to_dict() for portfolio in portfolios]}
+
+# needs to move to users in-order to use
+# @portfolio_routes.route('/<int:user_id>')
+# @login_required
+# def user_portfolios(user_id):
+#     portfolios = Portfolio.query.filter(Portfolio.user_id==user_id).all()
+#     return {"portfolios": [portfolio.to_dict() for portfolio in portfolios]}
 
 @portfolio_routes.route('/<int:id>', methods=['PUT'])
 @login_required

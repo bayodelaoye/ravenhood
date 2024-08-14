@@ -1,18 +1,20 @@
-import { createBrowserRouter } from 'react-router-dom';
-import LoginFormPage from '../components/LoginFormPage';
-import SignupFormPage from '../components/SignupFormPage';
+import { createBrowserRouter } from "react-router-dom";
+import LoginFormPage from "../components/LoginFormPage";
+import SignupFormPage from "../components/SignupFormPage";
 import HomePage from "../components/HomePage";
-import Layout from './Layout';
-
-
-import { stocksLoader, allLoader } from "../loaders";
+import Layout from "./Layout";
+import { userPortfolios } from "../components/loaders/portfolios";
+import { modifyPortfolio } from "../components/actions/portfolios";
+import Portfolio from "../components/Portfolio";
+import Profile from "../components/Profile";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
 import { stockDetailsLoader } from "../components/loaders/stocks";
-import StockDetailsPage from "../components/StockDetailsPage";
-import WatchlistAll from '../components/Watchlist/WatchlistUser_All';
-
+import StockDetailsPage from "../components/StockDetailsPage";import Invest from "../components/NavigationStart/Offerings/Invest.jsx";
+import Crypto from "../components/NavigationStart/Offerings/Crypto.jsx";
+import Retirement from "../components/NavigationStart/Offerings/Retirement.jsx";
+import Options from "../components/NavigationStart/Offerings/Options.jsx";
 
 
 
@@ -21,7 +23,8 @@ export const router = createBrowserRouter([
 		element: <Layout />,
 		children: [
 			{
-				path: "/",
+                path: "/",
+                loader: userPortfolios,
 				element: <HomePage />,
 			},
 			{
@@ -31,20 +34,47 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "signup",
-				loader: allLoader,
 				element: <SignupFormPage />,
 			},
+			// {
+			// 	path: "users/:id/portfolios",
+			// 	loader: userPortfolios,
+			// 	element: <Portfolio />,
+			// },
 			{
-				path: "watchlist/:watchlist_num",
+				path: "portfolios/new",
+				loader: userPortfolios,
+				element: <Portfolio />,
+				action: modifyPortfolio,
+			},
+			{
+				path: "portfolios/:id",
+				loader: userPortfolios,
+				element: <Portfolio />,
+			},
+			{
+				path: "portfolios/:id/cash",
+				loader: userPortfolios,
+				element: <Portfolio />,
+				action: modifyPortfolio,
+			},
+			{
+				path: "watchlist/:user_id/:watchlist_num",
 				loader: watchlistLoader,
 				element: <Watchlist />,
 				action: deleteWatchlist
 			},
 			{
-				path: "watchlist",
-				element: <WatchlistAll />,
-				loader: watchlistLoader,
-				action: deleteWatchlist
+				path: "/invest",
+				element: <Invest />,
+			},
+			{
+				path: "/crypto",
+				element: <Crypto />,
+			},
+			{
+				path: "/retirement",
+				element: <Retirement />,
 			},
 			{
 				path: '*',
@@ -55,6 +85,37 @@ export const router = createBrowserRouter([
 					</div>
 
 			}
+				path: "/options",
+				element: <Options />,
+			},
+			{
+				path: "/us",
+				children: [
+
+
+				],
+			},
+			{
+				path: "/creditcard",
+				element: <HomePage />,
+			},
+			{
+				path: "/gold",
+				element: <HomePage />,
+			},
+			{
+				path: "/learn",
+				element: <HomePage />,
+			},
+			{
+				path: "/news",
+				element: <HomePage />,
+			},
+			{
+				path: "/support",
+				element: <HomePage />,
+			},
+
 
 		],
 	},

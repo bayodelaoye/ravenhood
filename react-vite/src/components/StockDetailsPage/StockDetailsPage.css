@@ -1,6 +1,7 @@
 .stock-details-container {
   display: flex;
   justify-content: space-between;
+  margin-top: 50px;
 }
 
 .stock-info-container {
@@ -31,6 +32,7 @@
   display: flex;
   gap: 10px;
   letter-spacing: 3px;
+  color: var(--time-line);
 }
 
 .time-line-btn {
@@ -39,14 +41,14 @@
 }
 
 .time-line-btn:hover {
-  color: var(--base-green);
-  border-bottom: 2px solid var(--base-green);
+  color: var(--purple);
+  border-bottom: 2px solid var(--purple);
 }
 
 .time-line-btn.active {
   padding-bottom: 5px;
-  color: var(--base-green);
-  border-bottom: 2px solid var(--base-green);
+  color: var(--purple);
+  border-bottom: 2px solid var(--purple);
 }
 
 .stock-details {
@@ -127,6 +129,26 @@
   font-size: 25px;
 }
 
+.buy-sell {
+  width: 250px;
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.select-buy-sell {
+  margin-top: 20px;
+  height: 30px;
+}
+
+.slect-buy-sell:focus {
+  outline: 0;
+  border-color: var(--purple);
+  border-radius: 3px;
+}
+
 .shares-amount {
   display: flex;
   justify-content: space-between;
@@ -149,7 +171,7 @@
 
 .shares-input:focus {
   outline: 0;
-  border-color: var(--base-green);
+  border-color: var(--purple);
 }
 
 .market-price {
@@ -181,6 +203,10 @@
   font-weight: 550;
 }
 
+.errors-marging {
+  margin-bottom: 15px;
+}
+
 .how-to-buy {
   display: flex;
   flex-direction: column;
@@ -195,14 +221,26 @@
   border-radius: 25px;
   border: none;
   color: var(--white);
-  background-color: var(--base-green);
+  background-color: var(--purple);
   font-weight: 550;
   transition: background-color 0.25s ease;
 }
 
+.transaction {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.transaction-btn {
+  width: 250px;
+}
+
 .sign-up-buy-btn:hover {
   border: none;
-  background-color: var(--hover-green);
+  background-color: var(--light-purple);
   cursor: pointer;
 }
 
@@ -210,8 +248,8 @@
   margin-top: 20px;
   padding: 10px 20px;
   border-radius: 25px;
-  border: 1px solid var(--base-green);
-  color: var(--base-green);
+  border: 1px solid var(--purple);
+  color: var(--purple);
   background-color: var(--white);
   font-weight: 550;
   width: 250px;
@@ -219,5 +257,12 @@
 
 .watch-list-btn:hover {
   cursor: pointer;
-  background-color: var(--hover-light-green);
+  background-color: var(--hover-purple);
+}
+
+.form-errors {
+  color: var(--errors);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

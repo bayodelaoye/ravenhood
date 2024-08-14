@@ -21,7 +21,7 @@ def new_transaction():
 
     if transaction_dictionary['type'] == 'BUY':
         if portfolio.cash_balance < stock.current_price * transaction_dictionary['quantity']:
-            return {"message": "Insufficient balance to purchase shares of stock"}
+            return {"message": "Insufficient balance to purchase shares of stock"}, 403
         if stock not in portfolio.portfolio_portfolio_stocks:
                 portfolio.portfolio_portfolio_stocks.append(stock)
                 db.session.commit()        
@@ -36,7 +36,7 @@ def new_transaction():
             else:
                  amount_of_shares -= i.quantity
         if amount_of_shares < transaction_dictionary['quantity']:
-            return {"message": "Can't sell more than what's in your portfolio"}
+            return {"message": "Can't sell more than what's in your portfolio"}, 403
         else:
             portfolio.cash_balance += stock.current_price * transaction_dictionary['quantity']
             if amount_of_shares == transaction_dictionary['quantity']:

@@ -24,14 +24,10 @@ function SearchBar() {
       searchable.toLowerCase().includes(search) || searchable.toUpperCase().includes(search)
     )
     setSearchSuggestions(suggestions);
-    console.log("suggestions: ", suggestions)
-    console.log("searchSuggestions: ", searchSuggestions)
+//     console.log("suggestions: ", suggestions)
+//     console.log("searchSuggestions: ", searchSuggestions)
 
   }, [search])
-
-  // const handleChange = (e) => {
-  //   setSearch(e.target.value)
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,7 +63,7 @@ function SearchBar() {
     </form>
 
     <ul id="SearchBarSuggestionsUl">
-       {/* {searchSuggestions.length !== 0 ? searchSuggestions.map(ele => <li key="key">{ele}</li>) : ""} */}
+       {searchSuggestions.length !== 0 ? searchSuggestions.map(ele => <li key="key">{ele}</li>) : ""}
     </ul>
     </>
 

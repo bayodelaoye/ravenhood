@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import logo from './Logo/ravenhoodLogo.png';
+import ravenhoodLogoPurple from './Logo/ravenhoodLogoPurple.png';
 import SearchBar from "./SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
 // import * as searchActions from "../../spots"
@@ -21,8 +21,8 @@ const Navigation = ({isLoaded}) => {
     return(
      <header>
         <div id='logoAndSearchBarContainer'>
-        <a href="/">
-            <img id="logo" src={logo} alt="logo"></img>
+        <a href="">
+            <img id="logo" src={ravenhoodLogoPurple} alt="logo"></img>
         </a>
 
         <SearchBar />
