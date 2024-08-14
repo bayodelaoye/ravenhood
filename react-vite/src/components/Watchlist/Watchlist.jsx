@@ -34,9 +34,38 @@ const Watchlist = () => {
     const currentWatchList = watchlist[watchlist_num - 1]
     // Total amount of stocks in the current watchlist
     const totalStocks = Object.keys(currentWatchList.stocks).length
+    const [currentList, setCurrentList] = useState(currentWatchList.stocks);
+
+    useEffect(() => {
+        setCurrentList(currentWatchList.stocks)
+    }, [watchlist])
 
     //---------------------------------BEHAVIOR------------------------------------
 
+    const marketCapConversion = (marketprice_billion) => {
+        if (!marketprice_billion) {
+            return "N/A"
+        }
+        // Thousand
+        else if ((marketprice_billion / 1000) >= 1 && (marketprice_billion / 1000) < 1000) {
+            return `${(marketprice_billion / 1000).toFixed(2)}K`
+        }
+        // Million
+        else if ((marketprice_billion / 1000000) >= 1 && (marketprice_billion / 1000000) < 1000) {
+            return `${(marketprice_billion / 1000000).toFixed(2)}M`
+
+        }
+        // Billion
+        else if ((marketprice_billion / 1000000000) >= 1 && (marketprice_billion / 1000000000) < 1000) {
+            return `${(marketprice_billion / 1000000000).toFixed(2)}B`
+        }
+        // Trillion
+        else if ((marketprice_billion / 1000000000) >= 1 && (marketprice_billion / 1000000000000) < 1000) {
+            return `${(marketprice_billion / 1000000000).toFixed(2)}T`
+        }
+
+        return "NOT YET"
+    }
 
     function toWatchlist(listid) {
         return () => {
@@ -44,6 +73,48 @@ const Watchlist = () => {
         }
     }
 
+
+    const [currentFilter, setCurrentFilter] = useState("none")
+
+    function sortStock(filterby) {
+        let sorted;
+        console.log(currentFilter)
+        if (filterby === 'name' && currentFilter !== 'name' && currentFilter !== 'name-reverse') {
+            sorted = [...currentList].sort((a, b) => a.company_name.localeCompare(b.company_name))
+            setCurrentFilter('name')
+        } else if (filterby === 'name' && currentFilter === 'name') {
+            sorted = [...currentList].sort((a, b) => a.company_name.localeCompare(b.company_name)).reverse();
+            setCurrentFilter('name-reverse')
+        } else if (currentFilter.includes('reverse')) {
+            sorted = [...currentWatchList.stocks]
+            setCurrentFilter('none')
+        } else if (filterby === 'symbol' && currentFilter !== 'symbol' && currentFilter !== 'symbol-reverse') {
+            sorted = [...currentList].sort((a, b) => a.ticker_symbol.localeCompare(b.ticker_symbol))
+            setCurrentFilter('symbol');
+        } else if (filterby === 'symbol' && currentFilter === 'symbol') {
+            sorted = [...currentList].sort((a, b) => a.ticker_symbol.localeCompare(b.ticker_symbol)).reverse();
+            setCurrentFilter('symbol-reverse');
+        } else if (filterby === 'price' && currentFilter !== 'price' && currentFilter !== 'price-reverse') {
+            sorted = [...currentList].sort((a, b) => a.current_price - b.current_price)
+            setCurrentFilter('price');
+        } else if (filterby === 'price' && currentFilter === 'price') {
+            sorted = [...currentList].sort((a, b) => a.current_price - b.current_price).reverse();
+            setCurrentFilter('price-reverse');
+        } else if (filterby === 'marketcap' && currentFilter !== 'marketcap' && currentFilter !== 'marketcap-reverse') {
+            sorted = [...currentList].sort((a, b) => a.market_cap_billions - b.market_cap_billions)
+            setCurrentFilter('marketcap');
+        } else if (filterby === 'marketcap' && currentFilter === 'marketcap') {
+            sorted = [...currentList].sort((a, b) => a.market_cap_billions - b.market_cap_billions).reverse();
+            setCurrentFilter('marketcap-reverse');
+        }
+
+
+
+
+
+        setCurrentList(sorted);
+
+    }
 
 
 
@@ -112,7 +183,6 @@ const Watchlist = () => {
             </div>
         );
     };
-
 
     // ===================================================================================
 
@@ -200,24 +270,24 @@ const Watchlist = () => {
                     <div className="watchlist-stocks">
                         <div className="watchlist-stocks-headers-sort">
                             <div className="watchlist-sort-button-name">
-                                <button className="sort-button">Name</button>
+                                <button onClick={() => { sortStock("name") }} className="sort-button">Name</button>
                             </div>
                             <div className="watchlist-sort-button">
-                                <button className="sort-button">Symbol</button>
+                                <button onClick={() => sortStock('symbol')} className="sort-button">Symbol</button>
                             </div>
                             <div className="watchlist-sort-button">
-                                <button className="sort-button">Price</button>
+                                <button onClick={() => sortStock("price")} className="sort-button">Price</button>
                             </div>
-                            <div className="watchlist-sort-button">
+                            {/* <div className="watchlist-sort-button">
                                 <button className="sort-button">Today</button>
-                            </div>
+                            </div> */}
                             <div className="watchlist-sort-button">
-                                <button className="sort-button">Market Cap</button>
+                                <button onClick={() => sortStock('marketcap')} className="sort-button">Market Cap</button>
                             </div>
                         </div>
                         <div className="watchlist-stocks-details">
                             {
-                                currentWatchList.stocks.map((stock) => (
+                                currentList.map((stock) => (
                                     <div className="stock" id={`stock${stock.id}`} key={`stock${stock.id}`}>
                                         <div className="stock-information">
                                             <div className="stock-name">
@@ -229,11 +299,11 @@ const Watchlist = () => {
                                             <div className="stock-symbol">
                                                 <p className="stock-link">{stock.current_price}</p>
                                             </div>
-                                            <div className="stock-hightoday">
+                                            {/* <div className="stock-hightoday">
                                                 <p className="stock-link">HIGH TODAY %</p>
-                                            </div>
+                                            </div> */}
                                             <div className="stock-marketcap">
-                                                <p className="stock-link">{Math.round(stock.market_cap_billions / 1000000000) / 100}B</p>
+                                                <p className="stock-link">{marketCapConversion(stock.market_cap_billions)}</p>
                                             </div>
                                         </div>
                                         <div className="stock-delete">
