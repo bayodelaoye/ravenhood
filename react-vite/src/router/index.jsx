@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
 				element:
 					<div>
 						<h1>404 Page not found</h1>
-						<p>Not all those who wander are lost, but it seems you may have taken a wrong turn.</p>
+						<p>Not all those who wander are lost, but it seems you may have taken a wrong turn. 🙏</p>
 					</div>
 
 			}
