@@ -28,6 +28,12 @@ import Support from "../components/NavigationStart/Dummies/Support.jsx";
 // import Spending from "../components/Navigation/NavDummies/Spending.jsx";
 // import Retirement2 from "../components/Navigation/NavDummies/Retirement2.jsx";
 // import Notifications from "../components/Navigation/NavDummies/Notifications.jsx";
+import { stockDetailsLoader } from "../components/loaders/stocks";
+import StockDetailsPage from "../components/StockDetailsPage"; import Invest from "../components/NavigationStart/Offerings/Invest.jsx";
+import Crypto from "../components/NavigationStart/Offerings/Crypto.jsx";
+import Retirement from "../components/NavigationStart/Offerings/Retirement.jsx";
+import Options from "../components/NavigationStart/Offerings/Options.jsx";
+
 
 
 export const router = createBrowserRouter([
@@ -41,6 +47,7 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "login",
+				// loader: stocksLoader,
 				element: <LoginFormPage />,
 			},
 			{
@@ -52,6 +59,11 @@ export const router = createBrowserRouter([
 				loader: userPortfolios,
 				element: <Profile />,
 			},
+			// {
+			// 	path: "users/:id/portfolios",
+			// 	loader: userPortfolios,
+			// 	element: <Portfolio />,
+			// },
 			{
 				path: "portfolios/new",
 				loader: userPortfolios,
@@ -81,8 +93,6 @@ export const router = createBrowserRouter([
 				loader: watchlistLoader,
 				action: deleteWatchlist,
 			},
-
-			// =============Not Loggedin aka NavigationStart=============
 			{
 				path: "/invest",
 				element: <Invest />,
@@ -95,6 +105,7 @@ export const router = createBrowserRouter([
 				path: "/retirement",
 				element: <Retirement />,
 			},
+
 			{
 				path: "/options",
 				element: <Options />,
@@ -111,6 +122,7 @@ export const router = createBrowserRouter([
 			{
 				path: "/gold",
 				element: <Gold />,
+				element: <HomePage />,
 			},
 			{
 				path: "/learn",
