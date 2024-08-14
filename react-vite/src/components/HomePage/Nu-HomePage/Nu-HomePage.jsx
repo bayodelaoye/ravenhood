@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import Sparkles from "./Sparkle";
 import "./Nu-HomePage.css";
 import OpenModalButton from "../../OpenModalButton";
 import LoginFormModal from "../../LoginFormModal";
@@ -6,20 +6,28 @@ import LimitationsModal from "../LimitationsModal";
 import { FaCircleInfo } from "react-icons/fa6";
 import Tilt from "react-parallax-tilt";
 import Footer from "../../Footer";
+import feather from "../../Navigation/Logo/ravenhoodLogoPurpleSilver.ico";
 
 const NuHomePage = () => {
 	return (
 		<div id="home-page">
 			<div id="section-1-nu-home">
 				<div className="nu-headers">
-					<h3 id="platinum-heading">Ravenhood Platinum</h3>
+                              <h3 id="platinum-heading">
+                                    Ravenhood Platinum {" "}
+                                    <img src={feather} alt="ravenhood-logo" />
+                              </h3>
 				</div>
-				<div className="nu-headers">
-					<Tilt>
-						<h1 className="special-heading">Unlimited</h1>
-						<h1 className="special-heading">Deposit</h1>
-						<h1 className="special-heading">Boost</h1>
-					</Tilt>
+				<div className="sparkle-container">
+					<Sparkles>
+						<div className="nu-headers">
+							<Tilt>
+								<h1 className="special-heading">Unlimited</h1>
+								<h1 className="special-heading">Deposit</h1>
+								<h1 className="special-heading">Boost</h1>
+							</Tilt>
+						</div>
+					</Sparkles>
 				</div>
 				<div className="nu-headers">
 					<h2>Put in a buck or a billion.</h2>
@@ -85,7 +93,7 @@ const NuHomePage = () => {
 				</p>
 			</div>
 			<Footer />
-			<Outlet />
+			{/* <Outlet /> */}
 		</div>
 	);
 };

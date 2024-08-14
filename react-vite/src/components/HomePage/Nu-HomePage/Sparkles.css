@@ -1,0 +1,59 @@
+/* Animations */
+@keyframes comeInOut {
+	0% {
+		transform: scale(0);
+	}
+	50% {
+		transform: scale(1.5);
+	}
+	100% {
+		transform: scale(0);
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(180deg);
+	}
+}
+
+/* Scoped Wrapper styles */
+#section-1-nu-home .sparkles-wrapper {
+	display: inline-block;
+	position: relative;
+}
+
+/* Scoped SparkleWrapper styles */
+#section-1-nu-home .sparkle-wrapper {
+	position: absolute;
+	display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	#section-1-nu-home .sparkle-wrapper {
+		animation: comeInOut 700ms forwards;
+	}
+}
+
+/* Scoped SparkleSvg styles */
+#section-1-nu-home .sparkle-svg {
+	display: block;
+      width: 30px;
+      height: 30px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	#section-1-nu-home .sparkle-svg {
+		animation: spin 1000ms linear;
+	}
+}
+
+/* Scoped ChildWrapper styles */
+#section-1-nu-home .child-wrapper {
+	position: relative;
+	z-index: 1;
+	font-weight: bold;
+}
