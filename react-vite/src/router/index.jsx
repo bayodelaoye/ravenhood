@@ -10,10 +10,9 @@ import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
 import { stockDetailsLoader } from "../components/loaders/stocks";
-
-import WatchlistAll from '../components/Watchlist/WatchlistUser_All';
+import WatchlistAll from "../components/Watchlist/WatchlistUser_All";
 import StockDetailsPage from "../components/StockDetailsPage";
-
+import FlagDropdown from "../components/NavigationStart/FlagDropdown";
 
 export const router = createBrowserRouter([
   {
@@ -61,12 +60,12 @@ export const router = createBrowserRouter([
         element: <Watchlist />,
         action: deleteWatchlist,
       },
-	  {
-		path: "watchlist",
-		element: <WatchlistAll />,
-		loader: watchlistLoader,
-		action: deleteWatchlist
-	},
+      {
+        path: "watchlist",
+        element: <WatchlistAll />,
+        loader: watchlistLoader,
+        action: deleteWatchlist,
+      },
 
       {
         path: "/us",
@@ -97,15 +96,18 @@ export const router = createBrowserRouter([
         loader: stockDetailsLoader,
         element: <StockDetailsPage />,
       },
-	  {
-		path: '*',
-		element:
-			<div>
-				<h1>404 Page not found</h1>
-				<p>Not all those who wander are lost, but it seems you may have taken a wrong turn.</p>
-			</div>
-
-	},
+      {
+        path: "*",
+        element: (
+          <div>
+            <h1>404 Page not found</h1>
+            <p>
+              Not all those who wander are lost, but it seems you may have taken
+              a wrong turn.
+            </p>
+          </div>
+        ),
+      },
     ],
   },
 ]);
