@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate, useParams, Form } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams, Form, redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
@@ -7,29 +7,35 @@ import ConfirmDeleteWatchlist from "./DeleteWatchlistModal";
 import { useState, useEffect, useRef } from "react";
 import { useModal } from "../../context/Modal";
 
-import './Watchlist.css'
+import './style/Watchlist.css'
 import ChangeWatchListName from "./ChangeListNameModal";
 import CreateWatchList from "./CreateWatchlistModal";
+
 
 
 const Watchlist = () => {
     const navigate = useNavigate();
     // URL :user_id
-    const { user_id, watchlist_num } = useParams()
+    const { watchlist_num } = useParams()
     // Current session's user
     const user = useSelector((state) => state.session.user);
-
-    // Validator - INVALID USER
-    if (user_id != user.id) {
-        return (
-            <h1>INVALID PERMISSIONS</h1>
-        )
-    }
 
     //-----------------------------------DATA--------------------------------------
 
     // Grab User's Watchlist
     const watchlist = useLoaderData();
+
+    if (watchlist[watchlist_num - 1] === undefined) {
+        return (
+            <div>
+                <h1>404 Page not found</h1>
+                <p>Not all those who wander are lost, but it seems you may have taken a wrong turn.</p>
+
+                <button onClick={() => { navigate('/watchlist') }}>Go to your Watchlist</button>
+            </div>
+        )
+    }
+
     // Current page's watchlist
     const currentWatchList = watchlist[watchlist_num - 1]
     // Total amount of stocks in the current watchlist
@@ -69,7 +75,7 @@ const Watchlist = () => {
 
     function toWatchlist(listid) {
         return () => {
-            return navigate(`/watchlist/${user.id}/${listid}`)
+            return navigate(`/watchlist/${listid}`)
         }
     }
 
@@ -78,7 +84,6 @@ const Watchlist = () => {
 
     function sortStock(filterby) {
         let sorted;
-        console.log(currentFilter)
         if (filterby === 'name' && currentFilter !== 'name' && currentFilter !== 'name-reverse') {
             sorted = [...currentList].sort((a, b) => a.company_name.localeCompare(b.company_name))
             setCurrentFilter('name')
@@ -108,14 +113,13 @@ const Watchlist = () => {
             setCurrentFilter('marketcap-reverse');
         }
 
-
-
-
-
         setCurrentList(sorted);
 
     }
 
+    function redirectStock(stockid) {
+        return navigate(`/stocks/${stockid}`)
+    }
 
 
     //---------------------------------DROP-DOWNS------------------------------------
@@ -130,9 +134,8 @@ const Watchlist = () => {
 
     useEffect(() => {
         if (!showWatchlistDeleteMenu) return;
-
         const closeMenu = (e) => {
-            if (ulRef.current && !ulRef.current.contains(e.target)) {
+            if ((ulRef.current && !ulRef.current.contains(e.target))) {
                 setshowWatchlistDeleteMenu(false);
             }
         };
@@ -146,6 +149,7 @@ const Watchlist = () => {
 
     // ===================================================================================
 
+
     const DropdownComponent = ({ title, value }) => {
         const [isOpen, setIsOpen] = useState(false);
         const ulRef = useRef();
@@ -156,33 +160,44 @@ const Watchlist = () => {
         };
 
         useEffect(() => {
+            // console.log("CLOSEMENU: ", toggleButton, "\n", toggleOpen)
             if (!isOpen) return;
 
-            const closeMenu = (e) => {
-                if (ulRef.current && !ulRef.current.contains(e.target)) {
-                    setIsOpen(false);
-                }
+
+            const closeMenu = () => {
+                setIsOpen(false);
+
+                // e.target -> Mouse cursor current
+                // ulRef.current -> The window
+                // if (ulRef.current && !ulRef.current.contains(e.target)) {
+                //     console.log(ulRef.current)
+                //     setIsOpen(false);
+                // }
             };
 
             document.addEventListener('click', closeMenu);
 
-            return () => document.removeEventListener("click", closeMenu);
+
+            return () => {
+                document.removeEventListener("click", closeMenu)
+            };
         }, [isOpen]);
 
         const toggleOpen = "toggle-dropdown" + (isOpen ? "" : " hidden");
 
         return (
             <div style={{ position: 'relative' }}>
-                <button onClick={toggleWatchlistDeleteMenu}>{title}</button>
+                <button id={`toggler${value.name}`} className="dropdownToggler" onClick={toggleWatchlistDeleteMenu}>{title}</button>
 
                 <div ref={ulRef} className={toggleOpen} style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid black', zIndex: 1 }}>
                     <p onClick={(e) => { e.stopPropagation(); handleChangeNameWatchList(value) }}>Edit List</p>
-                    <p type='submit' className="delete-watchlist-button" onClick={(e) => { e.stopPropagation(); handleDeleteWatchlist(value); }}>Delete List</p>
+                    <p type='submit' className="delete-watchlist-button-sublist" onClick={(e) => { e.stopPropagation(); handleDeleteWatchlist(value); }}>Delete List</p>
                 </div>
 
             </div>
         );
     };
+
 
     // ===================================================================================
 
@@ -210,7 +225,6 @@ const Watchlist = () => {
                 <ChangeWatchListName
                     onClose={closeModal}
                     watchlist={watchlist}
-                    user={user}
                 />
             </div>
         )
@@ -221,7 +235,6 @@ const Watchlist = () => {
             <div>
                 <CreateWatchList
                     onClose={closeModal}
-                    user={user}
                     current={currentWatchList.id}
                 />
             </div>
@@ -233,7 +246,7 @@ const Watchlist = () => {
 
     return (
         <div className="main-container">
-            <div className="row">
+            <div className="row center gap">
                 <div className="main-watchlist">
                     <div className="icon">
                         <h2>💰</h2>
@@ -261,7 +274,8 @@ const Watchlist = () => {
                                 <button className="delete-watchlist-button" onClick={toggleWatchlistDeleteMenu}>...</button>
 
                                 <div className={watchlistdeleteUlClassName} ref={ulRef}>
-                                    <button type='submit' className="delete-watchlist-button" onClick={(e) => { e.stopPropagation(); handleDeleteWatchlist(currentWatchList); }}>Delete {currentWatchList.name}</button>
+                                    <button type='submit' className="delete-watchlist-button-confirm" onClick={(e) => { e.stopPropagation(); handleDeleteWatchlist(currentWatchList); }}>Delete {currentWatchList.name}</button>
+
                                 </div>
                             </div>
                         </div>
@@ -269,27 +283,35 @@ const Watchlist = () => {
 
                     <div className="watchlist-stocks">
                         <div className="watchlist-stocks-headers-sort">
-                            <div className="watchlist-sort-button-name">
-                                <button onClick={() => { sortStock("name") }} className="sort-button">Name</button>
+                            <div className="watchlist-sort-button name">
+                                <button onClick={() => { sortStock("name") }} className={`sort-button ${currentFilter.includes("name") ? "selected" : ""}`}>Name</button>
+                                <p> {currentFilter === 'name' ? "🔻" : ""}</p>
+                                <p> {currentFilter === 'name-reverse' ? "🔺" : ""}</p>
                             </div>
                             <div className="watchlist-sort-button">
-                                <button onClick={() => sortStock('symbol')} className="sort-button">Symbol</button>
+                                <button onClick={() => sortStock('symbol')} className={`sort-button ${currentFilter.includes("symbol") ? "selected" : ""}`}>Symbol</button>
+                                <p> {currentFilter === 'symbol' ? "🔻" : ""}</p>
+                                <p> {currentFilter === 'symbol-reverse' ? "🔺" : ""}</p>
                             </div>
                             <div className="watchlist-sort-button">
-                                <button onClick={() => sortStock("price")} className="sort-button">Price</button>
+                                <button onClick={() => sortStock("price")} className={`sort-button ${currentFilter.includes("price") ? "selected" : ""}`}>Price</button>
+                                <p> {currentFilter === 'price' ? "🔻" : ""}</p>
+                                <p> {currentFilter === 'price-reverse' ? "🔺" : ""}</p>
                             </div>
                             {/* <div className="watchlist-sort-button">
                                 <button className="sort-button">Today</button>
                             </div> */}
                             <div className="watchlist-sort-button">
-                                <button onClick={() => sortStock('marketcap')} className="sort-button">Market Cap</button>
+                                <button onClick={() => sortStock('marketcap')} className={`sort-button ${currentFilter.includes("marketcap") ? "selected" : ""}`}>Market Cap</button>
+                                <p> {currentFilter === 'marketcap' ? "🔻" : ""}</p>
+                                <p> {currentFilter === 'marketcap-reverse' ? "🔺" : ""}</p>
                             </div>
                         </div>
                         <div className="watchlist-stocks-details">
                             {
                                 currentList.map((stock) => (
                                     <div className="stock" id={`stock${stock.id}`} key={`stock${stock.id}`}>
-                                        <div className="stock-information">
+                                        <div onClick={() => redirectStock(stock.id)} className="stock-information">
                                             <div className="stock-name">
                                                 <p>{stock.company_name}</p>
                                             </div>
@@ -297,7 +319,7 @@ const Watchlist = () => {
                                                 <p className="stock-link">{stock.ticker_symbol}</p>
                                             </div>
                                             <div className="stock-symbol">
-                                                <p className="stock-link">{stock.current_price}</p>
+                                                <p className="stock-link">${stock.current_price}</p>
                                             </div>
                                             {/* <div className="stock-hightoday">
                                                 <p className="stock-link">HIGH TODAY %</p>
@@ -308,11 +330,11 @@ const Watchlist = () => {
                                         </div>
                                         <div className="stock-delete">
                                             {/* DELETE USING ACTION */}
-                                            <Form method="put" action={`/watchlist/${user.id}/${currentWatchList.id}`}>
+                                            <Form method="put" action={`/watchlist/${currentWatchList.id}`}>
                                                 <button type="submit"
                                                     name='intent'
                                                     value='delete-stock'
-                                                    className="stock-link">X</button>
+                                                    className="stock-link-delete">✖</button>
                                                 <input type='hidden' name="stock_id" value={stock.id} />
                                                 <input type='hidden' name="watchlist_id" value={currentWatchList.id} />
                                             </Form>
@@ -335,31 +357,33 @@ const Watchlist = () => {
                             </div>
                         </div>
                     </header>
-                    {
-                        watchlist.map((list) => (
-                            <div
-                                className='row subwatchlist'
-                                id={`watchlist${list.id}`}
-                                key={`watchlist${list.id}`}
+                    <div className="listofwatchlists ">
+                        {
+                            watchlist.map((list) => (
+                                <div
+                                    className='row subwatchlist'
+                                    id={`watchlist${list.id}`}
+                                    key={`watchlist${list.id}`}
 
-                            >
-                                <div className="subwatchlist-description row" onClick={toWatchlist(list.id)}>
-                                    <div className="watchlist-icon">
-                                        <p>💰</p>
+                                >
+                                    <div className="subwatchlist-description row" onClick={toWatchlist(list.id)}>
+                                        <div className="watchlist-icon">
+                                            <p>💰</p>
+                                        </div>
+                                        <div className="watchlist-name">
+                                            <p>{list.name}</p>
+                                        </div>
                                     </div>
-                                    <div className="watchlist-name">
-                                        <p>{list.name}</p>
+
+                                    <div className="subwatchlist-options">
+                                        <DropdownComponent key={list.id} id={list.id} value={list} title={"..."} />
+
                                     </div>
-                                </div>
-
-                                <div className="subwatchlist-options">
-                                    <DropdownComponent key={list.id} id={list.id} value={list} title={"..."} />
 
                                 </div>
-
-                            </div>
-                        ))
-                    }
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </div>

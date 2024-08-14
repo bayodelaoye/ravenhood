@@ -2,7 +2,7 @@ import { Form } from "react-router-dom";
 import { useState } from "react";
 
 
-const CreateWatchList = ({ onClose, current }) => {
+const CreateWatchListAll = ({ onClose }) => {
 
     const [watchlistName, setWatchlistName] = useState("")
 
@@ -10,7 +10,7 @@ const CreateWatchList = ({ onClose, current }) => {
         < div className="modalbox" >
             <button className="deleteClose" onClick={onClose}>X</button>
             <h2>Create List</h2>
-            <Form method="post" action={`/watchlist/${current}`} onSubmit={onClose}>
+            <Form method="post" action={`/watchlist/`} onSubmit={onClose}>
                 <input type='text' name="watchlistname" value={watchlistName} onChange={(e) => setWatchlistName(e.target.value)} />
                 <button
                     type="submit"
@@ -24,4 +24,4 @@ const CreateWatchList = ({ onClose, current }) => {
     );
 }
 
-export default CreateWatchList;
+export default CreateWatchListAll;
