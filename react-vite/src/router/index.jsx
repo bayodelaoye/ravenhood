@@ -11,7 +11,7 @@ import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
 import { stockDetailsLoader } from "../components/loaders/stocks";
-import StockDetailsPage from "../components/StockDetailsPage";import Invest from "../components/NavigationStart/Offerings/Invest.jsx";
+import StockDetailsPage from "../components/StockDetailsPage"; import Invest from "../components/NavigationStart/Offerings/Invest.jsx";
 import Crypto from "../components/NavigationStart/Offerings/Crypto.jsx";
 import Retirement from "../components/NavigationStart/Offerings/Retirement.jsx";
 import Options from "../components/NavigationStart/Offerings/Options.jsx";
@@ -23,8 +23,8 @@ export const router = createBrowserRouter([
 		element: <Layout />,
 		children: [
 			{
-                path: "/",
-                loader: userPortfolios,
+				path: "/",
+				loader: userPortfolios,
 				element: <HomePage />,
 			},
 			{
@@ -59,9 +59,15 @@ export const router = createBrowserRouter([
 				action: modifyPortfolio,
 			},
 			{
-				path: "watchlist/:user_id/:watchlist_num",
+				path: "watchlist/:watchlist_num",
 				loader: watchlistLoader,
 				element: <Watchlist />,
+				action: deleteWatchlist
+			},
+			{
+				path: "watchlist",
+				element: <WatchlistAll />,
+				loader: watchlistLoader,
 				action: deleteWatchlist
 			},
 			{
@@ -84,7 +90,8 @@ export const router = createBrowserRouter([
 						<p>Not all those who wander are lost, but it seems you may have taken a wrong turn. 🙏</p>
 					</div>
 
-			}
+			},
+			{
 				path: "/options",
 				element: <Options />,
 			},
