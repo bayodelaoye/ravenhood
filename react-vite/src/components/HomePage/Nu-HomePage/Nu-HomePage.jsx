@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import Sparkles from "./Sparkle";
 import "./Nu-HomePage.css";
 import OpenModalButton from "../../OpenModalButton";
@@ -13,10 +14,9 @@ const NuHomePage = () => {
 		<div id="home-page">
 			<div id="section-1-nu-home">
 				<div className="nu-headers">
-                              <h3 id="platinum-heading">
-                                    Ravenhood Platinum {" "}
-                                    <img src={feather} alt="ravenhood-logo" />
-                              </h3>
+					<h3 id="platinum-heading">
+						Ravenhood Platinum <img src={feather} alt="ravenhood-logo" />
+					</h3>
 				</div>
 				<div className="sparkle-container">
 					<Sparkles>
@@ -93,7 +93,7 @@ const NuHomePage = () => {
 				</p>
 			</div>
 			<Footer />
-			{/* <Outlet /> */}
+			<Outlet />
 		</div>
 	);
 };

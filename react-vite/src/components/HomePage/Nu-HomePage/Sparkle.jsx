@@ -1,16 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import "./Sparkles.css";
 
-// Constants and Utility Functions
 const DEFAULT_COLOR = "#4D3F72";
 
 const QUERY = "(prefers-reduced-motion: no-preference)";
 const isRenderingOnServer = typeof window === "undefined";
 const getInitialState = () => {
-	// For our initial server render, we won't know if the user
-	// prefers reduced motion, but it doesn't matter. This value
-	// will be overwritten on the client, before any animations
-	// occur.
 	return isRenderingOnServer ? true : !window.matchMedia(QUERY).matches;
 };
 
@@ -29,7 +24,6 @@ const generateSparkle = (color) => {
 
 const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-// Custom Hooks
 function usePrefersReducedMotion() {
 	const [prefersReducedMotion, setPrefersReducedMotion] =
 		useState(getInitialState);
@@ -87,7 +81,6 @@ const useRandomInterval = (callback, minDelay, maxDelay) => {
 	return cancel;
 };
 
-// Sparkles Component
 const Sparkles = ({ color = DEFAULT_COLOR, children, ...delegated }) => {
 	const range = (start, end, step = 1) => {
 		let output = [];
