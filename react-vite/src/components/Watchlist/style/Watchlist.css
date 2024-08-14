@@ -27,7 +27,7 @@
 .watchlist-stocks-headers-sort {
     display: flex;
     flex-direction: row;
-    border-bottom: 2px lightgray solid;
+    border-bottom: 2px #DFE0E5 solid;
     padding-bottom: .5rem;
     margin-bottom: .5rem;
 }
@@ -40,7 +40,7 @@
 
 .stock-information:hover {
     cursor: pointer;
-    background-color: lightgray;
+    background-color: #C8CBCD;
 }
 
 .center {
@@ -140,7 +140,7 @@
 }
 
 .sort-button:hover {
-    color: lightgreen;
+    color: #8A7C9C;
     text-decoration: underline;
 }
 
@@ -222,7 +222,7 @@
 
 .delete-watchlist-button-confirm:hover {
     cursor: pointer;
-    color: lightgreen
+    color: #8A7C9C
 }
 
 body {
