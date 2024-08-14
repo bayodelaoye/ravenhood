@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import SignupButton from "./SignupButton";
@@ -5,6 +6,11 @@ import ravenhoodLogoSilver from "../Navigation/Logo/ravenhoodLogoSilver.png"
 import "./NavigationStart.css";
 
 function NavigationStart() {
+
+  const flags = {"US": "🇺🇸", "UK": "🇬🇧", "EU": "🇪🇺"};
+  const [flag, setFlag] = useState("🇺🇸")
+
+
   return (
     <>
       <header id='NavigationStartHeader'>
@@ -35,7 +41,7 @@ function NavigationStart() {
             <NavLink to="/" className="NavigationStartUlLiNavLink">Support</NavLink>
           </li>
           <li className="NavigationStartUlLi">
-            <NavLink to="/" className="NavigationStartUlLiNavLink">US</NavLink>
+            <NavLink to="/" className="NavigationStartUlLiNavLink">{flag}US</NavLink>
           </li>
           <li className="NavigationStartUlLi NavigationStartUlLiButtonLi">
             <LoginButton />

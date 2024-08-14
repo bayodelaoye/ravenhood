@@ -5,15 +5,6 @@ import { Navigate, useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 
 function LoginFormPage() {
-<<<<<<< HEAD
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({});
-
-=======
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const sessionUser = useSelector((state) => state.session.user);
@@ -22,7 +13,6 @@ function LoginFormPage() {
 	const [errors, setErrors] = useState({});
 
 	if (sessionUser) return <Navigate to="/" replace={true} />;
->>>>>>> e12b0f4ca254589bd9c9f4f259f7790c719f7ca2
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
