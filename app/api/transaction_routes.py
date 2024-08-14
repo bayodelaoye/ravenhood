@@ -36,7 +36,7 @@ def new_transaction():
             else:
                  amount_of_shares -= i.quantity
         if amount_of_shares < transaction_dictionary['quantity']:
-            return {"message": "Can't sell more than what's in your portfolio"}
+            return {"message": "Can't sell more than what's in your portfolio"}, 403
         else:
             portfolio.cash_balance += stock.current_price * transaction_dictionary['quantity']
             if amount_of_shares == transaction_dictionary['quantity']:
