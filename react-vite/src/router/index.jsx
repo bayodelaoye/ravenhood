@@ -22,18 +22,17 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "login",
-				// loader: stocksLoader,
 				element: <LoginFormPage />,
 			},
 			{
 				path: "signup",
 				element: <SignupFormPage />,
 			},
-			// {
-			// 	path: "users/:id/portfolios",
-			// 	loader: userPortfolios,
-			// 	element: <Portfolio />,
-			// },
+			{
+				path: "users/:id/portfolios",
+				loader: userPortfolios,
+				element: <Portfolio />,
+			},
 			{
 				path: "portfolios/new",
 				loader: userPortfolios,

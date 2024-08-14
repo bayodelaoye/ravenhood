@@ -67,7 +67,7 @@ function SearchBar() {
     </form>
 
     <ul id="SearchBarSuggestionsUl">
-       {/* {searchSuggestions.length !== 0 ? searchSuggestions.map(ele => <li key="key">{ele}</li>) : ""} */}
+       {searchSuggestions.length !== 0 ? searchSuggestions.map(ele => <li key="key">{ele}</li>) : ""}
     </ul>
     </>
 

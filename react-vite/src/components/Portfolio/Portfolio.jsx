@@ -1,28 +1,34 @@
-import { useLoaderData} from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { BsStars } from "react-icons/bs";
 
 const Portfolio = () => {
-	const allPortfolios = useLoaderData();
-      const currentUser = useSelector((state) => state.session.user);
-      // const portfolioDetails = useLoaderData();
+	const userPortfolio = useLoaderData();
+	const currentUser = useSelector((state) => state.session.user);
+      const stockDetails = userPortfolio.map((portfolio) => portfolio.stocks)
 
-      // console.log("check", portfolioDetails);
+      console.log("user portfolio", userPortfolio);
+      console.log("stock details", stockDetails);
       
 
-	// // console.log("current user", currentUser);
-	// console.log("portfolios", allPortfolios);
-
-	if (allPortfolios === null) {
+	if (userPortfolio === null) {
 		return <div>Error loading portfolios. Please try again later.</div>;
 	}
 
 	return (
-		<div id="port">
+		<div id="user-portfolio-home">
 			{currentUser ? (
-				// Render the portfolios or relevant content here
-				<div>
-					{allPortfolios.map((portfolio) => (
-						<div key={portfolio.id}>{portfolio.portfolio_name}</div>
+				<div id="user-portfolio">
+					<div id="try-platinum">
+						<button>
+							<BsStars />
+							Try Platinum
+						</button>
+					</div>
+					{userPortfolio.map((portfolio) => (
+						<div key={portfolio.id} id="user-portfolio-small-deets">
+							${portfolio.total_amount}
+						</div>
 					))}
 				</div>
 			) : (
