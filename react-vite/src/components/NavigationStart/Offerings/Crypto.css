@@ -1,0 +1,29 @@
+#CryptoMain{
+    height: 2000px;
+    width: 2000px;
+    text-align: center;
+    background-color: black;
+
+}
+
+/* background-color: black;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-family: "Lato", sans-serif;
+color: #c8cbcd;
+gap: 50px;
+padding: 25px 50px 70px 50px; */
+
+
+#CryptoH1{
+    color: linear-gradient(
+		270deg,
+		#4d3f72 2.68%,
+		#c8cbcd 104.69%,
+		#dfe0e5 61.25%
+	);
+    font-size: xx-large;
+    text-align: center;
+}
