@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import { userPortfolios } from "../components/loaders/portfolios";
 import { modifyPortfolio } from "../components/actions/portfolios";
 import Portfolio from "../components/Portfolio";
+import Profile from "../components/Profile";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
@@ -29,9 +30,9 @@ export const router = createBrowserRouter([
 				element: <SignupFormPage />,
 			},
 			{
-				path: "users/:id/portfolios",
+				path: "profile/portfolios",
 				loader: userPortfolios,
-				element: <Portfolio />,
+				element: <Profile />,
 			},
 			{
 				path: "portfolios/new",
@@ -68,7 +69,7 @@ export const router = createBrowserRouter([
 				element: <HomePage />,
 			},
 			{
-				path: "/gold",
+				path: "/rewards",
 				element: <HomePage />,
 			},
 			{
