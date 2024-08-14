@@ -11,14 +11,13 @@ import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
 
-
 export const router = createBrowserRouter([
 	{
 		element: <Layout />,
 		children: [
 			{
-                        path: "/",
-                        loader: userPortfolios,
+				path: "/",
+				loader: userPortfolios,
 				element: <HomePage />,
 			},
 			{
@@ -55,14 +54,11 @@ export const router = createBrowserRouter([
 				path: "watchlist/:user_id/:watchlist_num",
 				loader: watchlistLoader,
 				element: <Watchlist />,
-				action: deleteWatchlist
+				action: deleteWatchlist,
 			},
 			{
 				path: "/us",
-				children: [
-
-
-				],
+				children: [],
 			},
 			{
 				path: "/creditcard",
@@ -84,8 +80,6 @@ export const router = createBrowserRouter([
 				path: "/support",
 				element: <HomePage />,
 			},
-
-
 		],
 	},
 ]);
