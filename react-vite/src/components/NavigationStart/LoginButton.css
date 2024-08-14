@@ -4,6 +4,7 @@
     border: 1px white solid;
     border-radius: 25px;
     background-color: transparent;
+    text-wrap: nowrap;
 }
 
 #NavigationStartButtonLogin:hover{

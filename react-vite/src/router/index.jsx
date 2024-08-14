@@ -10,7 +10,8 @@ import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
 import { stockDetailsLoader } from "../components/loaders/stocks";
-import StockDetailsPage from "../components/StockDetailsPage";
+import StockDetailsPage from "../components/StockDetailsPage";import FlagDropdown from "../components/NavigationStart/FlagDropdown"
+
 
 export const router = createBrowserRouter([
   {

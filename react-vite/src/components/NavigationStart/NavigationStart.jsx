@@ -1,10 +1,16 @@
 import { NavLink } from "react-router-dom";
+import ravenhoodLogoSilver from "../Navigation/Logo/ravenhoodLogoSilver.png"
+import WhatWeOfferDropdown from "./WhatWeOfferDropdown";
+import FlagDropdown from "./FlagDropdown";
 import LoginButton from "./LoginButton";
 import SignupButton from "./SignupButton";
-import ravenhoodLogoSilver from "../Navigation/Logo/ravenhoodLogoSilver.png"
 import "./NavigationStart.css";
 
+
 function NavigationStart() {
+
+
+
   return (
     <>
       <header id='NavigationStartHeader'>
@@ -16,9 +22,12 @@ function NavigationStart() {
         </NavLink>
 
         <ul id="NavigationStartUl">
+
           <li className="NavigationStartUlLi">
-            <NavLink to="/" className="NavigationStartUlLiNavLink">What We Offer</NavLink>
+            <WhatWeOfferDropdown />
           </li>
+
+
           <li className="NavigationStartUlLi">
             <NavLink to="/" className="NavigationStartUlLiNavLink">Credit Card</NavLink>
           </li>
@@ -34,9 +43,11 @@ function NavigationStart() {
           <li className="NavigationStartUlLi">
             <NavLink to="/" className="NavigationStartUlLiNavLink">Support</NavLink>
           </li>
+
           <li className="NavigationStartUlLi">
-            <NavLink to="/" className="NavigationStartUlLiNavLink">US</NavLink>
+              <FlagDropdown />
           </li>
+
           <li className="NavigationStartUlLi NavigationStartUlLiButtonLi">
             <LoginButton />
           </li>

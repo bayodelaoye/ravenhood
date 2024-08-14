@@ -68,6 +68,7 @@
 .NavigationStartUlLiNavLink{
   font-size: large;
   color: white;
+  text-wrap: nowrap;
 }
 
 .NavigationStartUlLiNavLink:hover {
