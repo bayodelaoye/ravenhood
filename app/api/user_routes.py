@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import User, Portfolio
 
 user_routes = Blueprint("users", __name__)
@@ -22,6 +22,7 @@ def user(id):
     Query for a user by id and returns that user in a dictionary
     """
     user = User.query.get(id)
+    # return user.to_dict_with_portfolios_and_watch_lists()
     return user.to_dict_with_portfolios_and_watch_lists()
 
 
@@ -30,3 +31,15 @@ def user(id):
 def user_portfolios(id):
     portfolios = Portfolio.query.filter(Portfolio.user_id == id).all()
     return {"portfolios": [portfolio.to_dict() for portfolio in portfolios]}
+
+@user_routes.route("/transactions")
+@login_required
+def user_transactions():
+    transactions_list= []
+    user = User.query.get(current_user.get_id())
+    portfolio_list = {"portfolios": [all_portfolios.to_dict_with_transactions() for all_portfolios in user.portfolios]}
+    
+    for i in portfolio_list['portfolios']:
+        [transactions_list.append(j) for j in i['transactions']]
+
+    return transactions_list

@@ -73,6 +73,6 @@ class User(db.Model, UserMixin):
             "ssn": self.ssn,
             "birthday": self.birthday,
             "citizenship": self.citizenship,
-            "portfolios": [portfolio.to_dict_with_stocks() for portfolio in self.portfolios],
+            "portfolios": [portfolio.to_dict_with_transactions() for portfolio in self.portfolios],
             "watch_list": [watch_list.to_dict_with_stocks() for watch_list in self.watch_lists]
         }

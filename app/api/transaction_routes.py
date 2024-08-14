@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import Transaction, db, Portfolio, Stock
 from datetime import datetime
 
@@ -60,10 +60,4 @@ def new_transaction():
 @login_required
 def all_transaction():
     transactions = Transaction.query.all()
-    return {"transactions": [transaction.to_dict() for transaction in transactions]}
-
-@transaction_routes.route('/<int:portfolio_id>')
-@login_required
-def portfolio_transactions(portfolio_id):
-    transactions = Transaction.query.filter(Transaction.portfolio_id==portfolio_id).all()
     return {"transactions": [transaction.to_dict() for transaction in transactions]}

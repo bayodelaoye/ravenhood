@@ -99,7 +99,7 @@ function StockDetailsPage() {
 
       if (Object.values(formErrors).length >= 1) {
       } else {
-        // navigate(`/users/${portfolioType}`);
+        navigate(`/users/transactions`);
       }
     }
   };
