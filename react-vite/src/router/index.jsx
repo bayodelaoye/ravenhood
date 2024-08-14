@@ -1,9 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import LoginFormPage from "../components/LoginFormPage";
 import SignupFormPage from "../components/SignupFormPage";
-import { createBrowserRouter } from "react-router-dom";
-import LoginFormPage from "../components/LoginFormPage";
-import SignupFormPage from "../components/SignupFormPage";
 import HomePage from "../components/HomePage";
 import Layout from "./Layout";
 import { userPortfolios } from "../components/loaders/portfolios";
@@ -12,6 +9,8 @@ import Portfolio from "../components/Portfolio";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
+import { stockDetailsLoader } from "../components/loaders/stocks";
+import StockDetailsPage from "../components/StockDetailsPage";
 
 export const router = createBrowserRouter([
   {
@@ -82,6 +81,11 @@ export const router = createBrowserRouter([
       {
         path: "/support",
         element: <HomePage />,
+      },
+      {
+        path: "/stocks/:stockId",
+        loader: stockDetailsLoader,
+        element: <StockDetailsPage />,
       },
     ],
   },

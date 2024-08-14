@@ -23,7 +23,7 @@ function StockDetailsPage() {
 
   useEffect(() => {
     const dispathUserPortfolios = async () => {
-      await dispatch(userPortfolios(currentUser.id));
+      await dispatch(userPortfolios(currentUser?.id));
     };
     dispathUserPortfolios();
 
@@ -319,8 +319,8 @@ function StockDetailsPage() {
                     </option>
                     {listOfUserPortfolios?.map((portfolio, id) => {
                       return (
-                        <option value={portfolio.id} key={id}>
-                          {portfolio.portfolio_name}
+                        <option value={portfolio?.id} key={id}>
+                          {portfolio?.portfolio_name}
                         </option>
                       );
                     })}
