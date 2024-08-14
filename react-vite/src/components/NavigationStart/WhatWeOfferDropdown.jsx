@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./WhatWeOfferDropdown.css"
 
 
 function WhatWeOfferDropdown() {
+
+ const navigate = useNavigate();
 
  const options = [
  { value: "What We Offer", label: "What We Offer" },
@@ -18,6 +21,24 @@ function WhatWeOfferDropdown() {
 
         setSelectedOfferValue(selectedOfferValue);
         console.log("selectedOfferValue: ", selectedOfferValue)
+
+        switch (selectedOfferValue) {
+         case "What We Offer":
+            navigate('/');
+            break;
+         case "Invest":
+            navigate('/invest');
+            break;
+         case "Crypto":
+            navigate('/crypto');
+            break;
+         case "Retirement":
+            navigate('/retirement');
+            break;
+         case "Options":
+            navigate('/options');
+            break;
+        }
 
  }, [selectedOfferValue])
 

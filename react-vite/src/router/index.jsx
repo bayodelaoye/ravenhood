@@ -9,7 +9,11 @@ import Portfolio from "../components/Portfolio";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
-import FlagDropdown from "../components/NavigationStart/FlagDropdown"
+import Invest from "../components/NavigationStart/Offerings/Invest.jsx";
+import Crypto from "../components/NavigationStart/Offerings/Crypto.jsx";
+import Retirement from "../components/NavigationStart/Offerings/Retirement.jsx";
+import Options from "../components/NavigationStart/Offerings/Options.jsx";
+
 
 
 export const router = createBrowserRouter([
@@ -20,11 +24,6 @@ export const router = createBrowserRouter([
                 path: "/",
                 loader: userPortfolios,
 				element: <HomePage />,
-			},
-			{
-				path: "dropdown",
-				// loader: stocksLoader,
-				element: <FlagDropdown />,
 			},
 			{
 				path: "login",
@@ -62,6 +61,22 @@ export const router = createBrowserRouter([
 				loader: watchlistLoader,
 				element: <Watchlist />,
 				action: deleteWatchlist
+			},
+			{
+				path: "/invest",
+				element: <Invest />,
+			},
+			{
+				path: "/crypto",
+				element: <Crypto />,
+			},
+			{
+				path: "/retirement",
+				element: <Retirement />,
+			},
+			{
+				path: "/options",
+				element: <Options />,
 			},
 			{
 				path: "/us",
