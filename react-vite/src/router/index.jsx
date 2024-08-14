@@ -18,11 +18,11 @@ import Gold from "../components/NavigationStart/Dummies/Gold.jsx";
 import Learn from "../components/NavigationStart/Dummies/Learn.jsx";
 import SherwoodNews from "../components/NavigationStart/Dummies/SherwoodNews.jsx";
 import Support from "../components/NavigationStart/Dummies/Support.jsx";
-import Rewards from "../components/Navigation/NavDummies/Rewards.jsx";
-import Crypto2 from "../components/Navigation/NavDummies/Crypto2.jsx";
-import Spending from "../components/Navigation/NavDummies/Spending.jsx";
-import Retirement2 from "../components/Navigation/NavDummies/Retirement2.jsx";
-import Notifications from "../components/Navigation/NavDummies/Notifications.jsx";
+// import Rewards from "../components/Navigation/NavDummies/Rewards.jsx";
+// import Crypto2 from "../components/Navigation/NavDummies/Crypto2.jsx";
+// import Spending from "../components/Navigation/NavDummies/Spending.jsx";
+// import Retirement2 from "../components/Navigation/NavDummies/Retirement2.jsx";
+// import Notifications from "../components/Navigation/NavDummies/Notifications.jsx";
 
 
 
@@ -118,26 +118,26 @@ export const router = createBrowserRouter([
 				],
 			},
 		// =============Loggedin aka Navigation=============
-			{
-				path: "/rewards",
-				element: <Rewards />,
-			},
-			{
-				path: "/crypto2",
-				element: <Crypto2 />,
-			},
-			{
-				path: "/spending",
-				element: <Spending />,
-			},
-			{
-				path: "/retirement2",
-				element: <Retirement2 />,
-			},
-			{
-				path: "/notifications",
-				element: <Notifications />,
-			},
+			// {
+			// 	path: "/rewards",
+			// 	element: <Rewards />,
+			// },
+			// {
+			// 	path: "/crypto2",
+			// 	element: <Crypto2 />,
+			// },
+			// {
+			// 	path: "/spending",
+			// 	element: <Spending />,
+			// },
+			// {
+			// 	path: "/retirement2",
+			// 	element: <Retirement2 />,
+			// },
+			// {
+			// 	path: "/notifications",
+			// 	element: <Notifications />,
+			// },
 
 
 		],
