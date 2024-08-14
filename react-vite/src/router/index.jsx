@@ -82,7 +82,7 @@ export const router = createBrowserRouter([
 				action: deleteWatchlist,
 			},
 
-		// =============Not Loggedin aka NavigationStart=============
+			// =============Not Loggedin aka NavigationStart=============
 			{
 				path: "/invest",
 				element: <Invest />,
@@ -99,7 +99,7 @@ export const router = createBrowserRouter([
 				path: "/options",
 				element: <Options />,
 			},
-            {
+			{
 				path: "/us",
 				// children: [
 				// ],
@@ -151,7 +151,7 @@ export const router = createBrowserRouter([
 				loader: stockDetailsLoader,
 				element: <StockDetailsPage />,
 			},
-            {
+			{
 				path: "*",
 				element: (
 					<div>
