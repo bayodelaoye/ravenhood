@@ -18,7 +18,7 @@ function WhatWeOfferDropdown() {
  { value: "Options", label: "Options" },
  ];
 
- const [selectedOfferValue, setSelectedOfferValue] = useState(options[0].value);
+ const [selectedOfferValue, setSelectedOfferValue] = useState("");
 
  useEffect(() => {
 
