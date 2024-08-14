@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import ravenhoodLogoPurple from './Logo/ravenhoodLogoPurple.png';
 import SearchBar from "./SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
+import AccountDropdown from "./AccountDropdown";
 // import * as searchActions from "../../spots"
 
 import './Navigation.css';
+
 
 const Navigation = ({isLoaded}) => {
     const sessionUser = useSelector(state => state.session.user);
@@ -30,25 +32,26 @@ const Navigation = ({isLoaded}) => {
 
         <ul id="TopNavBarUl">
             <li>
-                <NavLink to="/api/portfolios" className="TopNavBarNavLink">Rewards</NavLink>
+                <NavLink to="/" className="TopNavBarNavLink">Rewards</NavLink>
             </li>
             <li>
-                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Investing</NavLink>
+                <NavLink id="/" className="TopNavBarNavLink">Investing</NavLink>
             </li>
             <li>
-                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Crypto</NavLink>
+                <NavLink id="/" className="TopNavBarNavLink">Crypto</NavLink>
             </li>
             <li>
-                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Spending</NavLink>
+                <NavLink id="/" className="TopNavBarNavLink">Spending</NavLink>
             </li>
             <li>
-                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Retirement</NavLink>
+                <NavLink id="/" className="TopNavBarNavLink">Retirement</NavLink>
             </li>
             <li>
-                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Notifications</NavLink>
+                <NavLink id="/" className="TopNavBarNavLink">Notifications</NavLink>
             </li>
             <li>
-                <NavLink id="/api/portfolios" className="TopNavBarNavLink">Account</NavLink>
+                <NavLink id="/" className="TopNavBarNavLink">Account</NavLink>
+                <AccountDropdown></AccountDropdown>
             </li>
         </ul>
     </header>
