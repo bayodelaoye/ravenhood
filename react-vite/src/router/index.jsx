@@ -13,7 +13,6 @@ import { deleteWatchlist } from "../components/actions/watchLists";
 import { stockDetailsLoader } from "../components/loaders/stocks";
 import WatchlistAll from "../components/Watchlist/WatchlistUser_All";
 import StockDetailsPage from "../components/StockDetailsPage";
-import FlagDropdown from "../components/NavigationStart/FlagDropdown";
 
 export const router = createBrowserRouter([
 	{
