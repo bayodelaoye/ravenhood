@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./WhatWeOfferDropdown.css"
 
 
 function WhatWeOfferDropdown() {
+
+ const user = useSelector((store) => store.session.user);
 
  const navigate = useNavigate();
 
@@ -19,6 +22,7 @@ function WhatWeOfferDropdown() {
 
  useEffect(() => {
 
+   if(!user) {
         setSelectedOfferValue(selectedOfferValue);
         console.log("selectedOfferValue: ", selectedOfferValue)
 
@@ -39,6 +43,7 @@ function WhatWeOfferDropdown() {
             navigate('/options');
             break;
         }
+      }
 
  }, [selectedOfferValue])
 

@@ -1,4 +1,4 @@
-#InvestMain{
+#SherwoodNewsMain{
     height: 2000px;
     width: auto;
     display: flex;
@@ -11,11 +11,10 @@
     color: #c8cbcd;
     gap: 50px;
     padding: 25px 50px 70px 50px;
-
 }
 
 
-#InvestH2{
+#SherwoodNewsH2{
     color: linear-gradient(
 		270deg,
 		#4d3f72 2.68%,
@@ -39,9 +38,10 @@
 	animation: fadeInAnimation ease 3s;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
+
 }
 
-#InvestH1{
+#SherwoodNewsH1{
     color: linear-gradient(
 		270deg,
 		#4d3f72 2.68%,
@@ -68,7 +68,7 @@
 
 }
 
-	@keyframes fadeInAnimation {
+@keyframes fadeInAnimation {
 	0% {
 		opacity: 0;
 	}

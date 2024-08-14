@@ -14,8 +14,7 @@
 }
 
 
-
-#CryptoH1{
+#CryptoH2{
     color: linear-gradient(
 		270deg,
 		#4d3f72 2.68%,
@@ -35,4 +34,45 @@
 	);
 	background-clip: text;
 	text-wrap: balance;
+
+	animation: fadeInAnimation ease 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+#CryptoH1{
+    color: linear-gradient(
+		270deg,
+		#4d3f72 2.68%,
+		#c8cbcd 104.69%,
+		#dfe0e5 61.25%
+	);
+    font-size: 4rem;
+    text-align: center;
+    padding-top: 4rem;
+    text-decoration: unset;
+	-webkit-text-fill-color: transparent;
+	background: linear-gradient(
+		270deg,
+		#4d3f72 2.68%,
+		#c8cbcd 104.69%,
+		#dfe0e5 61.25%
+	);
+	background-clip: text;
+	text-wrap: balance;
+
+	animation: fadeInAnimation ease 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+
+}
+
+	@keyframes fadeInAnimation {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }

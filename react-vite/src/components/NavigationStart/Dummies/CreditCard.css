@@ -1,4 +1,4 @@
-#InvestMain{
+#CreditCardMain{
     height: 2000px;
     width: auto;
     display: flex;
@@ -11,11 +11,10 @@
     color: #c8cbcd;
     gap: 50px;
     padding: 25px 50px 70px 50px;
-
 }
 
 
-#InvestH2{
+#CreditCardH2{
     color: linear-gradient(
 		270deg,
 		#4d3f72 2.68%,
@@ -35,13 +34,13 @@
 	);
 	background-clip: text;
 	text-wrap: balance;
-
+	
 	animation: fadeInAnimation ease 3s;
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards;
 }
 
-#InvestH1{
+#CreditCardH1{
     color: linear-gradient(
 		270deg,
 		#4d3f72 2.68%,

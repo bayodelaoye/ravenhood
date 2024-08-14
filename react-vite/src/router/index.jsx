@@ -13,6 +13,11 @@ import Invest from "../components/NavigationStart/Offerings/Invest.jsx";
 import Crypto from "../components/NavigationStart/Offerings/Crypto.jsx";
 import Retirement from "../components/NavigationStart/Offerings/Retirement.jsx";
 import Options from "../components/NavigationStart/Offerings/Options.jsx";
+import CreditCard from "../components/NavigationStart/Dummies/CreditCard.jsx";
+import Gold from "../components/NavigationStart/Dummies/Gold.jsx";
+import Learn from "../components/NavigationStart/Dummies/Learn.jsx";
+import SherwoodNews from "../components/NavigationStart/Dummies/SherwoodNews.jsx";
+import Support from "../components/NavigationStart/Dummies/Support.jsx";
 
 
 
@@ -79,31 +84,31 @@ export const router = createBrowserRouter([
 				element: <Options />,
 			},
 			{
+				path: "/creditcard",
+				element: <CreditCard />,
+			},
+			{
+				path: "/gold",
+				element: <Gold />,
+			},
+			{
+				path: "/learn",
+				element: <Learn />,
+			},
+			{
+				path: "/sherwoodnews",
+				element: <SherwoodNews />,
+			},
+			{
+				path: "/support",
+				element: <Support />,
+			},
+			{
 				path: "/us",
 				children: [
 
 
 				],
-			},
-			{
-				path: "/creditcard",
-				element: <HomePage />,
-			},
-			{
-				path: "/gold",
-				element: <HomePage />,
-			},
-			{
-				path: "/learn",
-				element: <HomePage />,
-			},
-			{
-				path: "/news",
-				element: <HomePage />,
-			},
-			{
-				path: "/support",
-				element: <HomePage />,
 			},
 
 
