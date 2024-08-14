@@ -26,7 +26,6 @@ function StockDetailsPage() {
     dispatch(userPortfolios(currentUser?.id))
       .then(() => {
         setIsLoaded(true);
-        console.log(isLoaded);
       })
       .then(() => {
         if (timeLineBtn === "") {
@@ -89,12 +88,15 @@ function StockDetailsPage() {
         }),
       });
 
+      const message = await response.json();
       if (response.ok) {
-        const message = await response.json();
         return message;
       }
 
-      navigate(`/users/${portfolioType}`);
+      // navigate(`/users/${portfolioType}`);
+      setFormErrors({
+        "fetch-error": message["message"],
+      });
     }
   };
 
@@ -357,7 +359,7 @@ function StockDetailsPage() {
                     </div>
                   </div>
                   <div className="line-break"></div>
-                  <div className="estimated-cost">
+                  <div className="estimated-cost errors-marging">
                     <p>Amount</p>
                     <p>${(stockDetails.current_price * shares).toFixed(2)}</p>
                   </div>
@@ -383,6 +385,15 @@ function StockDetailsPage() {
                     {isSubmitted ? (
                       Object.values(formErrors).length >= 1 ? (
                         <p>{formErrors.shares}</p>
+                      ) : (
+                        <></>
+                      )
+                    ) : (
+                      <></>
+                    )}
+                    {isSubmitted ? (
+                      Object.values(formErrors).length >= 1 ? (
+                        <p>{formErrors["fetch-error"]}</p>
                       ) : (
                         <></>
                       )

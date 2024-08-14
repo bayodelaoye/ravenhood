@@ -203,9 +203,10 @@
   font-weight: 550;
 }
 
-.margin {
-  margin-bottom: 20px;
+.errors-marging {
+  margin-bottom: 15px;
 }
+
 .how-to-buy {
   display: flex;
   flex-direction: column;
