@@ -6,7 +6,7 @@ const getUserPortfolios = (portfolios) => ({
 });
 
 export const userPortfolios = (userId) => async (dispatch) => {
-  const response = await fetch(`/api/portfolios/${userId}`);
+  const response = await fetch(`/api/users/${userId}/portfolios`);
 
   if (response.ok) {
     const data = await response.json();
