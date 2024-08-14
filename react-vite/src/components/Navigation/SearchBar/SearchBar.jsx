@@ -29,10 +29,6 @@ function SearchBar() {
 
   }, [search])
 
-  // const handleChange = (e) => {
-  //   setSearch(e.target.value)
-  // }
-
   const handleSubmit = (e) => {
     e.preventDefault();
 

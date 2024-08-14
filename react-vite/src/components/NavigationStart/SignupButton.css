@@ -9,7 +9,7 @@
 		#c8cbcd 104.69%,
 		#dfe0e5 61.25%
 	);
-
+    text-wrap: nowrap;
 }
 
 #NavigationStartButtonSignup:hover{

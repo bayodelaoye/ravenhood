@@ -9,6 +9,7 @@ import Portfolio from "../components/Portfolio";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
+import FlagDropdown from "../components/NavigationStart/FlagDropdown"
 
 
 export const router = createBrowserRouter([
@@ -19,6 +20,11 @@ export const router = createBrowserRouter([
                 path: "/",
                 loader: userPortfolios,
 				element: <HomePage />,
+			},
+			{
+				path: "dropdown",
+				// loader: stocksLoader,
+				element: <FlagDropdown />,
 			},
 			{
 				path: "login",
