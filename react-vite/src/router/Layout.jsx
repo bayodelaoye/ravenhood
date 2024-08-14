@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 export default function Layout() {
   const dispatch = useDispatch();
-  const user = useSelector((store) => store.session.user);
+  const sessionUser = useSelector((store) => store.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Layout() {
   return (
     <>
       <ModalProvider>
-        {user ? <Navigation /> : <NavigationStart />}
+        {sessionUser ? <Navigation /> : <NavigationStart />}
         {isLoaded && <Outlet />}
         <Modal />
       </ModalProvider>

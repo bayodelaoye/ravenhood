@@ -6,7 +6,7 @@ import "./WhatWeOfferDropdown.css"
 
 function WhatWeOfferDropdown() {
 
- const user = useSelector((store) => store.session.user);
+ const sessionUser = useSelector((store) => store.session.user);
 
  const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ function WhatWeOfferDropdown() {
 
  useEffect(() => {
 
-   if(!user) {
+   if(!sessionUser) {
         setSelectedOfferValue(selectedOfferValue);
         console.log("selectedOfferValue: ", selectedOfferValue)
 
