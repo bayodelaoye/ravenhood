@@ -1,6 +1,5 @@
 export const watchlistLoader = async ({ params }) => {
-    const response = await fetch(`/api/watch_lists/${params.user_id}`)
-
+    const response = await fetch(`/api/watch_lists/`)
     if (response.ok) {
         const userWatchlists = await response.json();
         return userWatchlists.watch_lists;
