@@ -1,11 +1,39 @@
 #OptionsMain{
+    height: 2000px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
     text-align: center;
     background-color: black;
+    font-family: "Lato", sans-serif;
+    color: #c8cbcd;
+    gap: 50px;
+    padding: 25px 50px 70px 50px;
+
 }
 
 
 #OptionsH1{
-    color:azure;
-    font-size: xx-large;
+    color: linear-gradient(
+		270deg,
+		#4d3f72 2.68%,
+		#c8cbcd 104.69%,
+		#dfe0e5 61.25%
+	);
+    font-size: 6rem;
     text-align: center;
+    padding-top: 4rem;
+    text-decoration: unset;
+	-webkit-text-fill-color: transparent;
+	background: linear-gradient(
+		270deg,
+		#4d3f72 2.68%,
+		#c8cbcd 104.69%,
+		#dfe0e5 61.25%
+	);
+	background-clip: text;
+	text-wrap: balance;
+
 }
