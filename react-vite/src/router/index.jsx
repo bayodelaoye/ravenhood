@@ -54,9 +54,15 @@ export const router = createBrowserRouter([
         action: modifyPortfolio,
       },
       {
-        path: "watchlist/:user_id/:watchlist_num",
+        path: "watchlist/:watchlist_num",
         loader: watchlistLoader,
         element: <Watchlist />,
+        action: deleteWatchlist,
+      },
+      {
+        path: "watchlist",
+        element: <WatchlistAll />,
+        loader: watchlistLoader,
         action: deleteWatchlist,
       },
       {
