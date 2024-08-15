@@ -59,6 +59,7 @@ class User(db.Model, UserMixin):
             "birthday": self.birthday,
             "citizenship": self.citizenship,
             "image": self.image,
+            "created_at": self.created_at,
         }
 
     def to_dict_with_portfolios_and_watch_lists(self):
@@ -77,6 +78,7 @@ class User(db.Model, UserMixin):
             "birthday": self.birthday,
             "citizenship": self.citizenship,
             "image": self.image,
+            "created_at": self.created_at,
             "portfolios": [
                 portfolio.to_dict_with_stocks() for portfolio in self.portfolios
             ],
