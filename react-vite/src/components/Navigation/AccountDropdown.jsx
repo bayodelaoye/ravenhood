@@ -13,17 +13,25 @@ import { ImKeyboard } from "react-icons/im";
 import { MdLogout } from "react-icons/md";
 import * as sessionActions from "../../redux/session";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./AccountDropdown.css";
 
 
 function AccountDropdown(){
 
     const sessionUser = useSelector((store) => store.session.user);
+    const navigate = useNavigate()
     const dispatch = useDispatch();
 
 
 // ===================menu buttons handlers======================
 
+
+    const handleProfile = (e) => {
+        e.preventDefault();
+        navigate("/profile/portfolios")
+        console.log("handleProfile ran");
+    }
 
     const handleLogout = (e) => {
         e.preventDefault();
@@ -41,11 +49,22 @@ function AccountDropdown(){
                 </li>
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><img id="platinum" className="AccountDropdownIcon" src={platinum} alt="platinum"></img>Robinhood Platinum</button>
+                    <button className="AccountDropdownUlLiButton">
+                        <img
+                            id="platinum"
+                            className="AccountDropdownIcon"
+                            src={platinum}
+                            alt="Pt">
+                        </img>
+                        Robinhood Platinum
+                    </button>
                 </li>
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><FaUserCircle className="AccountDropdownIcon"/>Profile</button>
+                    <button
+                        onClick={handleProfile}
+                        className="AccountDropdownUlLiButton">
+                            <FaUserCircle className="AccountDropdownIcon"/>Profile</button>
                 </li>
 
                 <li className="AccountDropdownUlLi">
