@@ -31,9 +31,6 @@ function StockDetailsPage() {
   const listOfUserPortfolios = useSelector(
     (state) => state.portfolios?.userPortfolios?.portfolios
   );
-  const listOfUserWatchList = useSelector(
-    (state) => state?.watchlist?.userWatchLists?.watch_lists
-  );
 
   useEffect(() => {
     const fetchPortfolioData = async () => {
@@ -49,9 +46,18 @@ function StockDetailsPage() {
       }
     };
 
+    const fetchWatchListArray = async () => {
+      const response = await fetch(`/api/watch_lists/`);
+      if (response.ok) {
+        const watchList = await response.json();
+        setUserWatchLists(watchList);
+      }
+    };
+
     const loadData = async () => {
       await fetchPortfolioData();
       await fetchWatchListData();
+      await fetchWatchListArray();
     };
 
     loadData();
@@ -100,14 +106,6 @@ function StockDetailsPage() {
 
     setFormErrors(errors);
   }, [timeLineBtn, transactionType, shares, portfolioType]);
-
-  const handaAddToWatchList = async () => {
-    const response = await fetch(`/api/watch_lists/`);
-    if (response.ok) {
-      const watchList = await response.json();
-      setUserWatchLists(watchList);
-    }
-  };
 
   const submitTransaction = async (e) => {
     e.preventDefault();
@@ -453,12 +451,14 @@ function StockDetailsPage() {
                 <></>
               ) : (
                 <>
-                  {userWatchLists.watch_lists === 0 ? (
+                  {userWatchLists?.watch_lists?.length === 0 ? (
                     <OpenModalButton
                       buttonText={`Watch ${stockDetails.ticker_symbol}`}
                       className="watch-list-btn"
-                      closeModal={closeModal}
-                      modalComponent={<CreateWatchList />}
+                      onClose={closeModal}
+                      modalComponent={
+                        <CreateWatchList current="" onClose={closeModal} />
+                      }
                     />
                   ) : (
                     <>
@@ -467,7 +467,6 @@ function StockDetailsPage() {
                       ) : (
                         <OpenModalButton
                           buttonText={`Watch ${stockDetails.ticker_symbol}`}
-                          onClick={handaAddToWatchList}
                           onClose={closeModal}
                           className="watch-list-btn"
                           modalComponent={
