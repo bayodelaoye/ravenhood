@@ -22,7 +22,9 @@ function StockDetailsPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [userWatchLists, setUserWatchLists] = useState("");
   const [isStockInWatchList, setIsStockInWatchList] = useState(false);
-  const [stocksInUserWatchlists, setStocksInUserWatchlists] = useState([]);
+  const [showAddToWatchListButton, setShowAddToWatchListButton] =
+    useState(false);
+  const [stocksInWatchlists, setStocksInWatchlists] = useState([]);
   const navigate = useNavigate();
   const { closeModal } = useModal();
   const currentUser = useSelector((state) => state.session.user);
@@ -31,61 +33,64 @@ function StockDetailsPage() {
   );
 
   useEffect(() => {
-    dispatch(userPortfolios(currentUser?.id))
-      .then(async () => {
-        const response = await fetch(`/api/watch_lists/stocks`);
+    const fetchPortfolioData = async () => {
+      await dispatch(userPortfolios(currentUser?.id));
+    };
 
-        if (response.ok) {
-          const stocksInUserWatchlists = await response.json();
-          setStocksInUserWatchlists(stocksInUserWatchlists);
+    const fetchWatchListData = async () => {
+      const response = await fetch(`/api/watch_lists/stocks`);
+
+      if (response.ok) {
+        const stocksInUserWatchlists = await response.json();
+        setStocksInWatchlists(stocksInUserWatchlists);
+      }
+    };
+
+    const loadData = async () => {
+      await fetchPortfolioData();
+      await fetchWatchListData();
+    };
+
+    loadData();
+  }, [dispatch, currentUser?.id]);
+
+  useEffect(() => {
+    const setIsStockInWatchListLocal = stocksInWatchlists.some(
+      (obj) => obj.id === stockDetails.id
+    );
+    setIsStockInWatchList(setIsStockInWatchListLocal);
+
+    setIsLoaded(true);
+    setShowAddToWatchListButton(true);
+  }, [stocksInWatchlists]);
+
+  useEffect(() => {
+    if (timeLineBtn === "") {
+    } else {
+      const className = timeLineBtn.split(" ")[1];
+      const element = document.querySelector("." + className);
+      const timeLines = document.getElementsByClassName("time-line-btn");
+
+      for (let i = 0; i < timeLines.length; i++) {
+        if (timeLines[i].classList.contains("active")) {
+          timeLines[i].classList.remove("active");
         }
+      }
 
-        stocksInUserWatchlists.forEach((stock) => {
-          console.log(stock);
-          if (stock.id === stockDetails.id) {
-            console.log("in if");
-            setIsStockInWatchList(true);
-          }
-        });
-      })
-      .then(() => {
-        setIsLoaded(true);
-      })
-      .then(() => {
-        if (timeLineBtn === "") {
-        } else {
-          const className = timeLineBtn.split(" ")[1];
-          const element = document.querySelector("." + className);
-          const timeLines = document.getElementsByClassName("time-line-btn");
+      element.classList.add("active");
+    }
+    const errors = {};
 
-          for (let i = 0; i < timeLines.length; i++) {
-            if (timeLines[i].classList.contains("active")) {
-              timeLines[i].classList.remove("active");
-            }
-          }
+    if (transactionType === "")
+      errors.transaction = "Must select a Buy or Sell";
 
-          element.classList.add("active");
-        }
-        const errors = {};
+    if (portfolioType === "") errors.portfolio = "Must select a portfolio";
 
-        if (transactionType === "")
-          errors.transaction = "Must select a Buy or Sell";
+    if (isNaN(Number(shares)) || shares === 0 || shares === "0")
+      errors.shares = "Must input valid number of shares";
 
-        if (portfolioType === "") errors.portfolio = "Must select a portfolio";
-
-        if (isNaN(Number(shares)) || shares === 0 || shares === "0")
-          errors.shares = "Must input valid number of shares";
-
-        setFormErrors(errors);
-      });
-  }, [
-    dispatch,
-    currentUser?.id,
-    timeLineBtn,
-    transactionType,
-    shares,
-    portfolioType,
-  ]);
+    setFormErrors(errors);
+  }, [timeLineBtn, transactionType, shares, portfolioType]);
 
   const handaAddToWatchList = async () => {
     const response = await fetch(`/api/watch_lists/`);
@@ -93,7 +98,6 @@ function StockDetailsPage() {
       const watchList = await response.json();
       setUserWatchLists(watchList);
     }
-    console.log(userWatchLists.watch_lists);
   };
 
   const submitTransaction = async (e) => {
@@ -441,32 +445,39 @@ function StockDetailsPage() {
                   </div>
                 </Form>
               </div>
-              {isStockInWatchList ? (
-                <></>
+              {showAddToWatchListButton === false ? (
+                <>{console.log("in false")}</>
               ) : (
-                <OpenModalButton
-                  buttonText={`Watch ${stockDetails.ticker_symbol}`}
-                  onClick={handaAddToWatchList}
-                  onClose={closeModal}
-                  className="watch-list-btn"
-                  modalComponent={
-                    <AddStockToWatchListModal
-                      onClose={closeModal}
-                      stockId={stockDetails.id}
+                <>
+                  {userWatchLists.watch_lists === 0 ? (
+                    <OpenModalButton
+                      buttonText={`Watch ${stockDetails.ticker_symbol}`}
+                      className="watch-list-btn"
+                      closeModal={closeModal}
+                      modalComponent={<CreateWatchList />}
                     />
-                  }
-                />
+                  ) : (
+                    <>
+                      {isStockInWatchList ? (
+                        <></>
+                      ) : (
+                        <OpenModalButton
+                          buttonText={`Watch ${stockDetails.ticker_symbol}`}
+                          onClick={handaAddToWatchList}
+                          onClose={closeModal}
+                          className="watch-list-btn"
+                          modalComponent={
+                            <AddStockToWatchListModal
+                              onClose={closeModal}
+                              stockId={stockDetails.id}
+                            />
+                          }
+                        />
+                      )}
+                    </>
+                  )}
+                </>
               )}
-              {/* {userWatchLists.watch_lists === 0 ? (
-                <OpenModalButton
-                  buttonText={`Watch ${stockDetails.ticker_symbol}`}
-                  className="watch-list-btn"
-                  closeModal={closeModal}
-                  modalComponent={<CreateWatchList />}
-                />
-              ) : (
-                <></>
-              )} */}
             </div>
           ) : (
             <div className="buy-sell-watch-container">
