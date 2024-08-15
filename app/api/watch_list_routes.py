@@ -27,7 +27,7 @@ def all_watch_lists():
 def user_watch_lists():
 
     if not current_user:
-        abort(403, "Unauthorized")
+        return {"errors": {"message": "Unauthorized"}}, 401
 
     watch_lists = WatchList.query.filter(WatchList.user_id == current_user.id).all()
     return {
@@ -42,7 +42,7 @@ def update_watch_list_name(id):
     watch_list = WatchList.query.get(id)
 
     if watch_list.user_id != current_user.id:
-        abort(403, "Invalid User")
+        return {"errors": {"message": "Unauthorized"}}, 401
 
     watch_list.name = body["name"]
     db.session.commit()
@@ -57,7 +57,7 @@ def add_to_watch_list(id):
     stock = Stock.query.get(body["stock_id"])
 
     if watch_list.user_id != current_user.id:
-        abort(403, "Invalid User")
+        return {"errors": {"message": "Unauthorized"}}, 401
 
     watch_list.watch_list_watch_list_stocks.append(stock)
     db.session.commit()
@@ -72,7 +72,7 @@ def remove_from_watch_list(id):
     stock = Stock.query.get(body["stock_id"])
 
     if watch_list.user_id != current_user.id:
-        abort(403, "Invalid User")
+        return {"errors": {"message": "Unauthorized"}}, 401
 
     watch_list.watch_list_watch_list_stocks.remove(stock)
     db.session.commit()
@@ -85,7 +85,7 @@ def delete_watch_list(id):
     watch_list = WatchList.query.get(id)
 
     if watch_list.user_id != current_user.id:
-        abort(403, "Invalid User")
+        return {"errors": {"message": "Unauthorized"}}, 401
 
     db.session.delete(watch_list)
     db.session.commit()

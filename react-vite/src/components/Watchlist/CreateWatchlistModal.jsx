@@ -12,7 +12,7 @@ const CreateWatchList = ({ onClose, current }) => {
                 <button className="deleteClose" onClick={onClose}>✖</button>
                 <h2>Create List</h2>
             </div>
-            <Form method="post" action={`/watchlist/${current - 1}`} onSubmit={onClose} className="input-style">
+            <Form method="post" action={`/watchlist/${current}`} onSubmit={onClose} className="input-style">
                 <input required type='text' className="name-change-input" name="watchlistname" value={watchlistName} onChange={(e) => setWatchlistName(e.target.value)} />
                 <button
                     disabled={watchlistName === ''}

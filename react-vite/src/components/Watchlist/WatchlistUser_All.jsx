@@ -20,6 +20,16 @@ const WatchlistAll = () => {
     const ulRef = useRef();
     const { setModalContent, closeModal } = useModal();
 
+    if (!user) {
+        return (
+            <div>
+                <h1>401 Unauthorized</h1>
+                <p>Not all those who wander are lost, but it seems you may have taken a wrong turn.</p>
+
+            </div>
+        )
+
+    }
 
 
     //-----------------------------------DATA--------------------------------------
@@ -39,7 +49,7 @@ const WatchlistAll = () => {
 
     function toWatchlist(listid) {
         return () => {
-            return navigate(`/watchlist/${listid - 1}`)
+            return navigate(`/watchlist/${listid}`)
         }
     }
 
@@ -146,12 +156,12 @@ const WatchlistAll = () => {
                     </div>
                 </header>
                 {
-                    updatedList.map((list) => (
+                    updatedList.map((list, index) => (
                         <div
                             className='row subwatchlists spread-outer'
                             id={`watchlist${list.id}`}
                             key={`watchlist${list.id}`}
-                            onClick={toWatchlist(list.id)}
+                            onClick={toWatchlist(index + 1)}
 
                         >
                             <div className="subwatchlist-description row" >

@@ -20,10 +20,24 @@ const Watchlist = () => {
     // Current session's user
     const user = useSelector((state) => state.session.user);
 
+
+    if (!user) {
+        return (
+            <div>
+                <h1>401 Unauthorized</h1>
+                <p>Not all those who wander are lost, but it seems you may have taken a wrong turn.</p>
+
+            </div>
+        )
+
+    }
+
+
     //-----------------------------------DATA--------------------------------------
     const [currentFilter, setCurrentFilter] = useState("none")
     // Grab User's Watchlist
     const watchlist = useLoaderData();
+
 
     if (watchlist[watchlist_num - 1] === undefined) {
         return (
@@ -236,7 +250,7 @@ const Watchlist = () => {
             <div className="modal-container">
                 <CreateWatchList
                     onClose={closeModal}
-                    current={currentWatchList.id}
+                    current={watchlist_num}
                     className="modal-container"
                 />
             </div>
@@ -361,14 +375,14 @@ const Watchlist = () => {
                     </header>
                     <div className="listofwatchlists ">
                         {
-                            watchlist.map((list) => (
+                            watchlist.map((list, index) => (
                                 <div
                                     className='row subwatchlist'
                                     id={`watchlist${list.id}`}
                                     key={`watchlist${list.id}`}
 
                                 >
-                                    <div className="subwatchlist-description row" onClick={toWatchlist(list.id - 1)}>
+                                    <div className="subwatchlist-description row" onClick={toWatchlist(index + 1)}>
                                         <div className="watchlist-icon">
                                             <p>💰</p>
                                         </div>
