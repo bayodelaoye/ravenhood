@@ -1,5 +1,6 @@
 import configureStore from "../../redux/store";
 import { thunkAuthenticate } from "../../redux/session";
+import { json } from "react-router-dom";
 
 const store = configureStore();
 export const userPortfolios = async ({ params }) => {
@@ -14,18 +15,34 @@ export const userPortfolios = async ({ params }) => {
       }
       
 	// const response = await fetch(`/api/users/${userId}/portfolios`);
-	const response = await fetch(`/api/users/${userId}`);
+      // const response = await fetch(`/api/users/${userId}`);
 
-	if (
-		response.ok &&
-		response.headers.get("content-type")?.includes("application/json")
-	) {
-		const userPortfolios = await response.json();
-		return userPortfolios.portfolios;
-	} else {
-		console.error(
-			"Failed to fetch user portfolios or received non-JSON response",
-		);
-		return null;
-	}
+      const urls = [`/api/users/${userId}`, `/api/watch_lists/`];
+
+      const fetchPromises = urls.map((url) => fetch(url).then((response) => response.json()))
+
+      console.log("fetch", fetchPromises);
+      
+
+      const [userPortfolios, userWatchlists] = await Promise.all(fetchPromises)
+
+      console.log("user", userPortfolios);
+      console.log("watch", userWatchlists);
+
+      return json({userPortfolios, userWatchlists})
+      
+      
+ 
+	// if (
+	// 	response.ok &&
+	// 	response.headers.get("content-type")?.includes("application/json")
+	// ) {
+      //       const userPortfolios = await response.json();
+	// 	return userPortfolios;
+	// } else {
+	// 	console.error(
+	// 		"Failed to fetch user portfolios or received non-JSON response",
+	// 	);
+	// 	return null;
+      // }
 };
