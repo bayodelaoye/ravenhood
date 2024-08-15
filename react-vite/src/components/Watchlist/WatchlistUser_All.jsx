@@ -133,10 +133,10 @@ const WatchlistAll = () => {
         const toggleOpen = "toggle-dropdown" + (isOpen ? "" : " hidden");
 
         return (
-            <div style={{ position: 'relative' }}>
+            <div>
                 <button id={`toggler${value.name}`} className="dropdownToggler" onClick={toggleWatchlistDeleteMenu}>{title}</button>
 
-                <div ref={ulRef} className={toggleOpen} style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid black', zIndex: 1 }}>
+                <div ref={ulRef} className={toggleOpen} style={{ position: 'absolute', backgroundColor: 'white', border: '1px solid black', zIndex: "auto" }}>
                     <p className='editlistbutton' onClick={(e) => { e.stopPropagation(); handleChangeNameWatchList(value) }}>Edit List</p>
                     <p type='submit' className="delete-watchlist-button-sublist" onClick={(e) => { e.stopPropagation(); handleDeleteWatchlist(value); }}>Delete List</p>
                 </div>
@@ -179,7 +179,7 @@ const WatchlistAll = () => {
                             </div>
 
                             <div className="subwatchlist-options">
-                                <DropdownComponent key={list.id} id={list.id} value={list} title={"..."} />
+                                <DropdownComponent style={{ zIndex: 0 }} key={list.id} id={list.id} value={list} title={"..."} />
 
                             </div>
 
