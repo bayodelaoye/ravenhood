@@ -5,6 +5,7 @@ import HomePage from "../components/HomePage";
 import Layout from "./Layout";
 import { userPortfolios } from "../components/loaders/portfolios";
 import { modifyPortfolio } from "../components/actions/portfolios";
+import UserProfilePage from "../components/Profile/UserProfilePage.jsx";
 import Portfolio from "../components/Portfolio";
 import Profile from "../components/Profile";
 import { watchlistLoader } from "../components/loaders/watchLists";
@@ -29,6 +30,7 @@ import Support from "../components/NavigationStart/Dummies/Support.jsx";
 // import Notifications from "../components/Navigation/NavDummies/Notifications.jsx";
 import TransactionsPage from "../components/TransactionPage";
 import { userTransactionsLoader } from "../components/loaders/transactions.js";
+import UpdateProfileModal from "../components/Profile/UpdateProfileModal.jsx";
 
 export const router = createBrowserRouter([
 	{
@@ -50,7 +52,14 @@ export const router = createBrowserRouter([
 			{
 				path: "profile/portfolios",
 				loader: userPortfolios,
-				element: <Profile />,
+				element: <UserProfilePage />,
+                        action: modifyPortfolio,
+                        children: [
+                              {
+                                    path:"edit",
+                                    element: <UpdateProfileModal />
+                              }
+                        ]
 			},
 			{
 				path: "portfolios/new",

@@ -2,6 +2,7 @@ import { useLoaderData, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BsStars } from "react-icons/bs";
 import WatchlistAll from "../Watchlist/WatchlistUser_All";
+import Watchlist from "../Watchlist";
 
 const Portfolio = () => {
 	const { userPortfolios } = useLoaderData();
@@ -138,7 +139,8 @@ const Portfolio = () => {
 			) : (
 				<div>Please log in to view your portfolios.</div>
 			)}
-			<div>
+                  <div>
+                        <Watchlist />
 				<WatchlistAll />
 				Render watchlist to the right of all data above, watchlist is in this
 				route, in this component, did not make sure it does not break with other
