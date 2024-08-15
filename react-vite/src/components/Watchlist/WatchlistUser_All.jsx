@@ -20,6 +20,19 @@ const WatchlistAll = () => {
     const ulRef = useRef();
     const { setModalContent, closeModal } = useModal();
 
+    //-----------------------------------DATA--------------------------------------
+
+    // Grab User's Watchlist
+    const watchlist = useLoaderData();
+
+    const [updatedList, setUpdatedList] = useState(watchlist);
+
+    useEffect(() => {
+        setUpdatedList(watchlist)
+    }, [watchlist])
+
+
+
     if (!user) {
         return (
             <div>
@@ -32,16 +45,6 @@ const WatchlistAll = () => {
     }
 
 
-    //-----------------------------------DATA--------------------------------------
-
-    // Grab User's Watchlist
-    const watchlist = useLoaderData();
-
-    const [updatedList, setUpdatedList] = useState(watchlist);
-
-    useEffect(() => {
-        setUpdatedList(watchlist)
-    }, [watchlist])
 
 
     //---------------------------------Modal------------------------------------
@@ -74,6 +77,7 @@ const WatchlistAll = () => {
                 <ChangeWatchListName
                     onClose={closeModal}
                     watchlist={watchlist}
+                    currentlist=""
                 />
             </div>
         )
@@ -146,7 +150,7 @@ const WatchlistAll = () => {
             <div className="sub-watchlist-main">
                 <header className="sublist-header">
                     <div className="sublist-title">
-                        <h2>{user.first_name}'s Watchlists </h2>
+                        <h2>{user.first_name}&apos;s Watchlists </h2>
                         <p>{watchlist.length} Items</p>
                     </div>
                     <div className="watchlist-add">

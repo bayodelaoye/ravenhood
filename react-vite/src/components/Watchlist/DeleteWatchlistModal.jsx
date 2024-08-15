@@ -1,7 +1,7 @@
 import { Form } from "react-router-dom";
 
 
-const ConfirmDeleteWatchlist = ({ onClose, watchlist, totalStocks, user }) => (
+const ConfirmDeleteWatchlist = ({ onClose, watchlist, totalStocks }) => (
     < div className="modalbox" >
         <div className="row-delete-stuff">
             <button className="deleteClose" onClick={onClose}>✖</button>

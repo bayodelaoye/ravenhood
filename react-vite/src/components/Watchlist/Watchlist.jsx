@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate, useParams, Form, redirect } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams, Form } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
@@ -14,11 +14,38 @@ import CreateWatchList from "./CreateWatchlistModal";
 
 
 const Watchlist = () => {
-    const navigate = useNavigate();
-    // URL :user_id
+    // Grab User's Watchlist
+    const watchlist = useLoaderData();
     const { watchlist_num } = useParams()
+    const currentWatchList = watchlist[watchlist_num - 1]
+    const navigate = useNavigate();
+    const { setModalContent, closeModal } = useModal();
+    // URL :user_id
     // Current session's user
     const user = useSelector((state) => state.session.user);
+    const [currentFilter, setCurrentFilter] = useState("none")
+    const [showWatchlistDeleteMenu, setshowWatchlistDeleteMenu] = useState(false);
+    const [currentList, setCurrentList] = useState(currentWatchList.stocks);
+    const ulRef = useRef();
+
+    useEffect(() => {
+        setCurrentList(currentWatchList.stocks)
+        setCurrentFilter('none')
+    }, [watchlist, currentWatchList.stocks])
+
+    useEffect(() => {
+        if (!showWatchlistDeleteMenu) return;
+        const closeMenu = (e) => {
+            if ((ulRef.current && !ulRef.current.contains(e.target))) {
+                setshowWatchlistDeleteMenu(false);
+            }
+        };
+
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener("click", closeMenu);
+    }, [showWatchlistDeleteMenu]);
+
 
 
     if (!user) {
@@ -34,9 +61,8 @@ const Watchlist = () => {
 
 
     //-----------------------------------DATA--------------------------------------
-    const [currentFilter, setCurrentFilter] = useState("none")
-    // Grab User's Watchlist
-    const watchlist = useLoaderData();
+
+
 
 
     if (watchlist[watchlist_num - 1] === undefined) {
@@ -51,15 +77,12 @@ const Watchlist = () => {
     }
 
     // Current page's watchlist
-    const currentWatchList = watchlist[watchlist_num - 1]
+
     // Total amount of stocks in the current watchlist
     const totalStocks = Object.keys(currentWatchList.stocks).length
-    const [currentList, setCurrentList] = useState(currentWatchList.stocks);
 
-    useEffect(() => {
-        setCurrentList(currentWatchList.stocks)
-        setCurrentFilter('none')
-    }, [watchlist])
+
+
 
     //---------------------------------BEHAVIOR------------------------------------
 
@@ -138,27 +161,15 @@ const Watchlist = () => {
 
 
     //---------------------------------DROP-DOWNS------------------------------------
-    const [showWatchlistDeleteMenu, setshowWatchlistDeleteMenu] = useState(false);
 
-    const ulRef = useRef();
+
+
 
     const toggleWatchlistDeleteMenu = (e) => {
         e.stopPropagation(); // Keep click from bubbling up to document and triggering closeMenu
         setshowWatchlistDeleteMenu(!showWatchlistDeleteMenu);
     };
 
-    useEffect(() => {
-        if (!showWatchlistDeleteMenu) return;
-        const closeMenu = (e) => {
-            if ((ulRef.current && !ulRef.current.contains(e.target))) {
-                setshowWatchlistDeleteMenu(false);
-            }
-        };
-
-        document.addEventListener('click', closeMenu);
-
-        return () => document.removeEventListener("click", closeMenu);
-    }, [showWatchlistDeleteMenu]);
 
     const watchlistdeleteUlClassName = "profile-dropdown" + (showWatchlistDeleteMenu ? "" : " hidden");
 
@@ -217,7 +228,7 @@ const Watchlist = () => {
     // ===================================================================================
 
     //---------------------------------Modal------------------------------------
-    const { setModalContent, closeModal } = useModal();
+
 
     const handleDeleteWatchlist = (watchlist) => {
 
@@ -240,6 +251,7 @@ const Watchlist = () => {
                 <ChangeWatchListName
                     onClose={closeModal}
                     watchlist={watchlist}
+                    currentlist={watchlist_num}
                 />
             </div>
         )

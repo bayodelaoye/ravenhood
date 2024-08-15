@@ -2,7 +2,7 @@ import { Form } from "react-router-dom";
 import { useState } from "react";
 
 
-const CreateWatchList = ({ onClose, current }) => {
+const CreateWatchList = ({ onClose }) => {
 
     const [watchlistName, setWatchlistName] = useState("")
 

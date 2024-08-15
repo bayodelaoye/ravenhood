@@ -118,7 +118,6 @@ export const router = createBrowserRouter([
 			{
 				path: "/gold",
 				element: <Gold />,
-				element: <HomePage />,
 			},
 			{
 				path: "/learn",
