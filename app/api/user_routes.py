@@ -28,39 +28,28 @@ def user(id):
 
 @user_routes.route("/<int:id>", methods=["PUT"])
 @login_required
-def upload_image():
-    body = request.get_json()
+def upload_image(id):
     user = User.query.get(id)
-    user.image = body["image"]
-    user.username = body["username"]
-    user.image.filename = get_unique_filename(user.image.filename)
-    upload = upload_file_to_s3(user.image)
-    if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # # it means that there was an error when you tried to upload
-        # # so you send back that error message (and you printed it above)
-        return {"message": "There was an error uploading the image"}, 400
-    url = upload["url"]
+    if not user:
+        return {"message": "User not found"}, 404
+
+    # Handle file upload if the image is provided
+    if "image" in request.files:
+        image = request.files["image"]
+        image.filename = get_unique_filename(image.filename)
+        upload = upload_file_to_s3(image)
+        if "url" not in upload:
+            return {"message": "There was an error uploading the image"}, 400
+        user.image = upload["url"]
+
+    # Update the username if provided
+    username = request.form.get("username")
+    if username:
+        user.username = username
+
+    # Commit changes if any update was made
     db.session.commit()
     return {"message": "Updated user's information"}, 201
-    # form = ImageForm()
-    # image = form.data["image"]
-    # image.filename = get_unique_filename(image.filename)
-    # upload = upload_file_to_s3(image)
-
-
-#     if "url" not in upload:
-#           # if the dictionary doesn't have a url key
-#           # # it means that there was an error when you tried to upload
-#           # # so you send back that error message (and you printed it above)
-#           return {"message": "There was an error uploading the image"}, 400
-
-#     url = upload["url"]
-# new_image = User(image=url)
-# db.session.add(new_image)
-# db.session.commit()
-# user = User.query.get(id)
-# return user.to_dict_with_portfolios_and_watch_lists(), 201
 
 
 @user_routes.route("/<int:id>/portfolios")
@@ -69,14 +58,20 @@ def user_portfolios(id):
     portfolios = Portfolio.query.filter(Portfolio.user_id == id).all()
     return {"portfolios": [portfolio.to_dict() for portfolio in portfolios]}
 
+
 @user_routes.route("/transactions")
 @login_required
 def user_transactions():
-    transactions_list= []
+    transactions_list = []
     user = User.query.get(current_user.get_id())
-    portfolio_list = {"portfolios": [all_portfolios.to_dict_with_transactions() for all_portfolios in user.portfolios]}
-    
-    for i in portfolio_list['portfolios']:
-        [transactions_list.append(j) for j in i['transactions']]
+    portfolio_list = {
+        "portfolios": [
+            all_portfolios.to_dict_with_transactions()
+            for all_portfolios in user.portfolios
+        ]
+    }
+
+    for i in portfolio_list["portfolios"]:
+        [transactions_list.append(j) for j in i["transactions"]]
 
     return transactions_list
