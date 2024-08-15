@@ -23,7 +23,7 @@ export const userPortfolios = async ({ params }) => {
 	);
 	const [userPortfolios, userWatchlists] = await Promise.all(fetchPromises);
 
-	return json({userPortfolios, userWatchlists});
+	return json({ userPortfolios, userWatchlists });
 
 	// if (
 	// 	response.ok &&
