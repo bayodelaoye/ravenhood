@@ -5,6 +5,10 @@ import { useEffect, useState } from "react";
 import LineGraph from "../LineGraph/LineGraph";
 import { useSelector, useDispatch } from "react-redux";
 import { userPortfolios } from "../../redux/portfolio";
+import OpenModalButton from "../OpenModalButton/OpenModalButton";
+import { useModal } from "../../context/Modal";
+import CreateWatchList from "../Watchlist/CreateWatchlistModal";
+import AddStockToWatchListModal from "../Watchlist/AddStockToWatchListModal";
 
 function StockDetailsPage() {
   const dispatch = useDispatch();
@@ -16,7 +20,9 @@ function StockDetailsPage() {
   const [formErrors, setFormErrors] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [userWatchLists, setUserWatchLists] = useState("");
   const navigate = useNavigate();
+  const { closeModal } = useModal();
   const currentUser = useSelector((state) => state.session.user);
   const listOfUserPortfolios = useSelector(
     (state) => state.portfolios?.userPortfolios?.portfolios
@@ -50,7 +56,7 @@ function StockDetailsPage() {
         if (portfolioType === "") errors.portfolio = "Must select a portfolio";
 
         if (isNaN(Number(shares)) || shares === 0 || shares === "0")
-          errors.shares = "Must input a valid number of shares";
+          errors.shares = "Must input valid number of shares";
 
         setFormErrors(errors);
       });
@@ -63,16 +69,18 @@ function StockDetailsPage() {
     portfolioType,
   ]);
 
+  const handaAddToWatchList = async () => {
+    const response = await fetch(`/api/watch_lists/`);
+    if (response.ok) {
+      const watchList = await response.json();
+      setUserWatchLists(watchList);
+    }
+    console.log(userWatchLists.watch_lists);
+  };
+
   const submitTransaction = async (e) => {
     e.preventDefault();
     setIsSubmitted(true);
-
-    let data = [
-      portfolioType,
-      transactionType,
-      shares,
-      stockDetails.ticker_symbol,
-    ];
 
     if (Object.values(formErrors).length === 0) {
       const response = await fetch(`/api/transactions/`, {
@@ -415,9 +423,28 @@ function StockDetailsPage() {
                   </div>
                 </Form>
               </div>
-              <button className="watch-list-btn">
-                Watch {stockDetails.ticker_symbol}
-              </button>
+              {userWatchLists.watch_lists === 0 ? (
+                <OpenModalButton
+                  buttonText={`Watch ${stockDetails.ticker_symbol}`}
+                  onClick={(e) => {
+                    e.stopPropogation();
+                    handaAddToWatchList();
+                  }}
+                  className="watch-list-btn"
+                  closeModal={closeModal}
+                  modalComponent={<CreateWatchList />}
+                />
+              ) : (
+                <OpenModalButton
+                  buttonText={`Watch ${stockDetails.ticker_symbol}`}
+                  onClick={handaAddToWatchList}
+                  onClose={closeModal}
+                  className="watch-list-btn"
+                  modalComponent={
+                    <AddStockToWatchListModal onClose={closeModal} />
+                  }
+                />
+              )}
             </div>
           ) : (
             <div className="buy-sell-watch-container">

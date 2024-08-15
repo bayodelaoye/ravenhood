@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import "./TransactionsPage.css";
+import { useSelector } from "react-redux";
 import TransactionsIndex from "./TransactionsIndex";
 
 function TransactionsPage() {
+  const currentUser = useSelector((state) => state.session.user);
   const userTransactions = useLoaderData();
 
   return (
