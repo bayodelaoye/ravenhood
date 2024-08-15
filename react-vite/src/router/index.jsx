@@ -83,86 +83,93 @@ export const router = createBrowserRouter([
         action: deleteWatchlist,
       },
 
-      // =============Not Loggedin aka NavigationStart=============
-      {
-        path: "/invest",
-        element: <Invest />,
-      },
-      {
-        path: "/crypto",
-        element: <Crypto />,
-      },
-      {
-        path: "/retirement",
-        element: <Retirement />,
-      },
-      {
-        path: "/options",
-        element: <Options />,
-      },
-      {
-        path: "/us",
-        // children: [
-        // ],
-      },
-      {
-        path: "/creditcard",
-        element: <CreditCard />,
-      },
-      {
-        path: "/platinum",
-        element: <Platinum />,
-      },
-      {
-        path: "/learn",
-        element: <Learn />,
-      },
-      {
-        path: "/sherwoodnews",
-        element: <SherwoodNews />,
-      },
-      {
-        path: "/support",
-        element: <Support />,
-      },
-      // =============Loggedin aka Navigation=============
-      // {
-      // 	path: "/rewards",
-      // 	element: <Rewards />,
-      // },
-      // {
-      // 	path: "/crypto2",
-      // 	element: <Crypto2 />,
-      // },
-      // {
-      // 	path: "/spending",
-      // 	element: <Spending />,
-      // },
-      // {
-      // 	path: "/retirement2",
-      // 	element: <Retirement2 />,
-      // },
-      // {
-      // 	path: "/notifications",
-      // 	element: <Notifications />,
-      // },
-      {
-        path: "/stocks/:stockId",
-        loader: stockDetailsLoader,
-        element: <StockDetailsPage />,
-      },
-      {
-        path: "*",
-        element: (
-          <div>
-            <h1>404 Page not found</h1>
-            <p>
-              Not all those who wander are lost, but it seems you may have taken
-              a wrong turn.
-            </p>
-          </div>
-        ),
-      },
-    ],
-  },
+			// =============Not Loggedin aka NavigationStart=============
+			{
+				path: "/invest",
+				element: <Invest />,
+			},
+			{
+				path: "/crypto",
+				element: <Crypto />,
+			},
+			{
+				path: "/retirement",
+				element: <Retirement />,
+			},
+			{
+				path: "/options",
+				element: <Options />,
+			},
+			{
+				path: "/us",
+				// children: [
+				// ],
+			},
+			{
+				path: "/creditcard",
+				element: <CreditCard />,
+			},
+			{
+				path: "/platinum",
+				element: <Platinum />,
+			},
+			{
+				path: "/learn",
+				element: <Learn />,
+			},
+			{
+				path: "/sherwoodnews",
+				element: <SherwoodNews />,
+			},
+			{
+				path: "/support",
+				element: <Support />,
+			},
+
+			// =============Loggedin aka Navigation=============
+			// {
+			// 	path: "/rewards",
+			// 	element: <Rewards />,
+			// },
+			// {
+			// 	path: "/crypto2",
+			// 	element: <Crypto2 />,
+			// },
+			// {
+			// 	path: "/spending",
+			// 	element: <Spending />,
+			// },
+			// {
+			// 	path: "/retirement2",
+			// 	element: <Retirement2 />,
+			// },
+			{
+				path: "/notifications",
+				element: "Notificaitons Coming Soon"
+				// element: <Notifications />,
+			},
+			{
+				path: "/stocks/:stockId",
+				loader: stockDetailsLoader,
+				element: <StockDetailsPage />,
+			},
+			{
+				path: "/users/transactions",
+				loader: userTransactionsLoader,
+				element: <TransactionsPage />,
+			},
+			{
+				path: "*",
+				element: (
+					<div>
+						<h1>404 Page not found</h1>
+						<p>
+							Not all those who wander are lost, but it seems you may have taken
+							a wrong turn.
+						</p>
+					</div>
+				),
+			},
+		],
+	},
 ]);
