@@ -190,7 +190,7 @@ const Watchlist = () => {
                 <button id={`toggler${value.name}`} className="dropdownToggler" onClick={toggleWatchlistDeleteMenu}>{title}</button>
 
                 <div ref={ulRef} className={toggleOpen} style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid black', zIndex: 1 }}>
-                    <p onClick={(e) => { e.stopPropagation(); handleChangeNameWatchList(value) }}>Edit List</p>
+                    <p className='editlistbutton' onClick={(e) => { e.stopPropagation(); handleChangeNameWatchList(value) }}>Edit List</p>
                     <p type='submit' className="delete-watchlist-button-sublist" onClick={(e) => { e.stopPropagation(); handleDeleteWatchlist(value); }}>Delete List</p>
                 </div>
 
@@ -207,7 +207,7 @@ const Watchlist = () => {
     const handleDeleteWatchlist = (watchlist) => {
 
         setModalContent(
-            <div>
+            <div className="curve-radius">
                 <ConfirmDeleteWatchlist
                     onClose={closeModal}
                     watchlist={watchlist}
@@ -232,10 +232,11 @@ const Watchlist = () => {
 
     const handleCreateWatchlist = () => {
         setModalContent(
-            <div>
+            <div className="modal-container">
                 <CreateWatchList
                     onClose={closeModal}
                     current={currentWatchList.id}
+                    className="modal-container"
                 />
             </div>
         )
@@ -268,7 +269,7 @@ const Watchlist = () => {
                         </div>
                         <div className="watchlist-options">
                             <div className="watchlist-choices">
-                                <p>SORT DROPDOWN</p>
+                                {/* <p>SORT DROPDOWN</p> */}
                             </div>
                             <div className="watchlist-delete">
                                 <button className="delete-watchlist-button" onClick={toggleWatchlistDeleteMenu}>...</button>
@@ -366,7 +367,7 @@ const Watchlist = () => {
                                     key={`watchlist${list.id}`}
 
                                 >
-                                    <div className="subwatchlist-description row" onClick={toWatchlist(list.id)}>
+                                    <div className="subwatchlist-description row" onClick={toWatchlist(list.id - 1)}>
                                         <div className="watchlist-icon">
                                             <p>💰</p>
                                         </div>

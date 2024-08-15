@@ -6,11 +6,13 @@ const ChangeWatchListName = ({ onClose, watchlist }) => {
     const [watchlistName, setWatchlistName] = useState(watchlist.name)
 
     return (
-        < div className="modalbox" >
-            <button className="deleteClose" onClick={onClose}>X</button>
-            <h2>Edit List</h2>
-            <Form method="put" action={`/watchlist/${watchlist.id}`} onSubmit={onClose}>
-                <input type='text' name="watchlistname" value={watchlistName} onChange={(e) => setWatchlistName(e.target.value)} />
+        < div className="modalbox bigger" >
+            <div className="row-delete-stuff spread-out">
+                <button className="deleteClose" onClick={onClose}>X</button>
+                <h2>Edit List</h2>
+            </div>
+            <Form method="put" action={`/watchlist/${watchlist.id - 1}`} onSubmit={onClose} className="input-style">
+                <input type='text' name="watchlistname" value={watchlistName} onChange={(e) => setWatchlistName(e.target.value)} className="name-change-input" />
                 <input type='hidden' name="watchlist_id" value={watchlist.id} />
                 <button
                     type="submit"

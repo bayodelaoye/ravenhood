@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate, useParams, Form, redirect } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
@@ -27,13 +27,19 @@ const WatchlistAll = () => {
     // Grab User's Watchlist
     const watchlist = useLoaderData();
 
+    const [updatedList, setUpdatedList] = useState(watchlist);
+
+    useEffect(() => {
+        setUpdatedList(watchlist)
+    }, [watchlist])
+
 
     //---------------------------------Modal------------------------------------
 
 
     function toWatchlist(listid) {
         return () => {
-            return navigate(`/watchlist/${listid}`)
+            return navigate(`/watchlist/${listid - 1}`)
         }
     }
 
@@ -54,7 +60,7 @@ const WatchlistAll = () => {
 
     const handleChangeNameWatchList = (watchlist) => {
         setModalContent(
-            <div>
+            <div className="modal-container-box">
                 <ChangeWatchListName
                     onClose={closeModal}
                     watchlist={watchlist}
@@ -86,28 +92,38 @@ const WatchlistAll = () => {
         };
 
         useEffect(() => {
+            // console.log("CLOSEMENU: ", toggleButton, "\n", toggleOpen)
             if (!isOpen) return;
 
-            const closeMenu = (e) => {
-                if (ulRef.current && !ulRef.current.contains(e.target)) {
-                    setIsOpen(false);
-                }
+
+            const closeMenu = () => {
+                setIsOpen(false);
+
+                // e.target -> Mouse cursor current
+                // ulRef.current -> The window
+                // if (ulRef.current && !ulRef.current.contains(e.target)) {
+                //     console.log(ulRef.current)
+                //     setIsOpen(false);
+                // }
             };
 
             document.addEventListener('click', closeMenu);
 
-            return () => document.removeEventListener("click", closeMenu);
+
+            return () => {
+                document.removeEventListener("click", closeMenu)
+            };
         }, [isOpen]);
 
         const toggleOpen = "toggle-dropdown" + (isOpen ? "" : " hidden");
 
         return (
             <div style={{ position: 'relative' }}>
-                <button onClick={toggleWatchlistDeleteMenu}>{title}</button>
+                <button id={`toggler${value.name}`} className="dropdownToggler" onClick={toggleWatchlistDeleteMenu}>{title}</button>
 
                 <div ref={ulRef} className={toggleOpen} style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid black', zIndex: 1 }}>
-                    <p onClick={(e) => { e.stopPropagation(); handleChangeNameWatchList(value) }}>Edit List</p>
-                    <p type='submit' className="delete-watchlist-button" onClick={(e) => { e.stopPropagation(); handleDeleteWatchlist(value); }}>Delete List</p>
+                    <p className='editlistbutton' onClick={(e) => { e.stopPropagation(); handleChangeNameWatchList(value) }}>Edit List</p>
+                    <p type='submit' className="delete-watchlist-button-sublist" onClick={(e) => { e.stopPropagation(); handleDeleteWatchlist(value); }}>Delete List</p>
                 </div>
 
             </div>
@@ -130,18 +146,19 @@ const WatchlistAll = () => {
                     </div>
                 </header>
                 {
-                    watchlist.map((list) => (
+                    updatedList.map((list) => (
                         <div
-                            className='row subwatchlist'
+                            className='row subwatchlists spread-outer'
                             id={`watchlist${list.id}`}
                             key={`watchlist${list.id}`}
+                            onClick={toWatchlist(list.id)}
 
                         >
-                            <div className="subwatchlist-description row" onClick={toWatchlist(list.id)}>
+                            <div className="subwatchlist-description row" >
                                 <div className="watchlist-icon">
                                     <p>💰</p>
                                 </div>
-                                <div className="watchlist-name">
+                                <div className="watchlist-name subwatchlist-name">
                                     <p>{list.name}</p>
                                 </div>
                             </div>
