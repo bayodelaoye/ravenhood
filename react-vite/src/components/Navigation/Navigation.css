@@ -1,7 +1,4 @@
-#TopNavBarToggleDropdownButton{
-    background-color: transparent;
-    border: none;
-}
+
 
 
 
@@ -58,4 +55,13 @@ header {
 
 .TopNavBarLinkActive{
     text-decoration: underline;
+}
+
+#TopNavBarToggleDropdownButton{
+    background-color: transparent;
+    border: none;
+}
+
+#TopNavBarAccountDropdown{
+    z-index: 3;
 }

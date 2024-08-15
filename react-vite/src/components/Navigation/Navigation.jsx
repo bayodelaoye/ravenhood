@@ -53,7 +53,7 @@ useEffect(() => {
   return () => document.removeEventListener('click', closeMenu);
 }, [showMenu]);
 
-const closeMenu = () => setShowMenu(false);
+// const closeMenu = () => setShowMenu(false);
 
 
 
@@ -123,7 +123,7 @@ const navLinkId = (showMenu ? "" : "active");
                 <button onClick={toggleMenu} id="TopNavBarToggleDropdownButton">
                      <NavLink
                      className={showMenu ? "TopNavBarNavLink TopNavBarLinkActive" : "TopNavBarNavLink"}>Account</NavLink>
-                     {showMenu ? <AccountDropdown></AccountDropdown> : ""}
+                     {showMenu ? <AccountDropdown id="TopNavBarAccountDropdown"></AccountDropdown> : ""}
                 </button>
 
             </li>
