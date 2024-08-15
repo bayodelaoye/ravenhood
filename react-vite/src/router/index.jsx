@@ -110,8 +110,8 @@ export const router = createBrowserRouter([
         element: <CreditCard />,
       },
       {
-        path: "/gold",
-        element: <Gold />,
+        path: "/platinum",
+        element: <Platinum />,
       },
       {
         path: "/learn",
