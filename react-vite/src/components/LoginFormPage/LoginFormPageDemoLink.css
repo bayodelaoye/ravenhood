@@ -1,8 +1,3 @@
-#LoginFormPageDemoLinkButton{
-    margin: 2rem auto auto auto;
-
-}
-
-#LoginFormPageDemoLinkButton:hover{
+#LoginFormPageDemoLinkButton:hover {
     cursor: pointer;
 }
