@@ -14,6 +14,9 @@ import './Navigation.css';
 
 const Navigation = ({isLoaded}) => {
 
+const sessionUser = useSelector(state => state.session.user);
+const userId = sessionUser.id;
+
 
 // ==============account menu show hide logic====================
 
@@ -58,7 +61,7 @@ useEffect(() => {
 
 
 // ========================Search===================================
-    const sessionUser = useSelector(state => state.session.user);
+    // const sessionUser = useSelector(state => state.session.user);
     const navigate = useNavigate()
     // const dispatch = useDispatch()
 
@@ -87,22 +90,22 @@ useEffect(() => {
 
         <ul id="TopNavBarUl">
             <li>
-                <NavLink to="/profile/portfolios" className="TopNavBarNavLink">Portfolios</NavLink>
+                <NavLink to={`/portfolios/${userId}`}className="TopNavBarNavLink">Portfolios</NavLink>
             </li>
             <li>
-                <NavLink id="/watchlist" className="TopNavBarNavLink">Watchlists</NavLink>
+                <NavLink to="/watchlist" className="TopNavBarNavLink">Watchlists</NavLink>
             </li>
             <li>
-                <NavLink id="/transactions" className="TopNavBarNavLink">Transactions</NavLink>
+                <NavLink to={`/users/${userId}/transactions`} className="TopNavBarNavLink">Transactions</NavLink>
             </li>
             <li>
-                <NavLink id="/" className="TopNavBarNavLink">Spending</NavLink>
+                <NavLink to="/stocks/" className="TopNavBarNavLink">Stocks</NavLink>
             </li>
             <li>
-                <NavLink id="/" className="TopNavBarNavLink">Retirement</NavLink>
+                <NavLink to="/retirement" className="TopNavBarNavLink">Retirement</NavLink>
             </li>
             <li>
-                <NavLink id="/" className="TopNavBarNavLink">Notifications</NavLink>
+                <NavLink to="" className="TopNavBarNavLink">Notifications</NavLink>
             </li>
             <li>
 

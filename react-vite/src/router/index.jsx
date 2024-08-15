@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
 				path: "profile/portfolios",
 				loader: userPortfolios,
 				element: <Profile />,
-        action: modifyPortfolio
+                action: modifyPortfolio
 			},
 			{
 				path: "portfolios/new",
@@ -60,7 +60,7 @@ export const router = createBrowserRouter([
 				action: modifyPortfolio,
 			},
 			{
-				path: "portfolios/:id",
+				path: "portfolios/:userId",
 				loader: userPortfolios,
 				element: <Portfolio />,
 			},
@@ -81,6 +81,11 @@ export const router = createBrowserRouter([
 				element: <WatchlistAll />,
 				loader: watchlistLoader,
 				action: deleteWatchlist,
+			},
+			{
+				path: "stocks",
+				// element: <ListStocks />,
+				// loader: listStocksLoader,
 			},
 
 			// =============Not Loggedin aka NavigationStart=============
