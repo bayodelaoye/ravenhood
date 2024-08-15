@@ -32,7 +32,7 @@ function NavigationStart() {
             <NavLink to="/creditcard" className="NavigationStartUlLiNavLink">Credit Card</NavLink>
           </li>
           <li className="NavigationStartUlLi">
-            <NavLink to="/gold" className="NavigationStartUlLiNavLink">Gold</NavLink>
+            <NavLink to="/platinum" className="NavigationStartUlLiNavLink">Platinum</NavLink>
           </li>
           <li className="NavigationStartUlLi">
             <NavLink to="/learn" className="NavigationStartUlLiNavLink">Learn</NavLink>

@@ -94,7 +94,7 @@ const Portfolio = () => {
 							<p>
 								Earn 5% on your uninvested cash. No cap. Terms apply.{" "}
 								<Link
-									to="/gold"
+									to="/platinum"
 									style={{
 										pointer: `cursor`,
 										textDecoration: `underline`,

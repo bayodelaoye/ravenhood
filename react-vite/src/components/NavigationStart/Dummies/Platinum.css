@@ -1,4 +1,4 @@
-#GoldMain{
+#PlatinumMain{
     height: 2000px;
     width: auto;
     display: flex;
@@ -14,7 +14,7 @@
 }
 
 
-#GoldH2{
+#PlatinumH2{
     color: linear-gradient(
 		270deg,
 		#4d3f72 2.68%,
@@ -40,7 +40,7 @@
 	animation-fill-mode: forwards;
 }
 
-#GoldH1{
+#PlatinumH1{
     color: linear-gradient(
 		270deg,
 		#4d3f72 2.68%,

@@ -87,13 +87,13 @@ useEffect(() => {
 
         <ul id="TopNavBarUl">
             <li>
-                <NavLink to="/" className="TopNavBarNavLink">Rewards</NavLink>
+                <NavLink to="/profile/portfolios" className="TopNavBarNavLink">Portfolios</NavLink>
             </li>
             <li>
-                <NavLink id="/" className="TopNavBarNavLink">Investing</NavLink>
+                <NavLink id="/watchlist" className="TopNavBarNavLink">Watchlists</NavLink>
             </li>
             <li>
-                <NavLink id="/" className="TopNavBarNavLink">Crypto</NavLink>
+                <NavLink id="/transactions" className="TopNavBarNavLink">Transactions</NavLink>
             </li>
             <li>
                 <NavLink id="/" className="TopNavBarNavLink">Spending</NavLink>
