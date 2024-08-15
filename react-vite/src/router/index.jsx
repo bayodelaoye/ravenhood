@@ -19,7 +19,7 @@ import Crypto from "../components/NavigationStart/Offerings/Crypto.jsx";
 import Retirement from "../components/NavigationStart/Offerings/Retirement.jsx";
 import Options from "../components/NavigationStart/Offerings/Options.jsx";
 import CreditCard from "../components/NavigationStart/Dummies/CreditCard.jsx";
-import Gold from "../components/NavigationStart/Dummies/Gold.jsx";
+import Platinum from "../components/NavigationStart/Dummies/Platinum.jsx";
 import Learn from "../components/NavigationStart/Dummies/Learn.jsx";
 import SherwoodNews from "../components/NavigationStart/Dummies/SherwoodNews.jsx";
 import Support from "../components/NavigationStart/Dummies/Support.jsx";
@@ -110,8 +110,8 @@ export const router = createBrowserRouter([
         element: <CreditCard />,
       },
       {
-        path: "/gold",
-        element: <Gold />,
+        path: "/platinum",
+        element: <Platinum />,
       },
       {
         path: "/learn",
@@ -209,8 +209,8 @@ export const router = createBrowserRouter([
             element: <CreditCard />,
           },
           {
-            path: "/gold",
-            element: <Gold />,
+            path: "/platinum",
+            element: <Platinum />,
           },
           {
             path: "/learn",

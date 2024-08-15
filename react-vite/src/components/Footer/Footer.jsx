@@ -54,7 +54,7 @@ const Footer = () => {
 									</li>
 									<li>
 										<a href="#" target="_blank" rel="noopener noreferrer">
-											Gold
+											Platinum
 										</a>
 									</li>
 									<li>
@@ -214,8 +214,8 @@ const Footer = () => {
 							for more information. Credit card products are offered by
 							Ravenhood Credit, Inc. (&quot;RCT&quot;) (NMLS ID: 1781911) and
 							issued by Coastal Community Bank, Member FDIC, pursuant to a
-							license from Visa U.S.A. Inc. Ravenhood Gold is offered through
-							Ravenhood Gold, LLC (“RHG”) and is a subscription offering premium
+							license from Visa U.S.A. Inc. Ravenhood Platinum is offered through
+							Ravenhood Platinum, LLC (“RHG”) and is a subscription offering premium
 							services available for a fee.
 						</p>
 						<p>
@@ -261,7 +261,7 @@ const Footer = () => {
 							commissions for Ravenhood Financial self-directed individual cash
 							or margin brokerage accounts that trade U.S. listed securities and
 							certain OTC securities electronically. Keep in mind, other fees
-							such as trading (non-commission) fees, Gold subscription fees,
+							such as trading (non-commission) fees, Platinum subscription fees,
 							wire transfer fees, and paper statement fees may apply to your
 							brokerage account. Please see Ravenhood Financial&apos;s{" "}
 							<a href="#" target="_blank" rel="noopener noreferrer">
