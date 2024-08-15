@@ -266,11 +266,21 @@ body {
     background-color: white;
     border: none;
     font-size: large;
+
 }
 
 .deleteClose:hover {
     cursor: pointer;
     color: #C8CBCD;
+}
+
+.deleteClose+h2 {
+    white-space: wrap;
+    white-space: nowrap;
+    overflow: auto;
+    text-overflow: ellipsis;
+    text-wrap: wrap;
+    max-width: 500px;
 }
 
 
@@ -286,6 +296,9 @@ body {
     font-family: "Karla";
     font-weight: bold;
     color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .watchlist-delete-button:hover {
@@ -363,4 +376,9 @@ body {
 
 .delete-watchlist-button-sublist:hover {
     color: #8A7C9C;
+}
+
+
+.watchlist-update-button:disabled {
+    background-color: gray;
 }

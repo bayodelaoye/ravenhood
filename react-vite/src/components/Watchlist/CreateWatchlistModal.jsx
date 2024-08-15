@@ -8,16 +8,19 @@ const CreateWatchList = ({ onClose, current }) => {
 
     return (
         < div className="modalbox" >
-            <button className="deleteClose" onClick={onClose}>X</button>
-            <h2>Create List</h2>
-            <Form method="post" action={`/watchlist/${current}`} onSubmit={onClose}>
-                <input type='text' name="watchlistname" value={watchlistName} onChange={(e) => setWatchlistName(e.target.value)} />
+            <div className="row-delete-stuff spread-out">
+                <button className="deleteClose" onClick={onClose}>✖</button>
+                <h2>Create List</h2>
+            </div>
+            <Form method="post" action={`/watchlist/${current - 1}`} onSubmit={onClose} className="input-style">
+                <input required type='text' className="name-change-input" name="watchlistname" value={watchlistName} onChange={(e) => setWatchlistName(e.target.value)} />
                 <button
+                    disabled={watchlistName === ''}
                     type="submit"
                     name='intent'
                     value='create-watchlist'
-                    className="watchlist-create-button">Create List</button>
-                <button className="deleteClose" onClick={onClose}>Cancel</button>
+                    className="watchlist-update-button">Create List</button>
+                {/* <button className="deleteClose" onClick={onClose}>Cancel</button> */}
             </Form>
 
         </div >

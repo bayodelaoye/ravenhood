@@ -21,7 +21,7 @@ const Watchlist = () => {
     const user = useSelector((state) => state.session.user);
 
     //-----------------------------------DATA--------------------------------------
-
+    const [currentFilter, setCurrentFilter] = useState("none")
     // Grab User's Watchlist
     const watchlist = useLoaderData();
 
@@ -44,6 +44,7 @@ const Watchlist = () => {
 
     useEffect(() => {
         setCurrentList(currentWatchList.stocks)
+        setCurrentFilter('none')
     }, [watchlist])
 
     //---------------------------------BEHAVIOR------------------------------------
@@ -80,7 +81,7 @@ const Watchlist = () => {
     }
 
 
-    const [currentFilter, setCurrentFilter] = useState("none")
+
 
     function sortStock(filterby) {
         let sorted;

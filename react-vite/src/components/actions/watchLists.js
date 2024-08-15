@@ -1,5 +1,7 @@
 import { redirect } from "react-router-dom";
 
+
+
 export const deleteWatchlist = async ({ request }) => {
     let formData = await request.formData();
     let data = Object.fromEntries(formData);
@@ -40,6 +42,9 @@ export const deleteWatchlist = async ({ request }) => {
 
     if (intent === 'update-watchlist-name') {
         // console.log(data)
+        if (data.watchlistname === '') {
+            return { message: "Watchlist name cannot be empty" }
+        }
         const response = await fetch(`/api/watch_lists/${data.watchlist_id}`, {
             method: "PUT",
             headers: {
@@ -59,6 +64,9 @@ export const deleteWatchlist = async ({ request }) => {
 
     if (intent === 'create-watchlist') {
         console.log(data)
+        if (data.watchlistname === '') {
+            return { message: "Watchlist name cannot be empty" }
+        }
         const response = await fetch(`/api/watch_lists/`, {
             method: "POST",
             headers: {
