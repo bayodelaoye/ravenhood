@@ -22,7 +22,7 @@ const userId = sessionUser.id;
 
 const dispatch = useDispatch();
 const [showMenu, setShowMenu] = useState(false);
-const ulRef = useRef();
+
 
 // ====changes user menu from showing to not showing whichever is opposite at time of click
 const toggleMenu = (e) => {
@@ -36,25 +36,23 @@ const toggleMenu = (e) => {
 //====if showMenu is false nothing happens; else I'm not sure....
 useEffect(() => {
   if (!showMenu) {
-    console.log("===========if !showMenu ran showMenu = ", showMenu);
-
+    // console.log("===========if !showMenu ran showMenu = ", showMenu);
     return;
   }
-  // ulRef.current && this was in the if on line 27
-  const closeMenu = (e) => {
-    if (!ulRef.current.contains(e.target)) {
+
+  const closeMenu = () => {
     setShowMenu(false);
-    }
+    console.log("=================== closeMenu ran")
   };
 
   document.addEventListener('click', closeMenu);
 
+//   console.log("=================useEffect ran showMenu = ", showMenu)
 
-  console.log("=================useEffect ran showMenu = ", showMenu)
   return () => document.removeEventListener('click', closeMenu);
 }, [showMenu]);
 
-// const closeMenu = () => setShowMenu(false);
+
 
 
 
@@ -112,8 +110,12 @@ useEffect(() => {
 
                 <button onClick={toggleMenu} id="TopNavBarToggleDropdownButton">
                      <href
-                     className={showMenu ? "TopNavBarNavLink TopNavBarLinkActive" : "TopNavBarNavLink"}>Account</href>
-                     {showMenu ? <AccountDropdown id="TopNavBarAccountDropdown"></AccountDropdown> : ""}
+                     className={showMenu ?
+                     "TopNavBarNavLink TopNavBarLinkActive" :
+                     "TopNavBarNavLink"}>Account</href>
+                     {showMenu ?
+                     <AccountDropdown id="TopNavBarAccountDropdown" />:
+                     ""}
                 </button>
 
             </li>
