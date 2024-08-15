@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import User, Portfolio
+from app.models import User, Portfolio, db
+from app.aws import ImageForm, get_unique_filename, upload_file_to_s3
 
 user_routes = Blueprint("users", __name__)
 
@@ -12,7 +13,7 @@ def users():
     Query for all users and returns them in a list of user dictionaries
     """
     users = User.query.all()
-    return {"users": [user.to_dict() for user in users]}
+    return {"users": [user.to_dict() for user in users]}, 201
 
 
 @user_routes.route("/<int:id>")
@@ -22,8 +23,30 @@ def user(id):
     Query for a user by id and returns that user in a dictionary
     """
     user = User.query.get(id)
-    return user.to_dict_with_portfolios_and_watch_lists()
+    return user.to_dict_with_portfolios_and_watch_lists(), 201
 
+
+@user_routes.route("/<int:id>", methods=["POST"])
+@login_required
+def upload_image():
+      form = ImageForm()
+      image = form.data["image"]
+      image.filename = get_unique_filename(image.filename)
+      upload = upload_file_to_s3(image)
+
+      if "url" not in upload:
+            # if the dictionary doesn't have a url key
+            # # it means that there was an error when you tried to upload
+            # # so you send back that error message (and you printed it above)
+            return {"message": "There was an error uploading the image"}, 400
+      
+      url = upload["url"]
+      new_image = User(image=url)
+      db.session.add(new_image)
+      db.session.commit()
+      user = User.query.get(id)
+      return user.to_dict_with_portfolios_and_watch_lists(), 201
+      
 
 @user_routes.route("/<int:id>/portfolios")
 @login_required
