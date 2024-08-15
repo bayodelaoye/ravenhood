@@ -48,10 +48,10 @@ function NavigationStart() {
               <FlagDropdown />
           </li>
 
-          <li className="NavigationStartUlLi NavigationStartUlLiButtonLi">
+          <li className="NavigationStartUlLi">
             <LoginButton />
           </li>
-          <li className="NavigationStartUlLi NavigationStartUlLiButtonLi">
+          <li className="NavigationStartUlLi">
             <SignupButton />
           </li>
         </ul>

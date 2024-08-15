@@ -1,0 +1,55 @@
+#AccountDropdownUserName{
+    font-weight: bold;
+    border-bottom: .5px lightgray solid;
+}
+
+#platinum{
+    width: 10px;
+}
+
+#AccountDropdownLogOut{
+    font-weight: bold;
+    border-top: .5px lightgray solid;
+}
+
+
+#AccountDropdownUl{
+    position: absolute;
+    right: 14rem;
+    margin-top: 1rem;
+    background-color: white;
+    filter: drop-shadow(0 0.5rem 0.75rem rgb(37, 15, 67));
+}
+
+.AccountDropdownUlLi{
+    display: flex;
+    align-items: center;
+
+    justify-content: baseline;
+    list-style-type: none;
+    border: none;
+}
+
+.AccountDropdownUlLiButton{
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    height: 3rem;
+    width: 20rem;
+    background-color: white;
+    border: none;
+    padding: 4px;
+    /* margin: 4px 4px 4px 8px; */
+    font-size: medium;
+
+}
+
+.AccountDropdownUlLiButton:hover{
+    background-color: #DDDDE1;
+    cursor: pointer;
+}
+
+.AccountDropdownIcon{
+    margin: 0 8px 0 2px;
+
+}

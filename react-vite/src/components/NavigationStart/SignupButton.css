@@ -1,6 +1,7 @@
 #NavigationStartButtonSignup{
     color: black;
     padding: 1rem 2rem;
+	margin-left: -1rem;
     border: 1px #4D3F72 solid;
     border-radius: 25px;
     background: linear-gradient(

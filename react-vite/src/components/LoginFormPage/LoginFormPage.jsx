@@ -2,6 +2,7 @@ import { useState } from "react";
 import { thunkLogin } from "../../redux/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
+import LoginFormPageDemoLink from "./LoginFormPageDemoLink";
 import "./LoginForm.css";
 
 function LoginFormPage() {
@@ -65,6 +66,7 @@ function LoginFormPage() {
         {errors.password && <p>{errors.password}</p>}
         <button type="submit">Log In</button>
       </form>
+      <LoginFormPageDemoLink />
     </>
   );
 	// 		<form onSubmit={handleSubmit}>

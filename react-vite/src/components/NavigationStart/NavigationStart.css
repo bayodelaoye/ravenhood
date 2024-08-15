@@ -1,5 +1,5 @@
 #NavigationStartHeader{
-  padding: 0 1rem 0 0rem;
+  padding: 0rem 1rem 0rem 0rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -80,15 +80,4 @@
 }
 
 
-/* =======================BUTTONS================================= */
 
-/* .NavigationStartUlLiButtonLi{
-  color: white;
-}
-
-.NavigationStartUlLiButtonLi:hover{
-  color: #BFC0C6;
-  cursor: pointer;
-} */
-
-/* .profile-dropdown { position: absolute; } */
