@@ -68,3 +68,15 @@ def upload_image():
 def user_portfolios(id):
     portfolios = Portfolio.query.filter(Portfolio.user_id == id).all()
     return {"portfolios": [portfolio.to_dict() for portfolio in portfolios]}
+
+@user_routes.route("/transactions")
+@login_required
+def user_transactions():
+    transactions_list= []
+    user = User.query.get(current_user.get_id())
+    portfolio_list = {"portfolios": [all_portfolios.to_dict_with_transactions() for all_portfolios in user.portfolios]}
+    
+    for i in portfolio_list['portfolios']:
+        [transactions_list.append(j) for j in i['transactions']]
+
+    return transactions_list

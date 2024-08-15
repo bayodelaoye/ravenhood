@@ -1,0 +1,52 @@
+.watch-list-modal-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  height: 300px;
+  width: 350px;
+}
+.watch-list-modal-container h2 {
+  margin-top: 20px;
+}
+
+.watchlist-form-errors {
+  color: var(--errors);
+}
+
+.select-watchlist {
+  height: 30px;
+}
+
+.watchlist-form-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.add-cancel-btn-watchlist-container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-cancel-btn-watchlist {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: var(--white);
+  background-color: var(--purple);
+  border: 1px solid var(--purple);
+  border-radius: 25px;
+  font-weight: 550;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.add-cancel-btn-watchlist:hover {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: var(--purple);
+  background-color: var(--white);
+  border: 1px solid var(--purple);
+  font-weight: 550;
+}
