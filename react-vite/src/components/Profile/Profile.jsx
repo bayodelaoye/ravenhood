@@ -18,7 +18,7 @@ const Profile = () => {
 
 	return (
 		<div id="user-profile-portfolio">
-			{currentUser}
+			{/* {currentUser} */}
 			<div id="user-profile-details">
 				<div id="user-profile-pic" className="user-image-update">
 					<img src={userPortfolios.image} alt="" />
