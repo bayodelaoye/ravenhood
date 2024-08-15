@@ -148,10 +148,11 @@ export const router = createBrowserRouter([
 			// 	path: "/retirement2",
 			// 	element: <Retirement2 />,
 			// },
-			// {
-			// 	path: "/notifications",
-			// 	element: <Notifications />,
-			// },
+			{
+				path: "/notifications",
+				element: "Notificaitons Coming Soon"
+				// element: <Notifications />,
+			},
 			{
 				path: "/stocks/:stockId",
 				loader: stockDetailsLoader,

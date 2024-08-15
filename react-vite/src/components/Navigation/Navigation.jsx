@@ -105,7 +105,7 @@ useEffect(() => {
                 <NavLink to="/retirement" className="TopNavBarNavLink">Retirement</NavLink>
             </li>
             <li>
-                <NavLink to="" className="TopNavBarNavLink">Notifications</NavLink>
+                <NavLink to="/notifications" className="TopNavBarNavLink">Notifications</NavLink>
             </li>
             <li>
 
