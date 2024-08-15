@@ -1,16 +1,17 @@
 import { useLoaderData, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BsStars } from "react-icons/bs";
+import WatchlistAll from "../Watchlist/WatchlistUser_All";
 
 const Portfolio = () => {
-	const { userPortfolios } = useLoaderData();
-	const { userWatchlists } = useLoaderData();
+	const {userPortfolios} = useLoaderData();
+	const {userWatchlists} = useLoaderData();
 	const currentUser = useSelector((state) => state.session.user);
 	const portfolios = userPortfolios.portfolios.map((portfolio) => portfolio);
 	const stockDetails = userPortfolios.portfolios.map((stock) => stock.stocks);
 
 	console.log("portfolio", userPortfolios);
-	console.log("watchlist", userWatchlists);
+	console.log(userWatchlists);
 	console.log("stock details", stockDetails);
 	console.log("portfolio details", portfolios);
 
@@ -33,7 +34,8 @@ const Portfolio = () => {
 							<div>${portfolio.total_amount}</div>
 							<hr />
 						</div>
-					))}
+                              ))}
+                              {/* BAYODE - LINE GRAPH*/}
 					<div id="ravenhood-general-blocks">
 						<div>
 							<img src="" alt="" />
@@ -136,11 +138,13 @@ const Portfolio = () => {
 			) : (
 				<div>Please log in to view your portfolios.</div>
 			)}
-			<div>
+                  <div>
+                        {/* <WatchlistAll /> */}
 				Render watchlist to the right of all data above, watchlist is in this
 				route, in this component, did not make sure it does not break with other
 				users. WORKS FOR DEMO USER
-			</div>
+                  </div>
+                  {/* TYLER - WATCHLIST */}
 		</div>
 	);
 };

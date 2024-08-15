@@ -29,7 +29,6 @@ import Support from "../components/NavigationStart/Dummies/Support.jsx";
 // import Retirement2 from "../components/Navigation/NavDummies/Retirement2.jsx";
 // import Notifications from "../components/Navigation/NavDummies/Notifications.jsx";
 
-
 export const router = createBrowserRouter([
 	{
 		element: <Layout />,
@@ -51,6 +50,7 @@ export const router = createBrowserRouter([
 				path: "profile/portfolios",
 				loader: userPortfolios,
 				element: <Profile />,
+				action: modifyPortfolio,
 			},
 			{
 				path: "portfolios/new",
@@ -82,7 +82,7 @@ export const router = createBrowserRouter([
 				action: deleteWatchlist,
 			},
 
-		// =============Not Loggedin aka NavigationStart=============
+			// =============Not Loggedin aka NavigationStart=============
 			{
 				path: "/invest",
 				element: <Invest />,
@@ -99,7 +99,7 @@ export const router = createBrowserRouter([
 				path: "/options",
 				element: <Options />,
 			},
-            {
+			{
 				path: "/us",
 				// children: [
 				// ],
@@ -151,7 +151,7 @@ export const router = createBrowserRouter([
 				loader: stockDetailsLoader,
 				element: <StockDetailsPage />,
 			},
-            {
+			{
 				path: "*",
 				element: (
 					<div>
@@ -162,9 +162,7 @@ export const router = createBrowserRouter([
 						</p>
 					</div>
 				),
-			}
-
-
+			},
 		],
 	},
 ]);

@@ -22,7 +22,7 @@ export const modifyPortfolio = async ({ request }) => {
 
 		if (response.ok) {
 			const newPortfolio = await response.json();
-			throw redirect(`/portfolios/${newPortfolio.portfolio.id}`)
+			throw redirect(`/portfolios/${newPortfolio.portfolio.id}`);
 		}
 	}
 
@@ -62,6 +62,25 @@ export const modifyPortfolio = async ({ request }) => {
 		}
 	}
 
+	if (intent === "update-profile-pic") {
+		const response = await fetch(`/api/users/${data.id}`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				image: data.image,
+				username: data.username,
+			}),
+		});
+
+		if (response.ok) {
+			const message = await response.json();
+			console.log(message.message);
+			return redirect("/profile/portfolios");
+		}
+	}
+
 	if (intent === "delete-portfolio") {
 		const response = await fetch(`/api/portfolios/${data.id}`, {
 			method: "DELETE",
@@ -76,3 +95,7 @@ export const modifyPortfolio = async ({ request }) => {
 
 	return "There was an error in updating the portfolio";
 };
+
+// export const updateProfilePic = async ({ request }) => {
+//       return await fetch(``)
+// }
