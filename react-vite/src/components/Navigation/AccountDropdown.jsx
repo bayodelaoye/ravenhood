@@ -11,6 +11,10 @@ import { FaGear } from "react-icons/fa6";
 import { BiSolidHelpCircle } from "react-icons/bi";
 import { ImKeyboard } from "react-icons/im";
 import { MdLogout } from "react-icons/md";
+import * as sessionActions from "../../redux/session";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+// import store from "../../redux/store"
 import "./AccountDropdown.css";
 
 
@@ -20,13 +24,21 @@ function AccountDropdown(){
 
     const sessionUser = useSelector((store) => store.session.user);
 
+    const dispatch = useDispatch()
+
+
+    const handleLogout = () => {
+        dispatch(sessionActions.thunkLogout())
+        console.log("handleLogout ran");
+    }
+
 
     return(
         <>
             <ul id="AccountDropdownUl">
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton">{`${sessionUser.first_name} ${sessionUser.last_name}`}</button>
+                    <button className="AccountDropdownUlLiButton" id="AccountDropdownUserName">{`${sessionUser.first_name} ${sessionUser.last_name}`}</button>
                 </li>
 
                 <li className="AccountDropdownUlLi">
@@ -82,7 +94,12 @@ function AccountDropdown(){
 
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><MdLogout className="AccountDropdownIcon"/>Log Out</button>
+                    <button
+                        onClick={handleLogout}
+                        className="AccountDropdownUlLiButton"
+                        id="AccountDropdownLogOut">
+                            <MdLogout className="AccountDropdownIcon"/>Log Out
+                    </button>
                 </li>
 
 
