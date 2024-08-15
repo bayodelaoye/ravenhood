@@ -161,8 +161,7 @@ export const router = createBrowserRouter([
         element: <ListStocks />,
       },
       {
-        path: "/users/transactions",
-        loader: userTransactionsLoader,
+        path: "/users/:userId/transactions",
         element: <TransactionsPage />,
       },
       {
