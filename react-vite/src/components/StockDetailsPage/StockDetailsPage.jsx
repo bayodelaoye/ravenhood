@@ -21,6 +21,8 @@ function StockDetailsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [userWatchLists, setUserWatchLists] = useState("");
+  const [isStockInWatchList, setIsStockInWatchList] = useState(false);
+  const [stocksInUserWatchlists, setStocksInUserWatchlists] = useState([]);
   const navigate = useNavigate();
   const { closeModal } = useModal();
   const currentUser = useSelector((state) => state.session.user);
@@ -30,6 +32,22 @@ function StockDetailsPage() {
 
   useEffect(() => {
     dispatch(userPortfolios(currentUser?.id))
+      .then(async () => {
+        const response = await fetch(`/api/watch_lists/stocks`);
+
+        if (response.ok) {
+          const stocksInUserWatchlists = await response.json();
+          setStocksInUserWatchlists(stocksInUserWatchlists);
+        }
+
+        stocksInUserWatchlists.forEach((stock) => {
+          console.log(stock);
+          if (stock.id === stockDetails.id) {
+            console.log("in if");
+            setIsStockInWatchList(true);
+          }
+        });
+      })
       .then(() => {
         setIsLoaded(true);
       })
@@ -423,17 +441,8 @@ function StockDetailsPage() {
                   </div>
                 </Form>
               </div>
-              {userWatchLists.watch_lists === 0 ? (
-                <OpenModalButton
-                  buttonText={`Watch ${stockDetails.ticker_symbol}`}
-                  onClick={(e) => {
-                    e.stopPropogation();
-                    handaAddToWatchList();
-                  }}
-                  className="watch-list-btn"
-                  closeModal={closeModal}
-                  modalComponent={<CreateWatchList />}
-                />
+              {isStockInWatchList ? (
+                <></>
               ) : (
                 <OpenModalButton
                   buttonText={`Watch ${stockDetails.ticker_symbol}`}
@@ -441,10 +450,23 @@ function StockDetailsPage() {
                   onClose={closeModal}
                   className="watch-list-btn"
                   modalComponent={
-                    <AddStockToWatchListModal onClose={closeModal} />
+                    <AddStockToWatchListModal
+                      onClose={closeModal}
+                      stockId={stockDetails.id}
+                    />
                   }
                 />
               )}
+              {/* {userWatchLists.watch_lists === 0 ? (
+                <OpenModalButton
+                  buttonText={`Watch ${stockDetails.ticker_symbol}`}
+                  className="watch-list-btn"
+                  closeModal={closeModal}
+                  modalComponent={<CreateWatchList />}
+                />
+              ) : (
+                <></>
+              )} */}
             </div>
           ) : (
             <div className="buy-sell-watch-container">

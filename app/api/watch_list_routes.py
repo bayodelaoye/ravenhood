@@ -34,6 +34,22 @@ def user_watch_lists():
         "watch_lists": [watch_list.to_dict_with_stocks() for watch_list in watch_lists]
     }
 
+@watch_list_routes.route("/stocks")
+@login_required
+def user_watch_lists_stocks():
+    user_watchlists = []
+    
+    if not current_user:
+        abort(403, "Unauthorized")
+
+    watch_lists = WatchList.query.filter(WatchList.user_id == current_user.id).all()
+    watch_lists_json = {"watch_lists": [watch_list.to_dict_with_stocks() for watch_list in watch_lists]}
+    
+    for i in watch_lists_json["watch_lists"]:
+        [user_watchlists.append(j) for j in i['stocks']]
+
+    return user_watchlists
+
 
 @watch_list_routes.route("/<int:id>", methods=["PUT"])
 @login_required

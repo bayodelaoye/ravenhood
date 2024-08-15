@@ -4,15 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { userWatchLists } from "../../redux/watchlist";
 import "./Watchlist.css";
 
-const AddStockToWatchListModal = ({ onClose }) => {
-  const [watchlistName, setWatchlistName] = useState("");
-  const listOfUserWatchList = useSelector(
-    (state) => state?.watchlist?.userWatchLists?.watch_lists
-  );
+const AddStockToWatchListModal = ({ onClose, stockId }) => {
+  const [watchList, setwatchList] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const dispatch = useDispatch();
+  const listOfUserWatchList = useSelector(
+    (state) => state?.watchlist?.userWatchLists?.watch_lists
+  );
+
+  console.log(stockId);
 
   useEffect(() => {
     dispatch(userWatchLists())
@@ -20,16 +22,30 @@ const AddStockToWatchListModal = ({ onClose }) => {
       .then(() => {
         const errors = {};
 
-        if (watchlistName === "") errors.watchlist = "Must select a watch list";
+        if (watchList === "") errors.watchlist = "Must select a watch list";
 
         setFormErrors(errors);
       });
-  }, [dispatch, watchlistName]);
+  }, [dispatch, watchList]);
 
-  const submitAddToWatchList = (e) => {
+  const submitAddToWatchList = async (e) => {
     e.preventDefault();
-
     setIsSubmitted(true);
+
+    const response = await fetch(`/api/watch_lists/${watchList}/add`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        stock_id: stockId,
+      }),
+    });
+
+    const message = await response.json();
+    if (response.ok) {
+      onClose();
+    }
   };
 
   return (
@@ -51,8 +67,7 @@ const AddStockToWatchListModal = ({ onClose }) => {
           <div className="watchlist-form-container">
             <Form method="post" onSubmit={submitAddToWatchList}>
               <select
-                name=""
-                onClick={(e) => setWatchlistName(e.target.value)}
+                onClick={(e) => setwatchList(e.target.value)}
                 className="select-watchlist"
               >
                 <option value="" selected disabled hidden>
