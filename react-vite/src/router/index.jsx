@@ -10,7 +10,6 @@ import Profile from "../components/Profile";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
-
 import { stockDetailsLoader } from "../components/loaders/stocks";
 import WatchlistAll from "../components/Watchlist/WatchlistUser_All";
 import StockDetailsPage from "../components/StockDetailsPage";
@@ -32,282 +31,143 @@ import TransactionsPage from "../components/TransactionPage";
 import { userTransactionsLoader } from "../components/loaders/transactions.js";
 
 export const router = createBrowserRouter([
-  {
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        loader: userPortfolios,
-        element: <HomePage />,
-      },
-      {
-        path: "login",
-        element: <LoginFormPage />,
-      },
-      {
-        path: "signup",
-        element: <SignupFormPage />,
-      },
-      {
-        path: "profile/portfolios",
-        loader: userPortfolios,
-        element: <Profile />,
-      },
-      {
-        path: "portfolios/new",
-        loader: userPortfolios,
-        element: <Portfolio />,
-        action: modifyPortfolio,
-      },
-      {
-        path: "portfolios/:id",
-        loader: userPortfolios,
-        element: <Portfolio />,
-      },
-      {
-        path: "portfolios/:id/cash",
-        loader: userPortfolios,
-        element: <Portfolio />,
-        action: modifyPortfolio,
-      },
-      {
-        path: "watchlist/:watchlist_num",
-        loader: watchlistLoader,
-        element: <Watchlist />,
-        action: deleteWatchlist,
-      },
-      {
-        path: "watchlist",
-        element: <WatchlistAll />,
-        loader: watchlistLoader,
-        action: deleteWatchlist,
-      },
+	{
+		element: <Layout />,
+		children: [
+			{
+				path: "/",
+				loader: userPortfolios,
+				element: <HomePage />,
+			},
+			{
+				path: "login",
+				element: <LoginFormPage />,
+			},
+			{
+				path: "signup",
+				element: <SignupFormPage />,
+			},
+			{
+				path: "profile/portfolios",
+				loader: userPortfolios,
+				element: <Profile />,
+			},
+			{
+				path: "portfolios/new",
+				loader: userPortfolios,
+				element: <Portfolio />,
+				action: modifyPortfolio,
+			},
+			{
+				path: "portfolios/:id",
+				loader: userPortfolios,
+				element: <Portfolio />,
+			},
+			{
+				path: "portfolios/:id/cash",
+				loader: userPortfolios,
+				element: <Portfolio />,
+				action: modifyPortfolio,
+			},
+			{
+				path: "watchlist/:watchlist_num",
+				loader: watchlistLoader,
+				element: <Watchlist />,
+				action: deleteWatchlist,
+			},
+			{
+				path: "watchlist",
+				element: <WatchlistAll />,
+				loader: watchlistLoader,
+				action: deleteWatchlist,
+			},
 
-      // =============Not Loggedin aka NavigationStart=============
-      {
-        path: "/invest",
-        element: <Invest />,
-      },
-      {
-        path: "/crypto",
-        element: <Crypto />,
-      },
-      {
-        path: "/retirement",
-        element: <Retirement />,
-      },
-      {
-        path: "/options",
-        element: <Options />,
-      },
-      {
-        path: "/us",
-        // children: [
-        // ],
-      },
-      {
-        path: "/creditcard",
-        element: <CreditCard />,
-      },
-      {
-        path: "/gold",
-        element: <Gold />,
-      },
-      {
-        path: "/learn",
-        element: <Learn />,
-      },
-      {
-        path: "/sherwoodnews",
-        element: <SherwoodNews />,
-      },
-      {
-        path: "/support",
-        element: <Support />,
-      },
-      {
-        element: <Layout />,
-        children: [
-          {
-            path: "/",
-            loader: userPortfolios,
-            element: <HomePage />,
-          },
-          {
-            path: "login",
-            // loader: stocksLoader,
-            element: <LoginFormPage />,
-          },
-          {
-            path: "signup",
-            element: <SignupFormPage />,
-          },
-          {
-            path: "profile/portfolios",
-            loader: userPortfolios,
-            element: <Profile />,
-            action: modifyPortfolio,
-          },
-          // {
-          // 	path: "users/:id/portfolios",
-          // 	loader: userPortfolios,
-          // 	element: <Portfolio />,
-          // },
-          {
-            path: "portfolios/new",
-            loader: userPortfolios,
-            element: <Portfolio />,
-            action: modifyPortfolio,
-          },
-          {
-            path: "portfolios/:id",
-            loader: userPortfolios,
-            element: <Portfolio />,
-          },
-          {
-            path: "portfolios/:id/cash",
-            loader: userPortfolios,
-            element: <Portfolio />,
-            action: modifyPortfolio,
-          },
-          {
-            path: "watchlist/:watchlist_num",
-            loader: watchlistLoader,
-            element: <Watchlist />,
-            action: deleteWatchlist,
-          },
-          {
-            path: "watchlist",
-            element: <WatchlistAll />,
-            loader: watchlistLoader,
-            action: deleteWatchlist,
-          },
-          {
-            path: "/invest",
-            element: <Invest />,
-          },
-          {
-            path: "/crypto",
-            element: <Crypto />,
-          },
-          {
-            path: "/retirement",
-            element: <Retirement />,
-          },
+			// =============Not Loggedin aka NavigationStart=============
+			{
+				path: "/invest",
+				element: <Invest />,
+			},
+			{
+				path: "/crypto",
+				element: <Crypto />,
+			},
+			{
+				path: "/retirement",
+				element: <Retirement />,
+			},
+			{
+				path: "/options",
+				element: <Options />,
+			},
+			{
+				path: "/us",
+				// children: [
+				// ],
+			},
+			{
+				path: "/creditcard",
+				element: <CreditCard />,
+			},
+			{
+				path: "/gold",
+				element: <Gold />,
+			},
+			{
+				path: "/learn",
+				element: <Learn />,
+			},
+			{
+				path: "/sherwoodnews",
+				element: <SherwoodNews />,
+			},
+			{
+				path: "/support",
+				element: <Support />,
+			},
 
-          {
-            path: "/options",
-            element: <Options />,
-          },
-          {
-            path: "/us",
-            // children: [
-            // ],
-          },
-          {
-            path: "/creditcard",
-            element: <CreditCard />,
-          },
-          {
-            path: "/gold",
-            element: <Gold />,
-          },
-          {
-            path: "/learn",
-            element: <Learn />,
-          },
-          {
-            path: "/sherwoodnews",
-            element: <SherwoodNews />,
-          },
-          {
-            path: "/support",
-            element: <Support />,
-          },
-
-          // =============Loggedin aka Navigation=============
-          // {
-          // 	path: "/rewards",
-          // 	element: <Rewards />,
-          // },
-          // {
-          // 	path: "/crypto2",
-          // 	element: <Crypto2 />,
-          // },
-          // {
-          // 	path: "/spending",
-          // 	element: <Spending />,
-          // },
-          // {
-          // 	path: "/retirement2",
-          // 	element: <Retirement2 />,
-          // },
-          // {
-          // 	path: "/notifications",
-          // 	element: <Notifications />,
-          // },
-          {
-            path: "/stocks/:stockId",
-            loader: stockDetailsLoader,
-            element: <StockDetailsPage />,
-          },
-          {
-            path: "/users/transactions",
-            loader: userTransactionsLoader,
-            element: <TransactionsPage />,
-          },
-          {
-            path: "*",
-            element: (
-              <div>
-                <h1>404 Page not found</h1>
-                <p>
-                  Not all those who wander are lost, but it seems you may have
-                  taken a wrong turn.
-                </p>
-              </div>
-            ),
-          },
-        ],
-      },
-      // =============Loggedin aka Navigation=============
-      // {
-      // 	path: "/rewards",
-      // 	element: <Rewards />,
-      // },
-      // {
-      // 	path: "/crypto2",
-      // 	element: <Crypto2 />,
-      // },
-      // {
-      // 	path: "/spending",
-      // 	element: <Spending />,
-      // },
-      // {
-      // 	path: "/retirement2",
-      // 	element: <Retirement2 />,
-      // },
-      // {
-      // 	path: "/notifications",
-      // 	element: <Notifications />,
-      // },
-      {
-        path: "/stocks/:stockId",
-        loader: stockDetailsLoader,
-        element: <StockDetailsPage />,
-      },
-      {
-        path: "*",
-        element: (
-          <div>
-            <h1>404 Page not found</h1>
-            <p>
-              Not all those who wander are lost, but it seems you may have taken
-              a wrong turn.
-            </p>
-          </div>
-        ),
-      },
-    ],
-  },
+			// =============Loggedin aka Navigation=============
+			// {
+			// 	path: "/rewards",
+			// 	element: <Rewards />,
+			// },
+			// {
+			// 	path: "/crypto2",
+			// 	element: <Crypto2 />,
+			// },
+			// {
+			// 	path: "/spending",
+			// 	element: <Spending />,
+			// },
+			// {
+			// 	path: "/retirement2",
+			// 	element: <Retirement2 />,
+			// },
+			// {
+			// 	path: "/notifications",
+			// 	element: <Notifications />,
+			// },
+			{
+				path: "/stocks/:stockId",
+				loader: stockDetailsLoader,
+				element: <StockDetailsPage />,
+			},
+			{
+				path: "/users/transactions",
+				loader: userTransactionsLoader,
+				element: <TransactionsPage />,
+			},
+			{
+				path: "*",
+				element: (
+					<div>
+						<h1>404 Page not found</h1>
+						<p>
+							Not all those who wander are lost, but it seems you may have taken
+							a wrong turn.
+						</p>
+					</div>
+				),
+			},
+		],
+	},
 ]);
