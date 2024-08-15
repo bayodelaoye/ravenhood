@@ -15,7 +15,7 @@ import CreateWatchListAll from "./CreateWatchlistModalAll";
 const WatchlistAll = () => {
     const navigate = useNavigate();
     // URL :user_id
-    // Current session's user
+    // Current session's user MUST CHANGE
     const user = useSelector((state) => state.session.user);
     const ulRef = useRef();
     const { setModalContent, closeModal } = useModal();
