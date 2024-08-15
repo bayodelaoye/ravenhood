@@ -1,0 +1,51 @@
+.stock-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 1200px;
+}
+
+.stock-list-index-container {
+  display: flex;
+  gap: 45px;
+  margin-left: 110px;
+  width: 1200px;
+}
+
+.list-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100px;
+}
+
+.list-col-name {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 200px;
+}
+
+.transaction-border {
+  border: 0.5px solid var(--time-line);
+  margin-left: 110px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.pagination a {
+  color: var(--time-line);
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid transparent;
+}
+
+.pagination a:hover {
+  color: var(--purple);
+  border-bottom: 2px solid var(--purple);
+}
