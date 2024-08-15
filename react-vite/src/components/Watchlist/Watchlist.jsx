@@ -25,13 +25,15 @@ const Watchlist = () => {
     const user = useSelector((state) => state.session.user);
     const [currentFilter, setCurrentFilter] = useState("none")
     const [showWatchlistDeleteMenu, setshowWatchlistDeleteMenu] = useState(false);
-    const [currentList, setCurrentList] = useState(currentWatchList.stocks);
+    const [currentList, setCurrentList] = useState([]);
     const ulRef = useRef();
 
     useEffect(() => {
-        setCurrentList(currentWatchList.stocks)
+        if (currentWatchList) {
+            setCurrentList(currentWatchList.stocks)
+        }
         setCurrentFilter('none')
-    }, [watchlist, currentWatchList.stocks])
+    }, [watchlist, currentWatchList])
 
     useEffect(() => {
         if (!showWatchlistDeleteMenu) return;
