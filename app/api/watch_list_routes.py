@@ -15,11 +15,11 @@ def new_watch_list():
     return {"watch_list": new_watch_list.to_dict()}
 
 
-@watch_list_routes.route("/all")
-@login_required
-def all_watch_lists():
-    watch_lists = WatchList.query.all()
-    return {"watch_lists": [watch_list.to_dict() for watch_list in watch_lists]}
+# @watch_list_routes.route("/all")
+# @login_required
+# def all_watch_lists():
+#     watch_lists = WatchList.query.all()
+#     return {"watch_lists": [watch_list.to_dict() for watch_list in watch_lists]}
 
 
 @watch_list_routes.route("/")
@@ -27,7 +27,7 @@ def all_watch_lists():
 def user_watch_lists():
 
     if not current_user:
-        abort(403, "Unauthorized")
+        return {"errors": {"message": "Unauthorized"}}, 401
 
     watch_lists = WatchList.query.filter(WatchList.user_id == current_user.id).all()
     return {
@@ -41,8 +41,11 @@ def update_watch_list_name(id):
     body = request.get_json()
     watch_list = WatchList.query.get(id)
 
+    if watch_list is None:
+        return {"errors": {"message": "Not Found"}}, 404
+
     if watch_list.user_id != current_user.id:
-        abort(403, "Invalid User")
+        return {"errors": {"message": "Unauthorized"}}, 401
 
     watch_list.name = body["name"]
     db.session.commit()
@@ -56,8 +59,11 @@ def add_to_watch_list(id):
     watch_list = WatchList.query.get(id)
     stock = Stock.query.get(body["stock_id"])
 
+    if watch_list is None or stock is None:
+        return {"errors": {"message": "Not Found"}}, 404
+
     if watch_list.user_id != current_user.id:
-        abort(403, "Invalid User")
+        return {"errors": {"message": "Unauthorized"}}, 401
 
     watch_list.watch_list_watch_list_stocks.append(stock)
     db.session.commit()
@@ -71,8 +77,14 @@ def remove_from_watch_list(id):
     watch_list = WatchList.query.get(id)
     stock = Stock.query.get(body["stock_id"])
 
+    if watch_list is None or stock is None:
+        return {"errors": {"message": "Not Found"}}, 404
+
     if watch_list.user_id != current_user.id:
-        abort(403, "Invalid User")
+        return {"errors": {"message": "Unauthorized"}}, 401
+
+    if stock not in watch_list.watch_list_watch_list_stocks:
+        return {"errors": {"message": "Not Found"}}, 404
 
     watch_list.watch_list_watch_list_stocks.remove(stock)
     db.session.commit()
@@ -84,8 +96,11 @@ def remove_from_watch_list(id):
 def delete_watch_list(id):
     watch_list = WatchList.query.get(id)
 
+    if watch_list is None:
+        return {"errors": {"message": "Not Found"}}, 404
+
     if watch_list.user_id != current_user.id:
-        abort(403, "Invalid User")
+        return {"errors": {"message": "Unauthorized"}}, 401
 
     db.session.delete(watch_list)
     db.session.commit()

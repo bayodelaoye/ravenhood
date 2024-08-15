@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate, useParams, Form, redirect } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams, Form } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
@@ -14,16 +14,58 @@ import CreateWatchList from "./CreateWatchlistModal";
 
 
 const Watchlist = () => {
-    const navigate = useNavigate();
-    // URL :user_id
+    // Grab User's Watchlist
+    const watchlist = useLoaderData();
     const { watchlist_num } = useParams()
+    const currentWatchList = watchlist[watchlist_num - 1]
+    const navigate = useNavigate();
+    const { setModalContent, closeModal } = useModal();
+    // URL :user_id
     // Current session's user
     const user = useSelector((state) => state.session.user);
+    const [currentFilter, setCurrentFilter] = useState("none")
+    const [showWatchlistDeleteMenu, setshowWatchlistDeleteMenu] = useState(false);
+    const [currentList, setCurrentList] = useState([]);
+    const ulRef = useRef();
+
+    useEffect(() => {
+        if (currentWatchList) {
+            setCurrentList(currentWatchList.stocks)
+        }
+        setCurrentFilter('none')
+    }, [watchlist, currentWatchList])
+
+    useEffect(() => {
+        if (!showWatchlistDeleteMenu) return;
+        const closeMenu = (e) => {
+            if ((ulRef.current && !ulRef.current.contains(e.target))) {
+                setshowWatchlistDeleteMenu(false);
+            }
+        };
+
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener("click", closeMenu);
+    }, [showWatchlistDeleteMenu]);
+
+
+
+    if (!user) {
+        return (
+            <div>
+                <h1>401 Unauthorized</h1>
+                <p>Not all those who wander are lost, but it seems you may have taken a wrong turn.</p>
+
+            </div>
+        )
+
+    }
+
 
     //-----------------------------------DATA--------------------------------------
 
-    // Grab User's Watchlist
-    const watchlist = useLoaderData();
+
+
 
     if (watchlist[watchlist_num - 1] === undefined) {
         return (
@@ -37,14 +79,12 @@ const Watchlist = () => {
     }
 
     // Current page's watchlist
-    const currentWatchList = watchlist[watchlist_num - 1]
+
     // Total amount of stocks in the current watchlist
     const totalStocks = Object.keys(currentWatchList.stocks).length
-    const [currentList, setCurrentList] = useState(currentWatchList.stocks);
 
-    useEffect(() => {
-        setCurrentList(currentWatchList.stocks)
-    }, [watchlist])
+
+
 
     //---------------------------------BEHAVIOR------------------------------------
 
@@ -80,7 +120,7 @@ const Watchlist = () => {
     }
 
 
-    const [currentFilter, setCurrentFilter] = useState("none")
+
 
     function sortStock(filterby) {
         let sorted;
@@ -123,27 +163,15 @@ const Watchlist = () => {
 
 
     //---------------------------------DROP-DOWNS------------------------------------
-    const [showWatchlistDeleteMenu, setshowWatchlistDeleteMenu] = useState(false);
 
-    const ulRef = useRef();
+
+
 
     const toggleWatchlistDeleteMenu = (e) => {
         e.stopPropagation(); // Keep click from bubbling up to document and triggering closeMenu
         setshowWatchlistDeleteMenu(!showWatchlistDeleteMenu);
     };
 
-    useEffect(() => {
-        if (!showWatchlistDeleteMenu) return;
-        const closeMenu = (e) => {
-            if ((ulRef.current && !ulRef.current.contains(e.target))) {
-                setshowWatchlistDeleteMenu(false);
-            }
-        };
-
-        document.addEventListener('click', closeMenu);
-
-        return () => document.removeEventListener("click", closeMenu);
-    }, [showWatchlistDeleteMenu]);
 
     const watchlistdeleteUlClassName = "profile-dropdown" + (showWatchlistDeleteMenu ? "" : " hidden");
 
@@ -190,7 +218,7 @@ const Watchlist = () => {
                 <button id={`toggler${value.name}`} className="dropdownToggler" onClick={toggleWatchlistDeleteMenu}>{title}</button>
 
                 <div ref={ulRef} className={toggleOpen} style={{ position: 'absolute', top: '100%', left: 0, backgroundColor: 'white', border: '1px solid black', zIndex: 1 }}>
-                    <p onClick={(e) => { e.stopPropagation(); handleChangeNameWatchList(value) }}>Edit List</p>
+                    <p className='editlistbutton' onClick={(e) => { e.stopPropagation(); handleChangeNameWatchList(value) }}>Edit List</p>
                     <p type='submit' className="delete-watchlist-button-sublist" onClick={(e) => { e.stopPropagation(); handleDeleteWatchlist(value); }}>Delete List</p>
                 </div>
 
@@ -202,12 +230,12 @@ const Watchlist = () => {
     // ===================================================================================
 
     //---------------------------------Modal------------------------------------
-    const { setModalContent, closeModal } = useModal();
+
 
     const handleDeleteWatchlist = (watchlist) => {
 
         setModalContent(
-            <div>
+            <div className="curve-radius">
                 <ConfirmDeleteWatchlist
                     onClose={closeModal}
                     watchlist={watchlist}
@@ -225,6 +253,7 @@ const Watchlist = () => {
                 <ChangeWatchListName
                     onClose={closeModal}
                     watchlist={watchlist}
+                    currentlist={watchlist_num}
                 />
             </div>
         )
@@ -232,10 +261,11 @@ const Watchlist = () => {
 
     const handleCreateWatchlist = () => {
         setModalContent(
-            <div>
+            <div className="modal-container">
                 <CreateWatchList
                     onClose={closeModal}
-                    current={currentWatchList.id}
+                    current={watchlist_num}
+                    className="modal-container"
                 />
             </div>
         )
@@ -268,7 +298,7 @@ const Watchlist = () => {
                         </div>
                         <div className="watchlist-options">
                             <div className="watchlist-choices">
-                                <p>SORT DROPDOWN</p>
+                                {/* <p>SORT DROPDOWN</p> */}
                             </div>
                             <div className="watchlist-delete">
                                 <button className="delete-watchlist-button" onClick={toggleWatchlistDeleteMenu}>...</button>
@@ -330,7 +360,7 @@ const Watchlist = () => {
                                         </div>
                                         <div className="stock-delete">
                                             {/* DELETE USING ACTION */}
-                                            <Form method="put" action={`/watchlist/${currentWatchList.id}`}>
+                                            <Form method="put" action={`/watchlist/${watchlist_num}`}>
                                                 <button type="submit"
                                                     name='intent'
                                                     value='delete-stock'
@@ -359,14 +389,14 @@ const Watchlist = () => {
                     </header>
                     <div className="listofwatchlists ">
                         {
-                            watchlist.map((list) => (
+                            watchlist.map((list, index) => (
                                 <div
                                     className='row subwatchlist'
                                     id={`watchlist${list.id}`}
                                     key={`watchlist${list.id}`}
 
                                 >
-                                    <div className="subwatchlist-description row" onClick={toWatchlist(list.id)}>
+                                    <div className="subwatchlist-description row" onClick={toWatchlist(index + 1)}>
                                         <div className="watchlist-icon">
                                             <p>💰</p>
                                         </div>

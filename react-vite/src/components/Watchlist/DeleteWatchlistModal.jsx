@@ -1,10 +1,12 @@
 import { Form } from "react-router-dom";
 
 
-const ConfirmDeleteWatchlist = ({ onClose, watchlist, totalStocks, user }) => (
+const ConfirmDeleteWatchlist = ({ onClose, watchlist, totalStocks }) => (
     < div className="modalbox" >
-        <button className="deleteClose" onClick={onClose}>X</button>
-        <h2>Are you sure you want to delete &quot;{watchlist.name}&quot;?</h2>
+        <div className="row-delete-stuff">
+            <button className="deleteClose" onClick={onClose}>✖</button>
+            <h2>Are you sure you want to delete &quot;{watchlist.name}&quot;?</h2>
+        </div>
         <p>If you delete this list and its {totalStocks} items, it will be gone forever!</p>
         <Form method="delete" action={`/watchlist/${watchlist.id}`} onSubmit={onClose}>
             <button

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 .row {
     display: flex;
@@ -112,6 +112,13 @@
     overflow: hidden;
 }
 
+.watchlist-name h2 {
+    width: 500px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .hidden {
     display: none;
 }
@@ -122,11 +129,15 @@
     border-radius: 5px;
     width: 250px;
     height: 50px;
+    position: absolute;
 }
 
 .toggle-dropdown {
-    width: max-content;
+    display: flexbox;
+    align-content: space-around;
+    width: 100px;
     border-radius: 3px;
+    height: 50px;
 }
 
 
@@ -193,6 +204,7 @@
     border-radius: 3px;
     padding: 3px;
     background-color: white;
+    font-family: 'Courier New', Courier, monospace
 }
 
 .delete-watchlist-button:hover {
@@ -219,6 +231,7 @@
     height: 90%;
     margin-left: 20px;
     margin-top: 2px;
+    font-family: "Karla";
 }
 
 .delete-watchlist-button-confirm:hover {
@@ -227,5 +240,145 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Karla', sans-serif;
+}
+
+
+.modalbox {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 15px;
+    border-radius: 200px;
+}
+
+.row-delete-stuff {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+    align-items: flex-start
+}
+
+.deleteClose {
+    background-color: white;
+    border: none;
+    font-size: large;
+
+}
+
+.deleteClose:hover {
+    cursor: pointer;
+    color: #C8CBCD;
+}
+
+.deleteClose+h2 {
+    white-space: wrap;
+    white-space: nowrap;
+    overflow: auto;
+    text-overflow: ellipsis;
+    text-wrap: wrap;
+    max-width: 500px;
+}
+
+
+.modal-content {
+    border-radius: 200px;
+}
+
+.watchlist-delete-button {
+    width: 350px;
+    height: 50px;
+    background-color: #4D3F72;
+    border-radius: 30px;
+    font-family: "Karla";
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.watchlist-delete-button:hover {
+    background-color: #8A7C9C;
+    cursor: pointer;
+    color: black;
+}
+
+.input-style {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bigger {
+    width: 40rem;
+    height: 10rem;
+}
+
+.spread-out {
+    gap: 25rem;
+
+}
+
+.name-change-input {
+    width: 30rem;
+    height: 2rem;
+    padding: 5px
+}
+
+.watchlist-update-button {
+    height: 30px;
+    background-color: #4D3F72;
+    border-radius: 30px;
+    font-family: "Karla";
+    font-weight: bold;
+    color: white;
+
+}
+
+.watchlist-update-button:hover {
+    background-color: #8A7C9C;
+    cursor: pointer;
+    color: black;
+}
+
+.watchlist-information {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.main-container {
+    margin-top: 3rem;
+}
+
+.icon {
+    margin-bottom: 15px;
+}
+
+.subwatchlist-description {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.delete-watchlist-button-sublist {
+    margin-top: 5px;
+}
+
+.editlistbutton:hover {
+    color: #8A7C9C;
+}
+
+.delete-watchlist-button-sublist:hover {
+    color: #8A7C9C;
+}
+
+
+.watchlist-update-button:disabled {
+    background-color: gray;
 }
