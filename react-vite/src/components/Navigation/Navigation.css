@@ -1,3 +1,10 @@
+#TopNavBarToggleDropdownButton{
+    background-color: transparent;
+    border: none;
+}
+
+
+
 header {
     padding: 0 1rem 0 0rem;
     display: flex;
@@ -47,4 +54,8 @@ header {
 .TopNavBarNavLink:hover {
     cursor: pointer;
     color: #BFC0C6;
+}
+
+.TopNavBarLinkActive{
+    text-decoration: underline;
 }

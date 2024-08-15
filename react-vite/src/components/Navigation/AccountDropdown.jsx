@@ -14,7 +14,8 @@ import { MdLogout } from "react-icons/md";
 import * as sessionActions from "../../redux/session";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-// import store from "../../redux/store"
+import { useState } from "react";
+import { useRef } from "react";
 import "./AccountDropdown.css";
 
 
@@ -23,12 +24,83 @@ import "./AccountDropdown.css";
 function AccountDropdown(){
 
     const sessionUser = useSelector((store) => store.session.user);
+    const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
 
 
-    const handleLogout = () => {
-        dispatch(sessionActions.thunkLogout())
+
+// ======================show hide logic========================
+
+
+
+// const dispatch = useDispatch();
+const [showMenu, setShowMenu] = useState(false);
+const ulRef = useRef();
+
+// ====changes user menu from showing to not showing whichever is opposite at time of click
+const toggleMenu = (e) => {
+  e.stopPropagation(); // Keep click from bubbling up to document and triggering closeMenu
+  setShowMenu(!showMenu);
+};
+
+
+
+//====if showMenu is false nothing happens; else I'm not sure....
+useEffect(() => {
+  if (!showMenu) return;
+  // ulRef.current && this was in the if on line 27
+  const closeMenu = (e) => {
+    if (!ulRef.current.contains(e.target)) {
+    setShowMenu(false);
+    }
+  };
+
+  document.addEventListener('click', closeMenu);
+
+  return () => document.removeEventListener('click', closeMenu);
+}, [showMenu]);
+
+const closeMenu = () => setShowMenu(false);
+
+
+
+//---if logout is clicked from the user aka showmenu it will run actions to log out and close user menu
+// const logout = (e) => {
+//   e.preventDefault();
+//   dispatch(sessionActions.logout());
+//   closeMenu();
+// };
+
+
+
+// ----this className for ul id=houdini will always be "profile dropdown"
+// ----but if show menu is false it will also have class of hidden
+// ----hidden changes the visibility to none but im not sure this is doing anything
+const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
+
+
+// //handle Manage Spots - this is hidden button for more action on NavLink to close menue
+// const handleManageSpots = (e) => {
+// e.preventDefault()
+// // e.stopPropagation()
+// closeMenu();
+// }
+
+
+
+
+
+
+
+
+
+// ===================menu buttons handlers======================
+
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.thunkLogout());
+        closeMenu();
         console.log("handleLogout ran");
     }
 
