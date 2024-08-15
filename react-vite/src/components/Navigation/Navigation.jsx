@@ -15,9 +15,7 @@ import './Navigation.css';
 const Navigation = ({isLoaded}) => {
 
 
-// ======================show hide logic========================
-
-
+// ==============account menu show hide logic====================
 
 const dispatch = useDispatch();
 const [showMenu, setShowMenu] = useState(false);
@@ -54,17 +52,6 @@ useEffect(() => {
 }, [showMenu]);
 
 // const closeMenu = () => setShowMenu(false);
-
-
-
-// ----this className for ul id=houdini will always be "profile dropdown"
-// ----but if show menu is false it will also have class of hidden
-// ----hidden changes the visibility to none but im not sure this is doing anything
-// const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
-const navLinkId = (showMenu ? "" : "active");
-
-
-
 
 
 
