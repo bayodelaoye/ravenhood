@@ -21,6 +21,7 @@ export const userPortfolios = async ({ params }) => {
 	const fetchPromises = urls.map((url) =>
 		fetch(url).then((response) => response.json()),
 	);
+
 	const [userPortfolios, userWatchlists] = await Promise.all(fetchPromises);
 
 	return json({ userPortfolios, userWatchlists });

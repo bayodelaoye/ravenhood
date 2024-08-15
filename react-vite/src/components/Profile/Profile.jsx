@@ -12,8 +12,9 @@ const Profile = () => {
 	const date = new Date(userPortfolios.created_at);
 	const year = date.getFullYear();
 
-	console.log("portfolio", userPortfolios);
-	console.log("userUpdatePic", userUpdatePic);
+	// console.log("portfolio", userPortfolios);
+	// console.log("userUpdatePic", userUpdatePic);
+
 
 	return (
             <div id="user-profile-portfolio">

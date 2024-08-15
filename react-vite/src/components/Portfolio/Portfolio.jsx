@@ -10,6 +10,7 @@ const Portfolio = () => {
 	const portfolios = userPortfolios.portfolios.map((portfolio) => portfolio);
 	const stockDetails = userPortfolios.portfolios.map((stock) => stock.stocks);
 
+
 	console.log("portfolio", userPortfolios);
 	console.log("Watchlist: ", userWatchlists);
 	console.log("stock details", stockDetails);
