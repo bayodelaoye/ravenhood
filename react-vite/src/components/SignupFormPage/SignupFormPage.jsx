@@ -2,22 +2,19 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { thunkSignup } from "../../redux/session";
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 
 function SignupFormPage() {
 	const dispatch = useDispatch();
-      const stocks = useLoaderData();
-      const portfolios = useLoaderData();
+	// const stocks = useLoaderData();
+	// const portfolios = useLoaderData();
 	const navigate = useNavigate();
 	const sessionUser = useSelector((state) => state.session.user);
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
-      const [errors, setErrors] = useState({});
-      
-      console.log("stocks", stocks);
-      console.log("portfolios", portfolios);
+	const [errors, setErrors] = useState({});
 
 	if (sessionUser) return <Navigate to="/" replace={true} />;
 
@@ -40,10 +37,34 @@ function SignupFormPage() {
 		);
 
 		if (serverResponse) {
-			setErrors(serverResponse);
+			const error = {};
+			error.server = serverResponse.server;
+			error.username = serverResponse.username
+			// console.log(serverResponse.username)
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+			if (email.length > 50) {
+				error.email = "Email must be less than 50 characters"
+			}
+			if (!emailRegex.test(email) || email.length <= 0) {
+				error.email = "Invalid email"
+			}
+			if (password.length > 255) {
+				error.password = "Password is too long!"
+			}
+			if (password.length < 0) {
+				error.password = "Password is required"
+			}
+			if (password !== confirmPassword) {
+				error.confirmPassword = "Confirm Password field must be the same as the Password field"
+			}
+
+			return setErrors(error);
 		} else {
 			navigate("/");
 		}
+
+
 	};
 
 	return (
