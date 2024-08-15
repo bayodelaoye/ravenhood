@@ -346,7 +346,7 @@ const Watchlist = () => {
                                         </div>
                                         <div className="stock-delete">
                                             {/* DELETE USING ACTION */}
-                                            <Form method="put" action={`/watchlist/${currentWatchList.id}`}>
+                                            <Form method="put" action={`/watchlist/${watchlist_num}`}>
                                                 <button type="submit"
                                                     name='intent'
                                                     value='delete-stock'
