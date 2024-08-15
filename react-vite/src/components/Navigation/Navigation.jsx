@@ -111,8 +111,8 @@ useEffect(() => {
 
 
                 <button onClick={toggleMenu} id="TopNavBarToggleDropdownButton">
-                     <NavLink
-                     className={showMenu ? "TopNavBarNavLink TopNavBarLinkActive" : "TopNavBarNavLink"}>Account</NavLink>
+                     <href
+                     className={showMenu ? "TopNavBarNavLink TopNavBarLinkActive" : "TopNavBarNavLink"}>Account</href>
                      {showMenu ? <AccountDropdown id="TopNavBarAccountDropdown"></AccountDropdown> : ""}
                 </button>
 
