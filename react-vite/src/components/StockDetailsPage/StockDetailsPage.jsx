@@ -31,6 +31,9 @@ function StockDetailsPage() {
   const listOfUserPortfolios = useSelector(
     (state) => state.portfolios?.userPortfolios?.portfolios
   );
+  const listOfUserWatchList = useSelector(
+    (state) => state?.watchlist?.userWatchLists?.watch_lists
+  );
 
   useEffect(() => {
     const fetchPortfolioData = async () => {
@@ -58,11 +61,12 @@ function StockDetailsPage() {
     const setIsStockInWatchListLocal = stocksInWatchlists.some(
       (obj) => obj.id === stockDetails.id
     );
+
     setIsStockInWatchList(setIsStockInWatchListLocal);
 
     setIsLoaded(true);
     setShowAddToWatchListButton(true);
-  }, [stocksInWatchlists]);
+  }, [stocksInWatchlists, isStockInWatchList]);
 
   useEffect(() => {
     if (timeLineBtn === "") {
@@ -86,8 +90,13 @@ function StockDetailsPage() {
 
     if (portfolioType === "") errors.portfolio = "Must select a portfolio";
 
-    if (isNaN(Number(shares)) || shares === 0 || shares === "0")
-      errors.shares = "Must input valid number of shares";
+    if (
+      isNaN(Number(shares)) ||
+      shares === 0 ||
+      shares === "0" ||
+      !Number.isInteger(shares)
+    )
+      errors.shares = "Must input valid integer number of shares";
 
     setFormErrors(errors);
   }, [timeLineBtn, transactionType, shares, portfolioType]);
@@ -120,17 +129,12 @@ function StockDetailsPage() {
 
       const message = await response.json();
       if (response.ok) {
-        return message;
+        navigate(`/users/transactions`);
       }
 
       setFormErrors({
         "fetch-error": message["message"],
       });
-
-      if (Object.values(formErrors).length >= 1) {
-      } else {
-        navigate(`/users/transactions`);
-      }
     }
   };
 
@@ -446,7 +450,7 @@ function StockDetailsPage() {
                 </Form>
               </div>
               {showAddToWatchListButton === false ? (
-                <>{console.log("in false")}</>
+                <></>
               ) : (
                 <>
                   {userWatchLists.watch_lists === 0 ? (
@@ -459,7 +463,7 @@ function StockDetailsPage() {
                   ) : (
                     <>
                       {isStockInWatchList ? (
-                        <></>
+                        <> </>
                       ) : (
                         <OpenModalButton
                           buttonText={`Watch ${stockDetails.ticker_symbol}`}
@@ -521,9 +525,17 @@ function StockDetailsPage() {
                     Ravenhood Financial&apos;s fee schedule to learn more.
                   </p>
                 </div>
-                <button className="sign-up-buy-btn">Sign Up to Buy</button>
+                <button
+                  onClick={() => navigate("/signup")}
+                  className="sign-up-buy-btn"
+                >
+                  Sign Up to Buy
+                </button>
               </div>
-              <button className="watch-list-btn">
+              <button
+                onClick={() => navigate("/login")}
+                className="watch-list-btn"
+              >
                 Watch {stockDetails.ticker_symbol}
               </button>
             </div>

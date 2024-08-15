@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import Transaction, db, Portfolio, Stock
+from app.models import Transaction, db, Portfolio, Stock, PortfolioStocks
 from datetime import datetime
 
 transaction_routes = Blueprint("transactions", __name__)
@@ -28,6 +28,7 @@ def new_transaction():
         portfolio.cash_balance -= stock.current_price * transaction_dictionary['quantity']
     elif transaction_dictionary['type'] == 'SELL':
         transaction_stock = Transaction.query.filter(Transaction.portfolio_id == transaction_dictionary['portfolio_id']).filter(Transaction.stock == transaction_dictionary['ticker']).all()
+        # transaction_portfolio = Portfolio.query.join(PortfolioStocks).filter(PortfolioStocks.stock_id==transaction_dictionary[''])
 
         amount_of_shares = 0
         for i in transaction_stock:
@@ -41,8 +42,7 @@ def new_transaction():
             portfolio.cash_balance += stock.current_price * transaction_dictionary['quantity']
             if amount_of_shares == transaction_dictionary['quantity']:
                 portfolio.portfolio_portfolio_stocks.remove(stock)
-                db.session.commit()
-                return {"message": "Removed stock from portfolio"}     
+                db.session.commit()   
     new_transaction = Transaction(
         portfolio_id=transaction_dictionary['portfolio_id'], 
         type=transaction_dictionary['type'],

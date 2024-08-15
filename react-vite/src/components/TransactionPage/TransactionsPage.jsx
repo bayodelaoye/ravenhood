@@ -25,9 +25,11 @@ function TransactionsPage() {
         </div>
       </div>
       <div className="transaction-index-container">
-        {userTransactions.map((transaction, index) => {
-          return <TransactionsIndex transaction={transaction} id={index} />;
-        })}
+        {userTransactions
+          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+          .map((transaction, index) => {
+            return <TransactionsIndex transaction={transaction} id={index} />;
+          })}
       </div>
     </div>
   );

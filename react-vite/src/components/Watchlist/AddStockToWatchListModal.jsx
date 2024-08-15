@@ -14,8 +14,6 @@ const AddStockToWatchListModal = ({ onClose, stockId }) => {
     (state) => state?.watchlist?.userWatchLists?.watch_lists
   );
 
-  console.log(stockId);
-
   useEffect(() => {
     dispatch(userWatchLists())
       .then(() => setIsLoaded(true))
