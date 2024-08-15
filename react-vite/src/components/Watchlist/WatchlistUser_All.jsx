@@ -177,7 +177,7 @@ const WatchlistAll = () => {
                                     <p>{list.name}</p>
                                 </div>
                             </div>
-
+                            {/* added an index */}
                             <div className="subwatchlist-options">
                                 <DropdownComponent style={{ zIndex: 0 }} key={list.id} id={list.id} value={list} title={"..."} />
 
