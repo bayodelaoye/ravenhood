@@ -15,9 +15,10 @@ import CreateWatchList from "./CreateWatchlistModal";
 
 const Watchlist = () => {
     // Grab User's Watchlist
-    const watchlist = useLoaderData();
+    const { userWatchlists } = useLoaderData();
+    console.log(userWatchlists.watch_lists)
     const { watchlist_num } = useParams()
-    const currentWatchList = watchlist[watchlist_num - 1]
+    const currentWatchList = userWatchlists.watch_lists[watchlist_num - 1]
     const navigate = useNavigate();
     const { setModalContent, closeModal } = useModal();
     // URL :user_id
@@ -33,7 +34,7 @@ const Watchlist = () => {
             setCurrentList(currentWatchList.stocks)
         }
         setCurrentFilter('none')
-    }, [watchlist, currentWatchList])
+    }, [userWatchlists, currentWatchList])
 
     useEffect(() => {
         if (!showWatchlistDeleteMenu) return;
@@ -67,7 +68,7 @@ const Watchlist = () => {
 
 
 
-    if (watchlist[watchlist_num - 1] === undefined) {
+    if (userWatchlists.watch_lists[watchlist_num - 1] === undefined) {
         return (
             <div>
                 <h1>404 Page not found</h1>
@@ -389,7 +390,7 @@ const Watchlist = () => {
                     </header>
                     <div className="listofwatchlists ">
                         {
-                            watchlist.map((list, index) => (
+                            userWatchlists.watch_lists.map((list, index) => (
                                 <div
                                     className='row subwatchlist'
                                     id={`watchlist${list.id}`}

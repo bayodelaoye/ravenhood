@@ -23,13 +23,14 @@ const WatchlistAll = () => {
     //-----------------------------------DATA--------------------------------------
 
     // Grab User's Watchlist
-    const watchlist = useLoaderData();
+    const { userWatchlists } = useLoaderData();
+    console.log(userWatchlists.watch_lists)
 
-    const [updatedList, setUpdatedList] = useState(watchlist);
+    const [updatedList, setUpdatedList] = useState([]);
 
     useEffect(() => {
-        setUpdatedList(watchlist)
-    }, [watchlist])
+        setUpdatedList(userWatchlists.watch_lists)
+    }, [userWatchlists])
 
 
 
@@ -151,7 +152,7 @@ const WatchlistAll = () => {
                 <header className="sublist-header">
                     <div className="sublist-title">
                         <h2>{user.first_name}&apos;s Watchlists </h2>
-                        <p>{watchlist.length} Items</p>
+                        <p>{userWatchlists.watch_lists.length} Items</p>
                     </div>
                     <div className="watchlist-add">
                         <div className="create-watchlist" ref={ulRef}>
