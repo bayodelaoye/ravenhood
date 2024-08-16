@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { FaFaceGrinStars, FaRegCircleXmark } from "react-icons/fa6";
@@ -11,6 +11,11 @@ const UpdateProfileModal = ({ userPortfolios, onImageChange }) => {
 	const [username, setUsername] = useState(userPortfolios.username);
 	const [image, setImage] = useState(userPortfolios.image || null);
 	const [preview, setPreview] = useState(userPortfolios.image || null);
+
+	useEffect(() => {
+		setImage(userPortfolios.image);
+		setPreview(userPortfolios.image);
+	}, [userPortfolios.image]);
 
 	const handleImageChange = (event) => {
 		const file = event.target.files[0];

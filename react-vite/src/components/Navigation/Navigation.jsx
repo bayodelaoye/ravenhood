@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import ravenhoodLogoPurple from './Logo/ravenhoodLogoPurple.png';
 import SearchBar from "./SearchBar/SearchBar";
 import AccountDropdown from "./AccountDropdown";
-// import * as navStocksActions from "../../redux/navStocksRedux"
+import * as navStocksActions from "../../redux/navStocksRedux"
 import './Navigation.css';
 
 
@@ -13,7 +13,7 @@ const Navigation = ({isLoaded}) => {
 
 const dispatch = useDispatch()
 
-// dispatch(navStocksActions.navStocks())
+dispatch(navStocksActions.navStocks())
 
 const sessionUser = useSelector(state => state.session.user);
 const userId = sessionUser.id;
@@ -64,10 +64,10 @@ useEffect(() => {
     const navigate = useNavigate()
     // const dispatch = useDispatch()
 
-    const runSearch = () => {
-        async () =>
-        await dispatch(searchActions.search()).then(() => navigate(`/'`));
-    }
+    // const runSearch = () => {
+    //     async () =>
+    //     await dispatch(searchActions.search()).then(() => navigate(`/'`));
+    // }
 
 
 

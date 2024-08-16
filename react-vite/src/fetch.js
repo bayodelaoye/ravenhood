@@ -1,5 +1,5 @@
 // Create a portfolio
-fetch("api/portfolios/", {
+fetch("api/portfolios", {
   method: "POST",
   headers: {
     "content-type": "application/json",
@@ -9,6 +9,7 @@ fetch("api/portfolios/", {
     cash_balance: 100,
     total_amount: 200,
     is_active: true,
+    user_id: 1
   }),
 });
 

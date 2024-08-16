@@ -1,30 +1,34 @@
 import { redirect } from "react-router-dom";
 
-export const modifyPortfolio = async ({ request }) => {
+export const createPortfolioAction = async ({ request }) => {
+	const formData = await request.formData();
+	const data = Object.fromEntries(formData);
+	data["isActive"] = data.isActive.toLowerCase() === "active";
+
+	const response = await fetch(`/api/portfolios/`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			user_id: +data.userId,
+			portfolio_name: data.portfolioName,
+			cash_balance: +data.cashBalance,
+			total_amount: +data.totalAmount,
+			is_active: data.isActive,
+		}),
+	});
+
+	if (response.ok) {
+		const newPortfolio = await response.json();
+		return newPortfolio;
+	}
+};
+
+export const updatePortfolioAction = async ({ request }) => {
 	const formData = await request.formData();
 	const data = Object.fromEntries(formData);
 	const intent = formData.get("intent");
-
-	if (intent === "create-portfolio") {
-		const response = await fetch(`/api/portfolios/new`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				user_id: data.user_id,
-				portfolio_name: data.portfolio_name,
-				cash_balance: data.cash_balance,
-				total_amount: data.total_amount,
-				is_active: data.is_active,
-			}),
-		});
-
-		if (response.ok) {
-			const newPortfolio = await response.json();
-			throw redirect(`/portfolios/${newPortfolio.portfolio.id}`);
-		}
-	}
 
 	if (intent === "update-portfolio") {
 		const response = await fetch(`/api/portfolios/${data.id}`, {
@@ -80,6 +84,15 @@ export const modifyPortfolio = async ({ request }) => {
 			return redirect("/profile/portfolios");
 		}
 	}
+};
+
+export const modifyPortfolio = async ({ request }) => {
+	const formData = await request.formData();
+	const data = Object.fromEntries(formData);
+	const intent = formData.get("intent");
+
+	console.log("this is data", data);
+	console.log("this is form data", formData);
 
 	if (intent === "delete-portfolio") {
 		const response = await fetch(`/api/portfolios/${data.id}`, {

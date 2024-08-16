@@ -7,7 +7,13 @@ import { userPortfolios } from "../components/loaders/portfolios";
 import { modifyPortfolio } from "../components/actions/portfolios";
 import UserProfilePage from "../components/Profile/UserProfilePage.jsx";
 import Portfolio from "../components/Portfolio";
-import Profile from "../components/Profile";
+import AuHomePage from "../components/HomePage/Au-HomePage/Au-HomePage.jsx";
+import CreatePortfolio from "../components/Portfolio/Portfolio-CRUD/Create/CreatePortfolio.jsx";
+import { createPortfolioAction } from "../components/actions/portfolios";
+import UpdatePortfolio from "../components/Portfolio/Portfolio-CRUD/Update/UpdatePortfolio.jsx";
+import { updatePortfolioAction } from "../components/actions/portfolios";
+import PortfolioDetails from "../components/Portfolio/PortfolioDetails.jsx";
+// import Profile from "../components/Profile";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
@@ -37,14 +43,73 @@ import ListStocks from "../components/ListStocks/ListStocks.jsx";
 import UpdateProfileModal from "../components/Profile/UpdateProfileModal.jsx";
 
 export const router = createBrowserRouter([
-  {
-    path: "signup",
-    element: <SignupFormPage />,
-  },
-  {
+	{
+		path: "signup",
+		element: <SignupFormPage />,
+	},
+	{
+		element: <Layout />,
+		children: [
+			{
+				path: "/",
+				loader: userPortfolios,
+				element: <HomePage />,
+			},
+			{
+				path: "login",
+				element: <LoginFormPage />,
+			},
+			{
+				path: "profile/portfolios",
+				loader: userPortfolios,
+				element: <UserProfilePage />,
+				action: modifyPortfolio,
+				children: [
+					{
+						path: "edit",
+						element: <UpdateProfileModal />,
+					},
+				],
+			},
+			{
+				path: "portfolios/new",
+				loader: userPortfolios,
+				element: <CreatePortfolio />,
+				action: createPortfolioAction,
+			},
+			{
+				path: "portfolios/:userId",
+				loader: userPortfolios,
+				element: <PortfolioDetails />,
+			},
+			{
+				path: "portfolios/:userId/edit",
+				loader: userPortfolios,
+				element: <UpdatePortfolio />,
+				action: updatePortfolioAction,
+			},
+			{
+				path: "portfolios/:userId/edit/cash",
+				loader: userPortfolios,
+				element: <UpdatePortfolio />,
+				action: updatePortfolioAction,
+			},
+			{
+				path: "watchlist/:watchlist_num",
+				loader: watchlistLoader,
+				element: <Watchlist />,
+				action: deleteWatchlist,
+			},
+			{
+				path: "watchlist",
+				element: <WatchlistAll />,
+				loader: watchlistLoader,
+				action: deleteWatchlist,
+			},
 
+<<<<<<< HEAD
     element: <Layout />,
-	loader: navStocksLoader,
+    // loader: navStocksLoader,
     children: [
       {
         path: "/",
@@ -139,13 +204,56 @@ export const router = createBrowserRouter([
         path: "/support",
         element: <Support />,
       },
+=======
+			// =============Not Loggedin aka NavigationStart=============
+			{
+				path: "/invest",
+				element: <Invest />,
+			},
+			{
+				path: "/crypto",
+				element: <Crypto />,
+			},
+			{
+				path: "/retirement",
+				element: <Retirement />,
+			},
+			{
+				path: "/options",
+				element: <Options />,
+			},
+			{
+				path: "/us",
+				// children: [
+				// ],
+			},
+			{
+				path: "/creditcard",
+				element: <CreditCard />,
+			},
+			{
+				path: "/platinum",
+				element: <Platinum />,
+			},
+			{
+				path: "/learn",
+				element: <Learn />,
+			},
+			{
+				path: "/sherwoodnews",
+				element: <SherwoodNews />,
+			},
+			{
+				path: "/support",
+				element: <Support />,
+			},
+>>>>>>> 7947361519019890a9cf9aeea11d1d06b1a421a9
 
 			// =============Loggedin aka Navigation=============
-      {
+			{
 				path: "/searchResults",
 				element: <SearchResults />,
 			},
-
 			// {
 			// 	path: "/rewards",
 			// 	element: <Rewards />,
@@ -164,6 +272,7 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "/notifications",
+				// element: "Notificaitons Coming Soon",
 				element: <Notifications />,
 			},
 			{
@@ -171,15 +280,15 @@ export const router = createBrowserRouter([
 				loader: stockDetailsLoader,
 				element: <StockDetailsPage />,
 			},
-      {
-        path: "/stocks/",
-        loader: listStocksLoader,
-        element: <ListStocks />,
-      },
-      {
-        path: "/users/:userId/transactions",
-        element: <TransactionsPage />,
-      },
+			{
+				path: "/stocks/",
+				loader: listStocksLoader,
+				element: <ListStocks />,
+			},
+			{
+				path: "/users/:userId/transactions",
+				element: <TransactionsPage />,
+			},
 			{
 				path: "*",
 				element: (

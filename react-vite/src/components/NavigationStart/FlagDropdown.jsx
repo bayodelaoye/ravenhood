@@ -25,7 +25,7 @@ function FlagDropdown() {
  useEffect(() => {
 
         setSelectedFlagValue(selectedFlagValue);
-        console.log("selectedFlagValue: ", selectedFlagValue)
+      //   console.log("selectedFlagValue: ", selectedFlagValue)
         if(selectedFlagValue === "US") setSelectedFlag(flags[0]);
         if(selectedFlagValue === "UK") setSelectedFlag(flags[1]);
         if(selectedFlagValue === "EU") setSelectedFlag(flags[2]);
