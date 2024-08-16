@@ -29,13 +29,13 @@ function SignupFormPage() {
 	const [inputdate, setBirthday] = useState(new Date());
 	const [citizenship, setCitizenship] = useState('');
 
-	const [isLoaded, setIsLoaded] = useState(false);
+	// const [isLoaded, setIsLoaded] = useState(false);
 
 	const [errors, setErrors] = useState({});
 
 
 	useEffect(() => {
-		dispatch(thunkAuthenticate()).then(() => setIsLoaded(true));
+		dispatch(thunkAuthenticate());
 	}, [dispatch]);
 
 	if (sessionUser) return <Navigate to="/" replace={true} />;
@@ -86,9 +86,11 @@ function SignupFormPage() {
 
 		if (serverResponse) {
 			const error = {};
-			console.log(serverResponse)
+			// console.log(serverResponse)
 			error.server = serverResponse.server;
-			error.username = serverResponse.username
+			error.email = serverResponse.email;
+			error.username = serverResponse.username;
+			error.socials = serverResponse.ssn;
 			// console.log(serverResponse.username)
 			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

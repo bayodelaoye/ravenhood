@@ -20,6 +20,13 @@ def username_exists(form, field):
         raise ValidationError("Username is already in use.")
 
 
+def ssn_exists(form, field):
+    ssn = field.data
+    user = User.query.filter(User.ssn == ssn).first()
+    if user:
+        raise ValidationError("SSN is already in use")
+
+
 class SignUpForm(FlaskForm):
     username = StringField("username", validators=[DataRequired(), username_exists])
     email = StringField("email", validators=[DataRequired(), user_exists])
@@ -34,7 +41,8 @@ class SignUpForm(FlaskForm):
         "phone", validators=[DataRequired(), NumberRange(1000000000, 9999999999)]
     )
     ssn = IntegerField(
-        "ssn", validators=[DataRequired(), NumberRange(100000000, 999999999)]
+        "ssn",
+        validators=[DataRequired(), NumberRange(100000000, 999999999), ssn_exists],
     )
     birthday = DateField("birthday", validators=[DataRequired()])
     citizenship = StringField("citizenship", validators=[DataRequired(), Length(1, 20)])
