@@ -50,7 +50,7 @@ function SearchBar()  {
 
   // const [stockDetail, setStockDetail] = useState();
 
-  const [errors, setErrors] = useState({});
+  // const [errors, setErrors] = useState({});
 
 
 // =======================GLOBAL VARIABLES (NOT STATEFUL)=======================
@@ -119,7 +119,7 @@ function SearchBar()  {
 
     console.log("THIS IS PSUEDO FOR A SEARCH RUNNING WITH: ", search)
 
-    setSelectedSuggestion("")
+    // setSelectedSuggestion("")
 
     setSearch("")
 
@@ -221,7 +221,7 @@ function SearchBar()  {
               onChange={(e) => handleChange(e)}
             />
           </label>
-          {errors.search && <p>{errors.search}</p>}
+          {/* {errors.search && <p>{errors.search}</p>} */}
 
         <button type="submit" id="SearchBarButton">submit</button>
       </form>
