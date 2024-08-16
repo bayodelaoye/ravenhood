@@ -44,11 +44,11 @@ function SearchBar()  {
 
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
-  const [selectedSuggestion, setSelectedSuggestion] = useState();
+  // const [selectedSuggestion, setSelectedSuggestion] = useState();
 
-  const [stockDetailTicker, setStockDetailTicker] = useState();
+  // const [stockDetailTicker, setStockDetailTicker] = useState();
 
-  const [stockDetail, setStockDetail] = useState();
+  // const [stockDetail, setStockDetail] = useState();
 
   const [errors, setErrors] = useState({});
 
