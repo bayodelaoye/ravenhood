@@ -39,6 +39,12 @@ function SearchBar()  {
   const [errors, setErrors] = useState({});
 
 
+// =======================GLOBAL VARIABLES (NOT STATEFUL)=======================
+// some of these may not be used after all
+
+  let displayedSuggestions = []
+
+
 // ===========================USE EFFECT FOR SEARCH===============================
 
   /**
@@ -59,7 +65,7 @@ function SearchBar()  {
       searchable.company_name.toUpperCase().includes(search.toUpperCase()) ||
       searchable.company_name.toLowerCase().includes(search.toLowerCase())
     )
-     const displayedSuggestions = suggestions.map(suggestion => `${suggestion.ticker_symbol} ${" - "} ${suggestion.company_name} ${" - "} ${suggestion.ceo}`)
+      displayedSuggestions = suggestions.map(suggestion => `${suggestion.ticker_symbol} ${" - "} ${suggestion.company_name} ${" - "} ${suggestion.ceo}`)
 
     setSearchSuggestions(displayedSuggestions);
     // console.log("suggestions: ", suggestions)
@@ -118,8 +124,6 @@ function SearchBar()  {
    * Lastly it grabs the input element in the document and returns focus to it.
    * @param {*} e
    */
-
-
   const handleSearchSuggestionButton = (e) => {
     e.preventDefault();
     // console.log("e.target.value============== ", e.target.value);
@@ -143,6 +147,7 @@ function SearchBar()  {
     // setSearch(ticker);
     // setStockDetailTicker(ticker);
     // setStockDetail(stockDetail)
+    displayedSuggestions = [];
 
     document.getElementById("SearchBarInput").focus();
 
