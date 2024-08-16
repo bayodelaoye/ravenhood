@@ -5,8 +5,11 @@ import { ModalProvider, Modal } from "../context/Modal";
 import { thunkAuthenticate } from "../redux/session";
 import Navigation from "../components/Navigation";
 import NavigationStart from "../components/NavigationStart";
+import * as navStocksActions from "../redux/navStocksRedux.js"
+
 import { useSelector } from "react-redux";
 
+// react-vite/src/redux/navStocksRedux.js
 
 export default function Layout() {
   const dispatch = useDispatch();
@@ -14,6 +17,7 @@ export default function Layout() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    dispatch(navStocksActions.navStocks())
     dispatch(thunkAuthenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 

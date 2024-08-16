@@ -25,16 +25,6 @@ function SearchBar()  {
 
 
 
-// =======================GRABING STOCK DATA FROM STORE=======================
-  const navStocks = useSelector((store) => store.navStocks.navStocks);
-  // console.log("navStocks from searchBar = ", navStocks)
-
-  const searchables = navStocks.filter(stock => stock.company_name !== null);
-  // const searchables = ["AAPL", "AMZN", "BUTT"]
-  // console.log("searchables from searchbar ============= ", searchables)
-
-
-
 // =======================STATEFUL VARIABLES=======================
 // some of these may not be used after all
 
@@ -51,6 +41,8 @@ function SearchBar()  {
   // const [stockDetail, setStockDetail] = useState();
 
   // const [errors, setErrors] = useState({});
+
+
 
 
 // =======================GLOBAL VARIABLES (NOT STATEFUL)=======================
@@ -161,7 +153,7 @@ function SearchBar()  {
     // setSearch(ticker);
     // setStockDetailTicker(ticker);
     // setStockDetail(stockDetail)
-    displayedSuggestions = [];
+    displayedSuggestions = [{'test': "test"}];
     console.log(displayedSuggestions);
 
     document.getElementById("SearchBarInput").focus();
@@ -204,6 +196,21 @@ function SearchBar()  {
 
 
 // ===========================RETURN ===============================
+// =======================GRABING STOCK DATA FROM STORE=======================
+const navStocks = useSelector((store) => store.navStocks.navStocks);
+console.log("navStocks from searchBar = ", navStocks)
+if(navStocks === null) return null;
+
+const searchables = navStocks.filter(stock => stock.company_name !== null);
+// const searchables = ["AAPL", "AMZN", "BUTT"]
+// console.log("searchables from searchbar ============= ", searchables)
+
+
+
+
+
+
+
   return (
     <>
     <main id="SearchBarMain">
