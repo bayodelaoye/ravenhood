@@ -35,7 +35,6 @@ class Stock(db.Model):
         "Portfolio",
         secondary=portfolio_stocks,
         back_populates="portfolio_portfolio_stocks",
-        cascade="delete, all"
     )
 
     stock_watch_list_stocks = db.relationship(
