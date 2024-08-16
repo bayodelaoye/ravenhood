@@ -7,7 +7,7 @@ const PortfolioDetails = () => {
       const currentUser = useSelector((state) => state.session.user);
       const navigate = useNavigate();
 
-      console.log("MADE IT", userPortfolios);
+      // console.log("MADE IT", userPortfolios);
 
 	// Ensure user is logged in
 	useEffect(() => {
