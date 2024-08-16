@@ -46,7 +46,7 @@ function navStocksReducer(state = initialState, action) {
   switch (action.type) {
     case GET_NAV_STOCKS:
       // console.log("navStocksReducer ran")
-      return { navStocks: action.stocks };
+      return { ...state, navStocks: action.stocks };
     default:
       return state;
   }

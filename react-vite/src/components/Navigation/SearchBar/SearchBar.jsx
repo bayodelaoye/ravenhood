@@ -3,6 +3,8 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 // import * as searchActions from '../../../search'
+import * as navStocksActions from "../../../redux/navStocksRedux"
+import { useDispatch } from 'react-redux';
 import './SearchBar.css';
 
 // NOTE: DOC STRINGS MAY NEED UPDATED SORRY!!!!!! THINGS CHANGE AND I FORGET TO UPDATE THEM...
@@ -10,6 +12,18 @@ import './SearchBar.css';
 function SearchBar()  {
 
   const navigate = useNavigate();
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+
+    dispatch(navStocksActions.navStocks())
+
+  }, [])
+
+
+
+
 
 // =======================GRABING STOCK DATA FROM STORE=======================
   const navStocks = useSelector((store) => store.navStocks.navStocks);
