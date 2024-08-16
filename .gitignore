@@ -11,3 +11,4 @@ node_modules
 .docker
 .devcontainer
 README.CONTAINER.md
+*.db

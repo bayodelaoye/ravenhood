@@ -64,10 +64,12 @@ def new_portfolio():
 @login_required
 def update_portfolio_name(id):
     body = request.get_json()
+#     print("***************", body)
     portfolio = Portfolio.query.get(id)
     portfolio.portfolio_name = body["portfolio_name"]
+    portfolio.cash_balance += Decimal(body["cash_balance"])
     db.session.commit()
-    return {"message": "Updated portfolio name"}
+    return {"message": "Updated portfolio"}
 
 
 @portfolio_routes.route("/<int:id>/cash", methods=["PUT"])

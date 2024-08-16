@@ -14,15 +14,16 @@ const Portfolio = () => {
 		return acc + +curr.total_amount;
 	}, 0);
 
-	console.log("total", totalAmount);
-	console.log("BAD: ", stockDetails)
+	// console.log("total", totalAmount);
 
-	{ portfolios.map((portfolio) => console.log("this is portfolio", portfolio)) }
+	// {
+	// 	portfolios.map((portfolio) => console.log("this is portfolio", portfolio));
+	// }
 
-	console.log("portfolio", userPortfolios);
-	console.log("Watchlist: ", userWatchlists);
-	console.log("stock details", stockDetails);
-	console.log("portfolio details", portfolios);
+	// console.log("portfolio", userPortfolios);
+	// console.log("Watchlist: ", userWatchlists);
+	// console.log("stock details", stockDetails);
+	// console.log("portfolio details", portfolios);
 
 	if (userPortfolios === null) {
 		return <div>Error loading portfolios. Please try again later.</div>;
@@ -117,7 +118,6 @@ const Portfolio = () => {
 					</div>
 					<div id="earning-cash">
 						<div>
-
 							<div>
 								<p>Cash earning interest</p>
 								<h3>$0.00</h3>

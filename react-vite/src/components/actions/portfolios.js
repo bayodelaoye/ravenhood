@@ -28,43 +28,50 @@ export const createPortfolioAction = async ({ request }) => {
 export const updatePortfolioAction = async ({ request }) => {
 	const formData = await request.formData();
 	const data = Object.fromEntries(formData);
-	const intent = formData.get("intent");
+      const intent = formData.get("intent");
+      
+      // console.log("data", data);
+      
 
-	if (intent === "update-portfolio") {
-		const response = await fetch(`/api/portfolios/${data.id}`, {
-			method: "PUT",
+      if (intent === "update-portfolio") {
+            
+            const response = await fetch(`/api/portfolios/${+data.id}`, {
+                  method: "PUT",
 			headers: {
-				"Content-Type": "application/json",
+                        "Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				portfolio_name: data.portfolio_name,
-			}),
-		});
-
-		if (response.ok) {
-			const message = await response.json();
-			console.log(message.message);
-			return redirect("/");
-		}
-	}
-
-	if (intent === "update-portfolio-cash") {
-		const response = await fetch(`/api/portfolios/${data.id}/cash`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
+                        portfolio_name: data.portfolio_name,
 				cash_balance: data.cash_balance,
 			}),
 		});
+            // console.log("made it here, hopefully");
 
 		if (response.ok) {
 			const message = await response.json();
-			console.log(message.message);
-			return redirect("/");
-		}
+			return message.message;
+			// return redirect("/");
+            }
+            return null
 	}
+
+	// if (intent === "update-portfolio-cash") {
+	// 	const response = await fetch(`/api/portfolios/${data.id}/cash`, {
+	// 		method: "PUT",
+	// 		headers: {
+	// 			"Content-Type": "application/json",
+	// 		},
+	// 		body: JSON.stringify({
+	// 			cash_balance: data.cash_balance,
+	// 		}),
+	// 	});
+
+	// 	if (response.ok) {
+	// 		const message = await response.json();
+	// 		console.log(message.message);
+	// 		return redirect("/");
+	// 	}
+	// }
 
 	if (intent === "update-profile-pic") {
 		const response = await fetch(`/api/users/${data.id}`, {

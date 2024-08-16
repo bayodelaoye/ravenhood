@@ -13,7 +13,7 @@ const UserProfilePage = () => {
 		setImage(newImage);
 	};
 
-	console.log("portfolios", userPortfolios);
+	// console.log("portfolios", userPortfolios);
 
 	return (
 		<div>
