@@ -26,10 +26,12 @@ import Support from "../components/NavigationStart/Dummies/Support.jsx";
 // import Rewards from "../components/Navigation/NavDummies/Rewards.jsx";
 // import Crypto2 from "../components/Navigation/NavDummies/Crypto2.jsx";
 // import Spending from "../components/Navigation/NavDummies/Spending.jsx";
-// import Retirement2 from "../components/Navigation/NavDummies/Retirement2.jsx";
-// import Notifications from "../components/Navigation/NavDummies/Notifications.jsx";
+import Retirement2 from "../components/Navigation/NavDummies/Retirement2.jsx";
+import Notifications from "../components/Navigation/NavDummies/Notifications.jsx";
+import SearchResults from "../components/Navigation/SearchResults/SearchResults.jsx"
 import TransactionsPage from "../components/TransactionPage";
 import { userTransactionsLoader } from "../components/loaders/transactions.js";
+import { navStocksLoader } from "../components/loaders/navStocksLoader.js";
 import { listStocksLoader } from "../components/loaders/listStocks.js";
 import ListStocks from "../components/ListStocks/ListStocks.jsx";
 import UpdateProfileModal from "../components/Profile/UpdateProfileModal.jsx";
@@ -42,6 +44,7 @@ export const router = createBrowserRouter([
   {
 
     element: <Layout />,
+	loader: navStocksLoader,
     children: [
       {
         path: "/",
@@ -137,33 +140,37 @@ export const router = createBrowserRouter([
         element: <Support />,
       },
 
-      // =============Loggedin aka Navigation=============
-      // {
-      // 	path: "/rewards",
-      // 	element: <Rewards />,
-      // },
-      // {
-      // 	path: "/crypto2",
-      // 	element: <Crypto2 />,
-      // },
-      // {
-      // 	path: "/spending",
-      // 	element: <Spending />,
-      // },
-      // {
-      // 	path: "/retirement2",
-      // 	element: <Retirement2 />,
-      // },
+			// =============Loggedin aka Navigation=============
       {
-        path: "/notifications",
-        element: "Notificaitons Coming Soon",
-        // element: <Notifications />,
-      },
-      {
-        path: "/stocks/:stockId",
-        loader: stockDetailsLoader,
-        element: <StockDetailsPage />,
-      },
+				path: "/searchResults",
+				element: <SearchResults />,
+			},
+
+			// {
+			// 	path: "/rewards",
+			// 	element: <Rewards />,
+			// },
+			// {
+			// 	path: "/crypto2",
+			// 	element: <Crypto2 />,
+			// },
+			// {
+			// 	path: "/spending",
+			// 	element: <Spending />,
+			// },
+			{
+				path: "/retirement2",
+				element: <Retirement2 />,
+			},
+			{
+				path: "/notifications",
+				element: <Notifications />,
+			},
+			{
+				path: "/stocks/:stockId",
+				loader: stockDetailsLoader,
+				element: <StockDetailsPage />,
+			},
       {
         path: "/stocks/",
         loader: listStocksLoader,
@@ -173,18 +180,18 @@ export const router = createBrowserRouter([
         path: "/users/:userId/transactions",
         element: <TransactionsPage />,
       },
-      {
-        path: "*",
-        element: (
-          <div>
-            <h1>404 Page not found</h1>
-            <p>
-              Not all those who wander are lost, but it seems you may have taken
-              a wrong turn.
-            </p>
-          </div>
-        ),
-      },
-    ],
-  },
+			{
+				path: "*",
+				element: (
+					<div>
+						<h1>404 Page not found</h1>
+						<p>
+							Not all those who wander are lost, but it seems you may have taken
+							a wrong turn.
+						</p>
+					</div>
+				),
+			},
+		],
+	},
 ]);

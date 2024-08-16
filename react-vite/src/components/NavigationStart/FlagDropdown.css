@@ -1,8 +1,18 @@
+#FlagDropdownMain{
+    display: flex;
+    /* color: white; */
+    background-color: black;
+}
+
+.FlagDropdownImg{
+    width: 1.25rem;
+    height: auto;
+
+}
+
 #FlagDropdownSelect{
     color: white;
     font-size: large;
-    background-color: transparent;
+    background-color: black;
     border: none;
 }
-
-

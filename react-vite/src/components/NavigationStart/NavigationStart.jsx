@@ -1,18 +1,31 @@
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import ravenhoodLogoSilver from "../Navigation/Logo/ravenhoodLogoSilver.png"
 import WhatWeOfferDropdown from "./WhatWeOfferDropdown";
 import FlagDropdown from "./FlagDropdown";
 import LoginButton from "./LoginButton";
 import SignupButton from "./SignupButton";
+import * as navStocksActions from "../../redux/navStocksRedux"
+import { useEffect} from "react";
 import "./NavigationStart.css";
 
 
 function NavigationStart() {
 
 
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+
+    dispatch(navStocksActions.navStocks())
+
+  }, [])
+
+
 
   return (
     <>
+
       <header id='NavigationStartHeader'>
         <NavLink to='/' id="NavigationStartLogoContainer">
           <p id="NavigationStartLogoText">Ravenhood</p>

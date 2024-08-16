@@ -1,18 +1,19 @@
+import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ravenhoodLogoPurple from './Logo/ravenhoodLogoPurple.png';
 import SearchBar from "./SearchBar/SearchBar";
-import { useDispatch } from "react-redux";
 import AccountDropdown from "./AccountDropdown";
-import { useState } from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
-// import * as searchActions from "../../spots"
-
+// import * as navStocksActions from "../../redux/navStocksRedux"
 import './Navigation.css';
 
 
+
 const Navigation = ({isLoaded}) => {
+
+const dispatch = useDispatch()
+
+// dispatch(navStocksActions.navStocks())
 
 const sessionUser = useSelector(state => state.session.user);
 const userId = sessionUser.id;
@@ -20,7 +21,7 @@ const userId = sessionUser.id;
 
 // ==============account menu show hide logic====================
 
-const dispatch = useDispatch();
+// const dispatch = useDispatch();
 const [showMenu, setShowMenu] = useState(false);
 
 
@@ -28,7 +29,7 @@ const [showMenu, setShowMenu] = useState(false);
 const toggleMenu = (e) => {
   e.stopPropagation(); // Keep click from bubbling up to document and triggering closeMenu
   setShowMenu(!showMenu);
-  console.log("======================toggleMenu ran");
+//   console.log("======================toggleMenu ran");
 };
 
 
@@ -42,7 +43,7 @@ useEffect(() => {
 
   const closeMenu = () => {
     setShowMenu(false);
-    console.log("=================== closeMenu ran")
+    // console.log("=================== closeMenu ran")
   };
 
   document.addEventListener('click', closeMenu);
@@ -79,9 +80,10 @@ useEffect(() => {
     return(
      <header>
         <div id='logoAndSearchBarContainer'>
-        <a href="">
+
+        <NavLink to="/stocks">
             <img id="logo" src={ravenhoodLogoPurple} alt="logo"></img>
-        </a>
+        </NavLink>
 
         <SearchBar />
         </div>
@@ -100,25 +102,22 @@ useEffect(() => {
                 <NavLink to="/stocks/" className="TopNavBarNavLink">Stocks</NavLink>
             </li>
             <li>
-                <NavLink to="/retirement" className="TopNavBarNavLink">Retirement</NavLink>
+                <NavLink to="/retirement2" className="TopNavBarNavLink">Retirement</NavLink>
             </li>
             <li>
                 <NavLink to="/notifications" className="TopNavBarNavLink">Notifications</NavLink>
             </li>
             <li>
-
-
                 <button onClick={toggleMenu} id="TopNavBarToggleDropdownButton">
                      <href
-                     className={showMenu ?
-                     "TopNavBarNavLink TopNavBarLinkActive" :
-                     "TopNavBarNavLink"}>Account</href>
-                     {showMenu ?
-                     <AccountDropdown id="TopNavBarAccountDropdown" />:
-                     ""}
+                        className={showMenu ?
+                            "TopNavBarNavLink TopNavBarLinkActive" :
+                            "TopNavBarNavLink"}>Account
+                    </href>
+                    {showMenu ? <AccountDropdown id="TopNavBarAccountDropdown" />: ""}
                 </button>
-
             </li>
+
         </ul>
     </header>
     );
