@@ -2,6 +2,7 @@ import { useLoaderData, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BsStars } from "react-icons/bs";
 import WatchlistAll from "../Watchlist/WatchlistUser_All";
+import Watchlist from "../Watchlist";
 
 const Portfolio = () => {
   const { userPortfolios } = useLoaderData();

@@ -17,14 +17,15 @@ import { useNavigate } from "react-router-dom";
 import "./AccountDropdown.css";
 
 
-function AccountDropdown(){
+
+function AccountDropdown() {
 
     const sessionUser = useSelector((store) => store.session.user);
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
 
-// ===================menu buttons handlers======================
+    // ===================menu buttons handlers======================
 
 
     const handleProfile = (e) => {
@@ -37,10 +38,11 @@ function AccountDropdown(){
         e.preventDefault();
         dispatch(sessionActions.thunkLogout());
         console.log("handleLogout ran");
+        return navigate('/')
     }
 
 
-    return(
+    return (
         <>
             <ul id="AccountDropdownUl">
 
@@ -64,50 +66,50 @@ function AccountDropdown(){
                     <button
                         onClick={handleProfile}
                         className="AccountDropdownUlLiButton">
-                            <FaUserCircle className="AccountDropdownIcon"/>Profile</button>
+                        <FaUserCircle className="AccountDropdownIcon" />Profile</button>
                 </li>
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><FaBriefcase className="AccountDropdownIcon"/>Investing</button>
+                    <button className="AccountDropdownUlLiButton"><FaBriefcase className="AccountDropdownIcon" />Investing</button>
                 </li>
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><BsBank2 className="AccountDropdownIcon"/>Transfers</button>
-                </li>
-
-
-                <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><GrPowerCycle className="AccountDropdownIcon"/>Recurring</button>
+                    <button className="AccountDropdownUlLiButton"><BsBank2 className="AccountDropdownIcon" />Transfers</button>
                 </li>
 
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><BiSolidReport className="AccountDropdownIcon"/>Reports and statements</button>
+                    <button className="AccountDropdownUlLiButton"><GrPowerCycle className="AccountDropdownIcon" />Recurring</button>
                 </li>
 
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><FaEnvelopesBulk className="AccountDropdownIcon"/>Tax center</button>
+                    <button className="AccountDropdownUlLiButton"><BiSolidReport className="AccountDropdownIcon" />Reports and statements</button>
                 </li>
 
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><GiBackwardTime className="AccountDropdownIcon"/>History</button>
+                    <button className="AccountDropdownUlLiButton"><FaEnvelopesBulk className="AccountDropdownIcon" />Tax center</button>
                 </li>
 
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><FaGear className="AccountDropdownIcon"/>Settings</button>
+                    <button className="AccountDropdownUlLiButton"><GiBackwardTime className="AccountDropdownIcon" />History</button>
                 </li>
 
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><BiSolidHelpCircle className="AccountDropdownIcon"/>Help</button>
+                    <button className="AccountDropdownUlLiButton"><FaGear className="AccountDropdownIcon" />Settings</button>
                 </li>
 
 
                 <li className="AccountDropdownUlLi">
-                    <button className="AccountDropdownUlLiButton"><ImKeyboard className="AccountDropdownIcon"/>Keyboard Shortcuts</button>
+                    <button className="AccountDropdownUlLiButton"><BiSolidHelpCircle className="AccountDropdownIcon" />Help</button>
+                </li>
+
+
+                <li className="AccountDropdownUlLi">
+                    <button className="AccountDropdownUlLiButton"><ImKeyboard className="AccountDropdownIcon" />Keyboard Shortcuts</button>
                 </li>
 
 
@@ -116,7 +118,7 @@ function AccountDropdown(){
                         onClick={handleLogout}
                         className="AccountDropdownUlLiButton"
                         id="AccountDropdownLogOut">
-                            <MdLogout className="AccountDropdownIcon"/>Log Out
+                        <MdLogout className="AccountDropdownIcon" />Log Out
                     </button>
                 </li>
 

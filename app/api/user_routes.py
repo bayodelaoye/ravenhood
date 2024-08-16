@@ -28,39 +28,28 @@ def user(id):
 
 @user_routes.route("/<int:id>", methods=["PUT"])
 @login_required
-def upload_image():
-    body = request.get_json()
+def upload_image(id):
     user = User.query.get(id)
-    user.image = body["image"]
-    user.username = body["username"]
-    user.image.filename = get_unique_filename(user.image.filename)
-    upload = upload_file_to_s3(user.image)
-    if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # # it means that there was an error when you tried to upload
-        # # so you send back that error message (and you printed it above)
-        return {"message": "There was an error uploading the image"}, 400
-    url = upload["url"]
+    if not user:
+        return {"message": "User not found"}, 404
+
+    # Handle file upload if the image is provided
+    if "image" in request.files:
+        image = request.files["image"]
+        image.filename = get_unique_filename(image.filename)
+        upload = upload_file_to_s3(image)
+        if "url" not in upload:
+            return {"message": "There was an error uploading the image"}, 400
+        user.image = upload["url"]
+
+    # Update the username if provided
+    username = request.form.get("username")
+    if username:
+        user.username = username
+
+    # Commit changes if any update was made
     db.session.commit()
     return {"message": "Updated user's information"}, 201
-    # form = ImageForm()
-    # image = form.data["image"]
-    # image.filename = get_unique_filename(image.filename)
-    # upload = upload_file_to_s3(image)
-
-
-#     if "url" not in upload:
-#           # if the dictionary doesn't have a url key
-#           # # it means that there was an error when you tried to upload
-#           # # so you send back that error message (and you printed it above)
-#           return {"message": "There was an error uploading the image"}, 400
-
-#     url = upload["url"]
-# new_image = User(image=url)
-# db.session.add(new_image)
-# db.session.commit()
-# user = User.query.get(id)
-# return user.to_dict_with_portfolios_and_watch_lists(), 201
 
 
 @user_routes.route("/<int:id>/portfolios")
