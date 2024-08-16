@@ -7,7 +7,12 @@ import { userPortfolios } from "../components/loaders/portfolios";
 import { modifyPortfolio } from "../components/actions/portfolios";
 import UserProfilePage from "../components/Profile/UserProfilePage.jsx";
 import Portfolio from "../components/Portfolio";
-import Profile from "../components/Profile";
+import CreatePortfolio from "../components/Portfolio/Portfolio-CRUD/Create/CreatePortfolio.jsx";
+import { createPortfolioAction } from "../components/actions/portfolios";
+import UpdatePortfolio from "../components/Portfolio/Portfolio-CRUD/Update/UpdatePortfolio.jsx";
+import { updatePortfolioAction } from "../components/actions/portfolios";
+import PortfolioDetails from "../components/Portfolio/PortfolioDetails.jsx";
+// import Profile from "../components/Profile";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
@@ -55,30 +60,36 @@ export const router = createBrowserRouter([
 				path: "profile/portfolios",
 				loader: userPortfolios,
 				element: <UserProfilePage />,
-                        action: modifyPortfolio,
-                        children: [
-                              {
-                                    path:"edit",
-                                    element: <UpdateProfileModal />
-                              }
-                        ]
+				action: modifyPortfolio,
+				children: [
+					{
+						path: "edit",
+						element: <UpdateProfileModal />,
+					},
+				],
 			},
 			{
 				path: "portfolios/new",
 				loader: userPortfolios,
-				element: <Portfolio />,
-				action: modifyPortfolio,
+				element: <CreatePortfolio />,
+				action: createPortfolioAction,
 			},
 			{
-				path: "portfolios/:id",
+				path: "portfolios/:userId",
 				loader: userPortfolios,
-				element: <Portfolio />,
+				element: <PortfolioDetails />,
 			},
 			{
-				path: "portfolios/:id/cash",
+				path: "portfolios/:userId/edit",
 				loader: userPortfolios,
-				element: <Portfolio />,
-				action: modifyPortfolio,
+				element: <UpdatePortfolio />,
+				action: updatePortfolioAction,
+			},
+			{
+				path: "portfolios/:userId/edit/cash",
+				loader: userPortfolios,
+				element: <UpdatePortfolio />,
+				action: updatePortfolioAction,
 			},
 			{
 				path: "watchlist/:watchlist_num",
@@ -93,97 +104,97 @@ export const router = createBrowserRouter([
 				action: deleteWatchlist,
 			},
 
-      // =============Not Loggedin aka NavigationStart=============
-      {
-        path: "/invest",
-        element: <Invest />,
-      },
-      {
-        path: "/crypto",
-        element: <Crypto />,
-      },
-      {
-        path: "/retirement",
-        element: <Retirement />,
-      },
-      {
-        path: "/options",
-        element: <Options />,
-      },
-      {
-        path: "/us",
-        // children: [
-        // ],
-      },
-      {
-        path: "/creditcard",
-        element: <CreditCard />,
-      },
-      {
-        path: "/platinum",
-        element: <Platinum />,
-      },
-      {
-        path: "/learn",
-        element: <Learn />,
-      },
-      {
-        path: "/sherwoodnews",
-        element: <SherwoodNews />,
-      },
-      {
-        path: "/support",
-        element: <Support />,
-      },
+			// =============Not Loggedin aka NavigationStart=============
+			{
+				path: "/invest",
+				element: <Invest />,
+			},
+			{
+				path: "/crypto",
+				element: <Crypto />,
+			},
+			{
+				path: "/retirement",
+				element: <Retirement />,
+			},
+			{
+				path: "/options",
+				element: <Options />,
+			},
+			{
+				path: "/us",
+				// children: [
+				// ],
+			},
+			{
+				path: "/creditcard",
+				element: <CreditCard />,
+			},
+			{
+				path: "/platinum",
+				element: <Platinum />,
+			},
+			{
+				path: "/learn",
+				element: <Learn />,
+			},
+			{
+				path: "/sherwoodnews",
+				element: <SherwoodNews />,
+			},
+			{
+				path: "/support",
+				element: <Support />,
+			},
 
-      // =============Loggedin aka Navigation=============
-      // {
-      // 	path: "/rewards",
-      // 	element: <Rewards />,
-      // },
-      // {
-      // 	path: "/crypto2",
-      // 	element: <Crypto2 />,
-      // },
-      // {
-      // 	path: "/spending",
-      // 	element: <Spending />,
-      // },
-      // {
-      // 	path: "/retirement2",
-      // 	element: <Retirement2 />,
-      // },
-      {
-        path: "/notifications",
-        element: "Notificaitons Coming Soon",
-        // element: <Notifications />,
-      },
-      {
-        path: "/stocks/:stockId",
-        loader: stockDetailsLoader,
-        element: <StockDetailsPage />,
-      },
-      {
-        path: "/stocks/",
-        loader: listStocksLoader,
-        element: <ListStocks />,
-      },
-      {
-        path: "/users/:userId/transactions",
-        element: <TransactionsPage />,
-      },
-      {
-        path: "*",
-        element: (
-          <div>
-            <h1>404 Page not found</h1>
-            <p>
-              Not all those who wander are lost, but it seems you may have taken
-              a wrong turn.
-            </p>
-          </div>
-        ),
-      },
-    ],
-  },
+			// =============Loggedin aka Navigation=============
+			// {
+			// 	path: "/rewards",
+			// 	element: <Rewards />,
+			// },
+			// {
+			// 	path: "/crypto2",
+			// 	element: <Crypto2 />,
+			// },
+			// {
+			// 	path: "/spending",
+			// 	element: <Spending />,
+			// },
+			// {
+			// 	path: "/retirement2",
+			// 	element: <Retirement2 />,
+			// },
+			{
+				path: "/notifications",
+				element: "Notificaitons Coming Soon",
+				// element: <Notifications />,
+			},
+			{
+				path: "/stocks/:stockId",
+				loader: stockDetailsLoader,
+				element: <StockDetailsPage />,
+			},
+			{
+				path: "/stocks/",
+				loader: listStocksLoader,
+				element: <ListStocks />,
+			},
+			{
+				path: "/users/:userId/transactions",
+				element: <TransactionsPage />,
+			},
+			{
+				path: "*",
+				element: (
+					<div>
+						<h1>404 Page not found</h1>
+						<p>
+							Not all those who wander are lost, but it seems you may have taken
+							a wrong turn.
+						</p>
+					</div>
+				),
+			},
+		],
+	},
 ]);

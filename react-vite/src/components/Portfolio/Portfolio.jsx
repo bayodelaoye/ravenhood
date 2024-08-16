@@ -2,7 +2,7 @@ import { useLoaderData, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BsStars } from "react-icons/bs";
 import WatchlistAll from "../Watchlist/WatchlistUser_All";
-import Watchlist from "../Watchlist";
+import LineGraph from "../LineGraph";
 
 const Portfolio = () => {
 	const { userPortfolios } = useLoaderData();
@@ -10,7 +10,13 @@ const Portfolio = () => {
 	const currentUser = useSelector((state) => state.session.user);
 	const portfolios = userPortfolios.portfolios.map((portfolio) => portfolio);
 	const stockDetails = userPortfolios.portfolios.map((stock) => stock.stocks);
+	const totalAmount = portfolios.reduce((acc, curr) => {
+		return acc + +curr.total_amount;
+	}, 0);
 
+      console.log("total", totalAmount);
+      
+      {portfolios.map((portfolio) => console.log("this is portfolio", portfolio))}
 
 	console.log("portfolio", userPortfolios);
 	console.log("Watchlist: ", userWatchlists);
@@ -31,13 +37,14 @@ const Portfolio = () => {
 							Try Platinum
 						</button>
 					</div>
-					{portfolios.map((portfolio) => (
-						<div key={portfolio.id} id="user-portfolio-small-deets">
-							<div>${portfolio.total_amount}</div>
-							<hr />
-						</div>
-					))}
-					{/* BAYODE - LINE GRAPH*/}
+
+					<div id="user-portfolio-small-deets">
+						<div>${totalAmount}</div>
+						<hr />
+						<LineGraph stock={stockDetails[0][0]} />
+						{/* BAYODE - LINE GRAPH*/}
+					</div>
+
 					<div id="ravenhood-general-blocks">
 						<div>
 							<img src="" alt="" />
@@ -58,16 +65,14 @@ const Portfolio = () => {
 					<div id="ravenhood-cash">
 						<div id="ravenhood-cash-headers-links">
 							<h2>Cash</h2>
-							{portfolios.map((portfolio) => (
-								<div key={portfolio.id}>
-									<Link
-										to={`portfolios/${portfolio.id}/cash`}
-										className="get-more-links"
-									>
-										Deposit cash
-									</Link>
-								</div>
-							))}
+							<div>
+								<Link
+									to={`portfolios/${userPortfolios.id}/cash`}
+									className="get-more-links"
+								>
+									Deposit cash
+								</Link>
+							</div>
 						</div>
 						<hr />
 					</div>
@@ -110,6 +115,7 @@ const Portfolio = () => {
 					</div>
 					<div id="earning-cash">
 						<div>
+
 							<div>
 								<p>Cash earning interest</p>
 								<h3>$0.00</h3>
@@ -140,14 +146,9 @@ const Portfolio = () => {
 			) : (
 				<div>Please log in to view your portfolios.</div>
 			)}
-                  <div>
-                        <Watchlist />
+			<div>
 				<WatchlistAll />
-				Render watchlist to the right of all data above, watchlist is in this
-				route, in this component, did not make sure it does not break with other
-				users. WORKS FOR DEMO USER
 			</div>
-			{/* TYLER - WATCHLIST */}
 		</div>
 	);
 };

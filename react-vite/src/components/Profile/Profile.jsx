@@ -1,6 +1,6 @@
-import { useNavigate, Form } from "react-router-dom";
+import { useNavigate, Form} from "react-router-dom";
 // import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import OpenModalButton from "../OpenModalButton";
 // import UpdateProfileModal from "./UpdateProfileModal";
 import { FaFaceGrinStars, FaRegCircleXmark } from "react-icons/fa6";
@@ -17,9 +17,9 @@ const Profile = ({ userPortfolios, onImageChange }) => {
 	const [image, setImage] = useState(userPortfolios.image || null);
 	const [preview, setPreview] = useState(userPortfolios.image || null);
 
-	useState(() => {
-		setImage(userPortfolios.image || null);
-		setPreview(userPortfolios.image || null);
+      useEffect(() => {
+            setImage(userPortfolios.image);
+		setPreview(userPortfolios.image);
 	}, [userPortfolios.image]);
 
 	const handleImageChange = (event) => {
@@ -38,9 +38,7 @@ const Profile = ({ userPortfolios, onImageChange }) => {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const formData = new FormData();
-		if (image) {
-			formData.append("image", image);
-		}
+            formData.append("image", image);
 
 		try {
 			const response = await fetch(`/api/users/${userPortfolios.id}`, {
@@ -74,7 +72,7 @@ const Profile = ({ userPortfolios, onImageChange }) => {
 					<div id="image-update" className="user-image-update">
 						{preview ? (
 							<>
-								<img src={preview} alt="Current Profile" width={100} />
+								<img src={userPortfolios.image} alt="Current Profile" width={100} />
 								<button
 									type="button"
 									className="remove-image-button"
