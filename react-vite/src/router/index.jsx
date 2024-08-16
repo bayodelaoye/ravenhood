@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
   {
 
     element: <Layout />,
-	loader: navStocksLoader,
+    // loader: navStocksLoader,
     children: [
       {
         path: "/",
