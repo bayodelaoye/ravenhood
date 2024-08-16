@@ -1,5 +1,7 @@
 #FlagDropdownMain{
     display: flex;
+    /* color: white; */
+    background-color: black;
 }
 
 .FlagDropdownImg{
@@ -11,6 +13,6 @@
 #FlagDropdownSelect{
     color: white;
     font-size: large;
-    background-color: transparent;
+    background-color: black;
     border: none;
 }
