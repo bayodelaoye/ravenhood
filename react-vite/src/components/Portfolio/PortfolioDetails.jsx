@@ -1,25 +1,73 @@
-import { useLoaderData, Link, useNavigate } from "react-router-dom";
+import { useLoaderData, Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useModal } from "../../context/Modal";
+
+import DeletePortfolio from "./Portfolio-CRUD/Delete/DeletePortfolio";
 
 const PortfolioDetails = () => {
-	const { userPortfolios } = useLoaderData();
+      const { userPortfolios } = useLoaderData();
       const currentUser = useSelector((state) => state.session.user);
       const navigate = useNavigate();
+      const ulRef = useRef();
 
-      console.log("MADE IT", userPortfolios);
+      const { setModalContent, closeModal } = useModal();
 
-	// Ensure user is logged in
-	useEffect(() => {
-		if (!currentUser) {
-			navigate("/");
-		}
+      const [portfolios, setPortfolios] = useState([]);
+
+      useEffect(() => {
+            if (currentUser) {
+                  setPortfolios(userPortfolios.portfolios)
+            }
+      }, [currentUser, userPortfolios])
+
+      console.log("MADE IT", portfolios);
+
+      // Ensure user is logged in
+      useEffect(() => {
+            if (!currentUser) {
+                  navigate("/");
+            }
       }, [currentUser, navigate]);
-      
+
+      // Delete current Portfolio
+
+      const handleDeletePortfolio = (portfolio) => {
+            setModalContent(
+                  <div className="curve-radius">
+                        <DeletePortfolio
+                              onClose={closeModal}
+                              portfolio={portfolio}
+                              user_id={currentUser.id}
+                        />
+                  </div>
+            )
+      }
+
       return (
             <div id="all-user-portfolios">
                   <h1>Portfolios</h1>
+
+                  {/* Delete Portfolio */}
+                  {
+
+                        userPortfolios.portfolios.map((portfolio) => (
+                              <div>
+                                    <h3>{portfolio.portfolio_name}</h3>
+                                    <p>{portfolio.id}</p>
+                                    <div className="delete portfolio-section" ref={ulRef}>
+                                          <button type='submit' className="delete-portfolio-button" onClick={(e) => { e.stopPropagation(); handleDeletePortfolio(portfolio); }}>Delete {portfolio.portfolio_name}</button>
+
+                                    </div>
+                              </div>
+                        ))
+
+                  }
+
+
+
             </div>
+
       )
 };
 
