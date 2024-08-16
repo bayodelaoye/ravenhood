@@ -7,6 +7,7 @@ import { FaFaceGrinStars, FaRegCircleXmark } from "react-icons/fa6";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import "./Profile.css";
 
+// pointless comment
 const Profile = ({ userPortfolios, onImageChange }) => {
 	// const { userPortfolios } = useLoaderData();
 	// const currentUser = useSelector((state) => state.session.user);
