@@ -43,7 +43,7 @@ const Portfolio = () => {
 						<div>${totalAmount}</div>
 						<hr />
 						{/* Fixed this ✅ - Linegraph had an error if there is no stock  */}
-						{stockDetails[0] ? <LineGraph stock={stockDetails[0][0]} /> : ""}
+						{stockDetails[0] && stockDetails[0][0] ? <LineGraph stock={stockDetails[0][0]} /> : ""}
 						{/* BAYODE - LINE GRAPH*/}
 					</div>
 
