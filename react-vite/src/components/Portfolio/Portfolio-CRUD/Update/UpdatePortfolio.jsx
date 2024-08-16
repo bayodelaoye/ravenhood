@@ -73,9 +73,9 @@ const UpdatePortfolio = () => {
 		<div id="new-portfolio">
 			{currentUser && portfolios ? (
                         <div id="portfolio-section-1">
-                              {portfolios.map((portfolio) => (
-                                    
-                              ))}
+                              {/* {portfolios.map((portfolio) => (
+
+                              ))} */}
 					<h1>Create a portfolio for {userPortfolios.username}</h1>
 					<Form
 						method="post"

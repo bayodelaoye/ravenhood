@@ -5,7 +5,7 @@ import Watchlist from "../../Watchlist";
 
 const AuHomePage = () => {
 	const currentUser = useSelector((state) => state.session.user);
-	const userPortfolios = useLoaderData();
+	const { userPortfolios } = useLoaderData();
 
 	return (
 		<div id="authorized-user-home">

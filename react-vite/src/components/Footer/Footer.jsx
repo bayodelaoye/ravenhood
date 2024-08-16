@@ -14,15 +14,15 @@ const Footer = () => {
 			<footer id="nu-footer">
 				<div id="top-nu-footer">
 					<section className="left-nu-footer" id="top-left-nu-footer">
-						<a href="#" target="_blank" rel="noopener noreferrer">
+						{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 							<h2 className="nu-footer-documents">
 								Brokerage Customer Relationship Summary
 							</h2>
-						</a>
+						{/* </a> */}
 						<div id="big-line"></div>
-						<a href="#" target="_blank" rel="noopener noreferrer">
+						{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 							<h2 className="nu-footer-documents">FINRA&apos;s BrokerCheck</h2>
-						</a>
+						{/* </a> */}
 					</section>
 					<section className="right-nu-footer" id="top-right-nu-footer">
 						Follow us on
@@ -43,44 +43,44 @@ const Footer = () => {
 								<h4>Product</h4>
 								<ul>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Invest
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Credit Card
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Platinum
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Crypto
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Retirement
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Options
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Learn
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Snacks
-										</a>
+										{/* </a> */}
 									</li>
 								</ul>
 							</div>
@@ -88,69 +88,69 @@ const Footer = () => {
 								<h4>Company</h4>
 								<ul>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											About us
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Blog
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Affiliates
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Press
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Careers
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Commitments
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Our Customers
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Investor Relations
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Support
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											ESG
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Podcast
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Investor Index
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Ravenhood Merch
-										</a>
+										{/* </a> */}
 									</li>
 								</ul>
 							</div>
@@ -158,29 +158,29 @@ const Footer = () => {
 								<h4>Legal & Regulatory</h4>
 								<ul>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Terms & Conditions
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Disclosures
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Privacy
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Your Privacy Choices
-										</a>
+										{/* </a> */}
 									</li>
 									<li>
-										<a href="#" target="_blank" rel="noopener noreferrer">
+										{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 											Law Enforcement Requests
-										</a>
+										{/* </a> */}
 									</li>
 								</ul>
 							</div>
@@ -192,25 +192,25 @@ const Footer = () => {
 						<p>
 							Brokerage services are offered through Ravenhood Financial LLC,
 							(“RHF”) a registered broker-dealer (member{" "}
-							<a href="#" target="_blank" rel="noopener noreferrer">
+							{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 								SIPC
-							</a>
+							{/* </a> */}
 							) and clearing services through Ravenhood Securities, LLC, (“RHS”)
 							a registered broker dealer (member{" "}
-							<a href="#" target="_blank" rel="noopener noreferrer">
+							{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 								SIPC
-							</a>
+							{/* </a> */}
 							). Cryptocurrency services are offered through Ravenhood Crypto,
 							LLC (“RHC”) (NMLS ID: 1702840). Review a{" "}
-							<a href="#" target="_blank" rel="noopener noreferrer">
+							{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 								list of RHC licenses
-							</a>{" "}
+							{/* </a>{" "} */}
 							for more information.The Ravenhood Money spending account is
 							offered through Ravenhood Money, LLC (“RHY”) (NMLS ID: 1990968), a
 							licensed money transmitter. Review a{" "}
-							<a href="#" target="_blank" rel="noopener noreferrer">
+							{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 								list of our licenses
-							</a>{" "}
+							{/* </a>{" "} */}
 							for more information. Credit card products are offered by
 							Ravenhood Credit, Inc. (&quot;RCT&quot;) (NMLS ID: 1781911) and
 							issued by Coastal Community Bank, Member FDIC, pursuant to a
@@ -237,13 +237,13 @@ const Footer = () => {
 							protection, but funds held in the Ravenhood spending account and
 							Ravenhood Cash Card account may be eligible for FDIC pass-through
 							insurance (review the{" "}
-							<a href="#" target="_blank" rel="noopener noreferrer">
+							{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 								Ravenhood Cash Card Agreement
-							</a>{" "}
+							{/* </a>{" "} */}
 							and the{" "}
-							<a href="#" target="_blank" rel="noopener noreferrer">
+							{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 								Ravenhood Spending Account Agreement
-							</a>
+							{/* </a> */}
 							).
 						</p>
 						<p>
@@ -264,9 +264,9 @@ const Footer = () => {
 							such as trading (non-commission) fees, Platinum subscription fees,
 							wire transfer fees, and paper statement fees may apply to your
 							brokerage account. Please see Ravenhood Financial&apos;s{" "}
-							<a href="#" target="_blank" rel="noopener noreferrer">
+							{/* <a href="#" target="_blank" rel="noopener noreferrer"> */}
 								Fee Schedule
-							</a>{" "}
+							{/* </a>{" "} */}
 							to learn more.
 						</p>
 						<p>Ravenhood, 85 Willow Road, Menlo Park, CA 94025.</p>

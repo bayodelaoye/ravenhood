@@ -29,9 +29,9 @@ function NavigationStart() {
       <header id='NavigationStartHeader'>
         <NavLink to='/' id="NavigationStartLogoContainer">
           <p id="NavigationStartLogoText">Ravenhood</p>
-          <a href="">
+          {/* <a href=""> */}
               <img id="NavigationStartLogoImg" src={ravenhoodLogoSilver} alt="logo"></img>
-          </a>
+          {/* </a> */}
         </NavLink>
 
         <ul id="NavigationStartUl">

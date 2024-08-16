@@ -7,6 +7,7 @@ import { userPortfolios } from "../components/loaders/portfolios";
 import { modifyPortfolio } from "../components/actions/portfolios";
 import UserProfilePage from "../components/Profile/UserProfilePage.jsx";
 import Portfolio from "../components/Portfolio";
+import AuHomePage from "../components/HomePage/Au-HomePage/Au-HomePage.jsx";
 import CreatePortfolio from "../components/Portfolio/Portfolio-CRUD/Create/CreatePortfolio.jsx";
 import { createPortfolioAction } from "../components/actions/portfolios";
 import UpdatePortfolio from "../components/Portfolio/Portfolio-CRUD/Update/UpdatePortfolio.jsx";
@@ -52,7 +53,7 @@ export const router = createBrowserRouter([
 			{
 				path: "/",
 				loader: userPortfolios,
-				element: <HomePage />,
+				element: <AuHomePage />,
 			},
 			{
 				path: "login",
@@ -166,14 +167,14 @@ export const router = createBrowserRouter([
 			// 	path: "/spending",
 			// 	element: <Spending />,
 			// },
-			// {
-			// 	path: "/retirement2",
-			// 	element: <Retirement2 />,
-			// },
+			{
+				path: "/retirement2",
+				element: <Retirement2 />,
+			},
 			{
 				path: "/notifications",
-				element: "Notificaitons Coming Soon",
-				// element: <Notifications />,
+				// element: "Notificaitons Coming Soon",
+				element: <Notifications />,
 			},
 			{
 				path: "/stocks/:stockId",
