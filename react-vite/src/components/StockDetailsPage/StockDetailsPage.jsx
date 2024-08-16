@@ -31,6 +31,7 @@ function StockDetailsPage() {
   const listOfUserPortfolios = useSelector(
     (state) => state.portfolios?.userPortfolios?.portfolios
   );
+  // testing
 
   useEffect(() => {
     const fetchPortfolioData = async () => {
