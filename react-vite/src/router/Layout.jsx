@@ -21,7 +21,7 @@ export default function Layout() {
   return (
     <>
       <ModalProvider>
-        {/* {sessionUser ? <Navigation /> : <NavigationStart />} */}
+        {sessionUser ? <Navigation /> : <NavigationStart />}
         {isLoaded && <Outlet />}
         <Modal />
       </ModalProvider>
