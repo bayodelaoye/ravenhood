@@ -16,7 +16,11 @@ const AuHomePage = () => {
 			Math.floor(userPortfolios.total_amount) === 0 ? (
 				<div id="welcome">
 					<div id="welcome-image-div">
-						<img src="" alt="" id="welcome-image" />
+						<img
+							src="https://cdn.robinhood.com/assets/generated_assets/webapp/web-platform-prefetch-sdp/member/596db67a189aa1843e74.svg"
+							alt=""
+							id="welcome-image"
+						/>
 					</div>
 					<div id="welcome-to-ravenhood">
 						<h1>Welcome to Ravenhood</h1>
