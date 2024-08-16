@@ -49,16 +49,16 @@ export const router = createBrowserRouter([
 		element: <SignupFormPage />,
 	},
 	{
+		path: "login",
+		element: <LoginFormPage />,
+	},
+	{
 		element: <Layout />,
 		children: [
 			{
 				path: "/",
 				loader: userPortfolios,
 				element: <HomePage />,
-			},
-			{
-				path: "login",
-				element: <LoginFormPage />,
 			},
 			{
 				path: "profile/portfolios",
