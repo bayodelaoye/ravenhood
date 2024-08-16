@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 // import Stock from "../../Stock";
 import './SearchResults.css';
 
