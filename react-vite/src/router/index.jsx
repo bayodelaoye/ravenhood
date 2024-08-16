@@ -81,6 +81,7 @@ export const router = createBrowserRouter([
 				path: "portfolios/:userId",
 				loader: userPortfolios,
 				element: <PortfolioDetails />,
+				action: modifyPortfolio
 			},
 			{
 				path: "portfolios/:userId/edit",
