@@ -91,8 +91,6 @@ export const modifyPortfolio = async ({ request }) => {
 	const data = Object.fromEntries(formData);
 	const intent = formData.get("intent");
 
-	console.log("this is data", data);
-	console.log("this is form data", formData);
 
 	if (intent === "delete-portfolio") {
 		const response = await fetch(`/api/portfolios/${data.id}`, {
@@ -101,9 +99,10 @@ export const modifyPortfolio = async ({ request }) => {
 
 		if (response.ok) {
 			const message = await response.json();
-			console.log(message.message);
-			return redirect("/");
+			return message;
+
 		}
+
 	}
 
 	return "There was an error in updating the portfolio";

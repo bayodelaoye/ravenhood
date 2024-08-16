@@ -14,18 +14,19 @@ const Portfolio = () => {
 		return acc + +curr.total_amount;
 	}, 0);
 
-      console.log("total", totalAmount);
-      
-      {portfolios.map((portfolio) => console.log("this is portfolio", portfolio))}
+	console.log("total", totalAmount);
+	console.log("BAD: ", stockDetails)
 
-  console.log("portfolio", userPortfolios);
-  console.log("Watchlist: ", userWatchlists);
-  console.log("stock details", stockDetails);
-  console.log("portfolio details", portfolios);
+	{ portfolios.map((portfolio) => console.log("this is portfolio", portfolio)) }
 
-  if (userPortfolios === null) {
-    return <div>Error loading portfolios. Please try again later.</div>;
-  }
+	console.log("portfolio", userPortfolios);
+	console.log("Watchlist: ", userWatchlists);
+	console.log("stock details", stockDetails);
+	console.log("portfolio details", portfolios);
+
+	if (userPortfolios === null) {
+		return <div>Error loading portfolios. Please try again later.</div>;
+	}
 
 	return (
 		<div id="user-portfolio-home">
@@ -41,7 +42,8 @@ const Portfolio = () => {
 					<div id="user-portfolio-small-deets">
 						<div>${totalAmount}</div>
 						<hr />
-						<LineGraph stock={stockDetails[0][0]} />
+						{/* Fixed this ✅ - Linegraph had an error if there is no stock  */}
+						{stockDetails[0] ? <LineGraph stock={stockDetails[0][0]} /> : ""}
 						{/* BAYODE - LINE GRAPH*/}
 					</div>
 
