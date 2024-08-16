@@ -5,6 +5,6 @@ export const watchlistLoader = async () => {
         // Fixed this
         return { userWatchlists };
     }
-    return { userWatchlists: '' }
+    return { userWatchlists: [] }
 
 };

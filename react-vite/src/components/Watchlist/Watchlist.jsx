@@ -28,7 +28,11 @@ const Watchlist = () => {
     const [currentList, setCurrentList] = useState([]);
     const ulRef = useRef();
 
-    let currentWatchList = userWatchlists.watch_lists[watchlist_num - 1];
+    let currentWatchList;
+
+    if (user) {
+        currentWatchList = userWatchlists.watch_lists[watchlist_num - 1];
+    }
 
     useEffect(() => {
         if (currentWatchList) {
