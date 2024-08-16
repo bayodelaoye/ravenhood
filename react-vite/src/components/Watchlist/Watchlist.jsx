@@ -16,18 +16,23 @@ import CreateWatchList from "./CreateWatchlistModal";
 const Watchlist = () => {
     // Grab User's Watchlist
     const { userWatchlists } = useLoaderData();
-    console.log(userWatchlists.watch_lists)
+    // console.log(userWatchlists.watch_lists)
     const { watchlist_num } = useParams()
-    const currentWatchList = userWatchlists.watch_lists[watchlist_num - 1]
+    const user = useSelector((state) => state.session.user);
     const navigate = useNavigate();
     const { setModalContent, closeModal } = useModal();
     // URL :user_id
     // Current session's user
-    const user = useSelector((state) => state.session.user);
     const [currentFilter, setCurrentFilter] = useState("none")
     const [showWatchlistDeleteMenu, setshowWatchlistDeleteMenu] = useState(false);
     const [currentList, setCurrentList] = useState([]);
     const ulRef = useRef();
+
+    let currentWatchList;
+
+    if (user) {
+        currentWatchList = userWatchlists.watch_lists[watchlist_num - 1];
+    }
 
     useEffect(() => {
         if (currentWatchList) {
@@ -48,6 +53,18 @@ const Watchlist = () => {
 
         return () => document.removeEventListener("click", closeMenu);
     }, [showWatchlistDeleteMenu]);
+    if (!user) {
+        return (
+            <div>
+                <h1>401 Unauthorized</h1>
+                <p>Not all those who wander are lost, but it seems you may have taken a wrong turn.</p>
+
+            </div>
+        )
+
+    }
+
+
 
 
 
