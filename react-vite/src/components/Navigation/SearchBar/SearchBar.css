@@ -32,6 +32,10 @@
     /* border: grey 2px dotted; */
 }
 
+#FaMagnifyingGlass:hover{
+    cursor: pointer;
+}
+
 #SearchBarInput {
     border: none;
     font-size: small;

@@ -42,7 +42,7 @@ function SearchBar()  {
 // =======================GLOBAL VARIABLES (NOT STATEFUL)=======================
 // some of these may not be used after all
 
-  let displayedSuggestions = []
+  let displayedSuggestions = [];
 
 
 // ===========================USE EFFECT FOR SEARCH===============================
@@ -133,8 +133,8 @@ function SearchBar()  {
     // console.log("selectedSelection", selectedSuggestion)
 
     let ticker = "";
-    for(let i = 0; i < 5; i++) {
-      if(e.target.value[i] === "" || e.target.value === undefined || e.target.value === "-") break;
+    for(let i = 0; i < 6; i++) {
+      if(e.target.value[i] === "" || e.target.value[i] === undefined || e.target.value[i] === "-") break;
 
       if (e.target.value[i] !== "" && e.target.value[i] !== undefined) {
         ticker += e.target.value[i]
@@ -148,6 +148,7 @@ function SearchBar()  {
     // setStockDetailTicker(ticker);
     // setStockDetail(stockDetail)
     displayedSuggestions = [];
+    console.log(displayedSuggestions);
 
     document.getElementById("SearchBarInput").focus();
 
