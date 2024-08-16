@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ravenhoodLogoPurple from './Logo/ravenhoodLogoPurple.png';
 import SearchBar from "./SearchBar/SearchBar";
@@ -109,11 +109,11 @@ useEffect(() => {
             </li>
             <li>
                 <button onClick={toggleMenu} id="TopNavBarToggleDropdownButton">
-                     <href
+                     <Link
                         className={showMenu ?
                             "TopNavBarNavLink TopNavBarLinkActive" :
                             "TopNavBarNavLink"}>Account
-                    </href>
+                    </Link>
                     {showMenu ? <AccountDropdown id="TopNavBarAccountDropdown" />: ""}
                 </button>
             </li>
