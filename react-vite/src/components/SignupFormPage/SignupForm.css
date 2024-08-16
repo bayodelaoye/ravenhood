@@ -1,0 +1,138 @@
+.login-page {
+    display: flex;
+    gap: 5rem;
+
+}
+
+.signup-background {
+    top: 0;
+    left: 0;
+    width: 50vw;
+    background-color: #8A7C9C;
+    height: 100vh;
+
+}
+
+.color-b {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around */
+}
+
+.empty {
+    height: 15%;
+}
+
+.signup-details {
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.email-box {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.password-box {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input {
+    height: 1.8rem;
+    width: 20rem;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-button {
+    width: 30rem;
+    height: 3rem;
+    background-color: #4D3F72;
+    color: white;
+    border-radius: 20px;
+}
+
+.login-button:hover {
+    cursor: pointer;
+    background-color: #512689;
+}
+
+.login-button:disabled {
+    background-color: rgb(133, 116, 116);
+}
+
+.error {
+    color: red;
+}
+
+h4 {
+    margin-top: 2rem;
+    margin-left: 5rem;
+}
+
+.details {
+    margin-top: 6rem;
+    margin-left: 5rem;
+
+}
+
+.title-decor {
+    font-size: 5rem;
+}
+
+.description-signup-info {
+    margin-top: 3rem;
+    margin-bottom: 8rem;
+}
+
+img {
+    width: max-content;
+}
+
+.image {
+    position: fixed;
+    bottom: 0;
+    margin-left: 5rem;
+    margin-bottom: 5rem;
+}
+
+.ravenhoodtitle {
+    font-size: xx-large;
+}
+
+.title {
+    margin-bottom: 3rem;
+}
+
+input {
+    width: 30rem;
+    height: 3rem;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+.name-input {
+    display: flex;
+    gap: 10px;
+}

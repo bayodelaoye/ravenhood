@@ -35,63 +35,64 @@ import ListStocks from "../components/ListStocks/ListStocks.jsx";
 import UpdateProfileModal from "../components/Profile/UpdateProfileModal.jsx";
 
 export const router = createBrowserRouter([
-	{
-		element: <Layout />,
-		children: [
-			{
-				path: "/",
-				loader: userPortfolios,
-				element: <HomePage />,
-			},
-			{
-				path: "login",
-				element: <LoginFormPage />,
-			},
-			{
-				path: "signup",
-				element: <SignupFormPage />,
-			},
-			{
-				path: "profile/portfolios",
-				loader: userPortfolios,
-				element: <UserProfilePage />,
-                        action: modifyPortfolio,
-                        children: [
-                              {
-                                    path:"edit",
-                                    element: <UpdateProfileModal />
-                              }
-                        ]
-			},
-			{
-				path: "portfolios/new",
-				loader: userPortfolios,
-				element: <Portfolio />,
-				action: modifyPortfolio,
-			},
-			{
-				path: "portfolios/:id",
-				loader: userPortfolios,
-				element: <Portfolio />,
-			},
-			{
-				path: "portfolios/:id/cash",
-				loader: userPortfolios,
-				element: <Portfolio />,
-				action: modifyPortfolio,
-			},
-			{
-				path: "watchlist/:watchlist_num",
-				loader: watchlistLoader,
-				element: <Watchlist />,
-				action: deleteWatchlist,
-			},
-			{
-				path: "watchlist",
-				element: <WatchlistAll />,
-				loader: watchlistLoader,
-				action: deleteWatchlist,
-			},
+  {
+    path: "signup",
+    element: <SignupFormPage />,
+  },
+  {
+
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        loader: userPortfolios,
+        element: <HomePage />,
+      },
+      {
+        path: "login",
+        element: <LoginFormPage />,
+      },
+      {
+        path: "profile/portfolios",
+        loader: userPortfolios,
+        element: <UserProfilePage />,
+        action: modifyPortfolio,
+        children: [
+          {
+            path: "edit",
+            element: <UpdateProfileModal />
+          }
+        ]
+      },
+      {
+        path: "portfolios/new",
+        loader: userPortfolios,
+        element: <Portfolio />,
+        action: modifyPortfolio,
+      },
+      {
+        path: "portfolios/:id",
+        loader: userPortfolios,
+        element: <Portfolio />,
+      },
+      {
+        path: "portfolios/:id/cash",
+        loader: userPortfolios,
+        element: <Portfolio />,
+        action: modifyPortfolio,
+      },
+      {
+        path: "watchlist/:watchlist_num",
+        loader: watchlistLoader,
+        element: <Watchlist />,
+        action: deleteWatchlist,
+      },
+      {
+        path: "watchlist",
+        element: <WatchlistAll />,
+        loader: watchlistLoader,
+        action: deleteWatchlist,
+      },
 
       // =============Not Loggedin aka NavigationStart=============
       {
