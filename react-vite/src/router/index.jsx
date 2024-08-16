@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
 			{
 				path: "/",
 				loader: userPortfolios,
-				element: <AuHomePage />,
+				element: <HomePage />,
 			},
 			{
 				path: "login",
