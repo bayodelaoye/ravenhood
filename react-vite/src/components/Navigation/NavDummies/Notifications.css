@@ -1,0 +1,68 @@
+#NotificationsMain{
+    height: 500px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    font-family: "Lato", sans-serif;
+    color: #c8cbcd;
+    gap: 50px;
+    padding: 25px 50px 70px 50px;
+}
+
+
+#NotificationsH2{
+    font-size: 6rem;
+    text-align: center;
+    padding-top: 4rem;
+    text-decoration: unset;
+	-webkit-text-fill-color: transparent;
+	background: linear-gradient(
+		270deg,
+        #8e02f9 30%,
+        #f200ff 45%,
+		#000000 80%
+
+	);
+	background-clip: text;
+	text-wrap: balance;
+
+	animation: fadeInAnimation ease 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	z-index: 0;
+}
+
+#NotificationsH1{
+    font-size: 4rem;
+    text-align: center;
+    padding-top: 4rem;
+    text-decoration: unset;
+	-webkit-text-fill-color: transparent;
+	background: linear-gradient(
+		270deg,
+		#8e02f9 25%,
+        #f200ff 40%,
+		#000000 90%
+	);
+	background-clip: text;
+	text-wrap: balance;
+
+	animation: fadeInAnimation ease 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeInAnimation {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

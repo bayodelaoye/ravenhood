@@ -8,11 +8,12 @@ import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 // import * as searchActions from "../../spots"
-
 import './Navigation.css';
 
 
+
 const Navigation = ({isLoaded}) => {
+
 
 const sessionUser = useSelector(state => state.session.user);
 const userId = sessionUser.id;
@@ -79,9 +80,10 @@ useEffect(() => {
     return(
      <header>
         <div id='logoAndSearchBarContainer'>
-        <a href="">
+
+        <NavLink to="/stocks">
             <img id="logo" src={ravenhoodLogoPurple} alt="logo"></img>
-        </a>
+        </NavLink>
 
         <SearchBar />
         </div>
@@ -100,7 +102,8 @@ useEffect(() => {
                 <NavLink to="/stocks/" className="TopNavBarNavLink">Stocks</NavLink>
             </li>
             <li>
-                <NavLink to="/retirement" className="TopNavBarNavLink">Retirement</NavLink>
+                <NavLink to="/retirement2" className="TopNavBarNavLink">Retirement
+                </NavLink>
             </li>
             <li>
                 <NavLink to="/notifications" className="TopNavBarNavLink">Notifications</NavLink>

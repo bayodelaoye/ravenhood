@@ -25,8 +25,8 @@ import Support from "../components/NavigationStart/Dummies/Support.jsx";
 // import Rewards from "../components/Navigation/NavDummies/Rewards.jsx";
 // import Crypto2 from "../components/Navigation/NavDummies/Crypto2.jsx";
 // import Spending from "../components/Navigation/NavDummies/Spending.jsx";
-// import Retirement2 from "../components/Navigation/NavDummies/Retirement2.jsx";
-// import Notifications from "../components/Navigation/NavDummies/Notifications.jsx";
+import Retirement2 from "../components/Navigation/NavDummies/Retirement2.jsx";
+import Notifications from "../components/Navigation/NavDummies/Notifications.jsx";
 import TransactionsPage from "../components/TransactionPage";
 import { userTransactionsLoader } from "../components/loaders/transactions.js";
 
@@ -139,14 +139,13 @@ export const router = createBrowserRouter([
 			// 	path: "/spending",
 			// 	element: <Spending />,
 			// },
-			// {
-			// 	path: "/retirement2",
-			// 	element: <Retirement2 />,
-			// },
+			{
+				path: "/retirement2",
+				element: <Retirement2 />,
+			},
 			{
 				path: "/notifications",
-				element: "Notificaitons Coming Soon"
-				// element: <Notifications />,
+				element: <Notifications />,
 			},
 			{
 				path: "/stocks/:stockId",

@@ -19,6 +19,7 @@
     margin-top: 1rem;
     background-color: white;
     filter: drop-shadow(0 0.5rem 0.75rem rgb(37, 15, 67));
+    z-index: 4;
 }
 
 .AccountDropdownUlLi{
