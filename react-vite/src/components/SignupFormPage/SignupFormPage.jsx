@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { thunkSignup } from "../../redux/session";
+import { thunkAuthenticate } from "../../redux/session";
 import './SignupForm.css'
 // import { useLoaderData } from "react-router-dom";
 
@@ -28,10 +29,14 @@ function SignupFormPage() {
 	const [inputdate, setBirthday] = useState(new Date());
 	const [citizenship, setCitizenship] = useState('');
 
-
-
+	const [isLoaded, setIsLoaded] = useState(false);
 
 	const [errors, setErrors] = useState({});
+
+
+	useEffect(() => {
+		dispatch(thunkAuthenticate()).then(() => setIsLoaded(true));
+	}, [dispatch]);
 
 	if (sessionUser) return <Navigate to="/" replace={true} />;
 
