@@ -1,17 +1,16 @@
 from app.models import db, WatchList, environment, SCHEMA
 from sqlalchemy.sql import text
 
+
 # Adds a demo user, you can add other users here if you want
 def seed_watch_lists():
     for watch_list in [
-        {
-            "user_id": 1,
-            "name": "Tech Titans & Growth Gems"
-        },
-        {
-            "user_id": 1,
-            "name": "Dividend Dynamos & Value Picks"
-        }
+        {"user_id": 1, "name": "Tech Titans & Growth Gems"},
+        {"user_id": 1, "name": "Dividend Dynamos & Value Picks"},
+        {"user_id": 2, "name": "Retirement"},
+        {"user_id": 2, "name": "Vacation"},
+        {"user_id": 3, "name": "Meme Stocks"},
+        {"user_id": 3, "name": "I'm the big old tech man"},
     ]:
         db.session.add(WatchList(**watch_list))
     db.session.commit()
@@ -25,8 +24,10 @@ def seed_watch_lists():
 # it will reset the primary keys for you as well.
 def undo_watch_lists():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.watch_lists RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.watch_lists RESTART IDENTITY CASCADE;"
+        )
     else:
         db.session.execute(text("DELETE FROM watch_lists"))
-        
+
     db.session.commit()

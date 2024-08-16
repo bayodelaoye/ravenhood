@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+div #modal-content {
+	margin: 25%;
+	box-sizing: border-box;
+}
+
+#limitations-modal {
+      font-family: "Karla", sans-serif;
+      margin: 10%;
+}
+
+#close-limitations {
+      display: flex;
+      flex-direction: row-reverse;
+}
+
+#close-limitations-button {
+      background: none;
+      border: none;
+      font-size: 35px;
+      padding-right: 20px;
+      padding-bottom: 15px;
+}
+
+#limitations-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+}

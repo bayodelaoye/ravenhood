@@ -1,0 +1,26 @@
+#NavigationStartButtonSignup{
+    color: black;
+    padding: 1rem 2rem;
+	margin-left: -1rem;
+    border: 1px #4D3F72 solid;
+    border-radius: 25px;
+    background: linear-gradient(
+		270deg,
+		#4d3f72 2.68%,
+		#c8cbcd 104.69%,
+		#dfe0e5 61.25%
+	);
+    text-wrap: nowrap;
+}
+
+#NavigationStartButtonSignup:hover{
+    /* color: #BFC0C6; */
+    cursor: pointer;
+    background: linear-gradient(
+		270deg,
+		#3a3056 2.68%,
+		#a3a6a8 104.69%,
+		#b7b8bc 61.25%
+	);
+
+}

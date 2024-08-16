@@ -1,1 +1,36 @@
 /* TODO: Add sitewide styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Poppins", sans-serif; */
+}
+
+:root {
+  --base-green: #00c805;
+  --hover-green: rgba(0, 180, 5, 1);
+  --hover-light-green: rgba(0, 200, 5, 0.1);
+  --buy-box-shadow: rgba(0, 0, 0, 0.06);
+  --off-white: #f5f5f9;
+  --light-gray: #d3d3d3;
+  --lightest-gray: #ebebeb;
+  --input-hover: rgba(128, 135, 140, 1);
+  --dark: #000000;
+  --white: #ffffff;
+  --purple: #4d3f72;
+  --hover-purple: rgba(77, 83, 114, 0.1);
+  --light-purple: #8a7c9c;
+  --time-line: #948e9a;
+  --lilac: #8a7c9c;
+  --gray: #c5c0c9;
+  --platinum: #dfe0e5;
+  --dark-platinum: #b4b1b1;
+  --light-platinum: #c8cbcd;
+  --errors: red;
+}
+
+a {
+  text-decoration: none;
+}

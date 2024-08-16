@@ -1,0 +1,22 @@
+#SearchResultsMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px dashed green; */
+}
+
+#SearchResultsH1 {
+    text-align: center;
+    color: #4E4172;
+    margin: 1rem;
+    padding: 0;
+    /* border: 2px orange dashed; */
+}
+
+#SearchResults {
+    display: inline-grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    width: 900px;
+    /* border: 2px dashed blue; */
+}

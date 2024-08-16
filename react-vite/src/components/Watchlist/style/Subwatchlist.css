@@ -1,0 +1,34 @@
+.sub-watchlist-main {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.spread-outer {
+    width: 100%;
+    border-bottom: 2px solid #C8CBCD;
+}
+
+.spread-outer:hover {
+    background-color: #8A7C9C;
+    cursor: pointer;
+}
+
+.subwatchlists {
+    display: flex;
+
+    justify-content: space-between;
+    height: 3rem;
+    align-items: center;
+}
+
+.subwatchlist-name p {
+    width: 750px;
+    font-weight: bold;
+}

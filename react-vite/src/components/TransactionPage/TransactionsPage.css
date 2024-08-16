@@ -1,0 +1,66 @@
+.transactions-container {
+  margin: 50px 12px 0px 12px;
+}
+
+.transactions-name-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.transactions-name-links h3 {
+  font-weight: 550px;
+  font-size: 30px;
+}
+
+.transactions-links-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.transactions-links {
+  cursor: pointer;
+  color: var(--time-line);
+  border-bottom: 2px solid transparent;
+  padding-bottom: 5px;
+  font-weight: 550;
+}
+
+.transactions-links:hover {
+  border-bottom: 2px solid var(--purple);
+  color: var(--purple);
+  font-weight: 550;
+  padding-bottom: 5px;
+}
+
+.transaction-index-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 50px;
+}
+
+.transaction-card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-border {
+  border: 0.5px solid var(--time-line);
+}
+
+.transaction-text-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transaction-shares-type {
+  display: flex;
+  gap: 20px;
+}
+
+.transaction-title {
+  font-weight: 700;
+}

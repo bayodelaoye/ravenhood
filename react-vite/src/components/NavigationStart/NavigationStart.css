@@ -1,0 +1,83 @@
+#NavigationStartHeader{
+  padding: 0rem 1rem 0rem 0rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  font-family: "Capsule Sans Display", system-ui, -apple-system, "system-ui", "Segoe UI", Helvetica, Arial, sans-serif;
+  background-color: black;
+
+  border-bottom: 1px solid white;
+}
+
+/* =======================START LOGO=============================== */
+
+#NavigationStartLogoContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  margin: 0 1rem 0 0;
+  padding: 1rem;
+  border-right: 1px solid white;
+  color: white;
+  filter: invert(0%) sepia(0%) saturate(2000%) hue-rotate(50deg) brightness(100%) contrast(1000%);
+}
+
+#NavigationStartLogoContainer:hover{
+  cursor: pointer;
+  filter: none;
+  color: #BFC0C6;
+  border-right: 1px solid white;
+}
+
+#NavigationStartLogoText{
+  font-size: x-large;
+  /* color: white; */
+  margin: 0 .5rem 0 0;
+}
+
+#NavigationStartLogoText:hover{
+  /* color: #BFC0C6; */
+}
+
+#NavigationStartLogoImg{
+  height: 2.5rem;
+}
+
+#NavigationStartLogoImg:hover{
+}
+
+
+
+/* =======================START UL================================= */
+
+#NavigationStartUl{
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.NavigationStartUlLi{
+  margin: 0 2rem 0 0;
+  list-style-type: none;
+}
+
+.NavigationStartUlLiNavLink{
+  font-size: large;
+  color: white;
+  text-wrap: nowrap;
+}
+
+.NavigationStartUlLiNavLink:hover {
+  color: #BFC0C6;
+}
+
+.NavigationStartUlLiNavLink:active {
+  color: #4D4072;
+}
+
+
+

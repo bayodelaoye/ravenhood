@@ -38,4 +38,26 @@ class Portfolio(db.Model):
             "is_active": self.is_active,
             "updated_at": self.updated_at
         }   
+    
+    def to_dict_with_stocks(self):
+        return {
+            "id": self.id,
+            "portfolio_name": self.portfolio_name,
+            "cash_balance": self.cash_balance,
+            "total_amount": self.total_amount,
+            "is_active": self.is_active,
+            "updated_at": self.updated_at,
+            "stocks": [stock.to_dict() for stock in self.portfolio_portfolio_stocks]
+        }
+    
+    def to_dict_with_transactions(self):
+        return {
+            "id": self.id,
+            "portfolio_name": self.portfolio_name,
+            "cash_balance": self.cash_balance,
+            "total_amount": self.total_amount,
+            "is_active": self.is_active,
+            "updated_at": self.updated_at,
+            "transactions": [transaction.to_dict() for transaction in self.transactions]
+        }
         

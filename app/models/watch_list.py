@@ -29,3 +29,11 @@ class WatchList(db.Model):
             "name": self.name,
             "updated_at": self.updated_at
         }
+    
+    def to_dict_with_stocks(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "updated_at": self.updated_at,
+            "stocks": [stock.to_dict() for stock in self.watch_list_watch_list_stocks]
+        }
