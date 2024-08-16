@@ -27,61 +27,64 @@ import Support from "../components/NavigationStart/Dummies/Support.jsx";
 // import Spending from "../components/Navigation/NavDummies/Spending.jsx";
 import Retirement2 from "../components/Navigation/NavDummies/Retirement2.jsx";
 import Notifications from "../components/Navigation/NavDummies/Notifications.jsx";
+import SearchResults from "../components/Navigation/SearchResults/SearchResults.jsx"
 import TransactionsPage from "../components/TransactionPage";
 import { userTransactionsLoader } from "../components/loaders/transactions.js";
+import { navStocksLoader } from "../components/loaders/navStocksLoader.js";
 
 export const router = createBrowserRouter([
   {
     element: <Layout />,
+	loader: navStocksLoader,
     children: [
-      {
-        path: "/",
-        loader: userPortfolios,
-        element: <HomePage />,
-      },
-      {
-        path: "login",
-        element: <LoginFormPage />,
-      },
-      {
-        path: "signup",
-        element: <SignupFormPage />,
-      },
-      {
-        path: "profile/portfolios",
-        loader: userPortfolios,
-        element: <Profile />,
-        action: modifyPortfolio
-      },
-      {
-        path: "portfolios/new",
-        loader: userPortfolios,
-        element: <Portfolio />,
-        action: modifyPortfolio,
-      },
-      {
-        path: "portfolios/:id",
-        loader: userPortfolios,
-        element: <Portfolio />,
-      },
-      {
-        path: "portfolios/:id/cash",
-        loader: userPortfolios,
-        element: <Portfolio />,
-        action: modifyPortfolio,
-      },
-      {
-        path: "watchlist/:watchlist_num",
-        loader: watchlistLoader,
-        element: <Watchlist />,
-        action: deleteWatchlist,
-      },
-      {
-        path: "watchlist",
-        element: <WatchlistAll />,
-        loader: watchlistLoader,
-        action: deleteWatchlist,
-      },
+			{
+				path: "/",
+				loader: userPortfolios,
+				element: <HomePage />,
+			},
+			{
+				path: "login",
+				element: <LoginFormPage />,
+			},
+			{
+				path: "signup",
+				element: <SignupFormPage />,
+			},
+			{
+				path: "profile/portfolios",
+				loader: userPortfolios,
+				element: <Profile />,
+				action: modifyPortfolio
+			},
+			{
+				path: "portfolios/new",
+				loader: userPortfolios,
+				element: <Portfolio />,
+				action: modifyPortfolio,
+			},
+			{
+				path: "portfolios/:id",
+				loader: userPortfolios,
+				element: <Portfolio />,
+			},
+			{
+				path: "portfolios/:id/cash",
+				loader: userPortfolios,
+				element: <Portfolio />,
+				action: modifyPortfolio,
+			},
+			{
+				path: "watchlist/:watchlist_num",
+				loader: watchlistLoader,
+				element: <Watchlist />,
+				action: deleteWatchlist,
+			},
+			{
+				path: "watchlist",
+				element: <WatchlistAll />,
+				loader: watchlistLoader,
+				action: deleteWatchlist,
+			},
 
 			// =============Not Loggedin aka NavigationStart=============
 			{
@@ -127,6 +130,11 @@ export const router = createBrowserRouter([
 			},
 
 			// =============Loggedin aka Navigation=============
+			{
+				path: "/searchResults",
+				element: <SearchResults />,
+			},
+
 			// {
 			// 	path: "/rewards",
 			// 	element: <Rewards />,

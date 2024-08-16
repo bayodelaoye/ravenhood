@@ -24,7 +24,7 @@ function WhatWeOfferDropdown() {
 
    if(!sessionUser) {
         setSelectedOfferValue(selectedOfferValue);
-        console.log("selectedOfferValue: ", selectedOfferValue)
+      //   console.log("selectedOfferValue: ", selectedOfferValue)
 
         switch (selectedOfferValue) {
          case "What We Offer":

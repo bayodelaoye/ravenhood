@@ -14,7 +14,7 @@ function FlagDropdown() {
  useEffect(() => {
 
         setSelectedFlagValue(selectedFlagValue);
-        console.log("selectedFlagValue: ", selectedFlagValue)
+      //   console.log("selectedFlagValue: ", selectedFlagValue)
 
  }, [selectedFlagValue])
 
