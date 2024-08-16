@@ -145,7 +145,7 @@ function StockDetailsPage() {
               <h3>{stockDetails.company_name}</h3>
               <p>${stockDetails.current_price}</p>
             </div>
-            <LineGraph stock={stockDetails} />
+            <LineGraph stock={stockDetails} timeline={timeLineBtn} />
             <div className="time-line">
               <div
                 className="time-line-btn one-day"
