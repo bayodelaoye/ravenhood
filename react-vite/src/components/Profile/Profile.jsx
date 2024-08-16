@@ -1,28 +1,109 @@
-import { useLoaderData, useActionData, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import OpenModalButton from "../OpenModalButton";
-import UpdateProfileModal from "./UpdateProfileModal";
+import { useNavigate, Form } from "react-router-dom";
+// import { useSelector } from "react-redux";
+import { useState } from "react";
+// import OpenModalButton from "../OpenModalButton";
+// import UpdateProfileModal from "./UpdateProfileModal";
+import { FaFaceGrinStars, FaRegCircleXmark } from "react-icons/fa6";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 import "./Profile.css";
 
-const Profile = () => {
-	const { userPortfolios } = useLoaderData();
-	const userUpdatePic = useActionData();
-	const currentUser = useSelector((state) => state.session.user);
+const Profile = ({ userPortfolios, onImageChange }) => {
+	// const { userPortfolios } = useLoaderData();
+	// const currentUser = useSelector((state) => state.session.user);
 	const navigate = useNavigate();
 	const date = new Date(userPortfolios.created_at);
 	const year = date.getFullYear();
+	const [image, setImage] = useState(userPortfolios.image || null);
+	const [preview, setPreview] = useState(userPortfolios.image || null);
 
-	// console.log("portfolio", userPortfolios);
-	// console.log("userUpdatePic", userUpdatePic);
+	useState(() => {
+		setImage(userPortfolios.image || null);
+		setPreview(userPortfolios.image || null);
+	}, [userPortfolios.image]);
 
+	const handleImageChange = (event) => {
+		const file = event.target.files[0];
+		if (file) {
+			setImage(file);
+			setPreview(URL.createObjectURL(file));
+		}
+	};
+
+	const handleRemoveImage = () => {
+		setImage(null);
+		setPreview(null);
+	};
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		const formData = new FormData();
+		if (image) {
+			formData.append("image", image);
+		}
+
+		try {
+			const response = await fetch(`/api/users/${userPortfolios.id}`, {
+				method: "PUT",
+				body: formData,
+			});
+
+			if (response.ok) {
+				onImageChange(image);
+				navigate("/profile/portfolios");
+			} else {
+				console.error("Update failed");
+			}
+		} catch (error) {
+			console.error("Error during update:", error);
+		}
+	};
+
+	const triggerFileInput = () => {
+		document.getElementById("file-input").click();
+	};
 
 	return (
 		<div id="user-profile-portfolio">
-			{/* {currentUser } */}
 			<div id="user-profile-details">
-				<div id="user-profile-pic" className="user-image-update">
-					<img src={userPortfolios.image} alt="" />
-				</div>
+				<Form
+					method="put"
+					encType="multipart/form-data"
+					onSubmit={handleSubmit}
+				>
+					<div id="image-update" className="user-image-update">
+						{preview ? (
+							<>
+								<img src={preview} alt="Current Profile" width={100} />
+								<button
+									type="button"
+									className="remove-image-button"
+									onClick={handleRemoveImage}
+								>
+									<FaRegCircleXmark size={20} />
+								</button>
+							</>
+						) : (
+							<>
+								<FaFaceGrinStars size={100} />
+								<button
+									type="button"
+									className="remove-image-button"
+									onClick={triggerFileInput}
+								>
+									<AiOutlinePlusCircle size={20} />
+								</button>
+								<input
+									id="file-input"
+									name="image"
+									type="file"
+									accept="image/*"
+									onChange={handleImageChange}
+									hidden
+								/>
+							</>
+						)}
+					</div>
+				</Form>
 				<div>
 					<h2>
 						{userPortfolios.first_name} {userPortfolios.last_name}
@@ -30,23 +111,6 @@ const Profile = () => {
 					<p>
 						@{userPortfolios.username} • Joined {year}
 					</p>
-					<OpenModalButton
-						buttonText={`Edit Profile`}
-						style={{
-							cursor: `pointer`,
-							textDecoration: `underline`,
-							fontWeight: `bold`,
-							border: `none`,
-						}}
-						userPortfolios={userPortfolios}
-						navigate={navigate}
-						modalComponent={
-							<UpdateProfileModal
-								userPortfolios={userPortfolios}
-								navigate={navigate}
-							/>
-						}
-					/>
 				</div>
 			</div>
 		</div>
