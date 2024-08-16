@@ -405,7 +405,12 @@ function StockDetailsPage() {
                   <div className="line-break"></div>
                   <div className="estimated-cost errors-marging">
                     <p>Amount</p>
-                    <p>${(stockDetails.current_price * shares).toFixed(2)}</p>
+                    <p>
+                      $
+                      {(
+                        Number(stockDetails.current_price) * Number(shares)
+                      ).toFixed(2)}
+                    </p>
                   </div>
                   <div className="form-errors">
                     {isSubmitted ? (
@@ -482,8 +487,7 @@ function StockDetailsPage() {
                               onClose={() => {
                                 closeModal();
                                 handleWatchlistUpdate();
-                                }
-                              }
+                              }}
                               stockId={stockDetails.id}
                             />
                           }
@@ -523,7 +527,12 @@ function StockDetailsPage() {
                 <div className="line-break"></div>
                 <div className="estimated-cost">
                   <p>Estimated Cost</p>
-                  <p>${(stockDetails.current_price * shares).toFixed(2)}</p>
+                  <p>
+                    $
+                    {(
+                      Number(stockDetails.current_price) * Number(shares)
+                    ).toFixed(2)}
+                  </p>
                 </div>
                 <div className="how-to-buy">
                   <p className="bold-text">
