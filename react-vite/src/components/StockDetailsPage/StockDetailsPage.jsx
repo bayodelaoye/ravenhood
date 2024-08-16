@@ -136,6 +136,14 @@ function StockDetailsPage() {
     }
   };
 
+  const handleWatchlistUpdate = async () => {
+    const response = await fetch(`/api/watch_lists/stocks`);
+    if (response.ok) {
+      const stocksInUserWatchlists = await response.json();
+      setStocksInWatchlists(stocksInUserWatchlists);
+    }
+  };
+
   return (
     <>
       {isLoaded ? (
@@ -463,7 +471,7 @@ function StockDetailsPage() {
                   ) : (
                     <>
                       {isStockInWatchList ? (
-                        <> </>
+                        <></>
                       ) : (
                         <OpenModalButton
                           buttonText={`Watch ${stockDetails.ticker_symbol}`}
@@ -471,7 +479,11 @@ function StockDetailsPage() {
                           className="watch-list-btn"
                           modalComponent={
                             <AddStockToWatchListModal
-                              onClose={closeModal}
+                              onClose={() => {
+                                closeModal();
+                                handleWatchlistUpdate();
+                                }
+                              }
                               stockId={stockDetails.id}
                             />
                           }
