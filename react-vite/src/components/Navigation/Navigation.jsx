@@ -61,7 +61,7 @@ useEffect(() => {
 
 // ========================Search===================================
     // const sessionUser = useSelector(state => state.session.user);
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     // const dispatch = useDispatch()
 
     // const runSearch = () => {
