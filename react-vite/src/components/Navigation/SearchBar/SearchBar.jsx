@@ -24,8 +24,8 @@ function SearchBar() {
       searchable.toLowerCase().includes(search) || searchable.toUpperCase().includes(search)
     )
     setSearchSuggestions(suggestions);
-//     console.log("suggestions: ", suggestions)
-//     console.log("searchSuggestions: ", searchSuggestions)
+    console.log("suggestions: ", suggestions)
+    console.log("searchSuggestions: ", searchSuggestions)
 
   }, [search])
 
@@ -46,25 +46,28 @@ function SearchBar() {
 
   return (
     <>
-    <form id="SearchBarForm" onSubmit={handleSubmit}>
+    <main id="SearchBarMain">
+      <form id="SearchBarForm" onSubmit={handleSubmit}>
 
-        <label id="SearchBarLabel">
-          <FaMagnifyingGlass id="FaMagnifyingGlass" />
-          <input
-            id="SearchBarInput"
-            type="text"
-            placeholder='Search'
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </label>
-        {errors.search && <p>{errors.search}</p>}
-      <button type="submit" id="SearchBarButton">submit
-      </button>
-    </form>
+          <label id="SearchBarLabel">
+            <FaMagnifyingGlass id="FaMagnifyingGlass" />
+            <input
+              id="SearchBarInput"
+              type="text"
+              placeholder='Search'
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </label>
+          {errors.search && <p>{errors.search}</p>}
 
-    <ul id="SearchBarSuggestionsUl">
-       {searchSuggestions.length !== 0 ? searchSuggestions.map(ele => <li key="key">{ele}</li>) : ""}
-    </ul>
+        <button type="submit" id="SearchBarButton">submit</button>
+      </form>
+
+      <ul id="SearchBarSuggestionsUl">
+        {searchSuggestions.length !== 0 ? searchSuggestions.map(ele =>
+        <li key="key" className='SearchBarSuggestionsUlLi'>{ele}</li>) : ""}
+      </ul>
+    </main>
     </>
 
 

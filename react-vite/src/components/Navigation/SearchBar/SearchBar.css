@@ -1,4 +1,6 @@
 
+
+
 #SearchBarForm {
     display: flex;
     align-items: center;
@@ -47,4 +49,31 @@
     padding: 0;
     color: #222222;
     font-size: .5rem;
+}
+
+#SearchBarSuggestionsUl{
+    list-style-type: none;
+    position: absolute;
+    margin-left: 2rem;
+
+    width: 24.5rem;
+    background-color: white;
+    z-index: 3;
+    /* border: 2px blue dashed; */
+}
+
+.SearchBarSuggestionsUlLi{
+    font-style: italic;
+    font-size: small;
+    color: #551A8B;
+    /* opacity: .75; */
+    margin-left: .5rem;
+    padding: .25rem .25rem .25rem .25rem;
+
+}
+
+.SearchBarSuggestionsUlLi:hover{
+    color: white;
+    background-color: rgba(85, 26, 139, 1);
+    cursor: pointer;
 }
