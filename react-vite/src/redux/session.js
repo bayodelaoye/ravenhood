@@ -17,7 +17,7 @@ export const thunkAuthenticate = () => async (dispatch) => {
     if (data.errors) {
       return;
     }
-
+    // console.log("thunkAuthenticate RAN")
     dispatch(setUser(data));
   }
 };
@@ -28,6 +28,8 @@ export const thunkLogin = (credentials) => async dispatch => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(credentials)
   });
+
+  // console.log("thunkLogin RAN")
 
   if (response.ok) {
     const data = await response.json();
@@ -69,8 +71,10 @@ const initialState = { user: null };
 function sessionReducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
+      // console.log("STATE FROM SESSION REDUCER", state)
       return { ...state, user: action.payload };
     case REMOVE_USER:
+      // console.log("STATE FROM SESSION REDUCER", state)
       return { ...state, user: null };
     default:
       return state;

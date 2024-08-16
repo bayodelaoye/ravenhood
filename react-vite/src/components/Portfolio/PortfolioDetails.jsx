@@ -7,7 +7,7 @@ const PortfolioDetails = () => {
       const currentUser = useSelector((state) => state.session.user);
       const navigate = useNavigate();
 
-      console.log("MADE IT", userPortfolios);
+      // console.log("MADE IT", userPortfolios);
 
 	// Ensure user is logged in
 	useEffect(() => {
@@ -15,7 +15,7 @@ const PortfolioDetails = () => {
 			navigate("/");
 		}
       }, [currentUser, navigate]);
-      
+
       return (
             <div id="all-user-portfolios">
                   <h1>Portfolios</h1>

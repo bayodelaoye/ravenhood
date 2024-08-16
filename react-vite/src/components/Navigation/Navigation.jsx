@@ -17,7 +17,7 @@ useEffect(() => {
 
     dispatch(navStocksActions.navStocks())
 
-  }, [dispatch])
+  },)
 
 const sessionUser = useSelector(state => state.session.user);
 const userId = sessionUser.id;

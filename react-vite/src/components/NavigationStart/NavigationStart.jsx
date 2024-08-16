@@ -19,7 +19,7 @@ function NavigationStart() {
 
     dispatch(navStocksActions.navStocks())
 
-  }, [dispatch])
+  },)
 
 
 

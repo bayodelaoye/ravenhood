@@ -4,7 +4,7 @@ const GET_NAV_STOCKS = "stocks/GET_NAV_STOCKS";
 const getNavStocks = (stocks) => ({
 
   type: GET_NAV_STOCKS,
-  stocks,
+  payload: stocks,
 
 });
 
@@ -35,8 +35,10 @@ function navStocksReducer(state = initialState, action) {
   switch (action.type) {
     case GET_NAV_STOCKS:
       // console.log("navStocksReducer ran")
-      return { ...state, navStocks: action.stocks };
+      // console.log("STATE FROM NAVSTOCKS REDUCER", state)
+      return { ...state, navStocks: action.payload };
     default:
+      // console.log("STATE FROM NAVSTOCKS REDUCER", state)
       return state;
   }
 }
