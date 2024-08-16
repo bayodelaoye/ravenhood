@@ -38,7 +38,7 @@ import Notifications from "../components/Navigation/NavDummies/Notifications.jsx
 import SearchResults from "../components/Navigation/SearchResults/SearchResults.jsx"
 import TransactionsPage from "../components/TransactionPage";
 import { userTransactionsLoader } from "../components/loaders/transactions.js";
-import { navStocksLoader } from "../components/loaders/navStocksLoader.js";
+// import { navStocksLoader } from "../components/loaders/navStocksLoader.js";
 import { listStocksLoader } from "../components/loaders/listStocks.js";
 import ListStocks from "../components/ListStocks/ListStocks.jsx";
 import UpdateProfileModal from "../components/Profile/UpdateProfileModal.jsx";

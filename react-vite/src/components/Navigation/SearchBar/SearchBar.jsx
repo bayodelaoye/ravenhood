@@ -15,19 +15,17 @@ function SearchBar() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(navStocksActions.navStocks());
-  }, []);
 
-  // =======================GRABING STOCK DATA FROM STORE=======================
-  const navStocks = useSelector((store) => store?.navStocks?.navStocks);
-  // console.log("navStocks from searchBar = ", navStocks)
+    dispatch(navStocksActions.navStocks())
 
-  const searchables = navStocks?.filter((stock) => stock.company_name !== null);
-  // const searchables = ["AAPL", "AMZN", "BUTT"]
-  // console.log("searchables from searchbar ============= ", searchables)
+  }, [])
 
-  // =======================STATEFUL VARIABLES=======================
-  // some of these may not be used after all
+
+
+
+
+// =======================STATEFUL VARIABLES=======================
+// some of these may not be used after all
 
   const [placeHolder, setPlaceHolder] = useState("Search");
 
@@ -43,8 +41,11 @@ function SearchBar() {
 
   // const [errors, setErrors] = useState({});
 
-  // =======================GLOBAL VARIABLES (NOT STATEFUL)=======================
-  // some of these may not be used after all
+
+
+
+// =======================GLOBAL VARIABLES (NOT STATEFUL)=======================
+// some of these may not be used after all
 
   let displayedSuggestions = [];
 
@@ -155,7 +156,7 @@ function SearchBar() {
     // setSearch(ticker);
     // setStockDetailTicker(ticker);
     // setStockDetail(stockDetail)
-    displayedSuggestions = [];
+    displayedSuggestions = [{'test': "test"}];
     console.log(displayedSuggestions);
 
     document.getElementById("SearchBarInput").focus();
@@ -190,7 +191,22 @@ function SearchBar() {
     return setSearch(e.target.value);
   };
 
-  // ===========================RETURN ===============================
+// ===========================RETURN ===============================
+// =======================GRABING STOCK DATA FROM STORE=======================
+const navStocks = useSelector((store) => store.navStocks.navStocks);
+// console.log("navStocks from searchBar = ", navStocks)
+if(navStocks === null) return null;
+
+const searchables = navStocks.filter(stock => stock.company_name !== null);
+// const searchables = ["AAPL", "AMZN", "BUTT"]
+// console.log("searchables from searchbar ============= ", searchables)
+
+
+
+
+
+
+
   return (
     <>
       <main id="SearchBarMain">

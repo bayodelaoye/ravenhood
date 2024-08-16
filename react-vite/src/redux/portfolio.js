@@ -25,8 +25,10 @@ const initialState = { portfolios: null };
 function portfolioReducer(state = initialState, action) {
   switch (action.type) {
     case GET_PORTFOLIOS:
+      // console.log("STATE WATCHLISTS REDUCER", state)
       return { userPortfolios: action.portfolios };
     default:
+      // console.log("STATE WATCHLISTS REDUCER", state)
       return state;
   }
 }

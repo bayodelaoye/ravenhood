@@ -1,33 +1,22 @@
-// import { useSelector } from "react-redux";
-
-
 const GET_NAV_STOCKS = "stocks/GET_NAV_STOCKS";
 
 
 const getNavStocks = (stocks) => ({
 
   type: GET_NAV_STOCKS,
-  stocks,
+  payload: stocks,
 
 });
 
 
-
 export const navStocks = () => async (dispatch) => {
 
-  // const navStocks = useSelector((store) => store.navStocks.navStocks);
-  // console.log("navStocks from navStocksRedux = ", navStocks)
-
-  // if (navStocks !== null){
-  //   console.log("navStocks !== null");
-  //   return navStocks
-  // }
 
   const response = await fetch(`/api/stocks/`);
 
   if (response.ok) {
     const stocksObject = await response.json();
-    const stocks = stocksObject.stocks;
+    const stocks = await stocksObject.stocks;
     if (stocks.errors) {
       return;
     }
@@ -46,8 +35,10 @@ function navStocksReducer(state = initialState, action) {
   switch (action.type) {
     case GET_NAV_STOCKS:
       // console.log("navStocksReducer ran")
-      return { ...state, navStocks: action.stocks };
+      // console.log("STATE FROM NAVSTOCKS REDUCER", state)
+      return { ...state, navStocks: action.payload };
     default:
+      // console.log("STATE FROM NAVSTOCKS REDUCER", state)
       return state;
   }
 }

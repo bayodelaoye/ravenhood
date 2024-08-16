@@ -19,7 +19,7 @@ function NavigationStart() {
 
     dispatch(navStocksActions.navStocks())
 
-  }, [])
+  },)
 
 
 
@@ -31,7 +31,7 @@ function NavigationStart() {
           <p id="NavigationStartLogoText">Ravenhood</p>
 
               <img id="NavigationStartLogoImg" src={ravenhoodLogoSilver} alt="logo"></img>
-      
+
         </NavLink>
 
         <ul id="NavigationStartUl">

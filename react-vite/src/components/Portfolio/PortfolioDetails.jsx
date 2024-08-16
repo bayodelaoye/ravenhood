@@ -21,7 +21,7 @@ const PortfolioDetails = () => {
             }
       }, [currentUser, userPortfolios])
 
-      console.log("MADE IT", portfolios);
+      // console.log("MADE IT", userPortfolios);
 
       // Ensure user is logged in
       useEffect(() => {
@@ -29,6 +29,7 @@ const PortfolioDetails = () => {
                   navigate("/");
             }
       }, [currentUser, navigate]);
+
 
       // Delete current Portfolio
 
