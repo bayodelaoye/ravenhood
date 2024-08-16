@@ -8,8 +8,8 @@ import * as navStocksActions from "../../redux/navStocksRedux"
 import './Navigation.css';
 
 
-
-const Navigation = ({isLoaded}) => {
+// This prop was passed in start: {isLoaded}
+const Navigation = () => {
 
 const dispatch = useDispatch()
 
