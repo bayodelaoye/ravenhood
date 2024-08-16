@@ -53,19 +53,6 @@ function SignupFormPage() {
 		const phone = phoneNumber;
 		const ssn = Number(socials);
 		const birthday = inputdate;
-		console.log(first_name,
-			last_name,
-			email,
-			username,
-			password,
-			address,
-			city,
-			state,
-			zip,
-			phone,
-			ssn,
-			birthday,
-			citizenship)
 		const serverResponse = await dispatch(
 			thunkSignup({
 				first_name,
@@ -91,6 +78,8 @@ function SignupFormPage() {
 			error.email = serverResponse.email;
 			error.username = serverResponse.username;
 			error.socials = serverResponse.ssn;
+			error.phoneNumber = serverResponse.phone;
+			error.zipcode = serverResponse.zip;
 			// console.log(serverResponse.username)
 			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
