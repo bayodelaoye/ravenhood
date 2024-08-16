@@ -39,31 +39,6 @@ const generateDateLabels = () => {
     const date = new Date();
     date.setDate(today.getDate() - i);
 
-    // if (date.getMonth() + 1 === 1) {
-    //   month = "JAN";
-    // } else if (date.getMonth() + 1 === 2) {
-    //   month = "FEB";
-    // } else if (date.getMonth() + 1 === 3) {
-    //   month = "MAR";
-    // } else if (date.getMonth() + 1 === 4) {
-    //   month = "APR";
-    // } else if (date.getMonth() + 1 === 5) {
-    //   month = "MAY";
-    // } else if (date.getMonth() + 1 === 6) {
-    //   month = "JUN";
-    // } else if (date.getMonth() + 1 === 7) {
-    //   month = "JUL";
-    // } else if (date.getMonth() + 1 === 8) {
-    //   month = "AUG";
-    // } else if (date.getMonth() + 1 === 9) {
-    //   month = "SEP";
-    // } else if (date.getMonth() + 1 === 10) {
-    //   month = "OCT";
-    // } else if (date.getMonth() + 1 === 11) {
-    //   month = "NOV";
-    // } else if (date.getMonth() + 1 === 12) {
-    //   month = "DEC";
-    // }
     const monthNames = [
       "JAN",
       "FEB",
@@ -82,8 +57,6 @@ const generateDateLabels = () => {
 
     dateArray.push(`${month} ${date.getDate()}`);
   }
-
-  // dateArray.push(month + " " + date.getDate());
 
   return dateArray.reverse();
 };
