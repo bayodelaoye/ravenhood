@@ -1,3 +1,4 @@
+
 import { createBrowserRouter } from "react-router-dom";
 import LoginFormPage from "../components/LoginFormPage";
 import SignupFormPage from "../components/SignupFormPage";
@@ -107,104 +108,6 @@ export const router = createBrowserRouter([
 				action: deleteWatchlist,
 			},
 
-<<<<<<< HEAD
-    element: <Layout />,
-    // loader: navStocksLoader,
-    children: [
-      {
-        path: "/",
-        loader: userPortfolios,
-        element: <HomePage />,
-      },
-      {
-        path: "login",
-        element: <LoginFormPage />,
-      },
-      {
-        path: "profile/portfolios",
-        loader: userPortfolios,
-        element: <UserProfilePage />,
-        action: modifyPortfolio,
-        children: [
-          {
-            path: "edit",
-            element: <UpdateProfileModal />
-          }
-        ]
-      },
-      {
-        path: "portfolios/new",
-        loader: userPortfolios,
-        element: <Portfolio />,
-        action: modifyPortfolio,
-      },
-      {
-        path: "portfolios/:id",
-        loader: userPortfolios,
-        element: <Portfolio />,
-      },
-      {
-        path: "portfolios/:id/cash",
-        loader: userPortfolios,
-        element: <Portfolio />,
-        action: modifyPortfolio,
-      },
-      {
-        path: "watchlist/:watchlist_num",
-        loader: watchlistLoader,
-        element: <Watchlist />,
-        action: deleteWatchlist,
-      },
-      {
-        path: "watchlist",
-        element: <WatchlistAll />,
-        loader: watchlistLoader,
-        action: deleteWatchlist,
-      },
-
-      // =============Not Loggedin aka NavigationStart=============
-      {
-        path: "/invest",
-        element: <Invest />,
-      },
-      {
-        path: "/crypto",
-        element: <Crypto />,
-      },
-      {
-        path: "/retirement",
-        element: <Retirement />,
-      },
-      {
-        path: "/options",
-        element: <Options />,
-      },
-      {
-        path: "/us",
-        // children: [
-        // ],
-      },
-      {
-        path: "/creditcard",
-        element: <CreditCard />,
-      },
-      {
-        path: "/platinum",
-        element: <Platinum />,
-      },
-      {
-        path: "/learn",
-        element: <Learn />,
-      },
-      {
-        path: "/sherwoodnews",
-        element: <SherwoodNews />,
-      },
-      {
-        path: "/support",
-        element: <Support />,
-      },
-=======
 			// =============Not Loggedin aka NavigationStart=============
 			{
 				path: "/invest",
@@ -247,7 +150,6 @@ export const router = createBrowserRouter([
 				path: "/support",
 				element: <Support />,
 			},
->>>>>>> 7947361519019890a9cf9aeea11d1d06b1a421a9
 
 			// =============Loggedin aka Navigation=============
 			{
