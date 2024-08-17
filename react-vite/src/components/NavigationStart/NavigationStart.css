@@ -1,10 +1,11 @@
-#NavigationStartHeader{
+#NavigationStartHeader {
   padding: 0rem 1rem 0rem 0rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: left;
-  font-family: "Capsule Sans Display", system-ui, -apple-system, "system-ui", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: "Capsule Sans Display", system-ui, -apple-system, "system-ui",
+    "Segoe UI", Helvetica, Arial, sans-serif;
   background-color: black;
 
   border-bottom: 1px solid white;
@@ -12,7 +13,7 @@
 
 /* =======================START LOGO=============================== */
 
-#NavigationStartLogoContainer{
+#NavigationStartLogoContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,63 +22,74 @@
   padding: 1rem;
   border-right: 1px solid white;
   color: white;
-  filter: invert(0%) sepia(0%) saturate(2000%) hue-rotate(50deg) brightness(100%) contrast(1000%);
+  filter: invert(0%) sepia(0%) saturate(2000%) hue-rotate(50deg)
+    brightness(100%) contrast(1000%);
 }
 
-#NavigationStartLogoContainer:hover{
+#NavigationStartLogoContainer:hover {
   cursor: pointer;
   filter: none;
-  color: #BFC0C6;
+  color: #bfc0c6;
   border-right: 1px solid white;
 }
 
-#NavigationStartLogoText{
+#NavigationStartLogoText {
   font-size: x-large;
   /* color: white; */
-  margin: 0 .5rem 0 0;
+  margin: 0 0.5rem 0 0;
 }
 
-#NavigationStartLogoText:hover{
+#NavigationStartLogoText:hover {
   /* color: #BFC0C6; */
 }
 
-#NavigationStartLogoImg{
+#NavigationStartLogoImg {
   height: 2.5rem;
 }
 
-#NavigationStartLogoImg:hover{
+#NavigationStartLogoImg:hover {
 }
-
-
 
 /* =======================START UL================================= */
 
-#NavigationStartUl{
-  margin: auto;
+#NavigationStartUl {
+  /* margin: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-evenly; */
+  display: flex;
+  gap: 50px;
 }
 
-.NavigationStartUlLi{
+.NavigationStartUlLi {
   margin: 0 2rem 0 0;
   list-style-type: none;
 }
 
-.NavigationStartUlLiNavLink{
+.NavigationStartUlLiNavLink {
   font-size: large;
   color: white;
   text-wrap: nowrap;
 }
 
 .NavigationStartUlLiNavLink:hover {
-  color: #BFC0C6;
+  color: #bfc0c6;
 }
 
 .NavigationStartUlLiNavLink:active {
-  color: #4D4072;
+  color: #4d4072;
 }
 
+.nav-bar-logo-text {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 
-
+.login-sign-btns {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  gap: 50px;
+}

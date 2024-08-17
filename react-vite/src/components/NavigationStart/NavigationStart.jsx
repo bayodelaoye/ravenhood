@@ -1,47 +1,41 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import ravenhoodLogoSilver from "../Navigation/Logo/ravenhoodLogoSilver.png"
+import ravenhoodLogoSilver from "../Navigation/Logo/ravenhoodLogoSilver.png";
 import WhatWeOfferDropdown from "./WhatWeOfferDropdown";
 import FlagDropdown from "./FlagDropdown";
 import LoginButton from "./LoginButton";
 import SignupButton from "./SignupButton";
-import * as navStocksActions from "../../redux/navStocksRedux"
-import { useEffect} from "react";
+import * as navStocksActions from "../../redux/navStocksRedux";
+import { useEffect } from "react";
 import "./NavigationStart.css";
 
-
 function NavigationStart() {
-
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-
-    dispatch(navStocksActions.navStocks())
-
-  },)
-
-
+    dispatch(navStocksActions.navStocks());
+  });
 
   return (
     <>
+      <header id="NavigationStartHeader">
+        <div className="nav-bar-logo-text">
+          <NavLink to="/" id="NavigationStartLogoContainer">
+            <p id="NavigationStartLogoText">Ravenhood</p>
 
-      <header id='NavigationStartHeader'>
-        <NavLink to='/' id="NavigationStartLogoContainer">
-          <p id="NavigationStartLogoText">Ravenhood</p>
+            <img
+              id="NavigationStartLogoImg"
+              src={ravenhoodLogoSilver}
+              alt="logo"
+            ></img>
+          </NavLink>
 
-              <img id="NavigationStartLogoImg" src={ravenhoodLogoSilver} alt="logo"></img>
-
-        </NavLink>
-
-        <ul id="NavigationStartUl">
-
-          {/* <li className="NavigationStartUlLi">
+          <div className="login-sign-btns">
+            <div id="NavigationStartUl">
+              {/* <li className="NavigationStartUlLi">
             <WhatWeOfferDropdown />
           </li> */}
-
-
-          {/* <li className="NavigationStartUlLi">
+              {/* <li className="NavigationStartUlLi">
             <NavLink to="/creditcard" className="NavigationStartUlLiNavLink">Credit Card</NavLink>
           </li>
           <li className="NavigationStartUlLi">
@@ -61,15 +55,12 @@ function NavigationStart() {
               <FlagDropdown />
           </li> */}
 
-          <li className="NavigationStartUlLi">
-            <LoginButton />
-          </li>
-          <li className="NavigationStartUlLi">
-            <SignupButton />
-          </li>
-        </ul>
+              <LoginButton />
 
-
+              <SignupButton />
+            </div>
+          </div>
+        </div>
       </header>
     </>
   );
