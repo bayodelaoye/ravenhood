@@ -68,7 +68,9 @@ const Navigation = () => {
           <img id="logo" src={ravenhoodLogoPurple} alt="logo"></img>
         </NavLink>
 
-        <SearchBar />
+        <div className="search-bar">
+          <SearchBar />
+        </div>
       </div>
 
       <ul id="TopNavBarUl">
@@ -106,16 +108,24 @@ const Navigation = () => {
           </NavLink>
         </li> */}
         <li>
-          <button onClick={toggleMenu} id="TopNavBarToggleDropdownButton">
-            <Link
+          <button
+            onClick={toggleMenu}
+            id="TopNavBarToggleDropdownButton"
+            className={
+              showMenu
+                ? "TopNavBarNavLink TopNavBarLinkActive"
+                : "TopNavBarNavLink"
+            }
+          >
+            {/* <Link
               className={
                 showMenu
                   ? "TopNavBarNavLink TopNavBarLinkActive"
                   : "TopNavBarNavLink"
               }
-            >
-              Account
-            </Link>
+            > */}
+            Account
+            {/* </Link> */}
             {showMenu ? <AccountDropdown id="TopNavBarAccountDropdown" /> : ""}
           </button>
         </li>
