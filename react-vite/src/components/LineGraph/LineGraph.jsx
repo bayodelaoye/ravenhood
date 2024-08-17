@@ -61,7 +61,7 @@ const generateDateLabels = () => {
   return dateArray.reverse();
 };
 
-function LineGraph({ stock, timeline }) {
+function LineGraph({ stock, timeline, state }) {
   const [lineChartData, setLineChartData] = useState(null);
   const high = stock.fifty_two_week_high ? stock.fifty_two_week_high : 50;
   const low = stock.fifty_two_week_low ? stock.fifty_two_week_low : 50;
@@ -88,7 +88,7 @@ function LineGraph({ stock, timeline }) {
         },
       ],
     });
-  }, [timeline]);
+  }, [timeline, state]);
 
   const options = {
     maintainAspectRatio: false,

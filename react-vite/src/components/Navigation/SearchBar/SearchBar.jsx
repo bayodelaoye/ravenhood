@@ -11,7 +11,7 @@ import "./SearchBar.css";
 
 function SearchBar() {
   const navigate = useNavigate();
-
+  const stocks = useSelector((state) => state?.navStocks?.navStocks);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -142,21 +142,29 @@ function SearchBar() {
         ticker += e.target.value[i];
       }
     }
-    console.log("ticker", ticker);
+    console.log("ticker", ticker, stocks);
+    for (let i = 0; i < stocks.length; i++) {
+      if (stocks[i].ticker_symbol === ticker.trim()) {
+        displayedSuggestions = [{ test: "test" }];
+        console.log(displayedSuggestions);
+
+        document.getElementById("SearchBarInput").focus();
+        setSearch(ticker);
+        console.log(search);
+        setSearch("");
+        return navigate(`/stocks/${stocks[i].id}`, {
+          state: { suggestions: stocks[i].id },
+        });
+      }
+    }
 
     // const stockDetail = searchSuggestions.find(suggestion => suggestion.ticker_symbol = ticker.toUpperCase())
 
     // setSearch(ticker);
     // setStockDetailTicker(ticker);
     // setStockDetail(stockDetail)
-    displayedSuggestions = [{ test: "test" }];
-    console.log(displayedSuggestions);
-
-    document.getElementById("SearchBarInput").focus();
 
     // console.log("handleSearchSuggestionButton ran setSearch to: ", search, "setStockDetailTicker to: ", stockDetailTicker, "setStockDetail to: ", stockDetail);
-
-    return setSearch(ticker);
   };
 
   // ===========================HANDLE FOCUS ===============================
