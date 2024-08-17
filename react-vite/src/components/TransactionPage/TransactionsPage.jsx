@@ -7,9 +7,10 @@ import { userTransactions } from "../../redux/transactions";
 function TransactionsPage() {
   const currentUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
-  const allUserTransactions = useSelector((state) =>
-    Object.values(state.transactions.transactions)
-  );
+  const allUserTransactions = useSelector((state) => {
+    const transactions = state?.transactions?.transactions || {};
+    Object.values(transactions);
+  });
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -42,7 +43,7 @@ function TransactionsPage() {
           </div>
           <div className="transaction-index-container">
             {allUserTransactions
-              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+              ?.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
               .map((transaction, index) => {
                 return (
                   <TransactionsIndex transaction={transaction} id={index} />

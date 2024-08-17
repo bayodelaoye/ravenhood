@@ -16,7 +16,7 @@ function ListStocks() {
 
   return (
     <div className="stock-list-page-container">
-      <h1>List of stocks</h1>
+      <h1>List of all stocks</h1>
 
       <div className="stock-list-container">
         {currentPost.map((stock, index) => {
