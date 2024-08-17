@@ -53,6 +53,49 @@ function SignupFormPage() {
 		const phone = phoneNumber;
 		const ssn = Number(socials);
 		const birthday = inputdate;
+
+		const error = {};
+
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+		if (email.length > 50) {
+			error.email = "Email must be less than 50 characters"
+		}
+		if (!emailRegex.test(email) || email.length <= 0) {
+			error.email = "Invalid email"
+		}
+		if (password.length > 255) {
+			error.password = "Password is too long!"
+		}
+		if (password.length < 0) {
+			error.password = "Password is required"
+		}
+		if (password !== confirmPassword) {
+			error.confirmPassword = "Confirm Password field must be the same as the Password field"
+		}
+		if (isNaN(Number(zip))) {
+			console.log("BAD ZIp")
+			error.zipcode = "Invalid Zip code"
+		}
+
+		if (isNaN(Number(phoneNumber))) {
+			console.log("BAD phone")
+			error.phoneNumber = "Invalid phone number"
+		}
+
+		if (isNaN(Number(socials))) {
+			console.log("BAD phone")
+			error.socials = "Invalid SSN"
+		}
+
+
+		if (Object.keys(error).length > 0) {
+			console.log("EERR", error)
+			return setErrors(error);
+		}
+
+
+
 		const serverResponse = await dispatch(
 			thunkSignup({
 				first_name,
@@ -71,8 +114,9 @@ function SignupFormPage() {
 			}
 			));
 
+
+
 		if (serverResponse) {
-			const error = {};
 			// console.log(serverResponse)
 			error.server = serverResponse.server;
 			error.email = serverResponse.email;
@@ -97,6 +141,10 @@ function SignupFormPage() {
 			}
 			if (password !== confirmPassword) {
 				error.confirmPassword = "Confirm Password field must be the same as the Password field"
+			}
+			if (isNaN(Number(zip))) {
+				console.log("BAD ZIp")
+				error.zipcode = "Invalid Zip code"
 			}
 
 			return setErrors(error);
@@ -129,6 +177,7 @@ function SignupFormPage() {
 				{errors.server && <p>{errors.server}</p>}
 				<form className="login-form" onSubmit={handleSubmit}>
 					<div>
+						<p>Email:</p>
 						<input
 							type="text"
 							value={email}
@@ -140,31 +189,36 @@ function SignupFormPage() {
 					</div>
 
 					<div className="name-input">
+						<div className="split-input">
+							<p>First Name:</p>
+							<input
+								type="text"
+								value={first_name}
+								onChange={(e) => setfname(e.target.value)}
+								required
+								placeholder="First name"
+							/>
 
-						<input
-							type="text"
-							value={first_name}
-							onChange={(e) => setfname(e.target.value)}
-							required
-							placeholder="First name"
-						/>
+							{errors.first_name && <p className="error">{errors.first_name}</p>}
+						</div>
 
-						{errors.first_name && <p className="error">{errors.first_name}</p>}
+						<div className="split-input">
+							<p>Last Name:</p>
+							<input
+								type="text"
+								value={last_name}
+								onChange={(e) => setlname(e.target.value)}
+								required
+								placeholder="Last name"
+							/>
 
-
-						<input
-							type="text"
-							value={last_name}
-							onChange={(e) => setlname(e.target.value)}
-							required
-							placeholder="Last name"
-						/>
-
-						{errors.last_name && <p className="error">{errors.last_name}</p>}
+							{errors.last_name && <p className="error">{errors.last_name}</p>}
+						</div>
 
 					</div>
 
 					<div>
+						<p>Username:</p>
 						<input
 							type="text"
 							value={username}
@@ -178,6 +232,7 @@ function SignupFormPage() {
 					<div className="name-input">
 
 						<div>
+							<p>Password:</p>
 							<input
 								type="password"
 								value={password}
@@ -190,6 +245,7 @@ function SignupFormPage() {
 						</div>
 
 						<div>
+							<p>Confirm Password:</p>
 							<input
 								type="password"
 								value={confirmPassword}
@@ -205,6 +261,7 @@ function SignupFormPage() {
 					<div className="name-input">
 
 						<div>
+							<p>Address:</p>
 							<input
 								type="text"
 								value={address}
@@ -217,6 +274,7 @@ function SignupFormPage() {
 						</div>
 
 						<div>
+							<p>City:</p>
 							<input
 								type="text"
 								value={city}
@@ -232,6 +290,7 @@ function SignupFormPage() {
 					<div className="name-input">
 
 						<div>
+							<p>State:</p>
 							<input
 								type="text"
 								value={state}
@@ -244,6 +303,7 @@ function SignupFormPage() {
 						</div>
 
 						<div>
+							<p>Zip Code:</p>
 							<input
 								type="text"
 								value={zipcode}
@@ -259,6 +319,7 @@ function SignupFormPage() {
 					<div className="name-input">
 
 						<div>
+							<p>Phone Number:</p>
 							<input
 								type="text"
 								value={phoneNumber}
@@ -271,6 +332,7 @@ function SignupFormPage() {
 						</div>
 
 						<div>
+							<p>SSN:</p>
 							<input
 								type="text"
 								value={socials}
@@ -286,6 +348,7 @@ function SignupFormPage() {
 					<div className="name-input">
 
 						<div>
+							<p>Date of Birth:</p>
 							<input
 								type="date"
 								value={inputdate}
@@ -298,6 +361,7 @@ function SignupFormPage() {
 						</div>
 
 						<div>
+							<p>Citizenship:</p>
 							<input
 								type="text"
 								value={citizenship}
