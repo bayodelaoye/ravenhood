@@ -95,16 +95,16 @@ const Navigation = () => {
             All Stocks
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/retirement2" className="TopNavBarNavLink">
             Retirement
           </NavLink>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <NavLink to="/notifications" className="TopNavBarNavLink">
             Notifications
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <button onClick={toggleMenu} id="TopNavBarToggleDropdownButton">
             <Link
