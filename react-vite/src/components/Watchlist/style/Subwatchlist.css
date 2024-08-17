@@ -1,5 +1,5 @@
 .sub-watchlist-main {
-    width: 50%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
@@ -8,6 +8,7 @@
 
 h2 {
     font-family: 'Montserrat', sans-serif;
+    width: max-content;
 }
 
 .spread-outer {
@@ -22,7 +23,6 @@ h2 {
 
 .subwatchlists {
     display: flex;
-
     justify-content: space-between;
     height: 3rem;
     align-items: center;
