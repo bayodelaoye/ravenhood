@@ -1,25 +1,25 @@
 import "./TransactionsPage.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TransactionsIndex from "./TransactionsIndex";
 import { useEffect, useState } from "react";
+import { userTransactions } from "../../redux/transactions";
 
 function TransactionsPage() {
   const currentUser = useSelector((state) => state.session.user);
-  const [userTransactions, setUserTransactions] = useState([]);
+  const dispatch = useDispatch();
+  const allUserTransactions = useSelector((state) =>
+    Object.values(state.transactions.transactions)
+  );
+
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const getTransactions = async () => {
-      const response = await fetch(`/api/users/${currentUser.id}/transactions`);
-
-      if (response.ok) {
-        const transactions = await response.json();
-        setUserTransactions(transactions);
-      }
+      await dispatch(userTransactions(currentUser.id));
     };
 
-    getTransactions().then(() => setIsLoaded(true));
-  }, []);
+    getTransactions().then(async () => setIsLoaded(true));
+  }, [dispatch]);
 
   return (
     <>
@@ -41,7 +41,7 @@ function TransactionsPage() {
             </div>
           </div>
           <div className="transaction-index-container">
-            {userTransactions
+            {allUserTransactions
               .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
               .map((transaction, index) => {
                 return (

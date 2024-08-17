@@ -127,7 +127,7 @@ function StockDetailsPage() {
 
       const message = await response.json();
       if (response.ok) {
-        navigate(`/users/transactions`);
+        navigate(`/users/${currentUser.id}/transactions`);
       }
 
       setFormErrors({

@@ -1,19 +1,23 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
+
+from .db import SCHEMA, add_prefix_for_prod, db, environment
 from .portfolio_stocks import portfolio_stocks
 
+
 class Portfolio(db.Model):
-    __tablename__ = 'portfolios'
+    __tablename__ = "portfolios"
 
     if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
-    
-    id = db.Column(db.Integer, primary_key = True)
-    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable = False)
-    portfolio_name = db.Column(db.String(20), nullable = False)
-    cash_balance = db.Column(db.Numeric(10, 2), nullable = False)
-    total_amount = db.Column(db.Numeric(10, 2), nullable = False)
-    is_active = db.Column(db.Boolean, nullable = False)
+        __table_args__ = {"schema": SCHEMA}
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(
+        db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False
+    )
+    portfolio_name = db.Column(db.String(20), nullable=False)
+    cash_balance = db.Column(db.Numeric(10, 2), nullable=False)
+    total_amount = db.Column(db.Numeric(10, 2), nullable=False)
+    is_active = db.Column(db.Boolean, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
 
@@ -25,7 +29,6 @@ class Portfolio(db.Model):
         "Stock",
         secondary=portfolio_stocks,
         back_populates="stock_portfolio_stocks",
-        cascade="delete, all"
     )
 
     def to_dict(self):
@@ -36,9 +39,9 @@ class Portfolio(db.Model):
             "cash_balance": self.cash_balance,
             "total_amount": self.total_amount,
             "is_active": self.is_active,
-            "updated_at": self.updated_at
-        }   
-    
+            "updated_at": self.updated_at,
+        }
+
     def to_dict_with_stocks(self):
         return {
             "id": self.id,
@@ -47,9 +50,9 @@ class Portfolio(db.Model):
             "total_amount": self.total_amount,
             "is_active": self.is_active,
             "updated_at": self.updated_at,
-            "stocks": [stock.to_dict() for stock in self.portfolio_portfolio_stocks]
+            "stocks": [stock.to_dict() for stock in self.portfolio_portfolio_stocks],
         }
-    
+
     def to_dict_with_transactions(self):
         return {
             "id": self.id,
@@ -58,6 +61,7 @@ class Portfolio(db.Model):
             "total_amount": self.total_amount,
             "is_active": self.is_active,
             "updated_at": self.updated_at,
-            "transactions": [transaction.to_dict() for transaction in self.transactions]
+            "transactions": [
+                transaction.to_dict() for transaction in self.transactions
+            ],
         }
-        

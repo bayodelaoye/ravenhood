@@ -1,34 +1,45 @@
-from app.models import db, Transaction, environment, SCHEMA
-from sqlalchemy.sql import text
 from datetime import date
+
+from sqlalchemy.sql import text
+
+from app.models import SCHEMA, Transaction, db, environment
+
 
 # Adds a demo user, you can add other users here if you want
 def seed_transactions():
     for transaction in [
         {
             "portfolio_id": 1,
-            "type": 'BUY',
+            "type": "BUY",
             "date": date(2018, 8, 8),
             "stock": "AAPL",
             "quantity": 3,
-            "transaction_price": 627.39
+            "transaction_price": 627.39,
         },
         {
             "portfolio_id": 1,
-            "type": 'BUY',
+            "type": "BUY",
             "date": date(2023, 1, 9),
             "stock": "GOOG",
             "quantity": 5,
-            "transaction_price": 498.20
+            "transaction_price": 498.20,
         },
         {
             "portfolio_id": 1,
-            "type": 'SELL',
+            "type": "SELL",
             "date": date(2024, 3, 18),
             "stock": "AAPL",
             "quantity": 1,
-            "transaction_price": 175.57
-        }
+            "transaction_price": 175.57,
+        },
+        {
+            "portfolio_id": 2,
+            "type": "BUY",
+            "date": date(2023, 3, 18),
+            "stock": "AAPL",
+            "quantity": 1,
+            "transaction_price": 175.57,
+        },
     ]:
         db.session.add(Transaction(**transaction))
     db.session.commit()
@@ -42,8 +53,10 @@ def seed_transactions():
 # it will reset the primary keys for you as well.
 def undo_transactions():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.transactions RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.transactions RESTART IDENTITY CASCADE;"
+        )
     else:
         db.session.execute(text("DELETE FROM transactions"))
-        
+
     db.session.commit()

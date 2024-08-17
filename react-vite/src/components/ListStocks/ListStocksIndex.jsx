@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ListStocksIndex({ stock, totalPages, stocksPerPage }) {
+function ListStocksIndex({ stock }) {
   return (
     <>
       <div className="stock-list-index-container">
