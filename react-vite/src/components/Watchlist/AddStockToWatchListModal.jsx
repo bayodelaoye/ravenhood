@@ -4,15 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { userWatchLists } from "../../redux/watchlist";
 import "./Watchlist.css";
 
-const AddStockToWatchListModal = ({ onClose, stockId }) => {
+const AddStockToWatchListModal = ({
+  onClose,
+  stockId,
+  stockNotInwatchLists,
+}) => {
   const [watchList, setwatchList] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const dispatch = useDispatch();
-  const listOfUserWatchList = useSelector(
-    (state) => state?.watchlist?.userWatchLists?.watch_lists
-  );
 
   useEffect(() => {
     dispatch(userWatchLists())
@@ -71,7 +72,7 @@ const AddStockToWatchListModal = ({ onClose, stockId }) => {
                 <option value="" selected disabled hidden>
                   Select Watch List
                 </option>
-                {listOfUserWatchList?.map((watchlist, id) => {
+                {stockNotInwatchLists?.map((watchlist, id) => {
                   return (
                     <option value={watchlist?.id} key={id}>
                       {watchlist?.name}
