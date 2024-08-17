@@ -5,7 +5,7 @@ import { ModalProvider, Modal } from "../context/Modal";
 import { thunkAuthenticate } from "../redux/session";
 import Navigation from "../components/Navigation";
 import NavigationStart from "../components/NavigationStart";
-import * as navStocksActions from "../redux/navStocksRedux.js"
+import * as navStocksActions from "../redux/navStocksRedux.js";
 
 import { useSelector } from "react-redux";
 
@@ -17,15 +17,18 @@ export default function Layout() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(navStocksActions.navStocks())
+    dispatch(navStocksActions.navStocks());
     dispatch(thunkAuthenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
-
 
   return (
     <>
       <ModalProvider>
-        {sessionUser ? <Navigation /> : <NavigationStart />}
+        {isLoaded ? (
+          <>{sessionUser ? <Navigation /> : <NavigationStart />}</>
+        ) : (
+          <></>
+        )}
         {isLoaded && <Outlet />}
         <Modal />
       </ModalProvider>
