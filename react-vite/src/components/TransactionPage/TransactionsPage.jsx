@@ -9,7 +9,7 @@ function TransactionsPage() {
   const dispatch = useDispatch();
   const allUserTransactions = useSelector((state) => {
     const transactions = state?.transactions?.transactions || {};
-    Object.values(transactions);
+    return Object.values(transactions);
   });
 
   const [isLoaded, setIsLoaded] = useState(false);
@@ -22,6 +22,10 @@ function TransactionsPage() {
     getTransactions().then(async () => setIsLoaded(true));
   }, [dispatch]);
 
+  const sortedTransactions = allUserTransactions.sort(
+    (a, b) => new Date(b.created_at) - new Date(a.created_at)
+  );
+
   return (
     <>
       {isLoaded ? (
@@ -30,7 +34,7 @@ function TransactionsPage() {
             <h3>
               {currentUser.first_name} {currentUser.last_name} Transactions
             </h3>
-            <div className="transactions-links-container">
+            {/* <div className="transactions-links-container">
               <p className="transactions-links">Investing</p>
               <p className="transactions-links"> Transfers</p>
               <p className="transactions-links">Recuring</p>
@@ -39,16 +43,12 @@ function TransactionsPage() {
               <p className="transactions-links">History</p>
               <p className="transactions-links">Settings</p>
               <p className="transactions-links">Help</p>
-            </div>
+            </div> */}
           </div>
           <div className="transaction-index-container">
-            {allUserTransactions
-              ?.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-              .map((transaction, index) => {
-                return (
-                  <TransactionsIndex transaction={transaction} id={index} />
-                );
-              })}
+            {sortedTransactions?.map((transaction, index) => {
+              return <TransactionsIndex transaction={transaction} id={index} />;
+            })}
           </div>
         </div>
       ) : (
