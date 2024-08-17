@@ -10,13 +10,14 @@ const AuHomePage = () => {
 	const { userPortfolios } = useLoaderData();
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const portfolios = userPortfolios.portfolios.map((portfolio) => portfolio);
+	const totalAmount = portfolios.map((portfolio) => portfolio.total_amount);
 	const items = [
 		{
 			title: "Ravenhood Platinum",
 			description:
 				"Get access to advanced data, actionable insights, bigger Instant Deposits, and more with Platinum.",
 			img: "https://cdn.robinhood.com/card_side_image_asset_v2/ios_24k_announcement/green/1x.png",
-			link: "/rewards",
+			link: "/platinum",
 			linkText: "Try Platinum for free",
 		},
 		{
@@ -32,7 +33,7 @@ const AuHomePage = () => {
 			description:
 				"Get $20 when you join Platinum and make a deposit of $2,000 through August 23. Subscription fee and terms apply.",
 			img: "https://cdn.robinhood.com/card_side_image_asset_v2/ios_ng_2k_deposit_20/green/1x.png",
-			link: "/rewards",
+			link: "/platinum",
 			linkText: "Join Platinum",
 		},
 		{
@@ -48,7 +49,7 @@ const AuHomePage = () => {
 			description:
 				"Filter and focus your search for new investments with stock screeners",
 			img: "https://cdn.robinhood.com/card_side_image_asset_v2/ios_screener_launch/green/1x.png",
-			link: "/stocks",
+			link: "/watchlist",
 			linkText: "Create a screener",
 		},
 	];
@@ -61,12 +62,9 @@ const AuHomePage = () => {
 		setCurrentIndex(currentIndex < items.length - 1 ? currentIndex + 1 : 0);
 	};
 
-	// console.log("portfolios", portfolios);
-
 	return (
 		<div id="authorized-user-home">
-			{currentUser &&
-			(!portfolios.length || Math.floor(userPortfolios.total_amount) === 0) ? (
+			{currentUser && (!portfolios.length || !totalAmount.length) ? (
 				<>
 					<main id="welcome">
 						<div id="portfolio-investing">
@@ -85,12 +83,15 @@ const AuHomePage = () => {
 						<div id="welcome-grid">
 							<div id="welcome-grid-left">
 								<div id="welcome-unlock">
-									<h4>Unlock your free stock</h4>
-									<p>Add funds to claim your free stock. Limitations apply.</p>
+									<h4>Get Started</h4>
+									<p>
+										Create a portfolio to start investing. Your journey begins
+										now!
+									</p>
 								</div>
 								<div id="welcome-fund">
-									<Link to={`/portfolios/${currentUser.id}/edit`}>
-										<button>Fund Account</button>
+									<Link to="/portfolios/new">
+										<button>Create a Portfolio</button>
 									</Link>
 								</div>
 							</div>
@@ -174,7 +175,8 @@ const AuHomePage = () => {
 											<h5>{item.title}</h5>
 											<p>{item.description}</p>
 										</div>
-										<Link to={item.link}>{item.linkText}</Link>
+										{/* <Link to={item.link}>{item.linkText}</Link> */}
+										<h6>{item.linkText}</h6>
 									</div>
 								))}
 								<div id="carousel-navigation">
@@ -191,13 +193,13 @@ const AuHomePage = () => {
 							</div>
 						</div>
 					</main>
-					<aside id="watchlist-sidebar">
-						<WatchlistAll />
-					</aside>
 				</>
 			) : (
 				<Portfolio />
 			)}
+			<aside id="watchlist-sidebar">
+				<WatchlistAll />
+			</aside>
 		</div>
 	);
 };

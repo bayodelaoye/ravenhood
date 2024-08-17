@@ -27,7 +27,7 @@
 	height: 100px;
 }
 
-a > .nu-footer-documents {
+.nu-footer-documents {
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 700;
@@ -111,21 +111,22 @@ a > .nu-footer-documents {
 }
 
 #bottom-nu-footer-links h4 {
-	margin-bottom: 10px; 
+	margin-bottom: 10px;
 	font-size: 16px;
-      font-family: "Lato", sans-serif;
+	font-family: "Lato", sans-serif;
 }
 
 #bottom-nu-footer-links ul {
-	list-style: none; 
-	padding: 0; 
-	margin: 0; 
+	list-style: none;
+	padding: 0;
+	margin: 0;
 	font-family: "Karla", sans-serif;
 	font-weight: 300;
+	margin-left: 80px;
 }
 
 #bottom-nu-footer-links li {
-	margin-bottom: 8px; 
+	margin-bottom: 8px;
 }
 
 #bottom-nu-footer-links a {
