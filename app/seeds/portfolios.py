@@ -13,13 +13,6 @@ def seed_portfolios():
             "total_amount": 1050.02,
             "is_active": True,
         },
-        {
-            "user_id": 1,
-            "portfolio_name": "Testing",
-            "cash_balance": 500,
-            "total_amount": 1050.02,
-            "is_active": True,
-        },
     ]:
         db.session.add(Portfolio(**portfolio))
     db.session.commit()
