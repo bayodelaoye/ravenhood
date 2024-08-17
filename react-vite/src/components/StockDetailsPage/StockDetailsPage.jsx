@@ -21,10 +21,7 @@ function StockDetailsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [userWatchLists, setUserWatchLists] = useState("");
-  const [isStockInWatchList, setIsStockInWatchList] = useState(false);
-  const [showAddToWatchListButton, setShowAddToWatchListButton] =
-    useState(false);
-  const [stocksInWatchlists, setStocksInWatchlists] = useState([]);
+  const [watchListsWithoutStock, setWatchListsWithoutStock] = useState([]);
   const navigate = useNavigate();
   const { closeModal } = useModal();
   const currentUser = useSelector((state) => state.session.user);
@@ -37,15 +34,6 @@ function StockDetailsPage() {
       await dispatch(userPortfolios(currentUser?.id));
     };
 
-    const fetchWatchListData = async () => {
-      const response = await fetch(`/api/watch_lists/stocks`);
-
-      if (response.ok) {
-        const stocksInUserWatchlists = await response.json();
-        setStocksInWatchlists(stocksInUserWatchlists);
-      }
-    };
-
     const fetchWatchListArray = async () => {
       const response = await fetch(`/api/watch_lists/`);
       if (response.ok) {
@@ -55,24 +43,29 @@ function StockDetailsPage() {
     };
 
     const loadData = async () => {
-      await fetchPortfolioData();
-      await fetchWatchListData();
-      await fetchWatchListArray();
+      await Promise.all([fetchPortfolioData(), fetchWatchListArray()]);
+      setIsLoaded(true);
     };
 
     loadData();
   }, [dispatch, currentUser?.id]);
 
   useEffect(() => {
-    const setIsStockInWatchListLocal = stocksInWatchlists.some(
-      (obj) => obj.id === stockDetails.id
-    );
+    if (userWatchLists?.watch_lists) {
+      // Filter watch lists where the stock is not present
+      const filteredWatchLists = userWatchLists.watch_lists.filter(
+        (watchList) => {
+          // Check if the stock is not in this watch list
+          return !watchList.stocks.some(
+            (stock) => stock.id === stockDetails.id
+          );
+        }
+      );
 
-    setIsStockInWatchList(setIsStockInWatchListLocal);
-
-    setIsLoaded(true);
-    setShowAddToWatchListButton(true);
-  }, [stocksInWatchlists, isStockInWatchList]);
+      // Update the state with the filtered list
+      setWatchListsWithoutStock(filteredWatchLists);
+    }
+  }, [userWatchLists]);
 
   useEffect(() => {
     if (timeLineBtn === "") {
@@ -137,10 +130,10 @@ function StockDetailsPage() {
   };
 
   const handleWatchlistUpdate = async () => {
-    const response = await fetch(`/api/watch_lists/stocks`);
+    const response = await fetch(`/api/watch_lists/`);
     if (response.ok) {
-      const stocksInUserWatchlists = await response.json();
-      setStocksInWatchlists(stocksInUserWatchlists);
+      const watchList = await response.json();
+      setUserWatchLists(watchList);
     }
   };
 
@@ -460,40 +453,35 @@ function StockDetailsPage() {
                   </div>
                 </Form>
               </div>
-              {showAddToWatchListButton === false ? (
-                <></>
+              {userWatchLists?.watch_lists?.length === 0 ? (
+                <OpenModalButton
+                  buttonText={`Watch ${stockDetails.ticker_symbol}`}
+                  className="watch-list-btn"
+                  onClose={closeModal}
+                  modalComponent={
+                    <CreateWatchList current="" onClose={closeModal} />
+                  }
+                />
               ) : (
                 <>
-                  {userWatchLists?.watch_lists?.length === 0 ? (
+                  {watchListsWithoutStock.length === 0 ? (
+                    <></>
+                  ) : (
                     <OpenModalButton
                       buttonText={`Watch ${stockDetails.ticker_symbol}`}
-                      className="watch-list-btn"
                       onClose={closeModal}
+                      className="watch-list-btn"
                       modalComponent={
-                        <CreateWatchList current="" onClose={closeModal} />
+                        <AddStockToWatchListModal
+                          onClose={() => {
+                            closeModal();
+                            handleWatchlistUpdate();
+                          }}
+                          stockId={stockDetails.id}
+                          stockNotInwatchLists={watchListsWithoutStock}
+                        />
                       }
                     />
-                  ) : (
-                    <>
-                      {isStockInWatchList ? (
-                        <></>
-                      ) : (
-                        <OpenModalButton
-                          buttonText={`Watch ${stockDetails.ticker_symbol}`}
-                          onClose={closeModal}
-                          className="watch-list-btn"
-                          modalComponent={
-                            <AddStockToWatchListModal
-                              onClose={() => {
-                                closeModal();
-                                handleWatchlistUpdate();
-                              }}
-                              stockId={stockDetails.id}
-                            />
-                          }
-                        />
-                      )}
-                    </>
                   )}
                 </>
               )}
