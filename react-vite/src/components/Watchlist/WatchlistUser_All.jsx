@@ -24,7 +24,7 @@ const WatchlistAll = () => {
 
     // Grab User's Watchlist
     const { userWatchlists } = useLoaderData();
-    console.log(userWatchlists.watch_lists)
+//     console.log(userWatchlists.watch_lists)
 
     const [updatedList, setUpdatedList] = useState([]);
 

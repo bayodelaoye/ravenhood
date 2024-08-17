@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+#authorized-user-home {
+	display: flex;
+	grid-template-columns: 2fr 1fr; /* Left column takes 3 parts, right column takes 1 part */
+	gap: 20px; /* Adjust spacing between columns */
+	align-items: start; /* Aligns items at the start of the grid cells */
+	min-height: 100vh; /* Ensures the grid takes full viewport height */
+	padding-left: 250px;
+	padding-right: 300px;
+}
+
+#welcome,
+#discover-more,
+#get-more {
+	grid-column: 1 / 2; /* Main content is in the left column */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#discover-more {
+	padding: 0;
+}
+
+#get-more {
+	padding: 0;
+}
+
+#watchlist-sidebar {
+	grid-column: 2 / 3; /* Sidebar is in the right column */
+	position: sticky;
+	top: 20px; /* Space from the top of the viewport when sticky */
+	align-self: start;
+	/* width: 45%; */
+}
+
+#authorized-user-home h1,
+#authorized-user-home h2,
+#authorized-user-home h3,
+#authorized-user-home h4,
+#authorized-user-home h5 {
+	font-family: "Lato", sans-serif;
+}
+
+#authorized-user-home p {
+	font-family: "Karla";
+	font-size: 18px;
+}
+
+#portfolio-investing h2 {
+	font-size: 32px;
+}
+
+#welcome {
+	width: 100%;
+}
+
+#welcome-image {
+	width: 100%;
+}
+
+#welcome-to-ravenhood h1 {
+	font-size: 44px;
+	padding-bottom: 50px;
+}
+
+#welcome-grid {
+	display: grid;
+	grid-template-columns: 10fr 1fr;
+	border: 1px solid gray;
+	justify-content: space-around;
+	margin-bottom: 50px;
+}
+
+#welcome-grid-left {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 15px;
+	padding-left: 24px;
+}
+
+#welcome-unlock h4 {
+	font-size: 15px;
+	margin: 0;
+}
+
+#welcome-fund button {
+	background: none;
+	border: 2px solid #4d3f72;
+	padding: 10px 24px;
+	border-radius: 44px;
+	cursor: pointer;
+}
+
+#discover-more h3,
+#get-more div {
+	padding-bottom: 16px;
+	font-size: 24px;
+}
+
+#discover-links {
+	display: inline-flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 50px;
+	padding-top: 25px;
+}
+
+#discover-links div {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100px;
+}
+
+#discover-links img {
+	display: inline-flex;
+	align-items: center;
+	margin-bottom: 20px;
+	height: 129px;
+}
+
+#discover-links h5,
+#discover-links p {
+	display: inline-flex;
+	align-items: center;
+	margin: 0;
+	font-size: 15px;
+	width: 150px;
+}
+
+#ravenhood-get-more {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0;
+	position: relative;
+	width: 100%;
+	padding-top: 25px;
+}
+
+.ravenhood-carousel-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #444;
+	margin: 5px;
+}
+
+.ravenhood-carousel-image {
+	width: 100px;
+	height: 176px;
+	margin-right: 20px;
+}
+
+.item-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 10px;
+	gap: 15px;
+}
+
+.item-content h5 {
+	font-size: 13px;
+	color: #b4b1b1;
+	font-weight: bolder;
+}
+
+.item-content p {
+	font-size: 15px;
+}
+
+#ravenhood-get-more a {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#carousel-navigation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.nav-button {
+	background: transparent;
+	border: none;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+.nav-indicator {
+	margin: 0 15px;
+	font-size: 1rem;
+}
+
+@media (max-width: 1000px) {
+	#authorized-user-home {
+		display: block; /* Switch to a block layout */
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	#watchlist-sidebar {
+		position: relative;
+		top: 0;
+		width: 100%;
+	}
+
+	#discover-links img,
+	#ravenhood-get-more img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+@media (max-width: 700px) {
+	#authorized-user-home {
+		position: relative;
+		display: block;
+	}
+
+	#watchlist-sidebar {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 50%;
+		z-index: 10;
+		background-color: rgba(
+			255,
+			255,
+			255,
+			0.9
+		); 
+	}
+
+	#welcome,
+	#discover-more,
+	#get-more {
+		padding-right: 55%; 
+	}
+
+      #discover-links div,
+	.ravenhood-carousel-item {
+		width: 100%;
+		text-align: center;
+	}
+
+	.ravenhood-carousel-image {
+		margin: 0 auto;
+	}
+
+      #discover-links,
+	#ravenhood-get-more {
+		padding: 10px;
+	}
+
+      #welcome {
+		padding: 20px;
+	}
+}
+
