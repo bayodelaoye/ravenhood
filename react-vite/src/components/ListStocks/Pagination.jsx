@@ -10,7 +10,7 @@ function Pagination({ stocksPerPage, totalPages, paginate }) {
       <div className="pagination">
         {pages.map((number, index) => {
           return (
-            <a onClick={() => paginate(number)} href="#">
+            <a onClick={() => paginate(number)} key={index} href="#">
               {number}
             </a>
           );

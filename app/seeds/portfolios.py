@@ -1,16 +1,25 @@
-from app.models import db, Portfolio, environment, SCHEMA
 from sqlalchemy.sql import text
+
+from app.models import SCHEMA, Portfolio, db, environment
+
 
 # Adds a demo user, you can add other users here if you want
 def seed_portfolios():
     for portfolio in [
         {
             "user_id": 1,
-            "portfolio_name": 'Retirement',
+            "portfolio_name": "Retirement",
             "cash_balance": 100,
             "total_amount": 1050.02,
-            "is_active": True
-        }
+            "is_active": True,
+        },
+        {
+            "user_id": 1,
+            "portfolio_name": "Testing",
+            "cash_balance": 500,
+            "total_amount": 1050.02,
+            "is_active": True,
+        },
     ]:
         db.session.add(Portfolio(**portfolio))
     db.session.commit()
@@ -24,8 +33,10 @@ def seed_portfolios():
 # it will reset the primary keys for you as well.
 def undo_portfolios():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.portfolios RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.portfolios RESTART IDENTITY CASCADE;"
+        )
     else:
         db.session.execute(text("DELETE FROM portfolios"))
-        
+
     db.session.commit()

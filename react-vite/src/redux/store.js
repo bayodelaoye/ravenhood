@@ -9,12 +9,14 @@ import sessionReducer from "./session";
 import portfolioReducer from "./portfolio";
 import watchlistReducer from "./watchlist";
 import navStocksReducer from "./navStocksRedux";
+import transactionReducer from "./transactions";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   portfolios: portfolioReducer,
   watchlist: watchlistReducer,
   navStocks: navStocksReducer,
+  transactions: transactionReducer,
 });
 
 let enhancer;
