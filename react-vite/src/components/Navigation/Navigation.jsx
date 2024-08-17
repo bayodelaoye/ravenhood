@@ -85,7 +85,7 @@ useEffect(() => {
      <header>
         <div id='logoAndSearchBarContainer'>
 
-        <NavLink to="/stocks">
+        <NavLink to="/">
             <img id="logo" src={ravenhoodLogoPurple} alt="logo"></img>
         </NavLink>
 
