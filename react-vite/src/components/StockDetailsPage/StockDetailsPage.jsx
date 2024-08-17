@@ -1,4 +1,9 @@
-import { useLoaderData, Form, useNavigate } from "react-router-dom";
+import {
+  useLoaderData,
+  Form,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 import "./StockDetailsPage.css";
 import { useEffect, useState } from "react";
@@ -28,6 +33,8 @@ function StockDetailsPage() {
   const listOfUserPortfolios = useSelector(
     (state) => state.portfolios?.userPortfolios?.portfolios
   );
+  const location = useLocation();
+  const { state } = location;
 
   useEffect(() => {
     const fetchPortfolioData = async () => {
@@ -146,7 +153,11 @@ function StockDetailsPage() {
               <h3>{stockDetails.company_name}</h3>
               <p>${stockDetails.current_price}</p>
             </div>
-            <LineGraph stock={stockDetails} timeline={timeLineBtn} />
+            <LineGraph
+              stock={stockDetails}
+              timeline={timeLineBtn}
+              state={state}
+            />
             <div className="time-line">
               <div
                 className="time-line-btn one-day"

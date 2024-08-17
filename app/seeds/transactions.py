@@ -32,14 +32,6 @@ def seed_transactions():
             "quantity": 1,
             "transaction_price": 175.57,
         },
-        {
-            "portfolio_id": 2,
-            "type": "SELL",
-            "date": date(2024, 3, 18),
-            "stock": "AAPL",
-            "quantity": 1,
-            "transaction_price": 175.57,
-        },
     ]:
         db.session.add(Transaction(**transaction))
     db.session.commit()
