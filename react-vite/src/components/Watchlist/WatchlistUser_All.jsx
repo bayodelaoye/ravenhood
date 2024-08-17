@@ -24,7 +24,7 @@ const WatchlistAll = () => {
 
     // Grab User's Watchlist
     const { userWatchlists } = useLoaderData();
-//     console.log(userWatchlists.watch_lists)
+    //     console.log(userWatchlists.watch_lists)
 
     const [updatedList, setUpdatedList] = useState([]);
 
@@ -173,7 +173,7 @@ const WatchlistAll = () => {
                                 <div className="watchlist-icon">
                                     <p>💰</p>
                                 </div>
-                                <div className="watchlist-name subwatchlist-name">
+                                <div className="watchlist-name">
                                     <p>{list.name}</p>
                                 </div>
                             </div>

@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate, useParams, Form } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams, Form, useActionData } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 
@@ -27,6 +27,7 @@ const Watchlist = () => {
     const [showWatchlistDeleteMenu, setshowWatchlistDeleteMenu] = useState(false);
     const [currentList, setCurrentList] = useState([]);
     const ulRef = useRef();
+    const actionData = useActionData();
 
     let currentWatchList;
 
@@ -275,7 +276,12 @@ const Watchlist = () => {
                 />
             </div>
         )
+
     }
+
+    // useEffect(() => {
+    //     console.log("DATA OF ACTION", actionData)
+    // })
 
     const handleCreateWatchlist = () => {
         setModalContent(

@@ -35,7 +35,7 @@ export const deleteWatchlist = async ({ request }) => {
 
         if (response.ok) {
             const message = await response.json();
-            console.log(message)
+            // console.log(message)
             return redirect('/watchlist')
         }
     }
@@ -44,6 +44,9 @@ export const deleteWatchlist = async ({ request }) => {
         // console.log(data)
         if (data.watchlistname === '') {
             return { message: "Watchlist name cannot be empty" }
+        }
+        if (data.watchlistname.length > 30) {
+            return { message: "Watchlist name cannot be more than 30 characters long" }
         }
         const response = await fetch(`/api/watch_lists/${data.watchlist_id}`, {
             method: "PUT",
@@ -63,9 +66,13 @@ export const deleteWatchlist = async ({ request }) => {
     }
 
     if (intent === 'create-watchlist') {
-        console.log(data)
+        // console.log(data)
         if (data.watchlistname === '') {
             return { message: "Watchlist name cannot be empty" }
+        }
+
+        if (data.watchlistname.length > 30) {
+            return { message: "Watchlist name cannot be more than 30 characters long" }
         }
         const response = await fetch(`/api/watch_lists/`, {
             method: "POST",
