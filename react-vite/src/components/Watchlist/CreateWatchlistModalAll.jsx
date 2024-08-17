@@ -13,10 +13,14 @@ const CreateWatchList = ({ onClose }) => {
                 <h2>Create List</h2>
             </div>
             <Form method="post" action={`/watchlist`} onSubmit={onClose} className="input-style">
+                <h3>Watchlist Name:</h3>
                 <input required type='text' className="name-change-input" name="watchlistname" value={watchlistName} onChange={(e) => setWatchlistName(e.target.value)} />
+                {
+                    watchlistName.length > 30 ? <p className="error">Watchlist cannot exceed 30 characters</p> : ""
+                }
                 <button
                     type="submit"
-                    disabled={watchlistName === ''}
+                    disabled={watchlistName === '' || watchlistName.length > 30}
                     name='intent'
                     value='create-watchlist'
                     className="watchlist-update-button">Create List</button>
