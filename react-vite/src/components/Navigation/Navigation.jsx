@@ -94,38 +94,26 @@ const Navigation = () => {
         </li>
         <li>
           <NavLink to="/stocks/" className="TopNavBarNavLink">
-            All Stocks
+            Stocks
           </NavLink>
         </li>
         {/* <li>
-          <NavLink to="/retirement2" className="TopNavBarNavLink">
-            Retirement
-          </NavLink>
-        </li> */}
-        {/* <li>
-          <NavLink to="/notifications" className="TopNavBarNavLink">
-            Notifications
-          </NavLink>
-        </li> */}
+                <NavLink to="/retirement2" className="TopNavBarNavLink">Retirement</NavLink>
+            </li>
+            <li>
+                <NavLink to="/notifications" className="TopNavBarNavLink">Notifications</NavLink>
+            </li> */}
         <li>
-          <button
-            onClick={toggleMenu}
-            id="TopNavBarToggleDropdownButton"
-            className={
-              showMenu
-                ? "TopNavBarNavLink TopNavBarLinkActive"
-                : "TopNavBarNavLink"
-            }
-          >
-            {/* <Link
+          <button onClick={toggleMenu} id="TopNavBarToggleDropdownButton">
+            <Link
               className={
                 showMenu
                   ? "TopNavBarNavLink TopNavBarLinkActive"
                   : "TopNavBarNavLink"
               }
-            > */}
-            Account
-            {/* </Link> */}
+            >
+              Account
+            </Link>
             {showMenu ? <AccountDropdown id="TopNavBarAccountDropdown" /> : ""}
           </button>
         </li>

@@ -36,12 +36,12 @@ function NavigationStart() {
 
         <ul id="NavigationStartUl">
 
-          <li className="NavigationStartUlLi">
+          {/* <li className="NavigationStartUlLi">
             <WhatWeOfferDropdown />
-          </li>
+          </li> */}
 
 
-          <li className="NavigationStartUlLi">
+          {/* <li className="NavigationStartUlLi">
             <NavLink to="/creditcard" className="NavigationStartUlLiNavLink">Credit Card</NavLink>
           </li>
           <li className="NavigationStartUlLi">
@@ -59,7 +59,7 @@ function NavigationStart() {
 
           <li className="NavigationStartUlLi">
               <FlagDropdown />
-          </li>
+          </li> */}
 
           <li className="NavigationStartUlLi">
             <LoginButton />
