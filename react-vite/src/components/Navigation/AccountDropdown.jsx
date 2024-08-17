@@ -50,7 +50,7 @@ function AccountDropdown() {
                     <button className="AccountDropdownUlLiButton" id="AccountDropdownUserName">{`${sessionUser.first_name} ${sessionUser.last_name}`}</button>
                 </li>
 
-                <li className="AccountDropdownUlLi">
+                {/* <li className="AccountDropdownUlLi">
                     <button className="AccountDropdownUlLiButton">
                         <img
                             id="platinum"
@@ -60,7 +60,7 @@ function AccountDropdown() {
                         </img>
                         Robinhood Platinum
                     </button>
-                </li>
+                </li> */}
 
                 <li className="AccountDropdownUlLi">
                     <button
@@ -69,7 +69,7 @@ function AccountDropdown() {
                         <FaUserCircle className="AccountDropdownIcon" />Profile</button>
                 </li>
 
-                <li className="AccountDropdownUlLi">
+                {/* <li className="AccountDropdownUlLi">
                     <button className="AccountDropdownUlLiButton"><FaBriefcase className="AccountDropdownIcon" />Investing</button>
                 </li>
 
@@ -110,7 +110,7 @@ function AccountDropdown() {
 
                 <li className="AccountDropdownUlLi">
                     <button className="AccountDropdownUlLiButton"><ImKeyboard className="AccountDropdownIcon" />Keyboard Shortcuts</button>
-                </li>
+                </li> */}
 
 
                 <li className="AccountDropdownUlLi">

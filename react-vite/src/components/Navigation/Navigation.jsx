@@ -59,67 +59,56 @@ const Navigation = () => {
   //     await dispatch(searchActions.search()).then(() => navigate(`/'`));
   // }
 
-  // ==============================Return================================
-  // console.log("NAVIGATION COMPONENT RAN");
-  return (
-    <header>
-      <div id="logoAndSearchBarContainer">
+
+
+
+
+
+
+// ==============================Return================================
+    // console.log("NAVIGATION COMPONENT RAN");
+    return(
+     <header>
+        <div id="logoAndSearchBarContainer">
+
         <NavLink to="/">
-          <img id="logo" src={ravenhoodLogoPurple} alt="logo"></img>
+            <img id="logo" src={ravenhoodLogoPurple} alt="logo"></img>
         </NavLink>
 
         <SearchBar />
       </div>
 
-      <ul id="TopNavBarUl">
-        <li>
-          <NavLink to={`/portfolios/${userId}`} className="TopNavBarNavLink">
-            Portfolios
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/watchlist" className="TopNavBarNavLink">
-            Watchlists
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to={`/users/${userId}/transactions`}
-            className="TopNavBarNavLink"
-          >
-            Transactions
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/stocks/" className="TopNavBarNavLink">
-            All Stocks
-          </NavLink>
-        </li>
-        {/* <li>
-          <NavLink to="/retirement2" className="TopNavBarNavLink">
-            Retirement
-          </NavLink>
-        </li> */}
-        {/* <li>
-          <NavLink to="/notifications" className="TopNavBarNavLink">
-            Notifications
-          </NavLink>
-        </li> */}
-        <li>
-          <button onClick={toggleMenu} id="TopNavBarToggleDropdownButton">
-            <Link
-              className={
-                showMenu
-                  ? "TopNavBarNavLink TopNavBarLinkActive"
-                  : "TopNavBarNavLink"
-              }
-            >
-              Account
-            </Link>
-            {showMenu ? <AccountDropdown id="TopNavBarAccountDropdown" /> : ""}
-          </button>
-        </li>
-      </ul>
+        <ul id="TopNavBarUl">
+            <li>
+                <NavLink to={`/portfolios/${userId}`}className="TopNavBarNavLink">Portfolios</NavLink>
+            </li>
+            <li>
+                <NavLink to="/watchlist" className="TopNavBarNavLink">Watchlists</NavLink>
+            </li>
+            <li>
+                <NavLink to={`/users/${userId}/transactions`} className="TopNavBarNavLink">Transactions</NavLink>
+            </li>
+            <li>
+                <NavLink to="/stocks/" className="TopNavBarNavLink">Stocks</NavLink>
+            </li>
+            {/* <li>
+                <NavLink to="/retirement2" className="TopNavBarNavLink">Retirement</NavLink>
+            </li>
+            <li>
+                <NavLink to="/notifications" className="TopNavBarNavLink">Notifications</NavLink>
+            </li> */}
+            <li>
+                <button onClick={toggleMenu} id="TopNavBarToggleDropdownButton">
+                     <Link
+                        className={showMenu ?
+                            "TopNavBarNavLink TopNavBarLinkActive" :
+                            "TopNavBarNavLink"}>Account
+                    </Link>
+                    {showMenu ? <AccountDropdown id="TopNavBarAccountDropdown" />: ""}
+                </button>
+            </li>
+
+        </ul>
     </header>
   );
 };
