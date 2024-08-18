@@ -11,7 +11,8 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchUserTransactions = async () => {
-      await dispatch(userTransactions(sessionUser.id));
+      if (sessionUser === null) return;
+      await dispatch(userTransactions(sessionUser?.id));
     };
 
     fetchUserTransactions();

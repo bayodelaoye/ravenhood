@@ -561,7 +561,7 @@ function StockDetailsPage() {
           )}
         </div>
       ) : (
-        <>Loading</>
+        <></>
       )}
     </>
   );
