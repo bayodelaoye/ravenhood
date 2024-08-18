@@ -16,6 +16,9 @@ const Profile = ({ userPortfolios, onImageChange }) => {
 	const [image, setImage] = useState(userPortfolios.image || null);
 	const [preview, setPreview] = useState(userPortfolios.image || null);
 
+
+
+      
       useEffect(() => {
             setImage(userPortfolios.image);
 		setPreview(userPortfolios.image);

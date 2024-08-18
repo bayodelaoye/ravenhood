@@ -46,9 +46,9 @@ const UpdateProfileModal = ({ userPortfolios, onImageChange }) => {
 			});
 
 			if (response.ok) {
-				onImageChange(image); // Notify parent of the image change
+				onImageChange(image);
 				closeModal();
-				navigate("/profile/portfolios");
+				navigate("/portfolios");
 			} else {
 				console.error("Update failed");
 			}

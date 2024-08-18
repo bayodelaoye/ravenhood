@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
 				element: <HomePage />,
 			},
 			{
-				path: "profile/portfolios",
+				path: "/portfolios",
 				loader: userPortfolios,
 				element: <UserProfilePage />,
 				action: modifyPortfolio,

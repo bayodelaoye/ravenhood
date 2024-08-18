@@ -28,10 +28,7 @@ export const createPortfolioAction = async ({ request }) => {
 export const updatePortfolioAction = async ({ request }) => {
 	const formData = await request.formData();
 	const data = Object.fromEntries(formData);
-      const intent = formData.get("intent");
-      
-      // console.log("data", data);
-      
+      const intent = formData.get("intent");      
 
       if (intent === "update-portfolio") {
             
@@ -45,12 +42,10 @@ export const updatePortfolioAction = async ({ request }) => {
 				cash_balance: data.cash_balance,
 			}),
 		});
-            // console.log("made it here, hopefully");
 
 		if (response.ok) {
 			const message = await response.json();
 			return message.message;
-			// return redirect("/");
             }
             return null
 	}
@@ -114,7 +109,3 @@ export const modifyPortfolio = async ({ request }) => {
 
 	return "There was an error in updating the portfolio";
 };
-
-// export const updateProfilePic = async ({ request }) => {
-//       return await fetch(``)
-// }

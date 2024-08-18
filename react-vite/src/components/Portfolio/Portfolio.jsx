@@ -7,24 +7,12 @@ import "./Portfolio.css";
 
 const Portfolio = () => {
 	const { userPortfolios } = useLoaderData();
-	// const { userWatchlists } = useLoaderData();
 	const currentUser = useSelector((state) => state.session.user);
 	const portfolios = userPortfolios.portfolios.map((portfolio) => portfolio);
 	const stockDetails = userPortfolios.portfolios.map((stock) => stock.stocks);
 	const totalAmount = portfolios.reduce((acc, curr) => {
 		return acc + +curr.total_amount;
 	}, 0);
-
-	// console.log("total", totalAmount);
-
-	// {
-	// 	portfolios.map((portfolio) => console.log("this is portfolio", portfolio));
-	// }
-
-	console.log("portfolio", userPortfolios);
-	// console.log("Watchlist: ", userWatchlists);
-	// console.log("stock details", stockDetails);
-	// console.log("portfolio details", portfolios);
 
 	if (userPortfolios === null) {
 		return <div>Error loading portfolios. Please try again later.</div>;
