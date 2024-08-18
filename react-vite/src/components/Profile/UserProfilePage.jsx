@@ -6,7 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 import UpdateProfileModal from "./UpdateProfileModal";
 import InvestingsModal from "./InvestingsModal";
 import { FaCircleInfo } from "react-icons/fa6";
-
+import DeletePortfolio from ""
 
 const UserProfilePage = () => {
 	const { userPortfolios } = useLoaderData();
@@ -182,7 +182,7 @@ const UserProfilePage = () => {
 									style={{
 										
 									}}
-									modalComponent={<De />}
+									modalComponent={< />}
 								/>
 							</div>
 							<hr />
