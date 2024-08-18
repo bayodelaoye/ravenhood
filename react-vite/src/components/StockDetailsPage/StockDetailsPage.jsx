@@ -144,6 +144,7 @@ function StockDetailsPage() {
     }
   };
 
+  if (!currentUser) return;
   return (
     <>
       {isLoaded ? (

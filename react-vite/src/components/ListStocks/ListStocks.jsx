@@ -3,9 +3,11 @@ import "./ListStocks.css";
 import ListStocksIndex from "./ListStocksIndex";
 import { useState } from "react";
 import Pagination from "./Pagination";
+import { useSelector } from "react-redux";
 
 function ListStocks() {
   const listOfStocks = useLoaderData();
+  const currentUser = useSelector((state) => state.session.user);
   const [currentPage, setCurrentPage] = useState(1);
   const [stocksPerPage, setStocksPerPage] = useState(30);
   const lastPostIndex = currentPage * stocksPerPage;
@@ -14,6 +16,7 @@ function ListStocks() {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  if (!currentUser) return;
   return (
     <div className="stock-list-page-container">
       <h1>List of all stocks</h1>

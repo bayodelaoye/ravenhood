@@ -29,9 +29,10 @@ function AccountDropdown() {
     console.log("handleProfile ran");
   };
 
-  const handleLogout = (e) => {
+  const handleLogout = async (e) => {
     e.preventDefault();
-    dispatch(sessionActions.thunkLogout());
+
+    await dispatch(sessionActions.thunkLogout());
 
     return navigate("/");
   };

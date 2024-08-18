@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import TransactionsIndex from "./TransactionsIndex";
 import { useEffect, useState } from "react";
 import { userTransactions } from "../../redux/transactions";
+import { useNavigate } from "react-router-dom";
 
 function TransactionsPage() {
   const currentUser = useSelector((state) => state.session.user);
@@ -11,6 +12,7 @@ function TransactionsPage() {
     const transactions = state?.transactions?.transactions || {};
     return Object.values(transactions);
   });
+  const navigate = useNavigate();
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -26,13 +28,14 @@ function TransactionsPage() {
     (a, b) => new Date(b.created_at) - new Date(a.created_at)
   );
 
+  if (!currentUser) return;
   return (
     <>
       {isLoaded ? (
         <div className="transactions-container">
           <div className="transactions-name-links">
             <h3>
-              {currentUser.first_name} {currentUser.last_name} Transactions
+              {currentUser?.first_name} {currentUser?.last_name} Transactions
             </h3>
             {/* <div className="transactions-links-container">
               <p className="transactions-links">Investing</p>
