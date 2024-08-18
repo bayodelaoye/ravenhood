@@ -22,7 +22,7 @@ export const userPortfolios = (userId) => async (dispatch) => {
   }
 };
 
-const initialState = { portfolios: null };
+const initialState = {};
 
 function portfolioReducer(state = initialState, action) {
   switch (action.type) {
