@@ -67,7 +67,7 @@ export const thunkLogout = () => async (dispatch) => {
   dispatch(removeUser());
 };
 
-const initialState = { user: null };
+const initialState = {};
 
 function sessionReducer(state = initialState, action) {
   switch (action.type) {

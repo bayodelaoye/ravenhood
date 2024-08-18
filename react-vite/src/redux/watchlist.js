@@ -20,7 +20,7 @@ export const userWatchLists = () => async (dispatch) => {
   }
 };
 
-const initialState = { watchlists: null };
+const initialState = {};
 
 function watchlistReducer(state = initialState, action) {
   switch (action.type) {

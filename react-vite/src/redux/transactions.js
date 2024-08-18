@@ -20,7 +20,7 @@ export const userTransactions = (userId) => async (dispatch) => {
   }
 };
 
-const initialState = { transactions: null };
+const initialState = {};
 
 function transactionReducer(state = initialState, action) {
   switch (action.type) {

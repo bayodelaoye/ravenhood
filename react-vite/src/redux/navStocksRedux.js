@@ -29,7 +29,7 @@ export const navStocks = () => async (dispatch) => {
 };
 
 
-const initialState = { navStocks: null };
+const initialState = {};
 
 function navStocksReducer(state = initialState, action) {
   switch (action.type) {
