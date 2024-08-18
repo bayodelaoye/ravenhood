@@ -1,9 +1,11 @@
 const GET_PORTFOLIOS = "portfolios/GET_PORTFOLIOS";
 
-const getUserPortfolios = (portfolios) => ({
-  type: GET_PORTFOLIOS,
-  portfolios,
-});
+const getUserPortfolios = (portfolios) => {
+  return {
+    type: GET_PORTFOLIOS,
+    portfolios,
+  }
+};
 
 export const userPortfolios = (userId) => async (dispatch) => {
   const response = await fetch(`/api/users/${userId}/portfolios`);
@@ -26,7 +28,7 @@ function portfolioReducer(state = initialState, action) {
   switch (action.type) {
     case GET_PORTFOLIOS:
       console.log("STATE PORTFOLIO REDUCER", state)
-      return { userPortfolios: action.portfolios };
+      return { ...state, userPortfolios: action.portfolios };
     default:
       console.log("STATE PORTFOLIO REDUCER", state)
       return state;
