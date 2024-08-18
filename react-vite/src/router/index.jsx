@@ -6,14 +6,11 @@ import Layout from "./Layout";
 import { userPortfolios } from "../components/loaders/portfolios";
 import { modifyPortfolio } from "../components/actions/portfolios";
 import UserProfilePage from "../components/Profile/UserProfilePage.jsx";
-import Portfolio from "../components/Portfolio";
-import AuHomePage from "../components/HomePage/Au-HomePage/Au-HomePage.jsx";
 import CreatePortfolio from "../components/Portfolio/Portfolio-CRUD/Create/CreatePortfolio.jsx";
 import { createPortfolioAction } from "../components/actions/portfolios";
 import UpdatePortfolio from "../components/Portfolio/Portfolio-CRUD/Update/UpdatePortfolio.jsx";
 import { updatePortfolioAction } from "../components/actions/portfolios";
 import PortfolioDetails from "../components/Portfolio/PortfolioDetails.jsx";
-// import Profile from "../components/Profile";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
@@ -43,70 +40,70 @@ import ListStocks from "../components/ListStocks/ListStocks.jsx";
 import UpdateProfileModal from "../components/Profile/UpdateProfileModal.jsx";
 
 export const router = createBrowserRouter([
-  {
-    path: "signup",
-    element: <SignupFormPage />,
-  },
-  {
-    path: "login",
-    element: <LoginFormPage />,
-  },
-  {
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        loader: userPortfolios,
-        element: <HomePage />,
-      },
-      {
-        path: "profile/portfolios",
-        loader: userPortfolios,
-        element: <UserProfilePage />,
-        action: modifyPortfolio,
-        children: [
-          {
-            path: "edit",
-            element: <UpdateProfileModal />,
-          },
-        ],
-      },
-      {
-        path: "portfolios/new",
-        loader: userPortfolios,
-        element: <CreatePortfolio />,
-        action: createPortfolioAction,
-      },
-      {
-        path: "portfolios/:userId",
-        loader: userPortfolios,
-        element: <PortfolioDetails />,
-        action: modifyPortfolio,
-      },
-      {
-        path: "portfolios/:userId/edit",
-        loader: userPortfolios,
-        element: <UpdatePortfolio />,
-        action: updatePortfolioAction,
-      },
-      {
-        path: "portfolios/:userId/edit/cash",
-        loader: userPortfolios,
-        element: <UpdatePortfolio />,
-        action: updatePortfolioAction,
-      },
-      {
-        path: "watchlist/:watchlist_num",
-        loader: watchlistLoader,
-        element: <Watchlist />,
-        action: deleteWatchlist,
-      },
-      {
-        path: "watchlist",
-        element: <WatchlistAll />,
-        loader: watchlistLoader,
-        action: deleteWatchlist,
-      },
+	{
+		path: "signup",
+		element: <SignupFormPage />,
+	},
+	{
+		path: "login",
+		element: <LoginFormPage />,
+	},
+	{
+		element: <Layout />,
+		children: [
+			{
+				path: "/",
+				loader: userPortfolios,
+				element: <HomePage />,
+			},
+			{
+				path: "/portfolios",
+				loader: userPortfolios,
+				element: <UserProfilePage />,
+				action: modifyPortfolio,
+				children: [
+					{
+						path: "edit",
+						element: <UpdateProfileModal />,
+					},
+				],
+			},
+			{
+				path: "portfolios/new",
+				loader: userPortfolios,
+				element: <CreatePortfolio />,
+				action: createPortfolioAction,
+			},
+			{
+				path: "portfolios/:userId",
+				loader: userPortfolios,
+				element: <PortfolioDetails />,
+				action: modifyPortfolio
+			},
+			{
+				path: "portfolios/:userId/edit",
+				loader: userPortfolios,
+				element: <UpdatePortfolio />,
+				action: updatePortfolioAction,
+			},
+			{
+				path: "portfolios/:userId/edit/cash",
+				loader: userPortfolios,
+				element: <UpdatePortfolio />,
+				action: updatePortfolioAction,
+			},
+			{
+				path: "watchlist/:watchlist_num",
+				loader: watchlistLoader,
+				element: <Watchlist />,
+				action: deleteWatchlist,
+			},
+			{
+				path: "watchlist",
+				element: <WatchlistAll />,
+				loader: watchlistLoader,
+				action: deleteWatchlist,
+			},
 
       // =============Not Loggedin aka NavigationStart=============
       {

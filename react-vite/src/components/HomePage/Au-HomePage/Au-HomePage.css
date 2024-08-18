@@ -2,10 +2,10 @@
 
 #authorized-user-home {
 	display: flex;
-	grid-template-columns: 2fr 1fr; /* Left column takes 3 parts, right column takes 1 part */
-	gap: 20px; /* Adjust spacing between columns */
-	align-items: start; /* Aligns items at the start of the grid cells */
-	min-height: 100vh; /* Ensures the grid takes full viewport height */
+	grid-template-columns: 2fr 1fr;
+	gap: 20px;
+	align-items: start;
+	min-height: 100vh;
 	padding-left: 250px;
 	padding-right: 300px;
 }
@@ -13,7 +13,7 @@
 #welcome,
 #discover-more,
 #get-more {
-	grid-column: 1 / 2; /* Main content is in the left column */
+	grid-column: 1 / 2;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -28,9 +28,9 @@
 }
 
 #watchlist-sidebar {
-	grid-column: 2 / 3; /* Sidebar is in the right column */
+	grid-column: 2 / 3;
 	position: sticky;
-	top: 20px; /* Space from the top of the viewport when sticky */
+	top: 20px;
 	align-self: start;
 	/* width: 45%; */
 }
@@ -41,6 +41,7 @@
 #authorized-user-home h4,
 #authorized-user-home h5 {
 	font-family: "Lato", sans-serif;
+	color: #8a7c9c;
 }
 
 #authorized-user-home p {
@@ -85,6 +86,10 @@
 #welcome-unlock h4 {
 	font-size: 15px;
 	margin: 0;
+}
+
+#welcome-unlock p {
+      font-size: 18px;
 }
 
 #welcome-fund button {
@@ -177,9 +182,10 @@
 	font-size: 15px;
 }
 
-#ravenhood-get-more a {
+#ravenhood-get-more h6 {
 	font-size: 13px;
-	font-weight: bold;
+	font-weight: 900;
+	color: #8a7c9c;
 }
 
 #carousel-navigation {
@@ -194,6 +200,7 @@
 	border: none;
 	font-size: 1.5rem;
 	cursor: pointer;
+	color: #8a7c9c;
 }
 
 .nav-indicator {
@@ -203,7 +210,7 @@
 
 @media (max-width: 1000px) {
 	#authorized-user-home {
-		display: block; /* Switch to a block layout */
+		display: block;
 		padding-left: 0;
 		padding-right: 0;
 	}
@@ -233,21 +240,16 @@
 		top: 0;
 		width: 50%;
 		z-index: 10;
-		background-color: rgba(
-			255,
-			255,
-			255,
-			0.9
-		); 
+		background-color: rgba(255, 255, 255, 0.9);
 	}
 
 	#welcome,
 	#discover-more,
 	#get-more {
-		padding-right: 55%; 
+		padding-right: 55%;
 	}
 
-      #discover-links div,
+	#discover-links div,
 	.ravenhood-carousel-item {
 		width: 100%;
 		text-align: center;
@@ -257,13 +259,12 @@
 		margin: 0 auto;
 	}
 
-      #discover-links,
+	#discover-links,
 	#ravenhood-get-more {
 		padding: 10px;
 	}
 
-      #welcome {
+	#welcome {
 		padding: 20px;
 	}
 }
-

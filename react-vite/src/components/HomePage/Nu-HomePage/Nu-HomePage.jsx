@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Sparkles from "./Sparkle";
 import "./Nu-HomePage.css";
 import OpenModalButton from "../../OpenModalButton";
-import LoginFormModal from "../../LoginFormModal";
+// import LoginFormModal from "../../LoginFormModal";
 import LimitationsModal from "../LimitationsModal";
 import { FaCircleInfo } from "react-icons/fa6";
 import Tilt from "react-parallax-tilt";
@@ -63,34 +63,19 @@ const NuHomePage = () => {
 						buttonText="Deposit now"
 						style={{
 							background: `linear-gradient(270deg, #4D3F72 2.68%,#C8CBCD 104.69%,  #DFE0E5 61.25%)`,
-							border: 0,
+                                          border: 0,
+                                          cursor: `text`,
 							width: `175px`,
-							cursor: `pointer`,
 							borderRadius: `40px`,
 							padding: `12px 15px`,
 							fontSize: `1em`,
 							color: `black`,
 						}}
-						modalComponent={<LoginFormModal />}
 					/>
 				</div>
 			</div>
 			<div id="section-2-nu-home">
-				<p>
-					Get your first stock free.{" "}
-					<a
-						href="http://localhost:8000/support"
-						target="_blank"
-						rel="noreferrer"
-						style={{
-							color: `#C8CBCD`,
-							fontWeight: `bold`,
-							textDecoration: `underline`,
-						}}
-					>
-						Limitations Apply.
-					</a>{" "}
-				</p>
+				<p>Get your first stock free. Limitations Apply.</p>
 			</div>
 			<Footer />
 			<Outlet />
