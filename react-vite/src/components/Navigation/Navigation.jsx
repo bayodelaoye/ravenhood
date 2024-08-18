@@ -11,9 +11,9 @@ import "./Navigation.css";
 const Navigation = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(navStocksActions.navStocks());
-  });
+//   useEffect(() => {
+//     dispatch(navStocksActions.navStocks());
+//   });
 
   const sessionUser = useSelector((state) => state.session.user);
   const userId = sessionUser.id;
@@ -75,7 +75,7 @@ const Navigation = () => {
 
       <ul id="TopNavBarUl">
         <li>
-          <NavLink to={`/portfolios/${userId}`} className="TopNavBarNavLink">
+          <NavLink to={`/portfolios`} className="TopNavBarNavLink">
             Portfolios
           </NavLink>
         </li>

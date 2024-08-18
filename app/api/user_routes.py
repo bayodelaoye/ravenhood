@@ -53,6 +53,32 @@ def upload_image(id):
     return {"message": "Updated user's information"}, 201
 
 
+# @user_routes.route("/<int:id>", methods=["PUT"])
+# @login_required
+# def upload_image(id):
+#     user = User.query.get(id)
+#     if not user:
+#         return {"message": "User not found"}, 404
+
+#     # Handle file upload if the image is provided
+#     if "image" in request.files:
+#         image = request.files["image"]
+#         image.filename = get_unique_filename(image.filename)
+#         upload = upload_file_to_s3(image)
+#         if "url" not in upload:
+#             return {"message": "There was an error uploading the image"}, 400
+#         user.image = upload["url"]
+
+#     # Update the username if provided
+#     username = request.form.get("username")
+#     if username:
+#         user.username = username
+
+#     # Commit changes if any update was made
+#     db.session.commit()
+#     return {"message": "Updated user's information"}, 201
+
+
 @user_routes.route("/<int:id>/portfolios")
 @login_required
 def user_portfolios(id):

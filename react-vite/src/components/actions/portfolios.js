@@ -27,73 +27,74 @@ export const createPortfolioAction = async ({ request }) => {
 
 export const updatePortfolioAction = async ({ request }) => {
 	const formData = await request.formData();
-	const data = Object.fromEntries(formData);
-      const intent = formData.get("intent");      
+	const data = Object.fromEntries(formData.entries());
+	const intent = formData.get("intent");
 
-      if (intent === "update-portfolio") {
-            
-            const response = await fetch(`/api/portfolios/${+data.id}`, {
-                  method: "PUT",
-			headers: {
-                        "Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-                        portfolio_name: data.portfolio_name,
-				cash_balance: data.cash_balance,
-			}),
-		});
+	console.log("dattaaaa", data);
+	console.log("intent", intent);
 
-		if (response.ok) {
-			const message = await response.json();
-			return message.message;
-            }
-            return null
+	const response = await fetch(`/api/portfolios/${+data.id}`, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			portfolio_name: data.portfolioName,
+			cash_balance: +data.cashBalance,
+		}),
+	});
+
+	if (response.ok) {
+		const message = await response.json();
+		return message;
 	}
-
-	// if (intent === "update-portfolio-cash") {
-	// 	const response = await fetch(`/api/portfolios/${data.id}/cash`, {
-	// 		method: "PUT",
-	// 		headers: {
-	// 			"Content-Type": "application/json",
-	// 		},
-	// 		body: JSON.stringify({
-	// 			cash_balance: data.cash_balance,
-	// 		}),
-	// 	});
-
-	// 	if (response.ok) {
-	// 		const message = await response.json();
-	// 		console.log(message.message);
-	// 		return redirect("/");
-	// 	}
-	// }
-
-	if (intent === "update-profile-pic") {
-		const response = await fetch(`/api/users/${data.id}`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				image: data.image,
-				username: data.username,
-			}),
-		});
-
-		if (response.ok) {
-			const message = await response.json();
-			console.log(message.message);
-			return redirect("/profile/portfolios");
-		}
-	}
+	return { message: "Failed to update portfolio" };
 };
+
+// // if (intent === "update-portfolio-cash") {
+// // 	const response = await fetch(`/api/portfolios/${data.id}/cash`, {
+// // 		method: "PUT",
+// // 		headers: {
+// // 			"Content-Type": "application/json",
+// // 		},
+// // 		body: JSON.stringify({
+// // 			cash_balance: data.cash_balance,
+// // 		}),
+// // 	});
+
+// // 	if (response.ok) {
+// // 		const message = await response.json();
+// // 		console.log(message.message);
+// // 		return redirect("/");
+// // 	}
+// // }
+
+// return null;
 
 export const modifyPortfolio = async ({ request }) => {
 	const formData = await request.formData();
 	const data = Object.fromEntries(formData);
 	const intent = formData.get("intent");
 
+	if (intent === "update-profile-pic") {
+		const formData = new FormData();
+		formData.append("id", data.id);
+		formData.append("username", data.username);
+		if (data.image) {
+			formData.append("image", data.image); // Append the image file
+		}
 
+		const response = await fetch(`/api/users/${data.id}`, {
+			method: "PUT",
+			body: formData, // Send FormData, not JSON
+		});
+
+		if (response.ok) {
+			const message = await response.json();
+			console.log(message.message);
+			return redirect("/portfolios");
+		}
+	}
 	if (intent === "delete-portfolio") {
 		const response = await fetch(`/api/portfolios/${data.id}`, {
 			method: "DELETE",
@@ -102,9 +103,7 @@ export const modifyPortfolio = async ({ request }) => {
 		if (response.ok) {
 			const message = await response.json();
 			return message;
-
 		}
-
 	}
 
 	return "There was an error in updating the portfolio";

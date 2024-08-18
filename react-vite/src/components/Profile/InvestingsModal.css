@@ -1,0 +1,17 @@
+#investings-modal {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 10%;
+}
+
+#close-investings {
+      align-self: flex-end;
+}
+
+#close-investings-button {
+      border: none;
+      background: none;
+      font-size: 25px;
+      cursor: pointer;
+}

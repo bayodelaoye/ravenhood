@@ -195,12 +195,12 @@ function SearchBar() {
   // ===========================RETURN ===============================
   // =======================GRABING STOCK DATA FROM STORE=======================
   const navStocks = useSelector((store) => store.navStocks.navStocks);
-  // console.log("navStocks from searchBar = ", navStocks)
+//   console.log("navStocks from searchBar = ", navStocks)
   if (navStocks === null) return null;
 
   const searchables = navStocks.filter((stock) => stock.company_name !== null);
-  // const searchables = ["AAPL", "AMZN", "BUTT"]
-  // console.log("searchables from searchbar ============= ", searchables)
+//   const searchables = ["AAPL", "AMZN", "BUTT"]
+  console.log("searchables from searchbar ============= ", searchables)
 
   return (
     <>
