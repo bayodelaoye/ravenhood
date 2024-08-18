@@ -74,10 +74,10 @@ const initialState = {};
 function sessionReducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
-      console.log("STATE FROM SESSION REDUCER", state)
+      console.log("STATE FROM SESSION REDUCER", state, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
       return { ...state, user: action.payload };
     case REMOVE_USER:
-      console.log("STATE FROM SESSION REDUCER", state)
+      console.log("STATE FROM SESSION REDUCER", state, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
       return { ...state, user: null };
     default:
       return state;

@@ -27,7 +27,7 @@ const initialState = {};
 function portfolioReducer(state = initialState, action) {
   switch (action.type) {
     case GET_PORTFOLIOS:
-      console.log("STATE PORTFOLIO REDUCER", state)
+      console.log("STATE PORTFOLIO REDUCER", state, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
       return { ...state, userPortfolios: action.payload };
     default:
       console.log("STATE PORTFOLIO REDUCER", state)

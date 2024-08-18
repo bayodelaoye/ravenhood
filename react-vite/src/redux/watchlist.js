@@ -27,8 +27,8 @@ const initialState = {};
 function watchlistReducer(state = initialState, action) {
   switch (action.type) {
     case GET_WATCHLISTS:
-      console.log("STATE WATCHLISTS REDUCER", state)
-      return { userWatchLists: action.payload };
+      console.log("STATE WATCHLISTS REDUCER", state, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
+      return { ...state, userWatchLists: action.payload };
     default:
       console.log("STATE WATCHLISTS REDUCER", state)
       return state;

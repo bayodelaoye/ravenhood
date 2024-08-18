@@ -27,7 +27,7 @@ const initialState = {};
 function transactionReducer(state = initialState, action) {
   switch (action.type) {
     case GET_TRANSACTIONS:
-      console.log("STATE TRANSACTIONS REDUCER", state)
+      console.log("STATE TRANSACTIONS REDUCER", state, "ACTION.TYPE = ", action.type, "ACTION.PAYLOAD = ", action.payload)
       return { ...state, transactions: action.payload };
     default:
       console.log("STATE TRANSACTIONS REDUCER", state)
