@@ -5,155 +5,27 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import "./Profile.css";
 
 const Profile = ({ onImageChange }) => {
-	const { userPortfolios: initialUserPortfolios } = useLoaderData();
-	const navigate = useNavigate();
-	const [userPortfolios, setUserPortfolios] = useState(initialUserPortfolios);
-	const [image, setImage] = useState(userPortfolios.image || null);
-	const [preview, setPreview] = useState(userPortfolios.image || null);
+  const { userPortfolios: initialUserPortfolios } = useLoaderData();
+  const navigate = useNavigate();
+  const [userPortfolios, setUserPortfolios] = useState(initialUserPortfolios);
 
-	useEffect(() => {
-		setImage(userPortfolios.image);
-		setPreview(userPortfolios.image);
-	}, [userPortfolios.image]);
+  const date = new Date(userPortfolios.created_at);
+  const year = date.getFullYear();
 
-	useEffect(() => {
-		const fetchUserPortfolios = async () => {
-			const response = await fetch(`/api/users/${userPortfolios.id}`);
-			const updatedUserData = await response.json();
-			setUserPortfolios(updatedUserData);
-		};
-
-		fetchUserPortfolios();
-	}, []);
-
-	const date = new Date(userPortfolios.created_at);
-	const year = date.getFullYear();
-
-	const handleImageChange = (event) => {
-		console.log("target", event);
-
-		const file = event.target.files[0];
-		if (file) {
-			setImage(file);
-			const previewUrl = URL.createObjectURL(file);
-			setPreview(previewUrl);
-		}
-	};
-
-	const handleRemoveImage = () => {
-		setImage(null);
-		setPreview(null);
-	};
-
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-		const formData = new FormData();
-		if (image) {
-			formData.append("image", image);
-		}
-
-		try {
-			const response = await fetch(`/api/users/${userPortfolios.id}`, {
-				method: "PUT",
-				body: formData,
-			});
-
-			if (response.ok) {
-				const updatedUser = await response.json();
-				setUserPortfolios(updatedUser);
-				onImageChange(updatedUser.image);
-				navigate("/portfolios");
-			} else {
-				console.error("Update failed");
-			}
-		} catch (error) {
-			console.error("Error during update:", error);
-		}
-	};
-
-	const triggerFileInput = () => {
-		document.getElementById("file-input").click();
-	};
-
-	return (
-		<div id="user-profile-portfolio">
-			<div id="user-profile-details">
-				<Form
-					method="put"
-					encType="multipart/form-data"
-					onSubmit={handleSubmit}
-				>
-					<div id="image-update" className="user-image-update">
-						{preview ? (
-							<>
-								<img src={preview} alt="Current Profile" width={100} />
-								<button
-									type="button"
-									className="remove-image-button"
-									onClick={handleRemoveImage}
-									style={{
-										background: "none",
-										border: "none",
-										cursor: "pointer",
-									}}
-								>
-									<FaRegCircleXmark size={20} />
-								</button>
-							</>
-						) : (
-							<>
-								<FaFaceGrinStars size={100} />
-								<button
-									type="button"
-									className="remove-image-button"
-									onClick={triggerFileInput}
-								>
-									<AiOutlinePlusCircle size={20} />
-								</button>
-								<input
-									id="file-input"
-									name="image"
-									type="file"
-									accept="image/*"
-									onChange={handleImageChange}
-									hidden
-								/>
-							</>
-						)}
-						{/* <OpenModalButton
-							buttonText={`Edit Profile`}
-							style={{
-								cursor: `pointer`,
-								textDecoration: `underline`,
-								fontWeight: `bold`,
-								border: `none`,
-								margin: `0`,
-								fontFamily: `Lato, sans-serif`,
-								fontSize: `15px`,
-								background: `none`,
-							}}
-							userPortfolios={userPortfolios}
-							onImageChange={handleImageChange}
-							modalComponent={
-								<UpdateProfileModal
-									userPortfolios={userPortfolios}
-									onImageChange={handleImageChange}
-								/>
-							}
-						/> */}
-					</div>
-				</Form>
-				<div>
-					<h2>
-						{userPortfolios.first_name} {userPortfolios.last_name}
-					</h2>
-					<p>
-						@{userPortfolios.username} • Joined {year}
-					</p>
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <div id="user-profile-portfolio">
+      <div id="user-profile-details">
+        <div>
+          <h2>
+            {userPortfolios.first_name} {userPortfolios.last_name}
+          </h2>
+          <p>
+            @{userPortfolios.username} • Joined {year}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Profile;

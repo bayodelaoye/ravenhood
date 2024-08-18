@@ -2,18 +2,14 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLoaderData, Link, useNavigate } from "react-router-dom";
 import Profile from "./Profile";
-import OpenModalButton from "../OpenModalButton";
-import UpdateProfileModal from "./UpdateProfileModal";
 import InvestingsModal from "./InvestingsModal";
-import { FaCircleInfo } from "react-icons/fa6";
+import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import DeletePortfolioModal from "../Portfolio/Portfolio-CRUD/Delete/DeletePortfolioModal";
+import { FaCircleInfo } from "react-icons/fa6";
 
 const UserProfilePage = () => {
   const { userPortfolios } = useLoaderData();
-  const [image, setImage] = useState(userPortfolios.image);
-  const handleImageChange = (newImage) => {
-    setImage(newImage);
-  };
+
   const currentUser = useSelector((state) => state.session.user);
   const navigate = useNavigate();
   const portfolios = userPortfolios?.portfolios?.map((portfolio) => portfolio);
@@ -38,37 +34,12 @@ const UserProfilePage = () => {
     }
   }, [userPortfolios, currentUser, navigate]);
 
-  console.log(userPortfolios);
   if (!currentUser) return;
 
   return (
     <div id="user-profile-portfolio">
       <div id="follow-in-line">
-        <Profile
-          userPortfolios={{ ...userPortfolios, image }}
-          onImageChange={handleImageChange}
-        />
-        <OpenModalButton
-          buttonText={`Edit Profile`}
-          style={{
-            cursor: `pointer`,
-            textDecoration: `underline`,
-            fontWeight: `bold`,
-            border: `none`,
-            margin: `0`,
-            fontFamily: `Lato, sans-serif`,
-            fontSize: `15px`,
-            background: `none`,
-          }}
-          userPortfolios={userPortfolios}
-          onImageChange={handleImageChange}
-          modalComponent={
-            <UpdateProfileModal
-              userPortfolios={userPortfolios}
-              onImageChange={handleImageChange}
-            />
-          }
-        />
+        <Profile />
       </div>
       <div id="portfolio-profile-overview">
         {!userPortfolios?.portfolios?.length ? (
