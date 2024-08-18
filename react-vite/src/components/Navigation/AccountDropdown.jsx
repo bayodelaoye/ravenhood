@@ -32,7 +32,7 @@ function AccountDropdown() {
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.thunkLogout());
-    console.log("handleLogout ran");
+
     return navigate("/");
   };
 
