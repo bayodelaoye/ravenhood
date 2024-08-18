@@ -26,6 +26,7 @@ function TransactionsPage() {
   }, [dispatch]);
 
   const sortedTransactions = allUserTransactions.sort((a, b) => {
+    console.log(a, b);
     new Date(b.created_at) - new Date(a.created_at);
   });
 
