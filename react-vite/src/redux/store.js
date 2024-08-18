@@ -10,6 +10,7 @@ import portfolioReducer from "./portfolio";
 import watchlistReducer from "./watchlist";
 import navStocksReducer from "./navStocksRedux";
 import transactionReducer from "./transactions";
+import store from "redux"
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -30,6 +31,8 @@ if (import.meta.env.MODE === "production") {
 }
 
 const configureStore = (preloadedState) => {
+  console.log("inside configureStore - store.getState(): ", store.getState());
+  console.log("CONFIGURE STORE RAN - RETURNS :", "ROOTREDUCER", rootReducer, "PRELOADED STATE: ", preloadedState, "ENHANCER: ", enhancer)
   return createStore(rootReducer, preloadedState, enhancer);
 };
 
