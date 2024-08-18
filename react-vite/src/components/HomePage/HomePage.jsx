@@ -4,7 +4,6 @@ import NuHomePage from "./Nu-HomePage";
 import AuHomePage from "./Au-HomePage";
 import { useEffect } from "react";
 import { userTransactions } from "../../redux/transactions";
-import { useDispatch } from "react-redux";
 
 const HomePage = () => {
   const sessionUser = useSelector((state) => state.session.user);
