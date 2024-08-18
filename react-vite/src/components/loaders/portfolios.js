@@ -5,8 +5,8 @@ import { json } from "react-router-dom";
 const store = configureStore();
 export const userPortfolios = async ({ params }) => {
 	await store.dispatch(thunkAuthenticate()); // making sure the user session state is up to date and not using the previous state
-	const state = store.getState(); // getting the updated state
-	const currentUser = state.session.user;
+	const theState = store.getState(); // getting the updated state
+	const currentUser = theState.session.user;
 	const userId = params?.id || currentUser?.id;
 
 	if (!userId) {
