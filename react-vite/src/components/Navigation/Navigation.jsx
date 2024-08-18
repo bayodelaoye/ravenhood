@@ -104,16 +104,16 @@ const Navigation = () => {
                 <NavLink to="/notifications" className="TopNavBarNavLink">Notifications</NavLink>
             </li> */}
         <li>
-          <button onClick={toggleMenu} id="TopNavBarToggleDropdownButton">
-            <Link
-              className={
-                showMenu
-                  ? "TopNavBarNavLink TopNavBarLinkActive"
-                  : "TopNavBarNavLink"
-              }
-            >
-              Account
-            </Link>
+          <button
+            onClick={toggleMenu}
+            id="TopNavBarToggleDropdownButton"
+            className={
+              showMenu
+                ? "TopNavBarNavLink-p TopNavBarLinkActive"
+                : "TopNavBarNavLink-p"
+            }
+          >
+            Account
             {showMenu ? <AccountDropdown id="TopNavBarAccountDropdown" /> : ""}
           </button>
         </li>

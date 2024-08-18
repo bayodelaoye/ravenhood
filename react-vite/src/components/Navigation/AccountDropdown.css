@@ -1,6 +1,7 @@
 #AccountDropdownUserName {
   font-weight: bold;
   border-bottom: 0.5px lightgray solid;
+  cursor: default;
 }
 
 #platinum {
