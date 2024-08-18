@@ -1,9 +1,11 @@
 const GET_TRANSACTIONS = "transactions/GET_TRANSACTIONS";
 
-const getUserTransactions = (transactions) => ({
-  type: GET_TRANSACTIONS,
-  transactions,
-});
+const getUserTransactions = (transactions) => {
+  return {
+    type: GET_TRANSACTIONS,
+    payload: transactions,
+  }
+};
 
 export const userTransactions = (userId) => async (dispatch) => {
   const response = await fetch(`/api/users/${userId}/transactions`);
@@ -26,7 +28,7 @@ function transactionReducer(state = initialState, action) {
   switch (action.type) {
     case GET_TRANSACTIONS:
       console.log("STATE TRANSACTIONS REDUCER", state)
-      return { ...state, transactions: action.transactions };
+      return { ...state, transactions: action.payload };
     default:
       console.log("STATE TRANSACTIONS REDUCER", state)
       return state;

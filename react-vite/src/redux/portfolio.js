@@ -3,7 +3,7 @@ const GET_PORTFOLIOS = "portfolios/GET_PORTFOLIOS";
 const getUserPortfolios = (portfolios) => {
   return {
     type: GET_PORTFOLIOS,
-    portfolios,
+    payload: portfolios,
   }
 };
 
@@ -28,7 +28,7 @@ function portfolioReducer(state = initialState, action) {
   switch (action.type) {
     case GET_PORTFOLIOS:
       console.log("STATE PORTFOLIO REDUCER", state)
-      return { ...state, userPortfolios: action.portfolios };
+      return { ...state, userPortfolios: action.payload };
     default:
       console.log("STATE PORTFOLIO REDUCER", state)
       return state;

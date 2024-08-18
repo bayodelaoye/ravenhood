@@ -1,12 +1,12 @@
 const GET_NAV_STOCKS = "stocks/GET_NAV_STOCKS";
 
 
-const getNavStocks = (stocks) => ({
-
-  type: GET_NAV_STOCKS,
-  payload: stocks,
-
-});
+const getNavStocks = (stocks) => {
+  return {
+    type: GET_NAV_STOCKS,
+    payload: stocks,
+  }
+};
 
 
 export const navStocks = () => async (dispatch) => {
