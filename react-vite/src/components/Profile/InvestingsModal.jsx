@@ -56,10 +56,7 @@ const InvestingsModal = () => {
 					Ravenhood&apos;s broker-dealer and are therefore not subject to the
 					same regulatory protections as those offered by Ravenhood Financial.
 				</p>
-                  </div>
-                  <div id="dismiss-investings-button">
-                        <button>Dismiss</button>
-                  </div>
+			</div>
 		</div>
 	);
 };

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useLoaderData, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BsStars } from "react-icons/bs";
@@ -13,10 +14,29 @@ const Portfolio = () => {
 	const totalAmount = portfolios.reduce((acc, curr) => {
 		return acc + +curr.total_amount;
 	}, 0);
+	const [timeLineBtn, setTimeLineBtn] = useState("");
 
 	if (userPortfolios === null) {
 		return <div>Error loading portfolios. Please try again later.</div>;
 	}
+	useEffect(() => {
+		if (timeLineBtn === "") {
+		} else {
+			const className = timeLineBtn.split(" ")[1];
+			const element = document.querySelector("." + className);
+			const timeLines = document.getElementsByClassName("time-line-btn");
+
+			for (let i = 0; i < timeLines.length; i++) {
+				if (timeLines[i].classList.contains("active")) {
+					timeLines[i].classList.remove("active");
+				}
+			}
+
+			element.classList.add("active");
+		}
+	}, [timeLineBtn]);
+
+	console.log("stocks", stockDetails);
 
 	return (
 		<div id="user-portfolio-home">
@@ -36,7 +56,58 @@ const Portfolio = () => {
 								<div>
 									<h3>Total Amount of all your portfolios: ${totalAmount}</h3>
 								</div>
-								<LineGraph stock={stockDetails[0][0]} />
+								<LineGraph stock={stockDetails[0][0]} timeline={timeLineBtn} />
+								<div className="time-line">
+									<div
+										className="time-line-btn one-day"
+										value="one-day"
+										onClick={(e) => setTimeLineBtn(e.target.className)}
+									>
+										1D
+									</div>
+									<div
+										className="time-line-btn one-week"
+										onClick={(e) => setTimeLineBtn(e.target.className)}
+									>
+										1W
+									</div>
+									<div
+										className="time-line-btn one-month"
+										onClick={(e) => setTimeLineBtn(e.target.className)}
+									>
+										1M
+									</div>
+									<div
+										className="time-line-btn three-month active"
+										onClick={(e) => setTimeLineBtn(e.target.className)}
+									>
+										3M
+									</div>
+									<div
+										className="time-line-btn ytd"
+										onClick={(e) => setTimeLineBtn(e.target.className)}
+									>
+										YTD
+									</div>
+									<div
+										className="time-line-btn one-year"
+										onClick={(e) => setTimeLineBtn(e.target.className)}
+									>
+										1Y
+									</div>
+									<div
+										className="time-line-btn five-year"
+										onClick={(e) => setTimeLineBtn(e.target.className)}
+									>
+										5Y
+									</div>
+									<div
+										className="time-line-btn all"
+										onClick={(e) => setTimeLineBtn(e.target.className)}
+									>
+										ALL
+									</div>
+								</div>
 								<hr />
 								<div id="ravenhood-general-blocks">
 									<div>

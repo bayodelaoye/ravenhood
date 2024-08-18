@@ -6,7 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 import UpdateProfileModal from "./UpdateProfileModal";
 import InvestingsModal from "./InvestingsModal";
 import { FaCircleInfo } from "react-icons/fa6";
-import DeletePortfolio from ""
+import DeletePortfolioModal from "../Portfolio/Portfolio-CRUD/Delete/DeletePortfolioModal";
 
 const UserProfilePage = () => {
 	const { userPortfolios } = useLoaderData();
@@ -171,18 +171,18 @@ const UserProfilePage = () => {
 								<OpenModalButton
 									buttonText={
 										<span style={{ display: "flex", alignItems: "center" }}>
-											<FaCircleInfo
-												style={{
-													marginRight: "5px",
-													marginBottom: "10px",
-												}}
-											/>
+											<FaCircleInfo style={{ marginRight: "5px" }} />
 										</span>
 									}
 									style={{
-										
+										background: `none`,
+										color: `#B4B1B1`,
+										padding: 0,
+										border: `none`,
+										cursor: `pointer`,
+										fontSize: `15px`,
 									}}
-									modalComponent={< />}
+									modalComponent={<InvestingsModal />}
 								/>
 							</div>
 							<hr />
@@ -210,22 +210,48 @@ const UserProfilePage = () => {
 							<div key={portfolio.id}>
 								<div className="individual-portfolio-investing">
 									<div className="individual-investing-port">
-										<h2>{portfolio.portfolio_name}</h2>
-										<Link to={`/portfolios/${currentUser.id}/edit`}>
-											<button>Update</button>
-										</Link>
-										<OpenModalButton
-											buttonText="Delete"
-											style={{
-												backgroundColor: `none`,
-												color: `#B4B1B1`,
-												padding: 0,
-												border: `none`,
-												cursor: `pointer`,
-												fontSize: `15px`,
-											}}
-											modalComponent={<InvestingsModal />}
-										/>
+										<div id="ensure-to-justify">
+											<div>
+												<h2>{portfolio.portfolio_name}</h2>
+											</div>
+											<div id="add-some-gap">
+												<Link to={`/portfolios/${currentUser.id}/edit`}>
+													<button
+														style={{
+															background: `linear-gradient(270deg, #4d3f72 2.68%,#c8cbcd 104.69%,#dfe0e5 61.25%)`,
+															color: `#fff`,
+															padding: `10px`,
+															border: `none`,
+															cursor: `pointer`,
+															fontSize: `15px`,
+															borderRadius: `24px`,
+														}}
+													>
+														Update
+													</button>
+												</Link>
+												<OpenModalButton
+													buttonText="Delete"
+													style={{
+														background: `red`,
+														color: `black`,
+														padding: `10px`,
+														border: `none`,
+														cursor: `pointer`,
+														fontSize: `15px`,
+														borderRadius: `24px`,
+													}}
+													userPortfolios={userPortfolios}
+													navigate={navigate}
+													modalComponent={
+														<DeletePortfolioModal
+															userPortfolios={userPortfolios}
+															navigate={navigate}
+														/>
+													}
+												/>
+											</div>
+										</div>
 									</div>
 									<hr />
 									<div>

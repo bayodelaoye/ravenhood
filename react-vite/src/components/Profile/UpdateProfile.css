@@ -135,3 +135,13 @@ footer {
 	display: flex;
 	align-items: center;
 }
+
+#ensure-to-justify {
+      justify-content: space-between;
+      padding: 0;
+      width: 100%;
+}
+
+#add-some-gap {
+      gap: 15px;
+}
