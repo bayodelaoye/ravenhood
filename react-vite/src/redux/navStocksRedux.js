@@ -35,10 +35,10 @@ function navStocksReducer(state = initialState, action) {
   switch (action.type) {
     case GET_NAV_STOCKS:
       // console.log("navStocksReducer ran")
-      // console.log("STATE FROM NAVSTOCKS REDUCER", state)
+      console.log("STATE FROM NAVSTOCKS REDUCER", state)
       return { ...state, navStocks: action.payload };
     default:
-      // console.log("STATE FROM NAVSTOCKS REDUCER", state)
+      console.log("STATE FROM NAVSTOCKS REDUCER", state)
       return state;
   }
 }

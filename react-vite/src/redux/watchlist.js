@@ -25,10 +25,10 @@ const initialState = { watchlists: null };
 function watchlistReducer(state = initialState, action) {
   switch (action.type) {
     case GET_WATCHLISTS:
-      // console.log("STATE WATCHLISTS REDUCER", state)
+      console.log("STATE WATCHLISTS REDUCER", state)
       return { userWatchLists: action.watchLists };
     default:
-      // console.log("STATE WATCHLISTS REDUCER", state)
+      console.log("STATE WATCHLISTS REDUCER", state)
       return state;
   }
 }

@@ -16,6 +16,7 @@ function SearchBar() {
 
   useEffect(() => {
     dispatch(navStocksActions.navStocks());
+    console.log("FROM SEARCHBAR.JSX dispatch(navStocksActions.navStocks());")
   }, []);
 
   // =======================STATEFUL VARIABLES=======================

@@ -18,8 +18,10 @@ function NavigationStart() {
   useEffect(() => {
 
     dispatch(navStocksActions.navStocks())
+    console.log("FROM NAVIGATION START JSX dispatch(navStocksActions.navStocks());")
 
-  },)
+
+  }, [])
 
 
 

@@ -13,6 +13,7 @@ const Navigation = () => {
 
   useEffect(() => {
     dispatch(navStocksActions.navStocks());
+    console.log("FROM NAVIGATION.JSX dispatch(navStocksActions.navStocks());")
   });
 
   const sessionUser = useSelector((state) => state.session.user);

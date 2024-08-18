@@ -17,7 +17,8 @@ export default function Layout() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(navStocksActions.navStocks())
+    dispatch(navStocksActions.navStocks());
+    console.log("FROM LAYOUT START JSX dispatch(navStocksActions.navStocks());")
     dispatch(thunkAuthenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
