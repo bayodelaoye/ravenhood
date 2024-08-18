@@ -4,17 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import ravenhoodLogoPurple from "./Logo/ravenhoodLogoPurple.png";
 import SearchBar from "./SearchBar/SearchBar";
 import AccountDropdown from "./AccountDropdown";
-import * as navStocksActions from "../../redux/navStocksRedux";
+// import * as navStocksActions from "../../redux/navStocksRedux";
 import "./Navigation.css";
 
 // This prop was passed in start: {isLoaded}
 const Navigation = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(navStocksActions.navStocks());
-    console.log("FROM NAVIGATION.JSX dispatch(navStocksActions.navStocks());")
-  });
+  // useEffect(() => {
+  //   dispatch(navStocksActions.navStocks());
+  //   console.log("FROM NAVIGATION.JSX dispatch(navStocksActions.navStocks());")
+  // });
 
   const sessionUser = useSelector((state) => state.session.user);
   const userId = sessionUser.id;

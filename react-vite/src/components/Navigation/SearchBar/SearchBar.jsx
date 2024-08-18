@@ -12,12 +12,12 @@ import "./SearchBar.css";
 function SearchBar() {
   const navigate = useNavigate();
   const stocks = useSelector((state) => state?.navStocks?.navStocks);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(navStocksActions.navStocks());
-    console.log("FROM SEARCHBAR.JSX dispatch(navStocksActions.navStocks());")
-  }, []);
+  // useEffect(() => {
+  //   dispatch(navStocksActions.navStocks());
+  //   console.log("FROM SEARCHBAR.JSX dispatch(navStocksActions.navStocks());")
+  // }, []);
 
   // =======================STATEFUL VARIABLES=======================
   // some of these may not be used after all

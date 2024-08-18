@@ -13,15 +13,15 @@ import "./NavigationStart.css";
 function NavigationStart() {
 
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    dispatch(navStocksActions.navStocks())
-    console.log("FROM NAVIGATION START JSX dispatch(navStocksActions.navStocks());")
+  //   dispatch(navStocksActions.navStocks())
+  //   console.log("FROM NAVIGATION START JSX dispatch(navStocksActions.navStocks());")
 
 
-  }, [])
+  // }, [])
 
 
 
