@@ -36,7 +36,10 @@ const UserProfilePage = () => {
 		if (currentUser && userPortfolios.id !== currentUser.id) {
 			navigate("/");
 		}
-	}, [userPortfolios, currentUser, navigate]);
+      }, [userPortfolios, currentUser, navigate]);
+      
+      console.log(userPortfolios);
+      
 
 	return (
 		<div id="user-profile-portfolio">
@@ -55,6 +58,7 @@ const UserProfilePage = () => {
 						margin: `0`,
 						fontFamily: `Lato, sans-serif`,
 						fontSize: `15px`,
+						background: `none`,
 					}}
 					userPortfolios={userPortfolios}
 					onImageChange={handleImageChange}
@@ -277,7 +281,7 @@ const UserProfilePage = () => {
 						))}
 					</>
 				)}
-				<footer>
+				<div id="profile-footer">
 					<span>
 						All investing involves risk, including the loss of principal.
 						Brokerage Holdings include securities and related products offered
@@ -320,7 +324,7 @@ const UserProfilePage = () => {
 						recommendation of any security, transaction, account type,
 						investment strategy involving securities, or order.
 					</span>
-				</footer>
+				</div>
 			</div>
 		</div>
 	);

@@ -10,7 +10,7 @@ import CreatePortfolio from "../components/Portfolio/Portfolio-CRUD/Create/Creat
 import { createPortfolioAction } from "../components/actions/portfolios";
 import UpdatePortfolio from "../components/Portfolio/Portfolio-CRUD/Update/UpdatePortfolio.jsx";
 import { updatePortfolioAction } from "../components/actions/portfolios";
-import PortfolioDetails from "../components/Portfolio/PortfolioDetails.jsx";
+// import PortfolioDetails from "../components/Portfolio/PortfolioDetails.jsx";
 import { watchlistLoader } from "../components/loaders/watchLists";
 import Watchlist from "../components/Watchlist/Watchlist";
 import { deleteWatchlist } from "../components/actions/watchLists";
@@ -65,6 +65,8 @@ export const router = createBrowserRouter([
 					{
 						path: "edit",
 						element: <UpdateProfileModal />,
+						loader: userPortfolios,
+						action: modifyPortfolio,
 					},
 				],
 			},
@@ -74,24 +76,24 @@ export const router = createBrowserRouter([
 				element: <CreatePortfolio />,
 				action: createPortfolioAction,
 			},
-			{
-				path: "portfolios/:userId",
-				loader: userPortfolios,
-				element: <PortfolioDetails />,
-				action: modifyPortfolio
-			},
+			// {
+			// 	path: "portfolios/:userId",
+			// 	loader: userPortfolios,
+			// 	element: <PortfolioDetails />,
+			// 	action: modifyPortfolio,
+			// },
 			{
 				path: "portfolios/:userId/edit",
 				loader: userPortfolios,
 				element: <UpdatePortfolio />,
 				action: updatePortfolioAction,
 			},
-			{
-				path: "portfolios/:userId/edit/cash",
-				loader: userPortfolios,
-				element: <UpdatePortfolio />,
-				action: updatePortfolioAction,
-			},
+			// {
+			// 	path: "portfolios/:userId/edit/cash",
+			// 	loader: userPortfolios,
+			// 	element: <UpdatePortfolio />,
+			// 	action: updatePortfolioAction,
+			// },
 			{
 				path: "watchlist/:watchlist_num",
 				loader: watchlistLoader,
@@ -105,102 +107,102 @@ export const router = createBrowserRouter([
 				action: deleteWatchlist,
 			},
 
-      // =============Not Loggedin aka NavigationStart=============
-      {
-        path: "/invest",
-        element: <Invest />,
-      },
-      {
-        path: "/crypto",
-        element: <Crypto />,
-      },
-      {
-        path: "/retirement",
-        element: <Retirement />,
-      },
-      {
-        path: "/options",
-        element: <Options />,
-      },
-      {
-        path: "/us",
-        // children: [
-        // ],
-      },
-      {
-        path: "/creditcard",
-        element: <CreditCard />,
-      },
-      {
-        path: "/platinum",
-        element: <Platinum />,
-      },
-      {
-        path: "/learn",
-        element: <Learn />,
-      },
-      {
-        path: "/sherwoodnews",
-        element: <SherwoodNews />,
-      },
-      {
-        path: "/support",
-        element: <Support />,
-      },
+			// =============Not Loggedin aka NavigationStart=============
+			{
+				path: "/invest",
+				element: <Invest />,
+			},
+			{
+				path: "/crypto",
+				element: <Crypto />,
+			},
+			{
+				path: "/retirement",
+				element: <Retirement />,
+			},
+			{
+				path: "/options",
+				element: <Options />,
+			},
+			{
+				path: "/us",
+				// children: [
+				// ],
+			},
+			{
+				path: "/creditcard",
+				element: <CreditCard />,
+			},
+			{
+				path: "/platinum",
+				element: <Platinum />,
+			},
+			{
+				path: "/learn",
+				element: <Learn />,
+			},
+			{
+				path: "/sherwoodnews",
+				element: <SherwoodNews />,
+			},
+			{
+				path: "/support",
+				element: <Support />,
+			},
 
-      // =============Loggedin aka Navigation=============
-      {
-        path: "/searchResults",
-        loader: listStocksLoader,
-        element: <SearchResults />,
-      },
-      // {
-      // 	path: "/rewards",
-      // 	element: <Rewards />,
-      // },
-      // {
-      // 	path: "/crypto2",
-      // 	element: <Crypto2 />,
-      // },
-      // {
-      // 	path: "/spending",
-      // 	element: <Spending />,
-      // },
-      {
-        path: "/retirement2",
-        element: <Retirement2 />,
-      },
-      {
-        path: "/notifications",
-        // element: "Notificaitons Coming Soon",
-        element: <Notifications />,
-      },
-      {
-        path: "/stocks/:stockId",
-        loader: stockDetailsLoader,
-        element: <StockDetailsPage />,
-      },
-      {
-        path: "/stocks/",
-        loader: listStocksLoader,
-        element: <ListStocks />,
-      },
-      {
-        path: "/users/:userId/transactions",
-        element: <TransactionsPage />,
-      },
-      {
-        path: "*",
-        element: (
-          <div>
-            <h1>404 Page not found</h1>
-            <p>
-              Not all those who wander are lost, but it seems you may have taken
-              a wrong turn.
-            </p>
-          </div>
-        ),
-      },
-    ],
-  },
+			// =============Loggedin aka Navigation=============
+			{
+				path: "/searchResults",
+				loader: listStocksLoader,
+				element: <SearchResults />,
+			},
+			// {
+			// 	path: "/rewards",
+			// 	element: <Rewards />,
+			// },
+			// {
+			// 	path: "/crypto2",
+			// 	element: <Crypto2 />,
+			// },
+			// {
+			// 	path: "/spending",
+			// 	element: <Spending />,
+			// },
+			{
+				path: "/retirement2",
+				element: <Retirement2 />,
+			},
+			{
+				path: "/notifications",
+				// element: "Notificaitons Coming Soon",
+				element: <Notifications />,
+			},
+			{
+				path: "/stocks/:stockId",
+				loader: stockDetailsLoader,
+				element: <StockDetailsPage />,
+			},
+			{
+				path: "/stocks/",
+				loader: listStocksLoader,
+				element: <ListStocks />,
+			},
+			{
+				path: "/users/:userId/transactions",
+				element: <TransactionsPage />,
+			},
+			{
+				path: "*",
+				element: (
+					<div>
+						<h1>404 Page not found</h1>
+						<p>
+							Not all those who wander are lost, but it seems you may have taken
+							a wrong turn.
+						</p>
+					</div>
+				),
+			},
+		],
+	},
 ]);

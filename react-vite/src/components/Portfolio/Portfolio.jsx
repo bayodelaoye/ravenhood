@@ -111,7 +111,7 @@ const Portfolio = () => {
 								<hr />
 								<div id="ravenhood-general-blocks">
 									<div>
-										<Link to={`/portfolios/${currentUser.id}`}>
+										<Link to={`/portfolios`}>
 											<h4>Edit A Portfolio</h4>
 										</Link>
 									</div>
@@ -120,12 +120,7 @@ const Portfolio = () => {
 									<div id="ns-ravenhood-cash-headers-links">
 										<h2>Cash</h2>
 										<div>
-											<Link
-												to={`portfolios/${userPortfolios.id}/edit`}
-												className="get-more-links"
-											>
-												Deposit cash
-											</Link>
+											<p>Deposit cash by editing a portfolio</p>
 										</div>
 									</div>
 									<hr />
@@ -239,12 +234,7 @@ const Portfolio = () => {
 									<div id="ns-ravenhood-cash-headers-links">
 										<h2>Cash</h2>
 										<div>
-											<Link
-												to={`portfolios/${userPortfolios.id}/edit`}
-												className="get-more-links"
-											>
-												Deposit cash
-											</Link>
+											<p>Deposit cash by editing a portfolio</p>
 										</div>
 									</div>
 									<hr />

@@ -1,29 +1,8 @@
 import { Form } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { useModal } from "../../../../context/Modal";
 
-const DeletePortfolioModal = ({ usersPortfolios, navigate }) => {
-      const { closeModal } = useModal();
-      const currentUser = useSelector((state) => state.session.user);
-
-	// const yesDelete = async (event) => {
-	// 	event.preventDefault();
-	// 	try {
-	// 		const response = await fetch(`/api/groups/${groupDetail.id}`, {
-	// 			method: "DELETE",
-	// 		});
-
-	// 		if (response.ok) {
-	// 			console.log("Portfolio deleted successfully");
-	// 			closeModal();
-	// 			navigate("/portfolios");
-	// 		} else {
-	// 			console.error("Failed to delete the portfolio");
-	// 		}
-	// 	} catch (error) {
-	// 		console.error("Error:", error);
-	// 	}
-	// };
+const DeletePortfolioModal = ({ userPortfolios }) => {
+	const { closeModal } = useModal();
 
 	const noDelete = async (event) => {
 		event.preventDefault();
@@ -38,24 +17,35 @@ const DeletePortfolioModal = ({ usersPortfolios, navigate }) => {
 					✖
 				</button>
 			</div>
-			{usersPortfolios.portfolios.map((portfolio) => (
+			<div id="which-portfolio-to-delete">
+				<h2>Which portfolio would you like to delete?</h2>
+			</div>
+			{userPortfolios.portfolios.map((portfolio) => (
 				<>
-					<h2>Are you sure you want to delete {portfolio.portfolio_name}?</h2>
-					<Form
-						method="delete"
-						action={`/portfolios/${currentUser.id}`}
-						onSubmit={noDelete}
-					>
-						<button
-							type="submit"
-							name="intent"
-							value="delete-portfolio"
-							className="portfolio-delete-button"
-						>
-							Confirm
-						</button>
-						<input type="hidden" name="id" value={portfolio.id} />
-					</Form>
+					<div>
+						<h2>Are you sure you want to delete {portfolio.portfolio_name}?</h2>
+					</div>
+					<div>
+						<Form method="delete" action={`/portfolios`} onSubmit={closeModal}>
+							<button
+								type="submit"
+								name="intent"
+								style={{ backgroundColor: "red" }}
+								value="delete-portfolio"
+								className="portfolio-delete-button"
+							>
+								Yes (Delete Portfolio)
+							</button>
+							<button
+								id="button-text"
+								style={{ backgroundColor: "darkgray" }}
+								onClick={noDelete}
+							>
+								No (Keep Portfolio)
+							</button>
+							<input type="hidden" name="id" value={portfolio.id} />
+						</Form>
+					</div>
 				</>
 			))}
 		</div>

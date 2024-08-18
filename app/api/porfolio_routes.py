@@ -64,8 +64,10 @@ def new_portfolio():
 @login_required
 def update_portfolio_name(id):
     body = request.get_json()
-#     print("***************", body)
+    #     print("***************", body)
     portfolio = Portfolio.query.get(id)
+    if not portfolio:
+        return {"message": "Portfolio not found"}, 404
     portfolio.portfolio_name = body["portfolio_name"]
     portfolio.cash_balance += Decimal(body["cash_balance"])
     db.session.commit()

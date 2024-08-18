@@ -31,7 +31,7 @@ const CreatePortfolio = () => {
 	const [isActive, setIsActive] = useState("");
 	const [errors, setErrors] = useState({});
 
-	console.log("portfolios-user", portfolios);
+	// console.log("portfolios-user", portfolios);
 
 	const onSubmit = async (event) => {
 		event.preventDefault();
@@ -63,7 +63,7 @@ const CreatePortfolio = () => {
 					action: "/portfolios/new",
 				},
 			);
-			navigate(`/portfolios/${userId}`);
+			navigate(`/portfolios`);
 		}
 	};
 

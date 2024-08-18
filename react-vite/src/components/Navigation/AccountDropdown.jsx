@@ -25,7 +25,7 @@ function AccountDropdown() {
 
   const handleProfile = (e) => {
     e.preventDefault();
-    navigate("/profile/portfolios");
+    navigate("/portfolios");
     console.log("handleProfile ran");
   };
 
