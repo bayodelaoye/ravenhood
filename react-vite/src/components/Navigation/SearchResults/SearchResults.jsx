@@ -28,6 +28,7 @@ const SearchResults = () => {
   const firstPostIndex = lastPostIndex - stocksPerPage;
   const navigate = useNavigate();
 
+  // added redirect
   useEffect(() => {
     if (!currentUser) return navigate("/");
     // setStocksState(state);
