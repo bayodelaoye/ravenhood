@@ -71,7 +71,8 @@ const CreatePortfolio = () => {
 		<div id="new-portfolio">
 			{currentUser && portfolios ? (
 				<div id="portfolio-section-1">
-					<h1>Create a portfolio for {userPortfolios.username}</h1>
+					<h1>Create a portfolio for {userPortfolios.username}!</h1>
+					<hr />
 					<fetcher.Form
 						method="post"
 						action="/portfolios/new"
@@ -80,8 +81,9 @@ const CreatePortfolio = () => {
 					>
 						<input type="hidden" name="user_id" value={userId} />
 						<div id="name-input">
-							<label>
-								What is the name of your portfolio?
+							<h2>Let&apos;s give your portfolio a name!</h2>
+							<div id="portfolio-name-div">
+								<label>What is the name of your portfolio?</label>
 								<input
 									id="portfolio-name-input"
 									type="text"
@@ -90,7 +92,7 @@ const CreatePortfolio = () => {
 									value={portfolioName}
 									onChange={(event) => setPortfolioName(event.target.value)}
 								/>
-							</label>
+							</div>
 							{errors.portfolioName && (
 								<p style={{ color: "red" }} className="errors">
 									{errors.portfolioName}
@@ -98,9 +100,10 @@ const CreatePortfolio = () => {
 							)}
 						</div>
 						<hr />
-						<div id="portfolio-details">
-							<label>
-								How much would you like to add?
+						<div id="portfolio-money-details">
+							<h2>Let&apos;s give it some money!</h2>
+							<div id="portfolio-cash-balance">
+								<label>How much would you like to add?</label>
 								<input
 									id="cash-balance-input"
 									type="number"
@@ -111,35 +114,39 @@ const CreatePortfolio = () => {
 									value={cashBalance}
 									onChange={(event) => setCashBalance(event.target.value)}
 								/>
-							</label>
+							</div>
 							{errors.cashBalance && (
 								<p style={{ color: "red" }} className="errors">
 									{errors.cashBalance}
 								</p>
 							)}
-							<label>
-								Is this portfolio active?
-								<select
-									name="is_active"
-									id="portfolio-active-select"
-									value={isActive}
-									onChange={(event) => setIsActive(event.target.value)}
-								>
-									<option value="">(select one)</option>
-									<option value="Active">Active</option>
-									<option value="Inactive">Inactive</option>
-								</select>
-							</label>
-							{errors.isActive && (
-								<p style={{ color: "red" }} className="errors">
-									{errors.isActive}
-								</p>
-							)}
+							<div id="portfolio-active">
+								<h2>Choose your activity</h2>
+								<div id="portfolio-activity-div">
+									<label>Will this portfolio be active?</label>
+									<select
+										name="is_active"
+										id="portfolio-active-select"
+										value={isActive}
+										onChange={(event) => setIsActive(event.target.value)}
+									>
+										<option value="">(select one)</option>
+										<option value="Active">Active</option>
+										<option value="Inactive">Inactive</option>
+									</select>
+								</div>
+								{errors.isActive && (
+									<p style={{ color: "red" }} className="errors">
+										{errors.isActive}
+									</p>
+								)}
+							</div>
 						</div>
 						<hr />
 						<div id="total-portfolio-amount">
-							<label>
-								What is the total amount of your portfolio?
+							<h2>What&apos;s the money looking like? </h2>
+							<div id="total-balance-input">
+								<label>What is the total amount of your portfolio?</label>
 								<input
 									id="cash-balance-input"
 									type="number"
@@ -150,7 +157,7 @@ const CreatePortfolio = () => {
 									value={totalAmount}
 									onChange={(event) => setTotalAmount(event.target.value)}
 								/>
-							</label>
+							</div>
 							{errors.totalAmount && (
 								<p style={{ color: "red" }} className="errors">
 									{errors.totalAmount}

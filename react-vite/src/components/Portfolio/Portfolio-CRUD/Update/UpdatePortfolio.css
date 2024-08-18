@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rock+3D&display=swap");
+
+#update-portfolio {
+      margin: 5% 37.5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* border: 2px solid red; */
+      padding: 0;
+}
+
+#update-portfolio #row-delete-stuff {
+      /* border: 2px solid green; */
+      width: 100%;
+      display: flex;
+}
+
+#row-delete-stuff h2 {
+      font-family: "Lato", sans-serif;
+      color: #8A7C9C;
+      font-weight: bolder;
+      margin: 0 30%;
+      padding-bottom: 20px;
+      font-size: 32px;
+}
+
+#update-portfolio label {
+      font-family: "Karla", sans-serif;
+      font-size: 20px;
+      color: #4D3F72;
+      font-weight: bold;
+}
+
+#update-portfolio input {
+      width: 100%
+}
+
+#portfolio-update-button {
+      background: linear-gradient(
+		270deg,
+		#4d3f72 2.68%,
+		#c8cbcd 104.69%,
+		#dfe0e5 61.25%
+	);
+	border: 0;
+	cursor: pointer;
+	width: 175px;
+	border-radius: 40px;
+	padding: 12px 15px;
+	font-size: 1em;
+	color: #fff;
+      align-self: center;
+}
+
+

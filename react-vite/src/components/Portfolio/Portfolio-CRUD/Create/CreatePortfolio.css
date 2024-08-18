@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rock+3D&display=swap");
+
+#new-portfolio {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 1%;
+}
+
+#portfolio-section-1 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#portfolio-section-1 h1 {
+      color: #8A7C9C;
+}
+
+#name-input, #total-portfolio-amount,
+#portfolio-money-details, #portfolio-active {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+#name-input h2,
+#portfolio-active h2,
+#portfolio-money-details h2,
+#total-portfolio-amount h2 {
+	font-family: "Lato", sans-serif;
+	color: #4d3f72;
+}
+
+#portfolio-name-div, #portfolio-cash-balance, #total-balance-input, #portfolio-activity-div {
+	display: flex;
+	gap: 15px;
+}
+
+#portfolio-name-input {
+	height: 20px;
+	width: 250px;
+}
+
+#cash-balance-input {
+      height: 20px;
+      width: 150px;
+}
+
+#portfolio-money-details {
+	display: flex;
+	flex-direction: column;
+}
+
+#total-portfolio-amount {
+	flex-direction: column;
+}
+
+#create-portfolio {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#create-portfolio-submit {
+	background: linear-gradient(
+		270deg,
+		#4d3f72 2.68%,
+		#c8cbcd 104.69%,
+		#dfe0e5 61.25%
+	);
+	border: 0;
+	cursor: pointer;
+	width: 175px;
+	border-radius: 40px;
+	padding: 12px 15px;
+	font-size: 1em;
+	color: #fff;
+}

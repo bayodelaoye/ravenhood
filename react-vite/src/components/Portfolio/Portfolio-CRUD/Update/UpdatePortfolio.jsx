@@ -1,7 +1,7 @@
 import { useLoaderData, useNavigate, useFetcher } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useModal } from "../../../../context/Modal";
+// import { useModal } from "../../../../context/Modal";
 import "./UpdatePortfolio.css";
 
 const UpdatePortfolio = () => {
@@ -11,7 +11,7 @@ const UpdatePortfolio = () => {
 	const navigate = useNavigate();
 	const portfolios = userPortfolios.portfolios.map((portfolio) => portfolio);
 	const portfolioUrl = parseInt(window.location.href.split("/")[4], 10);
-	const { closeModal } = useModal();
+	// const { closeModal } = useModal();
 	const userId = currentUser.id;
 
 	// Ensure user is logged in
@@ -45,10 +45,10 @@ const UpdatePortfolio = () => {
 		}
 	}, [portfolioToUpdate]);
 
-	const close = async (event) => {
-		event.preventDefault();
-		closeModal();
-	};
+	// const close = async (event) => {
+	// 	event.preventDefault();
+	// 	closeModal();
+	// };
 
 	const onSubmit = async (event) => {
 		event.preventDefault();
@@ -82,12 +82,9 @@ const UpdatePortfolio = () => {
 	};
 
 	return (
-		<div className="update-portfolio">
-			<div className="row-delete-stuff spread-out">
-				<button className="deleteClose" onClick={close}>
-					✖
-				</button>
-				<h2>Edit List</h2>
+		<div id="update-portfolio">
+			<div id="row-delete-stuff">
+				<h2>Edit Portfolio</h2>
 			</div>
 			<fetcher.Form
 				method="put"
@@ -95,6 +92,7 @@ const UpdatePortfolio = () => {
 				onSubmit={onSubmit}
 				className="input-style"
 			>
+				<label>What are we changing the name to?</label>
 				<input
 					required
 					type="text"
@@ -108,6 +106,7 @@ const UpdatePortfolio = () => {
 						{errors.portfolioName}
 					</p>
 				)}
+				<label>How much money would you like to add?</label>
 				<input
 					required
 					type="number"
@@ -127,9 +126,9 @@ const UpdatePortfolio = () => {
 					type="submit"
 					// name="intent"
 					// value="update-portfolio"
-					className="portfolio-update-button"
+					id="portfolio-update-button"
 				>
-					Save
+					Update Portfolio
 				</button>
 			</fetcher.Form>
 		</div>

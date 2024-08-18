@@ -1,5 +1,6 @@
 import { Form } from "react-router-dom";
 import { useModal } from "../../../../context/Modal";
+import "./DeletePortfolioModal.css"
 
 const DeletePortfolioModal = ({ userPortfolios }) => {
 	const { closeModal } = useModal();
@@ -10,22 +11,19 @@ const DeletePortfolioModal = ({ userPortfolios }) => {
 	};
 
 	return (
-		<div id="deleteMenu">
-			<h1>Confirm Delete</h1>
-			<div className="row-delete-stuff">
-				<button className="deleteClose" onClick={noDelete}>
+		<div id="delete-portfolio">
+			<div id="portfolio-close-confirm">
+				<h1>Confirm Delete</h1>
+				<button id="delete-close-button" onClick={noDelete}>
 					✖
 				</button>
 			</div>
-			<div id="which-portfolio-to-delete">
-				<h2>Which portfolio would you like to delete?</h2>
-			</div>
 			{userPortfolios.portfolios.map((portfolio) => (
-				<>
+				<div key={portfolio.id} id="which-portfolio-to-delete">
 					<div>
 						<h2>Are you sure you want to delete {portfolio.portfolio_name}?</h2>
 					</div>
-					<div>
+					<div id="portfolio-delete-buttons">
 						<Form method="delete" action={`/portfolios`} onSubmit={closeModal}>
 							<button
 								type="submit"
@@ -46,7 +44,7 @@ const DeletePortfolioModal = ({ userPortfolios }) => {
 							<input type="hidden" name="id" value={portfolio.id} />
 						</Form>
 					</div>
-				</>
+				</div>
 			))}
 		</div>
 	);

@@ -38,9 +38,6 @@ const UserProfilePage = () => {
 		}
       }, [userPortfolios, currentUser, navigate]);
       
-      console.log(userPortfolios);
-      
-
 	return (
 		<div id="user-profile-portfolio">
 			<div id="follow-in-line">
@@ -219,7 +216,7 @@ const UserProfilePage = () => {
 												<h2>{portfolio.portfolio_name}</h2>
 											</div>
 											<div id="add-some-gap">
-												<Link to={`/portfolios/${currentUser.id}/edit`}>
+												<Link to={`/portfolios/${portfolio.id}/edit`}>
 													<button
 														style={{
 															background: `linear-gradient(270deg, #4d3f72 2.68%,#c8cbcd 104.69%,#dfe0e5 61.25%)`,
