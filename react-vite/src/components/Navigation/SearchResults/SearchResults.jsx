@@ -5,10 +5,12 @@ import "./SearchResults.css";
 import { useEffect, useState } from "react";
 import ListStocksIndex from "../../ListStocks/ListStocksIndex";
 import Pagination from "../../ListStocks/Pagination";
+import { useSelector } from "react-redux";
 
 const SearchResults = () => {
   // const searchResults = useSelector(state => state.search.results);
   // console.log("searchReasults=========", searchResults)
+  const currentUser = useSelector((state) => state.session.user);
   const listOfStocks = useLoaderData();
   const location = useLocation();
   const { state } = location;
@@ -38,6 +40,7 @@ const SearchResults = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  if (!currentUser) return;
   return (
     <div className="stock-list-page-container">
       <h1 id="SearchResultsH1">Search Results</h1>
