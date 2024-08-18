@@ -37,6 +37,7 @@ function StockDetailsPage() {
   const { state } = location;
 
   useEffect(() => {
+    if (!currentUser) return navigate("/");
     const fetchPortfolioData = async () => {
       await dispatch(userPortfolios(currentUser?.id));
     };
@@ -144,7 +145,6 @@ function StockDetailsPage() {
     }
   };
 
-  if (!currentUser) return;
   return (
     <>
       {isLoaded ? (

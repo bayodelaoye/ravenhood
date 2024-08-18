@@ -17,6 +17,7 @@ function TransactionsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    if (!currentUser) return navigate("/");
     const getTransactions = async () => {
       await dispatch(userTransactions(currentUser.id));
     };
@@ -28,7 +29,6 @@ function TransactionsPage() {
     (a, b) => new Date(b.created_at) - new Date(a.created_at)
   );
 
-  if (!currentUser) return;
   return (
     <>
       {isLoaded ? (

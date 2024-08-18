@@ -1,6 +1,11 @@
 // import { useSelector } from "react-redux";
 // import Stock from "../../Stock";
-import { useLoaderData, useLocation } from "react-router-dom";
+import {
+  Navigate,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import "./SearchResults.css";
 import { useEffect, useState } from "react";
 import ListStocksIndex from "../../ListStocks/ListStocksIndex";
@@ -21,8 +26,10 @@ const SearchResults = () => {
   const [stocksPerPage, setStocksPerPage] = useState(20);
   const lastPostIndex = currentPage * stocksPerPage;
   const firstPostIndex = lastPostIndex - stocksPerPage;
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (!currentUser) return navigate("/");
     // setStocksState(state);
   }, [stocksState]);
 

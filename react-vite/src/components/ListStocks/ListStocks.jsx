@@ -1,7 +1,7 @@
-import { useLoaderData } from "react-router-dom";
+import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
 import "./ListStocks.css";
 import ListStocksIndex from "./ListStocksIndex";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "./Pagination";
 import { useSelector } from "react-redux";
 
@@ -13,10 +13,13 @@ function ListStocks() {
   const lastPostIndex = currentPage * stocksPerPage;
   const firstPostIndex = lastPostIndex - stocksPerPage;
   const currentPost = listOfStocks.stocks.slice(firstPostIndex, lastPostIndex);
-
+  const navigate = useNavigate();
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  if (!currentUser) return;
+  useEffect(() => {
+    if (!currentUser) return navigate("/");
+  }, []);
+
   return (
     <div className="stock-list-page-container">
       <h1>List of all stocks</h1>
