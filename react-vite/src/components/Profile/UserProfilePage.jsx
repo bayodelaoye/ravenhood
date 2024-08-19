@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLoaderData, Link, useNavigate } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
+import { FaCircleInfo } from "react-icons/fa6";
 import InvestingsModal from "./InvestingsModal";
-import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import DeletePortfolioModal from "../Portfolio/Portfolio-CRUD/Delete/DeletePortfolioModal";
 import "./UpdateProfile.css";
 
