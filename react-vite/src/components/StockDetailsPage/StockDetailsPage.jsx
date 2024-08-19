@@ -35,7 +35,7 @@ function StockDetailsPage() {
     (state) => state.portfolios?.userPortfolios?.portfolios
   );
   const location = useLocation();
-  const { state } = location;
+  const { state } = location; // get the state
 
   useEffect(() => {
     if (!currentUser) return navigate("/");
