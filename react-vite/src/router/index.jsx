@@ -37,7 +37,6 @@ import { userTransactionsLoader } from "../components/loaders/transactions.js";
 // import { navStocksLoader } from "../components/loaders/navStocksLoader.js";
 import { listStocksLoader } from "../components/loaders/listStocks.js";
 import ListStocks from "../components/ListStocks/ListStocks.jsx";
-import UpdateProfileModal from "../components/Profile/UpdateProfileModal.jsx";
 
 export const router = createBrowserRouter([
 	{
@@ -61,14 +60,6 @@ export const router = createBrowserRouter([
 				loader: userPortfolios,
 				element: <UserProfilePage />,
 				action: modifyPortfolio,
-				children: [
-					{
-						path: "edit",
-						element: <UpdateProfileModal />,
-						loader: userPortfolios,
-						action: modifyPortfolio,
-					},
-				],
 			},
 			{
 				path: "portfolios/new",

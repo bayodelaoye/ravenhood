@@ -56,7 +56,7 @@ const UpdatePortfolio = () => {
 
 		if (!portfolioName.trim())
 			errs.portfolioName = "Portfolio name is required";
-		if (!cashBalance || isNaN(cashBalance) || Number(cashBalance) <= 0) {
+		if (!cashBalance || isNaN(cashBalance) || Number(cashBalance) < 0) {
 			errs.cashBalance =
 				"Cash balance is required and must be a positive number";
 		}
@@ -122,7 +122,7 @@ const UpdatePortfolio = () => {
 				)}
 				<input type="hidden" name="id" value={portfolioToUpdate.id} />
 				<button
-					disabled={portfolioName === "" || cashBalance === 0}
+					disabled={portfolioName === "" || cashBalance < 0}
 					type="submit"
 					// name="intent"
 					// value="update-portfolio"

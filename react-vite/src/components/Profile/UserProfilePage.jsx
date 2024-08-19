@@ -1,19 +1,14 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLoaderData, Link, useNavigate } from "react-router-dom";
-import Profile from "./Profile";
 import OpenModalButton from "../OpenModalButton";
-import UpdateProfileModal from "./UpdateProfileModal";
 import InvestingsModal from "./InvestingsModal";
 import { FaCircleInfo } from "react-icons/fa6";
 import DeletePortfolioModal from "../Portfolio/Portfolio-CRUD/Delete/DeletePortfolioModal";
+import "./UpdateProfile.css";
 
 const UserProfilePage = () => {
 	const { userPortfolios } = useLoaderData();
-	const [image, setImage] = useState(userPortfolios.image);
-	const handleImageChange = (newImage) => {
-		setImage(newImage);
-	};
 	const currentUser = useSelector((state) => state.session.user);
 	const navigate = useNavigate();
 	const portfolios = userPortfolios.portfolios.map((portfolio) => portfolio);
@@ -23,6 +18,8 @@ const UserProfilePage = () => {
 	const cashBalance = portfolios.reduce((acc, curr) => {
 		return acc + +curr.cash_balance;
 	}, 0);
+	const date = new Date(userPortfolios.created_at);
+	const year = date.getFullYear();
 
 	// Ensure user is logged in
 	useEffect(() => {
@@ -38,37 +35,23 @@ const UserProfilePage = () => {
 		}
 	}, [userPortfolios, currentUser, navigate]);
 
-	console.log(userPortfolios);
 	if (!currentUser) return;
 
 	return (
 		<div id="user-profile-portfolio">
 			<div id="follow-in-line">
-				<Profile
-					userPortfolios={{ ...userPortfolios, image }}
-					onImageChange={handleImageChange}
-				/>
-				<OpenModalButton
-					buttonText={`Edit Profile`}
-					style={{
-						cursor: `pointer`,
-						textDecoration: `underline`,
-						fontWeight: `bold`,
-						border: `none`,
-						margin: `0`,
-						fontFamily: `Lato, sans-serif`,
-						fontSize: `15px`,
-						background: `none`,
-					}}
-					userPortfolios={userPortfolios}
-					onImageChange={handleImageChange}
-					modalComponent={
-						<UpdateProfileModal
-							userPortfolios={userPortfolios}
-							onImageChange={handleImageChange}
-						/>
-					}
-				/>
+				<div id="user-profile-portfolio">
+					<div id="user-profile-details">
+						<div>
+							<h2>
+								{userPortfolios.first_name} {userPortfolios.last_name}
+							</h2>
+							<p>
+								@{userPortfolios.username} • Joined {year}
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div id="portfolio-profile-overview">
 				{!userPortfolios.portfolios.length ? (
