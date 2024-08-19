@@ -36,7 +36,7 @@ const Portfolio = () => {
     }
   }, [timeLineBtn]);
 
-  console.log("stocks", stockDetails);
+  // console.log("stocks", stockDetails);
 
   return (
     <div id="user-portfolio-home">
