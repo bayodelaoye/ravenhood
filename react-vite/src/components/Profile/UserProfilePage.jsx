@@ -1,24 +1,25 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLoaderData, Link, useNavigate } from "react-router-dom";
-import Profile from "./Profile";
-import InvestingsModal from "./InvestingsModal";
-import OpenModalButton from "../OpenModalButton/OpenModalButton";
-import DeletePortfolioModal from "../Portfolio/Portfolio-CRUD/Delete/DeletePortfolioModal";
+import OpenModalButton from "../OpenModalButton";
 import { FaCircleInfo } from "react-icons/fa6";
+import InvestingsModal from "./InvestingsModal";
+import DeletePortfolioModal from "../Portfolio/Portfolio-CRUD/Delete/DeletePortfolioModal";
+import "./UpdateProfile.css";
 
 const UserProfilePage = () => {
-  const { userPortfolios } = useLoaderData();
-
-  const currentUser = useSelector((state) => state.session.user);
-  const navigate = useNavigate();
-  const portfolios = userPortfolios?.portfolios?.map((portfolio) => portfolio);
-  const totalAmount = portfolios?.reduce((acc, curr) => {
-    return acc + +curr.total_amount;
-  }, 0);
-  const cashBalance = portfolios?.reduce((acc, curr) => {
-    return acc + +curr.cash_balance;
-  }, 0);
+	const { userPortfolios } = useLoaderData();
+	const currentUser = useSelector((state) => state.session.user);
+	const navigate = useNavigate();
+	const portfolios = userPortfolios.portfolios.map((portfolio) => portfolio);
+	const totalAmount = portfolios.reduce((acc, curr) => {
+		return acc + +curr.total_amount;
+	}, 0);
+	const cashBalance = portfolios.reduce((acc, curr) => {
+		return acc + +curr.cash_balance;
+	}, 0);
+	const date = new Date(userPortfolios.created_at);
+	const year = date.getFullYear();
 
   // Ensure user is logged in
   useEffect(() => {
@@ -34,152 +35,163 @@ const UserProfilePage = () => {
     }
   }, [userPortfolios, currentUser, navigate]);
 
-  if (!currentUser) return;
+	if (!currentUser) return;
 
-  return (
-    <div id="user-profile-portfolio">
-      <div id="follow-in-line">
-        <Profile />
-      </div>
-      <div id="portfolio-profile-overview">
-        {!userPortfolios?.portfolios?.length ? (
-          <>
-            <div id="add-portfolio">
-              <div id="portfolio-total-balance">
-                <h2>$0.00</h2>
-                <p>Total in Ravenhood</p>
-              </div>
-              <div>
-                <Link to="/portfolios/new" id="new-portfolio-link">
-                  Add portfolio
-                </Link>
-              </div>
-            </div>
-            <div className="individual-portfolio-investing">
-              <div className="individual-investing-port">
-                <h2>Individual Investing</h2>
-                <OpenModalButton
-                  buttonText={
-                    <span style={{ display: "flex", alignItems: "center" }}>
-                      <FaCircleInfo
-                        style={{
-                          marginRight: "5px",
-                          marginBottom: "10px",
-                        }}
-                      />
-                    </span>
-                  }
-                  style={{
-                    background: `none`,
-                    color: `#B4B1B1`,
-                    padding: 0,
-                    border: `none`,
-                    cursor: `pointer`,
-                    fontSize: `15px`,
-                  }}
-                  modalComponent={<InvestingsModal />}
-                />
-              </div>
-              <hr />
-              <div>
-                <div>
-                  <p>Total Individual Value</p>
-                  <p>$0.00</p>
-                </div>
-                <div>
-                  <p>Individual Holdings</p>
-                  <p>$0.00</p>
-                </div>
-                <div>
-                  <p>Individual cash</p>
-                  <p>$0.00</p>
-                </div>
-                <div>
-                  <p>Crypto Holdings</p>
-                  <p> - </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div id="profile-overview">
-                <h1>Overview</h1>
-                <div className="circle-container">
-                  <div className="circle">
-                    <h4>Stocks</h4>
-                    <h4>100%</h4>
-                  </div>
-                  <div className="circle">
-                    <h4>ETFs</h4>
-                    <h4>0%</h4>
-                  </div>
-                  <div className="circle">
-                    <h4>Options</h4>
-                    <h4>0%</h4>
-                  </div>
-                  <div className="circle">
-                    <h4>Crypto</h4>
-                    <h4>0%</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p>Stocks are pieces of a company that investors can own.</p>
-            </div>
-          </>
-        ) : (
-          <>
-            <div id="add-portfolio">
-              <div id="portfolio-total-balance">
-                <h2>${totalAmount}</h2>
-                <p>Total in Ravenhood</p>
-              </div>
-              <div>
-                <Link to="/portfolios/new" id="new-portfolio-link">
-                  Add portfolio
-                </Link>
-              </div>
-            </div>
-            <div className="individual-portfolio-investing">
-              <div className="individual-investing-port">
-                <h2>Individual Investing</h2>
-                <OpenModalButton
-                  buttonText={
-                    <span style={{ display: "flex", alignItems: "center" }}>
-                      <FaCircleInfo style={{ marginRight: "5px" }} />
-                    </span>
-                  }
-                  style={{
-                    background: `none`,
-                    color: `#B4B1B1`,
-                    padding: 0,
-                    border: `none`,
-                    cursor: `pointer`,
-                    fontSize: `15px`,
-                  }}
-                  modalComponent={<InvestingsModal />}
-                />
-              </div>
-              <hr />
-              <div>
-                <div>
-                  <p>Total Individual Value</p>
-                  <p>${totalAmount}</p>
-                </div>
-                <div>
-                  <p>Individual Holdings</p>
-                  <p>$0.00</p>
-                </div>
-                <div>
-                  <p>Individual cash</p>
-                  <p>${cashBalance}</p>
-                </div>
-                <div>
-                  <p>Crypto Holdings</p>
-                  <p> - </p>
-                </div>
-              </div>
-            </div>
+	return (
+		<div id="user-profile-portfolio">
+			<div id="follow-in-line">
+				<div id="user-profile-portfolio">
+					<div id="user-profile-details">
+						<div>
+							<h2>
+								{userPortfolios.first_name} {userPortfolios.last_name}
+							</h2>
+							<p>
+								@{userPortfolios.username} • Joined {year}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="portfolio-profile-overview">
+				{!userPortfolios.portfolios.length ? (
+					<>
+						<div id="add-portfolio">
+							<div id="portfolio-total-balance">
+								<h2>$0.00</h2>
+								<p>Total in Ravenhood</p>
+							</div>
+							<div>
+								<Link to="/portfolios/new" id="new-portfolio-link">
+									Add portfolio
+								</Link>
+							</div>
+						</div>
+						<div className="individual-portfolio-investing">
+							<div className="individual-investing-port">
+								<h2>Individual Investing</h2>
+								<OpenModalButton
+									buttonText={
+										<span style={{ display: "flex", alignItems: "center" }}>
+											<FaCircleInfo
+												style={{
+													marginRight: "5px",
+													marginBottom: "10px",
+												}}
+											/>
+										</span>
+									}
+									style={{
+										background: `none`,
+										color: `#B4B1B1`,
+										padding: 0,
+										border: `none`,
+										cursor: `pointer`,
+										fontSize: `15px`,
+									}}
+									modalComponent={<InvestingsModal />}
+								/>
+							</div>
+							<hr />
+							<div>
+								<div>
+									<p>Total Individual Value</p>
+									<p>$0.00</p>
+								</div>
+								<div>
+									<p>Individual Holdings</p>
+									<p>$0.00</p>
+								</div>
+								<div>
+									<p>Individual cash</p>
+									<p>$0.00</p>
+								</div>
+								<div>
+									<p>Crypto Holdings</p>
+									<p> - </p>
+								</div>
+							</div>
+						</div>
+						<div>
+							<div id="profile-overview">
+								<h1>Overview</h1>
+								<div className="circle-container">
+									<div className="circle">
+										<h4>Stocks</h4>
+										<h4>100%</h4>
+									</div>
+									<div className="circle">
+										<h4>ETFs</h4>
+										<h4>0%</h4>
+									</div>
+									<div className="circle">
+										<h4>Options</h4>
+										<h4>0%</h4>
+									</div>
+									<div className="circle">
+										<h4>Crypto</h4>
+										<h4>0%</h4>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div>
+							<p>Stocks are pieces of a company that investors can own.</p>
+						</div>
+					</>
+				) : (
+					<>
+						<div id="add-portfolio">
+							<div id="portfolio-total-balance">
+								<h2>${totalAmount}</h2>
+								<p>Total in Ravenhood</p>
+							</div>
+							<div>
+								<Link to="/portfolios/new" id="new-portfolio-link">
+									Add portfolio
+								</Link>
+							</div>
+						</div>
+						<div className="individual-portfolio-investing">
+							<div className="individual-investing-port">
+								<h2>Individual Investing</h2>
+								<OpenModalButton
+									buttonText={
+										<span style={{ display: "flex", alignItems: "center" }}>
+											<FaCircleInfo style={{ marginRight: "5px" }} />
+										</span>
+									}
+									style={{
+										background: `none`,
+										color: `#B4B1B1`,
+										padding: 0,
+										border: `none`,
+										cursor: `pointer`,
+										fontSize: `15px`,
+									}}
+									modalComponent={<InvestingsModal />}
+								/>
+							</div>
+							<hr />
+							<div>
+								<div>
+									<p>Total Individual Value</p>
+									<p>${totalAmount}</p>
+								</div>
+								<div>
+									<p>Individual Holdings</p>
+									<p>$0.00</p>
+								</div>
+								<div>
+									<p>Individual cash</p>
+									<p>${cashBalance}</p>
+								</div>
+								<div>
+									<p>Crypto Holdings</p>
+									<p> - </p>
+								</div>
+							</div>
+						</div>
 
             {userPortfolios.portfolios.map((portfolio) => (
               <div key={portfolio.id}>
