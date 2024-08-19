@@ -39,64 +39,64 @@ import { listStocksLoader } from "../components/loaders/listStocks.js";
 import ListStocks from "../components/ListStocks/ListStocks.jsx";
 
 export const router = createBrowserRouter([
-  {
-    path: "signup",
-    element: <SignupFormPage />,
-  },
-  {
-    path: "login",
-    element: <LoginFormPage />,
-  },
-  {
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        loader: userPortfolios,
-        element: <HomePage />,
-      },
-      {
-        path: "/portfolios",
-        loader: userPortfolios,
-        element: <UserProfilePage />,
-        action: modifyPortfolio,
-      },
-      {
-        path: "portfolios/new",
-        loader: userPortfolios,
-        element: <CreatePortfolio />,
-        action: createPortfolioAction,
-      },
-      // {
-      // 	path: "portfolios/:userId",
-      // 	loader: userPortfolios,
-      // 	element: <PortfolioDetails />,
-      // 	action: modifyPortfolio,
-      // },
-      {
-        path: "portfolios/:userId/edit",
-        loader: userPortfolios,
-        element: <UpdatePortfolio />,
-        action: updatePortfolioAction,
-      },
-      // {
-      // 	path: "portfolios/:userId/edit/cash",
-      // 	loader: userPortfolios,
-      // 	element: <UpdatePortfolio />,
-      // 	action: updatePortfolioAction,
-      // },
-      {
-        path: "watchlist/:watchlist_num",
-        loader: watchlistLoader,
-        element: <Watchlist />,
-        action: deleteWatchlist,
-      },
-      {
-        path: "watchlist",
-        element: <WatchlistAll />,
-        loader: watchlistLoader,
-        action: deleteWatchlist,
-      },
+	{
+		path: "signup",
+		element: <SignupFormPage />,
+	},
+	{
+		path: "login",
+		element: <LoginFormPage />,
+	},
+	{
+		element: <Layout />,
+		children: [
+			{
+				path: "/",
+				loader: userPortfolios,
+				element: <HomePage />,
+			},
+			{
+				path: "/portfolios",
+				loader: userPortfolios,
+				element: <UserProfilePage />,
+				action: modifyPortfolio,
+			},
+			{
+				path: "portfolios/new",
+				loader: userPortfolios,
+				element: <CreatePortfolio />,
+				action: createPortfolioAction,
+			},
+			// {
+			// 	path: "portfolios/:userId",
+			// 	loader: userPortfolios,
+			// 	element: <PortfolioDetails />,
+			// 	action: modifyPortfolio,
+			// },
+			{
+				path: "portfolios/:userId/edit",
+				loader: userPortfolios,
+				element: <UpdatePortfolio />,
+				action: updatePortfolioAction,
+			},
+			// {
+			// 	path: "portfolios/:userId/edit/cash",
+			// 	loader: userPortfolios,
+			// 	element: <UpdatePortfolio />,
+			// 	action: updatePortfolioAction,
+			// },
+			{
+				path: "watchlist/:watchlist_num",
+				loader: watchlistLoader,
+				element: <Watchlist />,
+				action: deleteWatchlist,
+			},
+			{
+				path: "watchlist",
+				element: <WatchlistAll />,
+				loader: watchlistLoader,
+				action: deleteWatchlist,
+			},
 
       // =============Not Loggedin aka NavigationStart=============
       {
