@@ -14,6 +14,7 @@ import OpenModalButton from "../OpenModalButton/OpenModalButton";
 import { useModal } from "../../context/Modal";
 import CreateWatchList from "../Watchlist/CreateWatchlistModal";
 import AddStockToWatchListModal from "../Watchlist/AddStockToWatchListModal";
+import NuHomePage from "../HomePage/Nu-HomePage";
 
 function StockDetailsPage() {
   const dispatch = useDispatch();
@@ -144,6 +145,8 @@ function StockDetailsPage() {
       setUserWatchLists(watchList);
     }
   };
+
+  if (!currentUser) return <NuHomePage />;
 
   return (
     <>

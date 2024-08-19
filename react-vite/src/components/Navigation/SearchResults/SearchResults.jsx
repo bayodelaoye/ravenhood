@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import ListStocksIndex from "../../ListStocks/ListStocksIndex";
 import Pagination from "../../ListStocks/Pagination";
 import { useSelector } from "react-redux";
+import NuHomePage from "../../HomePage/Nu-HomePage";
 
 const SearchResults = () => {
   // const searchResults = useSelector(state => state.search.results);
@@ -48,7 +49,7 @@ const SearchResults = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  if (!currentUser) return;
+  if (!currentUser) return <NuHomePage />;
   return (
     <div className="stock-list-page-container">
       <h1 id="SearchResultsH1">Search Results</h1>

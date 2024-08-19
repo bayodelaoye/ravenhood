@@ -5,7 +5,7 @@ import ConfirmDeleteWatchlist from "./DeleteWatchlistModal";
 
 import { useState, useEffect, useRef } from "react";
 import { useModal } from "../../context/Modal";
-
+import NuHomePage from "../HomePage/Nu-HomePage";
 import "./style/Subwatchlist.css";
 import ChangeWatchListName from "./ChangeListNameModal";
 import CreateWatchListAll from "./CreateWatchlistModalAll";
@@ -33,7 +33,7 @@ const WatchlistAll = () => {
     }
   }, [userWatchlists]);
 
-  if (!user) return;
+  if (!user) return <NuHomePage />;
 
   // return (
   //     <div>

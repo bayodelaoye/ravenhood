@@ -11,7 +11,7 @@ import ConfirmDeleteWatchlist from "./DeleteWatchlistModal";
 
 import { useState, useEffect, useRef } from "react";
 import { useModal } from "../../context/Modal";
-
+import NuHomePage from "../HomePage/Nu-HomePage";
 import "./style/Watchlist.css";
 import ChangeWatchListName from "./ChangeListNameModal";
 import CreateWatchList from "./CreateWatchlistModal";
@@ -69,17 +69,18 @@ const Watchlist = () => {
   //     </div>
   // )
 
-  if (!user) {
-    return (
-      <div>
-        <h1>401 Unauthorized</h1>
-        <p>
-          Not all those who wander are lost, but it seems you may have taken a
-          wrong turn.
-        </p>
-      </div>
-    );
-  }
+  // if (!user) {
+  //   return (
+  //     <div>
+  //       <h1>401 Unauthorized</h1>
+  //       <p>
+  //         Not all those who wander are lost, but it seems you may have taken a
+  //         wrong turn.
+  //       </p>
+  //     </div>
+  //   );
+  // }
+  if (!user) return <NuHomePage />;
 
   //-----------------------------------DATA--------------------------------------
 

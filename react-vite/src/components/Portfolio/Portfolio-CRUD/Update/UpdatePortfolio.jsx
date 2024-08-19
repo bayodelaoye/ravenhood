@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 // import { useModal } from "../../../../context/Modal";
 import "./UpdatePortfolio.css";
+import NuHomePage from "../../../HomePage/Nu-HomePage";
 
 const UpdatePortfolio = () => {
   const currentUser = useSelector((state) => state.session.user);
@@ -12,7 +13,7 @@ const UpdatePortfolio = () => {
   const portfolios = userPortfolios.portfolios.map((portfolio) => portfolio);
   const portfolioUrl = parseInt(window.location.href.split("/")[4], 10);
   // const { closeModal } = useModal();
-  const userId = currentUser.id;
+  const userId = currentUser?.id;
 
   // Ensure user is logged in
   useEffect(() => {
@@ -80,6 +81,7 @@ const UpdatePortfolio = () => {
     );
     navigate(`/portfolios`);
   };
+  if (!currentUser) return <NuHomePage />;
 
   return (
     <div id="update-portfolio">
@@ -122,7 +124,7 @@ const UpdatePortfolio = () => {
         )}
         <input type="hidden" name="id" value={portfolioToUpdate.id} />
         <button
-          disabled={portfolioName === "" || cashBalance < 0}
+          // disabled={portfolioName === "" || cashBalance < 0}
           type="submit"
           // name="intent"
           // value="update-portfolio"

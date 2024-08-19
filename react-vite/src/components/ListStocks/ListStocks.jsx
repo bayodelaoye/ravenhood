@@ -4,6 +4,7 @@ import ListStocksIndex from "./ListStocksIndex";
 import { useEffect, useState } from "react";
 import Pagination from "./Pagination";
 import { useSelector } from "react-redux";
+import NuHomePage from "../HomePage/Nu-HomePage";
 
 function ListStocks() {
   const listOfStocks = useLoaderData();
@@ -19,6 +20,8 @@ function ListStocks() {
   useEffect(() => {
     if (!currentUser) return navigate("/");
   }, []);
+
+  if (!currentUser) return <NuHomePage />;
 
   return (
     <div className="stock-list-page-container">

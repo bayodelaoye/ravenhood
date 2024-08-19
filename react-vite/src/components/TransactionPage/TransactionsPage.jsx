@@ -4,6 +4,7 @@ import TransactionsIndex from "./TransactionsIndex";
 import { useEffect, useState } from "react";
 import { userTransactions } from "../../redux/transactions";
 import { useNavigate } from "react-router-dom";
+import NuHomePage from "../HomePage/Nu-HomePage";
 
 function TransactionsPage() {
   const currentUser = useSelector((state) => state.session.user);
@@ -28,6 +29,8 @@ function TransactionsPage() {
   const sortedTransactions = allUserTransactions.sort(
     (a, b) => new Date(b.created_at) - new Date(a.created_at)
   );
+
+  if (!currentUser) return <NuHomePage />;
 
   return (
     <>
