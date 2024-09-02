@@ -1,0 +1,38 @@
+#footer-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ebebeb;
+  padding: 10px 30px;
+  width: 100%;
+  margin-top: auto;
+}
+
+#footer-container > p {
+  font-weight: 750;
+}
+
+.footer-people-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-person-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-links-container {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-icon {
+  color: black;
+  width: 20px;
+  height: 20px;
+}
+
+.footer-icon:hover {
+  color: #e00;
+}

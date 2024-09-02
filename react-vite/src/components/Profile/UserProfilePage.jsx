@@ -39,7 +39,7 @@ const UserProfilePage = () => {
   if (!currentUser) return <NuHomePage />;
 
   return (
-    <div id="user-profile-portfolio">
+    <div id="user-profile-portfolio-container">
       <div id="follow-in-line">
         <div id="user-profile-portfolio">
           <div id="user-profile-details">

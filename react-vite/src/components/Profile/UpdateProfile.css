@@ -1,147 +1,151 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rock+3D&display=swap");
 
+#user-profile-portfolio-container {
+  margin-bottom: 100px;
+}
+
 .individual-investing-port {
-	display: flex;
-	align-items: center;
-	gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .individual-investing-port .individual-investing-port h2 {
-	margin: 0;
+  margin: 0;
 }
 
 #follow-in-line {
-	margin: 2% 25%;
+  margin: 2% 25%;
 }
 
 #portfolio-profile-overview {
-	color: #4d3f72;
-	margin: 0 25%;
+  color: #4d3f72;
+  margin: 0 25%;
 }
 
 #portfolio-profile-overview h1,
 #portfolio-profile-overview h2 {
-	margin: 0;
-	font-weight: bold;
+  margin: 0;
+  font-weight: bold;
 }
 
 #portfolio-profile-overview p {
-	margin: 5px 0;
-	color: #b4b1b1;
-	font-weight: bold;
+  margin: 5px 0;
+  color: #b4b1b1;
+  font-weight: bold;
 }
 
 #add-portfolio {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 #portfolio-total-balance h2 {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 #new-portfolio-link {
-	background: linear-gradient(
-		270deg,
-		#4d3f72 2.68%,
-		#c8cbcd 104.69%,
-		#dfe0e5 61.25%
-	);
-	border: 0;
-	cursor: pointer;
-	width: 175px;
-	border-radius: 40px;
-	padding: 12px 15px;
-	font-size: 1em;
-	color: #fff;
+  background: linear-gradient(
+    270deg,
+    #4d3f72 2.68%,
+    #c8cbcd 104.69%,
+    #dfe0e5 61.25%
+  );
+  border: 0;
+  cursor: pointer;
+  width: 175px;
+  border-radius: 40px;
+  padding: 12px 15px;
+  font-size: 1em;
+  color: #fff;
 }
 
 /* Individual Investing */
 .individual-portfolio-investing {
-	margin-top: 40px;
+  margin-top: 40px;
 }
 
 .individual-portfolio-investing h2 {
-	font-size: 1.2rem;
-	margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
 .individual-portfolio-investing hr {
-	border: none;
-	border-top: 1px solid #333;
-	margin: 20px 0;
+  border: none;
+  border-top: 1px solid #333;
+  margin: 20px 0;
 }
 
 .individual-portfolio-investing div > div {
-	display: flex;
-	justify-content: space-between;
-	padding: 10px 0;
-	color: #b4b1b1;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  color: #b4b1b1;
 }
 
 .individual-portfolio-investing div > div p {
-	margin: 0;
+  margin: 0;
 }
 
 /* Overview Section */
 #profile-overview {
-	text-align: center;
-	/* margin-top: 20px; */
-	margin: 20px 0 50px;
+  text-align: center;
+  /* margin-top: 20px; */
+  margin: 20px 0 50px;
 }
 
 #profile-overview h1 {
-	font-size: 1.5rem;
-	margin-bottom: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
 
 #profile-overview > div {
-	display: flex;
-	justify-content: space-evenly;
-	margin-bottom: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
 }
 
 #profile-overview > div > div {
-	background: linear-gradient(
-		270deg,
-		#4d3f72 2.68%,
-		#c8cbcd 104.69%,
-		#dfe0e5 61.25%
-	);
-	padding: 20px;
-	border-radius: 50%;
-	width: 120px;
-	height: 120px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	color: #fff;
+  background: linear-gradient(
+    270deg,
+    #4d3f72 2.68%,
+    #c8cbcd 104.69%,
+    #dfe0e5 61.25%
+  );
+  padding: 20px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 
 #profile-overview > div > div h4 {
-	margin: 0;
-	font-size: 1rem;
-	font-weight: bold;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 #profile-footer {
-	color: #b4b1b1;
-	font-size: 0.85rem;
-	margin-top: 60px;
-	line-height: 1.5;
-	display: flex;
-	align-items: center;
+  color: #b4b1b1;
+  font-size: 0.85rem;
+  margin-top: 60px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
 }
 
 #ensure-to-justify {
-      justify-content: space-between;
-      padding: 0;
-      width: 100%;
+  justify-content: space-between;
+  padding: 0;
+  width: 100%;
 }
 
 #add-some-gap {
-      gap: 15px;
+  gap: 15px;
 }

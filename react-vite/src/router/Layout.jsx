@@ -6,7 +6,7 @@ import { thunkAuthenticate } from "../redux/session";
 import Navigation from "../components/Navigation";
 import NavigationStart from "../components/NavigationStart";
 import * as navStocksActions from "../redux/navStocksRedux.js";
-
+import FooterTwo from "../components/Footer/FooterTwo.jsx";
 import { useSelector } from "react-redux";
 
 // react-vite/src/redux/navStocksRedux.js
@@ -30,6 +30,7 @@ export default function Layout() {
           <></>
         )}
         {isLoaded && <Outlet />}
+        {sessionUser ? <FooterTwo /> : <></>}
         <Modal />
       </ModalProvider>
     </>
