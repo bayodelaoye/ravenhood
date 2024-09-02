@@ -20,13 +20,13 @@ https://garment-llvd.onrender.com
 [Feature List](https://github.com/bayodelaoye/ravenhood/wiki/Feature-List) | [Database Schema](https://github.com/bayodelaoye/ravenhood/wiki/Database-Schema) | [User Stories](https://github.com/bayodelaoye/ravenhood/wiki/User-Stories) | [Tasks](https://github.com/bayodelaoye/ravenhood/wiki/Tasks)
 
 # Landing Page
-<img width="600px" src="https://github.com/bayodelaoye/garment/blob/dev/react-vite/public/home_page.png" />
+<img width="600px" src="https://github.com/bayodelaoye/ravenhood/blob/main/react-vite/public/home-page.png" />
 
- # Product Page
-<img width="600px" src="https://github.com/bayodelaoye/garment/blob/dev/react-vite/public/product_page.png" />
+ # Stock details Page
+<img width="600px" src="https://github.com/bayodelaoye/ravenhood/blob/main/react-vite/public/stock-details-page.png" />
 
-# Cart
-<img src="https://github.com/bayodelaoye/garment/blob/dev/react-vite/public/cart.png" width="600px" />
+# Portfolio Page
+<img width="600px" src="https://github.com/bayodelaoye/ravenhood/blob/main/react-vite/public/portfolio-page.png" />
 
 # Endpoints
 
