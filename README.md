@@ -445,7 +445,7 @@ https://garment-llvd.onrender.com
 * Error Response1: HTTP Status 400
 ```python
 {
-   'errors': " of name exceeds 30"
+   'errors': " Length of name exceeds 30"
 }
 ```
 * Error Response2: HTTP Status 404
