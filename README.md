@@ -22,7 +22,7 @@ https://garment-llvd.onrender.com
 # Landing Page
 <img width="600px" src="https://github.com/bayodelaoye/ravenhood/blob/main/react-vite/public/home-page.png" />
 
- # Stock details Page
+ # Stock Details Page
 <img width="600px" src="https://github.com/bayodelaoye/ravenhood/blob/main/react-vite/public/stock-details-page.png" />
 
 # Portfolio Page
@@ -134,83 +134,63 @@ https://garment-llvd.onrender.com
 }
 ```
 
-## Cart Routes
+## Portfolio Routes
 
-### Add Item to Cart
+### Create new Portfolio
 ##
-* Purpose: This fetch is sent to add a new item to the cart table.
+* Purpose: This fetch is sent to create a new portfolio.
 * Method: ```POST```
-* URL: ```/api/cart/```
+* URL: ```/api/portfolios/```
 * Body:
 ```python
 {
-   'garment_id': 1
+   'portfolio_name': "New Portfolio",
+   'cash_balance': 100,
+   'total_amount': 500,
+   'is_active': true,
 }
 ```
 * Successful Response: HTTP Status 201
 ```python
 {
-   'message': "Added item to cart"
-}
-```
-* Error Response: HTTP Status 404
-```python
-{
-   'error': 'Item with given id Not Found'
-}
-```
-
-### Read Cart Items
-##
-* Purpose: This fetch is sent and gets the items in the cart.
-* Method: ```GET```
-* URL: ```/api/cart/```
-* Successful Response: HTTP Status 200
-```python
-{
      "id": self.id,
      "user_id": self.user_id,
-     "created_at": self.created_at,
+     "portfolio_name": self.portfolio_name,
+     "cash_balance": self.cash_balance,
+     "total_amount": self.total_amount,
+     "is_active": self.is_active,
      "updated_at": self.updated_at,
-     "cart_items": [
-      cart_item.to_dict_with_garments() for cart_item in self.cart_items
-     ],
 }
 ```
-* Error Response: HTTP Status 404
+* Error Response: HTTP Status 400
 ```python
 {
-   'error': 'Item with given id Not Found'
+   'error': "Invalid data"
 }
 ```
 
-### Update Cart Item Quantity
+### Update Portfolio
 ##
-* Purpose: This fetch is sent to update the quantity value of a cart item.
+* Purpose: This fetch is sent to update the name and or the cash balance of a portfolio.
 * Method: ```PUT```
-* URL: ```/api/cart/<int:cart_item_id>```
+* URL: ```/api/portfolios/<int:id>```
 * Body:
 ```python
 {
-   'quantity': 5,
+   'portfolio_name': "Updated Portfolio name",
+   'cash_balance': 600,
 }
 ```
 * Successful Response: HTTP Status 200
 ```python
 {
-     "id": self.id,
-     "cart_id": self.cart_id,
-     "garment_id": self.garment_id,
-     "quantity": self.quantity,
-     "created_at": self.created_at,
-     "updated_at": self.updated_at,
-     "garment": self.garment.to_dict(),
+     "message": "Updated portfolio"
 }
 ```
 * Error Response1: HTTP Status 404
 ```python
 {
-   'errors': 'Item with given id Not Found'
+   'errors': 'Portfolio not found'
 }
 ```
 * Error Response2: HTTP Status 400
@@ -219,59 +199,42 @@ https://garment-llvd.onrender.com
    'errors': ARRAY_OF_STRINGS
 }
 ```
-### Remove Item from Cart
+
+### Delete Portfolio
 ##
-* Purpose: This fetch is sent to delete an item from the cart.
+* Purpose: This fetch is sent to delete a portfolio.
 * Method: ```DELETE```
-* URL: ```/api/cart/<int:cart_item_id>```
+* URL: ```/api/portfolios/<int:id>```
 * Successful Response: HTTP Status 200
 ```python
 {
-   'message': 'Cart item deleted'
+   'message': 'Portfolio deleted'
 }
 ```
 * Error Response: HTTP Status 404
 ```python
 {
-   'errors': 'Item with given id Not Found'
+   'errors': 'Portfolio with given id Not Found'
 }
 ```
 
-### Empty Cart
+## User Routes
+
+### Get User Portfolios
 ##
-* Purpose: This fetch is sent to delete all items from the cart.
-* Method: ```DELETE```
-* URL: ```/api/cart/```
-* Successful Response: HTTP Status 200
-```python
-{
-   'message': 'Cart and cart items deleted'
-}
-```
-* Error Response: HTTP Status 404
-```python
-{
-   'errors': 'Cart with given id Not Found'
-}
-```
-
-## Reviews Routes
-
-### Get Reviews for a Garment
-##
-* Purpose: This fetch is sent to retrieve all the reviews for a garment specified by the garment's id.
+* Purpose: This fetch is sent to retrieve all the portfolios for a user.
 * Method: ```GET```
-* URL: ```/api/reviews/<int:garment_id>```
+* URL: ```/api/users/<int:id>/portfolios```
 * Successful Response: HTTP Status 200
 ```python
 [
    {
         "id": self.id,
         "user_id": self.user_id,
-        "garment_id": self.garment_id,
-        "review": self.review,
-        "stars": self.stars,
-        "created_at": self.created_at,
+        "portfolio_name": self.portfolio_name,
+        "cash_balance": self.cash_balance,
+        "total_amount": self.total_amount,
+        "is_active": self.is_active,
         "updated_at": self.updated_at,
    }
 ]
@@ -283,143 +246,59 @@ https://garment-llvd.onrender.com
 }
 ```
 
-### Create a new Review
+### Get User Transactions
 ##
-* Purpose: This fetch is sent to add a new review to the reviews table.
-* Method: ```POST```
-* URL: ```/api/reviews/<int:garment_id>/new```
-* Body:
-```python
-   {
-      garment_id: 1,
-      review: "This is a very nice jacket. I love to wear it in winter",
-      stars: 5,
-   }
-```
-* Success Response: HTTP Status 201
-```python
-{
-     "id": self.id,
-     "user_id": self.user_id,
-     "garment_id": self.garment_id,
-     "review": self.review,
-     "stars": self.stars,
-     "created_at": self.created_at,
-     "updated_at": self.updated_at,
-}
-```
-* Error Response1: HTTP Status 400
-```python
-{
-   'errors': ARRAY_OF_STRINGS
-}
-```
-* Error Response2: HTTP Status 404
-```python
-{
-   'errors': 'User with given id Not Found'
-}
-```
-
-### Update Review Record
-##
-* Purpose: This fetch is sent to update the review info record specified by the garment's id.
-* Method: ```PUT```
-* URL: ```/api/reviews/<int:garment_id>```
-* Body:
-```python
-   {
-      garment_id: 1,
-      review: "Updated the review for this garment",
-      stars: 2,
-   }
-```
-* Successful Response: HTTP Status 200
-```python
-{
-     "id": self.id,
-     "user_id": self.user_id,
-     "garment_id": self.garment_id,
-     "review": self.review,
-     "stars": self.stars,
-     "created_at": self.created_at,
-     "updated_at": self.updated_at,
-}
-```
-* Error Response1: HTTP Status 400
-```python
-{
-   'errors': ARRAY_OF_STRINGS
-}
-```
-* Error Response2: HTTP Status 404
-```python
-{
-   'errors': 'Review Record with given id Not Found'
-}
-```
-
-### Delete Review Record
-##
-* Purpose: This fetch sends a garment's id in the url of the request of the record to be deleted.
-* Method: ```DELETE```
-* URL: ```/api/reviews/<int:garment_id>```
-* Successful Response: HTTP Status 200
-```python
-{
-     'message' : 'Review deleted'
-}
-```
-* Error Response: HTTP Status 404
-```python
-{
-   'errors': 'Review Record with given id Not Found'
-}
-```
-## Favorites Routes
-
-### Get Current User Favorites
-##
-* Purpose: This fetch is sent to retrieve all the favorite records for the user.
+* Purpose: This fetch is sent to retrieve all the transactions for a user.
 * Method: ```GET```
-* URL: ```/api/favorites/```
-* Successful Response: HTTP Status 200
+* URL: ```/api/users/<int:user_id>/transactions```
+* Success Response: HTTP Status 200
 ```python
 [
    {
-        "id": self.id,
-        "user_id": self.user_id,
-        "garment_id": self.garment_id,
-        "created_at": self.created_at,
-        "updated_at": self.updated_at,
+         "id": self.id,
+         "portfolio_id": self.portfolio_id,
+         "type": self.type,
+         "date": self.date,
+         "stock": self.stock,
+         "quantity": self.quantity,
+         "transaction_price": self.transaction_price,
+         "created_at": self.created_at,
    }
 ]
 ```
 * Error Response: HTTP Status 404
 ```python
 {
-   'errors': 'User with the given id Not Found'
+   'errors': 'Not Found'
 }
 ```
 
-### Create new a Favorite Record
-* Purpose: This fetch is sent to add a new entry to the favorites table.
+## Transaction Routes
+
+### Create new a Transaction Record
+* Purpose: This fetch is sent to add a new entry to the transactions table.
 * Method: ```POST```
-* URL: ```/api/favorites/```
+* URL: ```/api/transactions/```
 * Body:
 ```python
 {
-     garment_id: 1,
+     portfolio_id: 1,
+     type: "BUY",
+     quantity: 10,
+     ticker: "AAPL",
 }
 ```
 * Successful Response: HTTP 201
 ```python
 {
      "id": self.id,
-     "user_id": self.user_id,
-     "garment_id": self.garment_id,
+     "portfolio_id": self.portfolio_id,
+     "type": self.type,
+     "date": self.date,
+     "stock": self.stock,
+     "quantity": self.quantity,
+     "transaction_price": self.transaction_price,
      "created_at": self.created_at,
-     "updated_at": self.updated_at
 }
 ```
 * Error Response1: HTTP Status 400
@@ -431,57 +310,70 @@ https://garment-llvd.onrender.com
 * Error Response2: HTTP Status 404
 ```python
 {
-   'errors': 'User with given id Not Found'
+   'errors': 'Portfolio with given id Not Found'
 }
 ```
 
-### Delete a Favorite Record
+## Stock Routes
+
+### Get Stocks
 ##
-* Purpose: This fetch sends a garments's id in the url of the request of the record to be deleted.
-* Method: ```DELETE```
-* URL: ```/api/favorites/<int:garment_id>```
-* Successful Response: HTTP Status 200
-```python
-{
-     'message': 'Favorite item deleted'
-}
-```
-* Error Response: HTTP Status 404
-```python
-{
-   'errors': 'Favorite record with given id Not Found'
-}
-```
-
-## Garment Routes
-
-### Get Garments
-##
-* Purpose: This fetch is sent to retrieve all the garments specified by the garment's id.
+* Purpose: This fetch is sent to retrieve a stock by its id.
 * Method: ```GET```
-* URL: ```/api/garments/```
+* URL: ```/api/stocks/<int:stock_id>```
 * Successful Response: HTTP Status 200
 ```python
-[
-   {
-        "id": self.id,
-        "user_id": self.user_id,
-        "title": self.title,
-        "price": self.price,
-        "discounted_price": self.discounted_price,
-        "description": self.description,
-        "inventory": self.inventory,
-        "category": self.category,
-        "created_at": self.created_at,
-        "updated_at": self.updated_at,
-        "preview_image_url": preview_image_url,
-   }
-]
+{
+     "id": self.id,
+     "company_name": self.company_name,
+     "ticker_symbol": self.ticker_symbol,
+     "current_price": self.current_price,
+     "description": self.description,
+     "ceo": self.ceo,
+     "employeee": self.employees,
+     "headquarters": self.headquarters,
+     "founded": self.founded,
+     "market_cap_billions": self.market_cap_billions,
+     "price_earnings_ratio": self.price_earnings_ratio,
+     "divident_yield": self.dividend_yield,
+     "average_volume": self.average_volume,
+     "high_today": self.high_today,
+     "low_today": self.low_today,
+     "open_price": self.open_price,
+     "volume": self.volume,
+     "fifty_two_week_high": self.fifty_two_week_high,
+     "fifty_two_week_low": self.fifty_two_week_low
+}
 ```
 * Error Response: HTTP Status 404
 ```python
 {
    'errors': 'Not Found'
+}
+```
+
+## Watchlist Routes
+
+### Get Watchlists
+##
+* Purpose: This fetch is sent to retrieve all the Watchlists.
+* Method: ```GET```
+* URL: ```/api/watch_lists/```
+* Successful Response: HTTP Status 200
+```python
+[
+   {
+        "id": self.id,
+        "name": self.name,
+        "updated_at": self.updated_at,
+        "stocks": [stock.to_dict() for stock in self.watch_list_watch_list_stocks]
+   }
+]
+```
+* Error Response: HTTP Status 401
+```python
+{
+   'errors': 'Unauthorized'
 }
 ```
 
@@ -489,16 +381,11 @@ https://garment-llvd.onrender.com
 ##
 * Purpose: This fetch is sent to add a new garment to the garments table.
 * Method: ```POST```
-* URL: ```/api/garments/new```
+* URL: ```/api/watch_lists/```
 * Body:
 ```python
    {
-      "title": "Classic Blue Tailored Jacket",
-      "price": 200,
-      "discounted_price": 150,
-      "description": "A blue jacket typically features a sleek, tailored design with a rich blue hue. It can be crafted from various materials such as wool, cotton, or synthetic fabrics, offering both style and practicality.",
-      "inventory": 10,
-      "category": "MEN",
+      "name": "New Watch List"  
    }
 ```
 * Success Response: HTTP Status 201
@@ -506,80 +393,52 @@ https://garment-llvd.onrender.com
 {
      "id": self.id,
      "user_id": self.user_id,
-     "title": self.title,
-     "price": self.price,
-     "discounted_price": self.discounted_price,
-     "description": self.description,
-     "inventory": self.inventory,
-     "category": self.category,
-     "created_at": self.created_at,
-     "updated_at": self.updated_at,
-     "preview_image_url": preview_image_url
+     "name": self.name,
+     "updated_at": self.updated_at
 }
 ```
-* Error Response1: HTTP Status 400
+* Error Response: HTTP Status 400
 ```python
 {
-   'errors': ARRAY_OF_STRINGS
-}
-```
-* Error Response2: HTTP Status 404
-```python
-{
-   'errors': 'User with given id Not Found'
+   'errors': "Length of name exceeds 30"
 }
 ```
 
-### Update Garment Record
+### Update WatchList Record
 ##
-* Purpose: This fetch is sent to update the garment record specified by the garment's id.
+* Purpose: This fetch is sent to update the watch list record specified by its id.
 * Method: ```PUT```
-* URL: ```/api/garments/<int:id>/edit```
+* URL: ```/api/watch_lists/<int:id>```
 * Body:
 ```python
    {
-      "title": "Classic Pink Tailored Jacket",
-      "price": 350,
-      "discounted_price": 250,
-      "description": "A pink jacket typically features a sleek, tailored design with a rich pink hue. It can be crafted from various materials such as wool, cotton, or synthetic fabrics, offering both style and practicality.",
-      "inventory": 20,
-      "category": "WOMEN",
+      "name": "Updated Watch List Name" 
    }
 ```
 * Successful Response: HTTP Status 200
 ```python
 {
-     "id": self.id,
-     "user_id": self.user_id,
-     "title": self.title,
-     "price": self.price,
-     "discounted_price": self.discounted_price,
-     "description": self.description,
-     "inventory": self.inventory,
-     "category": self.category,
-     "created_at": self.created_at,
-     "updated_at": self.updated_at,
-     "preview_image_url": preview_image_url
+     "message": "Updated watch list name"
 }
 ```
 * Error Response1: HTTP Status 400
 ```python
 {
-   'errors': ARRAY_OF_STRINGS
+   'errors': " of name exceeds 30"
 }
 ```
 * Error Response2: HTTP Status 404
 ```python
 {
-   'errors': 'Garment Record with given id Not Found'
+   'errors': 'Not Found'
 }
 ```
 
-### Delete Review Record
+### Delete WatchList Record
 ##
-* Purpose: This fetch sends a garment's id in the url of the request of the record to be deleted.
+* Purpose: This fetch sends a watch list's id in the url of the request of the record to be deleted.
 * Method: ```DELETE```
-* URL: ```/api/garments/<int:id>```
+* URL: ```/api/watch_lists/<int:id>```
 * Successful Response: HTTP Status 200
 ```python
 {
