@@ -45,9 +45,16 @@ https://garment-llvd.onrender.com
      "last_name": self.last_name,
      "email": self.email,
      "username": self.username,
-     "hashed_password": self.hashed_password,
+     "address": self.address,
+     "city": self.city,
+     "state": self.state,
+     "zip": self.zip,
+     "phone": self.phone,
+     "ssn": self.ssn,
+     "birthday": self.birthday,
+     "citizenship": self.citizenship,
+     "image": self.image,
      "created_at": self.created_at,
-     "updated_at": self.updated_at,
 }
 ```
 * Error Response: HTTP Status Code 401
@@ -81,9 +88,16 @@ https://garment-llvd.onrender.com
      "last_name": self.last_name,
      "email": self.email,
      "username": self.username,
-     "hashed_password": self.hashed_password,
+     "address": self.address,
+     "city": self.city,
+     "state": self.state,
+     "zip": self.zip,
+     "phone": self.phone,
+     "ssn": self.ssn,
+     "birthday": self.birthday,
+     "citizenship": self.citizenship,
+     "image": self.image,
      "created_at": self.created_at,
-     "updated_at": self.updated_at,
 }
 ```
 * Error Response: HTTP Status 400
@@ -105,9 +119,16 @@ https://garment-llvd.onrender.com
      "last_name": self.last_name,
      "email": self.email,
      "username": self.username,
-     "hashed_password": self.hashed_password,
+     "address": self.address,
+     "city": self.city,
+     "state": self.state,
+     "zip": self.zip,
+     "phone": self.phone,
+     "ssn": self.ssn,
+     "birthday": self.birthday,
+     "citizenship": self.citizenship,
+     "image": self.image,
      "created_at": self.created_at,
-     "updated_at": self.updated_at,
 }
 ```
 * Error Response: HTTP Status 400
