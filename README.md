@@ -377,9 +377,9 @@ https://garment-llvd.onrender.com
 }
 ```
 
-### Create a new Garment
+### Create a WatchList
 ##
-* Purpose: This fetch is sent to add a new garment to the garments table.
+* Purpose: This fetch is sent to add a new watch list to the watch lists table.
 * Method: ```POST```
 * URL: ```/api/watch_lists/```
 * Body:
@@ -442,21 +442,21 @@ https://garment-llvd.onrender.com
 * Successful Response: HTTP Status 200
 ```python
 {
-     'message' : 'Garment deleted'
+     'message' : 'Watch list deleted'
 }
 ```
 * Error Response: HTTP Status 404
 ```python
 {
-   'errors': 'Garment Record with given id Not Found'
+   'errors': 'Watch list Record with given id Not Found'
 }
 ```
 
 # Feature List
-1. Cart
-2. Reviews
-3. Favorites
-4. Garments
+1. Portfolio
+2. Transaction
+3. Stock
+4. WatchList
 
 # Connect
 [LinkedIn](https://www.linkedin.com/in/bayode-olaoye/)
