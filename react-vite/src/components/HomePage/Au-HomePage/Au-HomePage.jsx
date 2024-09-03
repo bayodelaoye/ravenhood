@@ -75,6 +75,7 @@ const AuHomePage = () => {
                 src="https://cdn.robinhood.com/assets/generated_assets/webapp/web-platform-prefetch-sdp/member/596db67a189aa1843e74.svg"
                 alt="welcome-to-ravenhood"
                 id="welcome-image"
+                className="no-stocks-have-portfolio-img"
               />
             </div>
             <div id="welcome-to-ravenhood">

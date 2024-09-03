@@ -56,7 +56,11 @@ const Portfolio = () => {
                 <div>
                   <h3>Total Amount of all your portfolios: ${totalAmount}</h3>
                 </div>
-                <LineGraph stock={stockDetails[0][0]} timeline={timeLineBtn} />
+                <LineGraph
+                  stock={stockDetails[0][0]}
+                  timeline={timeLineBtn}
+                  className="no-stocks-have-portfolio-img"
+                />
                 <div className="time-line">
                   <div
                     className="time-line-btn one-day"
@@ -187,6 +191,7 @@ const Portfolio = () => {
                     <img
                       src="https://cdn.robinhood.com/app_assets/list_illustrations/crypto/header_web/1x.png"
                       alt=""
+                      className="no-stocks-have-portfolio-img"
                     />
                   </div>
                 </div>

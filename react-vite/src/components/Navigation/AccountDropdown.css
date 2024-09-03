@@ -1,67 +1,139 @@
-#AccountDropdownUserName {
-  font-weight: bold;
-  border-bottom: 0.5px lightgray solid;
-  cursor: default;
+@media screen and (min-width: 360px) {
+  #AccountDropdownUserName {
+    font-weight: bold;
+    border-bottom: 0.5px lightgray solid;
+    cursor: default;
+  }
+
+  #platinum {
+    width: 10px;
+  }
+
+  #AccountDropdownLogOut {
+    font-weight: bold;
+    border-top: 0.5px lightgray solid;
+  }
+
+  #AccountDropdownUl {
+    position: absolute;
+    right: 1rem;
+    margin-top: 1rem;
+    background-color: white;
+    filter: drop-shadow(0 0.5rem 0.75rem rgb(37, 15, 67));
+    z-index: 4;
+  }
+
+  .AccountDropdownUlLi {
+    display: flex;
+    align-items: center;
+
+    justify-content: baseline;
+    list-style-type: none;
+    border: none;
+  }
+
+  .AccountDropdownUlLiButton {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    height: 3rem;
+    width: 20rem;
+    background-color: white;
+    border: none;
+    padding: 4px;
+    /* margin: 4px 4px 4px 8px; */
+    font-size: medium;
+  }
+
+  .AccountDropdownUlLiButton:hover {
+    background-color: #dddde1;
+    cursor: pointer;
+  }
+
+  .AccountDropdownName {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    height: 3rem;
+    width: 20rem;
+    background-color: white;
+    border: none;
+    padding: 4px;
+    /* margin: 4px 4px 4px 8px; */
+    font-size: medium;
+  }
+
+  .AccountDropdownIcon {
+    margin: 0 8px 0 2px;
+  }
 }
 
-#platinum {
-  width: 10px;
-}
+@media screen and (min-width: 1024px) {
+  #AccountDropdownUserName {
+    font-weight: bold;
+    border-bottom: 0.5px lightgray solid;
+    cursor: default;
+  }
 
-#AccountDropdownLogOut {
-  font-weight: bold;
-  border-top: 0.5px lightgray solid;
-}
+  #platinum {
+    width: 10px;
+  }
 
-#AccountDropdownUl {
-  position: absolute;
-  right: 14rem;
-  margin-top: 1rem;
-  background-color: white;
-  filter: drop-shadow(0 0.5rem 0.75rem rgb(37, 15, 67));
-  z-index: 4;
-}
+  #AccountDropdownLogOut {
+    font-weight: bold;
+    border-top: 0.5px lightgray solid;
+  }
 
-.AccountDropdownUlLi {
-  display: flex;
-  align-items: center;
+  #AccountDropdownUl {
+    position: absolute;
+    right: 14rem;
+    margin-top: 1rem;
+    background-color: white;
+    filter: drop-shadow(0 0.5rem 0.75rem rgb(37, 15, 67));
+    z-index: 4;
+  }
 
-  justify-content: baseline;
-  list-style-type: none;
-  border: none;
-}
+  .AccountDropdownUlLi {
+    display: flex;
+    align-items: center;
 
-.AccountDropdownUlLiButton {
-  display: flex;
-  align-items: center;
-  justify-content: baseline;
-  height: 3rem;
-  width: 20rem;
-  background-color: white;
-  border: none;
-  padding: 4px;
-  /* margin: 4px 4px 4px 8px; */
-  font-size: medium;
-}
+    justify-content: baseline;
+    list-style-type: none;
+    border: none;
+  }
 
-.AccountDropdownUlLiButton:hover {
-  background-color: #dddde1;
-  cursor: pointer;
-}
+  .AccountDropdownUlLiButton {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    height: 3rem;
+    width: 20rem;
+    background-color: white;
+    border: none;
+    padding: 4px;
+    /* margin: 4px 4px 4px 8px; */
+    font-size: medium;
+  }
 
-.AccountDropdownName {
-  display: flex;
-  align-items: center;
-  justify-content: baseline;
-  height: 3rem;
-  width: 20rem;
-  background-color: white;
-  border: none;
-  padding: 4px;
-  /* margin: 4px 4px 4px 8px; */
-  font-size: medium;
-}
+  .AccountDropdownUlLiButton:hover {
+    background-color: #dddde1;
+    cursor: pointer;
+  }
 
-.AccountDropdownIcon {
-  margin: 0 8px 0 2px;
+  .AccountDropdownName {
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    height: 3rem;
+    width: 20rem;
+    background-color: white;
+    border: none;
+    padding: 4px;
+    /* margin: 4px 4px 4px 8px; */
+    font-size: medium;
+  }
+
+  .AccountDropdownIcon {
+    margin: 0 8px 0 2px;
+  }
 }

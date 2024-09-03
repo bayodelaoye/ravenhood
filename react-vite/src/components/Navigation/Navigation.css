@@ -1,81 +1,175 @@
-header {
-  padding: 0.5rem 1rem 1rem 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: "Capsule Sans Display", system-ui, -apple-system, "system-ui",
-    "Segoe UI", Helvetica, Arial, sans-serif;
-  /* border: 1px gray dashed; */
+@media screen and (min-width: 360px) {
+  .navbar-portfolios {
+    display: none;
+  }
+
+  header {
+    padding: 0.5rem 1rem 1rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Capsule Sans Display", system-ui, -apple-system, "system-ui",
+      "Segoe UI", Helvetica, Arial, sans-serif;
+    /* border: 1px gray dashed; */
+  }
+
+  #logoAndSearchBarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0.5rem 0 0;
+  }
+
+  #logo {
+    height: 2rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    /* filter: invert(0%) sepia(100%) saturate(2000%) hue-rotate(50deg) brightness(100%) contrast(1000%); */
+  }
+
+  #logo:hover {
+    color: black;
+    filter: invert(0%) sepia(100%) saturate(2000%) hue-rotate(50deg)
+      brightness(100%) contrast(0%);
+    cursor: pointer;
+  }
+
+  #TopNavBarUl {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    padding: 0;
+  }
+
+  .TopNavBarNavLink {
+    color: #4f4274;
+    font-weight: bold;
+    font-size: small;
+    text-wrap: nowrap;
+    text-decoration: none;
+    margin-right: 1.5rem;
+  }
+
+  .TopNavBarNavLink:hover {
+    cursor: pointer;
+    color: #bfc0c6;
+  }
+
+  .TopNavBarNavLink-p {
+    color: #4f4274;
+    font-weight: bold;
+    font-size: small;
+    text-wrap: nowrap;
+    text-decoration: none;
+    margin-right: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .TopNavBarNavLink-p:focus {
+    text-decoration: none;
+  }
+
+  .TopNavBarLinkActive {
+    text-decoration: underline;
+  }
+
+  #TopNavBarToggleDropdownButton {
+    background-color: transparent;
+    border: none;
+  }
+
+  #TopNavBarAccountDropdown {
+    z-index: 3;
+  }
 }
 
-#logoAndSearchBarContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 0.5rem 0 0;
-}
+@media screen and (min-width: 768px) {
+  header {
+    padding: 0.5rem 1rem 1rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Capsule Sans Display", system-ui, -apple-system, "system-ui",
+      "Segoe UI", Helvetica, Arial, sans-serif;
+    /* border: 1px gray dashed; */
+  }
 
-#logo {
-  height: 2rem;
-  padding-right: 1rem;
-  margin-left: 1rem;
-  /* filter: invert(0%) sepia(100%) saturate(2000%) hue-rotate(50deg) brightness(100%) contrast(1000%); */
-}
+  #logoAndSearchBarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0.5rem 0 0;
+  }
 
-#logo:hover {
-  color: black;
-  filter: invert(0%) sepia(100%) saturate(2000%) hue-rotate(50deg)
-    brightness(100%) contrast(0%);
-  cursor: pointer;
-}
+  .navbar-portfolios {
+    display: flex;
+  }
 
-#TopNavBarUl {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-  padding: 0;
-}
+  #logo {
+    height: 2rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    /* filter: invert(0%) sepia(100%) saturate(2000%) hue-rotate(50deg) brightness(100%) contrast(1000%); */
+  }
 
-.TopNavBarNavLink {
-  color: #4f4274;
-  font-weight: bold;
-  font-size: small;
-  text-wrap: nowrap;
-  text-decoration: none;
-  margin-right: 1.5rem;
-}
+  #logo:hover {
+    color: black;
+    filter: invert(0%) sepia(100%) saturate(2000%) hue-rotate(50deg)
+      brightness(100%) contrast(0%);
+    cursor: pointer;
+  }
 
-.TopNavBarNavLink:hover {
-  cursor: pointer;
-  color: #bfc0c6;
-}
+  #TopNavBarUl {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    padding: 0;
+  }
 
-.TopNavBarNavLink-p {
-  color: #4f4274;
-  font-weight: bold;
-  font-size: small;
-  text-wrap: nowrap;
-  text-decoration: none;
-  margin-right: 1.5rem;
-  cursor: pointer;
-  text-decoration: none;
-}
+  .TopNavBarNavLink {
+    color: #4f4274;
+    font-weight: bold;
+    font-size: small;
+    text-wrap: nowrap;
+    text-decoration: none;
+    margin-right: 1.5rem;
+  }
 
-.TopNavBarNavLink-p:focus {
-  text-decoration: none;
-}
+  .TopNavBarNavLink:hover {
+    cursor: pointer;
+    color: #bfc0c6;
+  }
 
-.TopNavBarLinkActive {
-  text-decoration: underline;
-}
+  .TopNavBarNavLink-p {
+    color: #4f4274;
+    font-weight: bold;
+    font-size: small;
+    text-wrap: nowrap;
+    text-decoration: none;
+    margin-right: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
 
-#TopNavBarToggleDropdownButton {
-  background-color: transparent;
-  border: none;
-}
+  .TopNavBarNavLink-p:focus {
+    text-decoration: none;
+  }
 
-#TopNavBarAccountDropdown {
-  z-index: 3;
+  .TopNavBarLinkActive {
+    text-decoration: underline;
+  }
+
+  #TopNavBarToggleDropdownButton {
+    background-color: transparent;
+    border: none;
+  }
+
+  #TopNavBarAccountDropdown {
+    z-index: 3;
+  }
 }
