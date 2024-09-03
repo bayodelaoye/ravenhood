@@ -1,271 +1,561 @@
-.stock-details-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 50px;
-  margin-bottom: 50px;
+@media screen and (min-width: 360px) {
+  .stock-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .stock-info-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    height: fit-content;
+    /* width: 900px; */
+  }
+
+  .company-name-price {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .company-name-price h3 {
+    font-weight: 490;
+    font-size: 28px;
+  }
+
+  .company-name-price p {
+    font-weight: 490;
+    font-size: 28px;
+  }
+
+  .time-line {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    letter-spacing: 3px;
+    color: var(--time-line);
+  }
+
+  .time-line-btn {
+    cursor: pointer;
+    font-weight: 550;
+  }
+
+  .time-line-btn:hover {
+    color: var(--purple);
+    border-bottom: 2px solid var(--purple);
+  }
+
+  .time-line-btn.active {
+    padding-bottom: 5px;
+    color: var(--purple);
+    border-bottom: 2px solid var(--purple);
+  }
+
+  .stock-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .about-company {
+    font-size: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .about-info-bold {
+    font-weight: 550;
+  }
+
+  .company-description {
+    margin-top: 20px;
+  }
+
+  .company-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .company-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .buy-sell-watch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .buy-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+    background-color: var(--white);
+    font-size: 14px;
+    border: 1px solid var(--lightest-gray);
+    border-radius: 4px;
+    box-shadow: 0px 12px 24px var(--buy-box-shadow);
+  }
+
+  .order {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .buy-stock-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .buy-stock-name p {
+    font-weight: 550;
+    font-size: 18px;
+  }
+
+  .down-caret {
+    font-size: 25px;
+  }
+
+  .buy-sell {
+    width: 250px;
+  }
+
+  .dropdown-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .select-buy-sell {
+    margin-top: 20px;
+    height: 30px;
+  }
+
+  .slect-buy-sell:focus {
+    outline: 0;
+    border-color: var(--purple);
+    border-radius: 3px;
+  }
+
+  .shares-amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .shares-input {
+    width: 95px;
+    height: 30px;
+    padding-right: 8px;
+    border: 1.5px solid var(--light-gray);
+    border-radius: 3px;
+    text-align: right;
+    transition: border-color 0.2s ease;
+  }
+
+  .shares-input:hover {
+    border-color: var(--input-hover);
+  }
+
+  .shares-input:focus {
+    outline: 0;
+    border-color: var(--purple);
+  }
+
+  .market-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .commissions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .line-break {
+    border: 0.5px solid var(--light-gray);
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .bold-text {
+    font-weight: 550;
+  }
+
+  .estimated-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 550;
+  }
+
+  .errors-marging {
+    margin-bottom: 15px;
+  }
+
+  .how-to-buy {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    width: 250px;
+  }
+
+  .sign-up-buy-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    color: var(--white);
+    background-color: var(--purple);
+    font-weight: 550;
+    transition: background-color 0.25s ease;
+  }
+
+  .transaction {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .transaction-btn {
+    width: 250px;
+  }
+
+  .sign-up-buy-btn:hover {
+    border: none;
+    background-color: var(--light-purple);
+    cursor: pointer;
+  }
+
+  .watch-list-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid var(--purple);
+    color: var(--purple);
+    background-color: var(--white);
+    font-weight: 550;
+    width: 250px;
+  }
+
+  .watch-list-btn:hover {
+    cursor: pointer;
+    background-color: var(--hover-purple);
+  }
+
+  .form-errors {
+    color: var(--errors);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    width: 260px;
+  }
 }
 
-.stock-info-container {
-  display: flex;
-  flex-direction: column;
-  margin-left: 12px;
-  height: fit-content;
-  width: 900px;
-}
+@media screen and (min-width: 1200px) {
+  .stock-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 
-.company-name-price {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+  .stock-info-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    height: fit-content;
+    width: 900px;
+  }
 
-.company-name-price h3 {
-  font-weight: 490;
-  font-size: 28px;
-}
+  .company-name-price {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-.company-name-price p {
-  font-weight: 490;
-  font-size: 28px;
-}
+  .company-name-price h3 {
+    font-weight: 490;
+    font-size: 28px;
+  }
 
-.time-line {
-  display: flex;
-  gap: 10px;
-  letter-spacing: 3px;
-  color: var(--time-line);
-}
+  .company-name-price p {
+    font-weight: 490;
+    font-size: 28px;
+  }
 
-.time-line-btn {
-  cursor: pointer;
-  font-weight: 550;
-}
+  .time-line {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    letter-spacing: 3px;
+    color: var(--time-line);
+  }
 
-.time-line-btn:hover {
-  color: var(--purple);
-  border-bottom: 2px solid var(--purple);
-}
+  .time-line-btn {
+    cursor: pointer;
+    font-weight: 550;
+  }
 
-.time-line-btn.active {
-  padding-bottom: 5px;
-  color: var(--purple);
-  border-bottom: 2px solid var(--purple);
-}
+  .time-line-btn:hover {
+    color: var(--purple);
+    border-bottom: 2px solid var(--purple);
+  }
 
-.stock-details {
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-}
+  .time-line-btn.active {
+    padding-bottom: 5px;
+    color: var(--purple);
+    border-bottom: 2px solid var(--purple);
+  }
 
-.about-company {
-  font-size: 25px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--light-gray);
-}
+  .stock-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    text-align: left;
+  }
 
-.about-info-bold {
-  font-weight: 550;
-}
+  .about-company {
+    font-size: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--light-gray);
+  }
 
-.company-description {
-  margin-top: 20px;
-}
+  .about-info-bold {
+    font-weight: 550;
+  }
 
-.company-info-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
+  .company-description {
+    margin-top: 20px;
+  }
 
-.company-info-col {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+  .company-info-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
 
-.info-text {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
+  .company-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 
-.buy-sell-watch-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 25px;
-}
+  .info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
 
-.buy-container {
-  display: flex;
-  flex-direction: column;
-  padding: 15px 20px;
-  background-color: var(--white);
-  font-size: 14px;
-  border: 1px solid var(--lightest-gray);
-  border-radius: 4px;
-  box-shadow: 0px 12px 24px var(--buy-box-shadow);
-}
+  .buy-sell-watch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 25px;
+  }
 
-.order {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
+  .buy-container {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+    background-color: var(--white);
+    font-size: 14px;
+    border: 1px solid var(--lightest-gray);
+    border-radius: 4px;
+    box-shadow: 0px 12px 24px var(--buy-box-shadow);
+  }
 
-.buy-stock-name {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .order {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
 
-.buy-stock-name p {
-  font-weight: 550;
-  font-size: 18px;
-}
+  .buy-stock-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.down-caret {
-  font-size: 25px;
-}
+  .buy-stock-name p {
+    font-weight: 550;
+    font-size: 18px;
+  }
 
-.buy-sell {
-  width: 250px;
-}
+  .down-caret {
+    font-size: 25px;
+  }
 
-.dropdown-container {
-  display: flex;
-  justify-content: space-between;
-}
+  .buy-sell {
+    width: 250px;
+  }
 
-.select-buy-sell {
-  margin-top: 20px;
-  height: 30px;
-}
+  .dropdown-container {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.slect-buy-sell:focus {
-  outline: 0;
-  border-color: var(--purple);
-  border-radius: 3px;
-}
+  .select-buy-sell {
+    margin-top: 20px;
+    height: 30px;
+  }
 
-.shares-amount {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .slect-buy-sell:focus {
+    outline: 0;
+    border-color: var(--purple);
+    border-radius: 3px;
+  }
 
-.shares-input {
-  width: 95px;
-  height: 30px;
-  padding-right: 8px;
-  border: 1.5px solid var(--light-gray);
-  border-radius: 3px;
-  text-align: right;
-  transition: border-color 0.2s ease;
-}
+  .shares-amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.shares-input:hover {
-  border-color: var(--input-hover);
-}
+  .shares-input {
+    width: 95px;
+    height: 30px;
+    padding-right: 8px;
+    border: 1.5px solid var(--light-gray);
+    border-radius: 3px;
+    text-align: right;
+    transition: border-color 0.2s ease;
+  }
 
-.shares-input:focus {
-  outline: 0;
-  border-color: var(--purple);
-}
+  .shares-input:hover {
+    border-color: var(--input-hover);
+  }
 
-.market-price {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .shares-input:focus {
+    outline: 0;
+    border-color: var(--purple);
+  }
 
-.commissions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .market-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.line-break {
-  border: 0.5px solid var(--light-gray);
-  margin-top: 15px;
-  margin-bottom: 10px;
-}
+  .commissions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.bold-text {
-  font-weight: 550;
-}
+  .line-break {
+    border: 0.5px solid var(--light-gray);
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
 
-.estimated-cost {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 550;
-}
+  .bold-text {
+    font-weight: 550;
+  }
 
-.errors-marging {
-  margin-bottom: 15px;
-}
+  .estimated-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 550;
+  }
 
-.how-to-buy {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-  width: 250px;
-}
+  .errors-marging {
+    margin-bottom: 15px;
+  }
 
-.sign-up-buy-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border-radius: 25px;
-  border: none;
-  color: var(--white);
-  background-color: var(--purple);
-  font-weight: 550;
-  transition: background-color 0.25s ease;
-}
+  .how-to-buy {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    width: 250px;
+  }
 
-.transaction {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .sign-up-buy-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    color: var(--white);
+    background-color: var(--purple);
+    font-weight: 550;
+    transition: background-color 0.25s ease;
+  }
 
-.transaction-btn {
-  width: 250px;
-}
+  .transaction {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.sign-up-buy-btn:hover {
-  border: none;
-  background-color: var(--light-purple);
-  cursor: pointer;
-}
+  .transaction-btn {
+    width: 250px;
+  }
 
-.watch-list-btn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border-radius: 25px;
-  border: 1px solid var(--purple);
-  color: var(--purple);
-  background-color: var(--white);
-  font-weight: 550;
-  width: 250px;
-}
+  .sign-up-buy-btn:hover {
+    border: none;
+    background-color: var(--light-purple);
+    cursor: pointer;
+  }
 
-.watch-list-btn:hover {
-  cursor: pointer;
-  background-color: var(--hover-purple);
-}
+  .watch-list-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid var(--purple);
+    color: var(--purple);
+    background-color: var(--white);
+    font-weight: 550;
+    width: 250px;
+  }
 
-.form-errors {
-  color: var(--errors);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 12px;
-  width: 260px;
+  .watch-list-btn:hover {
+    cursor: pointer;
+    background-color: var(--hover-purple);
+  }
+
+  .form-errors {
+    color: var(--errors);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    width: 260px;
+  }
 }

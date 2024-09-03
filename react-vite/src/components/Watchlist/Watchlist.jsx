@@ -522,7 +522,7 @@ const Watchlist = () => {
         <div className="sub-watchlist">
           <header className="sublist-header">
             <div className="sublist-title">
-              <h3>Lists</h3>
+              <h3>Lists </h3>
             </div>
             <div className="watchlist-add">
               <div className="create-watchlist" ref={ulRef}>
