@@ -10,32 +10,32 @@ const UpdatePortfolio = () => {
 	const { userPortfolios } = useLoaderData();
 	const fetcher = useFetcher();
 	const navigate = useNavigate();
-	const portfolios = userPortfolios?.portfolios?.map((portfolio) => portfolio);
-	const portfolioUrl = parseInt(window.location.href.split("/")[4], 10);
-	// const { closeModal } = useModal();
-      const userId = currentUser?.id;
-      
+
 	// Ensure user is logged in
 	useEffect(() => {
 		if (!currentUser) {
 			navigate("/");
 		}
 	}, [currentUser, navigate]);
-
-	const portfolioToUpdate = portfolios.find(
-		(portfolio) => portfolio.id === portfolioUrl,
-	);
 	// Ensure user is the portfolio owner
 	useEffect(() => {
 		if (
 			currentUser &&
-			portfolioToUpdate &&
+			// portfolioToUpdate &&
 			userPortfolios.id !== currentUser.id
 		) {
 			navigate("/");
 		}
-	}, [userPortfolios, currentUser, navigate, portfolioToUpdate]);
+	}, [userPortfolios, currentUser, navigate]);
 
+	const portfolios = userPortfolios?.portfolios?.map((portfolio) => portfolio);
+	const portfolioUrl = parseInt(window.location.href.split("/")[4], 10);
+	// const { closeModal } = useModal();
+	const userId = currentUser?.id;
+
+	const portfolioToUpdate = portfolios.find(
+		(portfolio) => portfolio.id === portfolioUrl,
+	);
 	const [portfolioName, setPortfolioName] = useState("");
 	const [cashBalance, setCashBalance] = useState("");
 	const [errors, setErrors] = useState({});
@@ -50,8 +50,7 @@ const UpdatePortfolio = () => {
 		event.preventDefault();
 		const errs = {};
 
-		if (!portfolioName)
-			errs.portfolioName = "Portfolio name is required";
+		if (!portfolioName) errs.portfolioName = "Portfolio name is required";
 		if (isNaN(cashBalance) || Number(cashBalance) < 0) {
 			errs.cashBalance =
 				"Cash balance is required and must be a positive number";
@@ -75,9 +74,9 @@ const UpdatePortfolio = () => {
 			},
 		);
 		navigate(`/portfolios`);
-      };
-      
-      if (!currentUser) return <NuHomePage />
+	};
+
+	if (!currentUser) return <NuHomePage />;
 
 	return (
 		<div id="update-portfolio">
@@ -118,7 +117,7 @@ const UpdatePortfolio = () => {
 						{errors.cashBalance}
 					</p>
 				)}
-				<input type="hidden" name="id" value={portfolioToUpdate.id} />
+				<input type="hidden" name="id" value={portfolioUrl} />
 				<button
 					type="submit"
 					// name="intent"

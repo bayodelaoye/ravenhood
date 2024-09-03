@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData, Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { BsStars } from "react-icons/bs";
 // import WatchlistAll from "../Watchlist/WatchlistUser_All";
@@ -9,12 +9,19 @@ import "./Portfolio.css";
 const Portfolio = () => {
 	const { userPortfolios } = useLoaderData();
 	const currentUser = useSelector((state) => state.session.user);
+	const navigate = useNavigate();
 	const portfolios = userPortfolios?.portfolios?.map((portfolio) => portfolio);
 	const stockDetails = userPortfolios?.portfolios?.map((stock) => stock.stocks);
 	const totalAmount = portfolios?.reduce((acc, curr) => {
 		return acc + +curr.total_amount;
 	}, 0);
 	const [timeLineBtn, setTimeLineBtn] = useState("");
+
+	useEffect(() => {
+		if (!currentUser) {
+			navigate("/");
+		}
+	}, [navigate, currentUser]);
 
 	useEffect(() => {
 		if (timeLineBtn === "") {
