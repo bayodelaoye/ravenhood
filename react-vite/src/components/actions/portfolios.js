@@ -28,10 +28,7 @@ export const createPortfolioAction = async ({ request }) => {
 export const updatePortfolioAction = async ({ request }) => {
 	const formData = await request.formData();
 	const data = Object.fromEntries(formData.entries());
-	const intent = formData.get("intent");
-
-	console.log("dattaaaa", data);
-	console.log("intent", intent);
+	// const intent = formData.get("intent");
 
 	const response = await fetch(`/api/portfolios/${+data.id}`, {
 		method: "PUT",
