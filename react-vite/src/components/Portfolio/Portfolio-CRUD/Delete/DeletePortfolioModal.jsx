@@ -1,9 +1,23 @@
 import { Form } from "react-router-dom";
 import { useModal } from "../../../../context/Modal";
 import "./DeletePortfolioModal.css"
+import { useEffect } from "react";
 
 const DeletePortfolioModal = ({ userPortfolios }) => {
 	const { closeModal } = useModal();
+
+	useEffect(() => {
+		const handlePageChange = () => {
+			// Perform actions when page changes
+			closeModal();
+		};
+
+		window.addEventListener('popstate', handlePageChange);
+
+		return () => {
+			window.removeEventListener('popstate', handlePageChange);
+		};
+	}, [closeModal]);
 
 	const noDelete = async (event) => {
 		event.preventDefault();

@@ -31,7 +31,7 @@ const WatchlistAll = () => {
     if (!user) {
       return navigate("/");
     }
-  }, [userWatchlists]);
+  }, [userWatchlists, navigate, user]);
 
   if (!user) return <NuHomePage />;
 

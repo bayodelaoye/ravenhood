@@ -3,7 +3,6 @@ import {
   useNavigate,
   useParams,
   Form,
-  useActionData,
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -30,7 +29,7 @@ const Watchlist = () => {
   const [showWatchlistDeleteMenu, setshowWatchlistDeleteMenu] = useState(false);
   const [currentList, setCurrentList] = useState([]);
   const ulRef = useRef();
-  const actionData = useActionData();
+
 
   let currentWatchList;
 
@@ -46,7 +45,7 @@ const Watchlist = () => {
     if (!user) {
       return navigate("/");
     }
-  }, [userWatchlists, currentWatchList]);
+  }, [userWatchlists, currentWatchList, navigate, user]);
 
   useEffect(() => {
     if (!showWatchlistDeleteMenu) return;
@@ -417,9 +416,8 @@ const Watchlist = () => {
                   onClick={() => {
                     sortStock("name");
                   }}
-                  className={`sort-button ${
-                    currentFilter.includes("name") ? "selected" : ""
-                  }`}
+                  className={`sort-button ${currentFilter.includes("name") ? "selected" : ""
+                    }`}
                 >
                   Name
                 </button>
@@ -429,9 +427,8 @@ const Watchlist = () => {
               <div className="watchlist-sort-button">
                 <button
                   onClick={() => sortStock("symbol")}
-                  className={`sort-button ${
-                    currentFilter.includes("symbol") ? "selected" : ""
-                  }`}
+                  className={`sort-button ${currentFilter.includes("symbol") ? "selected" : ""
+                    }`}
                 >
                   Symbol
                 </button>
@@ -441,9 +438,8 @@ const Watchlist = () => {
               <div className="watchlist-sort-button">
                 <button
                   onClick={() => sortStock("price")}
-                  className={`sort-button ${
-                    currentFilter.includes("price") ? "selected" : ""
-                  }`}
+                  className={`sort-button ${currentFilter.includes("price") ? "selected" : ""
+                    }`}
                 >
                   Price
                 </button>
@@ -456,9 +452,8 @@ const Watchlist = () => {
               <div className="watchlist-sort-button">
                 <button
                   onClick={() => sortStock("marketcap")}
-                  className={`sort-button ${
-                    currentFilter.includes("marketcap") ? "selected" : ""
-                  }`}
+                  className={`sort-button ${currentFilter.includes("marketcap") ? "selected" : ""
+                    }`}
                 >
                   Market Cap
                 </button>
