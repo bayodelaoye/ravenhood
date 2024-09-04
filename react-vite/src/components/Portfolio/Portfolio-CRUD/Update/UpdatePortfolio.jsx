@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 // import { useModal } from "../../../../context/Modal";
 import NuHomePage from "../../../HomePage/Nu-HomePage";
 import "./UpdatePortfolio.css";
-import NuHomePage from "../../../HomePage/Nu-HomePage";
 
 const UpdatePortfolio = () => {
 	const currentUser = useSelector((state) => state.session.user);
