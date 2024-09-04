@@ -8,12 +8,14 @@
   left: 0;
   width: 50vw;
   background-color: #8a7c9c;
-  height: 100vh;
+  height: 100%;
+  min-width: 50rem;
 }
 
 .color-b {
   width: 100%;
-  height: 100%;
+  max-height: 135vh;
+  min-height: 100vh;
   object-fit: cover;
   display: flex;
   flex-direction: column;
@@ -35,6 +37,12 @@
   display: flex;
   flex-direction: column;
 }
+
+.rocket {
+  width: 15vw;
+  min-width: 15rem;
+}
+
 
 .email-box {
   margin-bottom: 1rem;
@@ -92,10 +100,14 @@ h4 {
 .details {
   margin-top: 6rem;
   margin-left: 5rem;
+
 }
 
 .title-decor {
   font-size: 5rem;
+  text-wrap: wrap;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .description-signup-info {
@@ -108,8 +120,9 @@ img {
 }
 
 .image {
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
+  margin-top: 15rem;
   margin-left: 5rem;
   margin-bottom: 5rem;
 }
