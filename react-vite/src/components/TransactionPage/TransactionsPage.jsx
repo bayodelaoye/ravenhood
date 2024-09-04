@@ -59,7 +59,7 @@ function TransactionsPage() {
                 <TransactionsIndex
                   transaction={transaction}
                   stocks={stocks}
-                  id={index}
+                  key={index}
                 />
               );
             })}
