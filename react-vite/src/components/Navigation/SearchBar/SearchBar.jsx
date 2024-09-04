@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 // import * as searchActions from '../../../search'
 import * as navStocksActions from "../../../redux/navStocksRedux";
@@ -11,12 +11,17 @@ import "./SearchBar.css";
 
 function SearchBar() {
   const navigate = useNavigate();
+  const location = useLocation();
   const stocks = useSelector((state) => state?.navStocks?.navStocks);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(navStocksActions.navStocks());
   }, []);
+
+  useEffect(() => {
+    setSearchSuggestions([]);
+  }, [location]);
 
   // =======================STATEFUL VARIABLES=======================
   // some of these may not be used after all

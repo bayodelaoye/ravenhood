@@ -100,7 +100,7 @@ function StockDetailsPage() {
 
     if (
       isNaN(Number(shares)) ||
-      shares === 0 ||
+      shares <= 0 ||
       shares === "0" ||
       !Number.isInteger(shares)
     )

@@ -52,15 +52,20 @@
 
   .AccountDropdownName {
     display: flex;
+    display: block;
     align-items: center;
     justify-content: baseline;
     height: 3rem;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    box-sizing: border-box;
+    border: 1px solid blue;
     width: 20rem;
     background-color: white;
     border: none;
     padding: 4px;
-    /* margin: 4px 4px 4px 8px; */
     font-size: medium;
+    overflow: hidden;
   }
 
   .AccountDropdownIcon {
