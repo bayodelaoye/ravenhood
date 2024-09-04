@@ -40,56 +40,72 @@ function SignupFormPage() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		if (password !== confirmPassword) {
-			return setErrors({
-				confirmPassword:
-					"Confirm Password field must be the same as the Password field",
-			});
-		}
-		const zip = zipcode;
-		const phone = phoneNumber;
-		const ssn = Number(socials);
-		const birthday = inputdate;
+    if (password !== confirmPassword) {
+      return setErrors({
+        confirmPassword:
+          "Confirm Password field must be the same as the Password field",
+      });
+    }
+    const zip = zipcode;
+    const phone = phoneNumber;
+    const ssn = Number(socials);
+    const birthday = inputdate;
+    const dateBday = new Date(birthday)
+    const today = new Date();
 
 		const error = {};
 
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-		if (email.length > 50) {
-			error.email = "Email must be less than 50 characters";
-		}
-		if (!emailRegex.test(email) || email.length <= 0) {
-			error.email = "Invalid email";
-		}
-		if (password.length > 255) {
-			error.password = "Password is too long!";
-		}
-		if (password.length < 0) {
-			error.password = "Password is required";
-		}
-		if (password !== confirmPassword) {
-			error.confirmPassword =
-				"Confirm Password field must be the same as the Password field";
-		}
-		if (isNaN(Number(zip))) {
-			// console.log("BAD ZIp");
-			error.zipcode = "Invalid Zip code";
-		}
+    if (first_name.length > 20) {
+      error.first_name = "First name must be less than 20 characters";
+    }
+    if (last_name.length > 20) {
+      error.last_name = "Last name must be less than 20 characters";
+    }
+    if (email.length > 50) {
+      error.email = "Email must be less than 50 characters";
+    }
+    if (!emailRegex.test(email) || email.length <= 0) {
+      error.email = "Invalid email";
+    }
 
-		if (isNaN(Number(phoneNumber))) {
-			// console.log("BAD phone");
-			error.phoneNumber = "Invalid phone number";
-		}
+    if (dateBday > today) {
+      error.birthday = "Your birthday cannot be in the future!"
+    }
 
-		if (isNaN(Number(socials))) {
-			// console.log("BAD phone");
-			error.socials = "Invalid SSN";
-		}
+    if (password.length > 255) {
+      error.password = "Password is too long!";
+    }
+    if (password.length < 6) {
+      error.password = "Password must be 6 characters minimum!";
+    }
+    if (password.length < 0) {
+      error.password = "Password is required";
+    }
+    if (password !== confirmPassword) {
+      error.confirmPassword =
+        "Confirm Password field must be the same as the Password field";
+    }
+    if (isNaN(Number(zip))) {
+      // console.log("BAD ZIp");
+      error.zipcode = "Invalid Zip code";
+    }
 
-		if (Object.keys(error).length > 0) {
-			// console.log("EERR", error);
-			return setErrors(error);
-		}
+    if (isNaN(Number(phoneNumber))) {
+      // console.log("BAD phone");
+      error.phoneNumber = "Invalid phone number";
+    }
+
+    if (isNaN(Number(socials))) {
+      // console.log("BAD phone");
+      error.socials = "Invalid SSN";
+    }
+
+    if (Object.keys(error).length > 0) {
+      // console.log("EERR", error);
+      return setErrors(error);
+    }
 
 		const serverResponse = await dispatch(
 			thunkSignup({
@@ -120,26 +136,26 @@ function SignupFormPage() {
 			// console.log(serverResponse.username)
 			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-			if (email.length > 50) {
-				error.email = "Email must be less than 50 characters";
-			}
-			if (!emailRegex.test(email) || email.length <= 0) {
-				error.email = "Invalid email";
-			}
-			if (password.length > 255) {
-				error.password = "Password is too long!";
-			}
-			if (password.length < 0) {
-				error.password = "Password is required";
-			}
-			if (password !== confirmPassword) {
-				error.confirmPassword =
-					"Confirm Password field must be the same as the Password field";
-			}
-			if (isNaN(Number(zip))) {
-				//   console.log("BAD ZIp");
-				error.zipcode = "Invalid Zip code";
-			}
+      if (email.length > 50) {
+        error.email = "Email must be less than 50 characters";
+      }
+      if (!emailRegex.test(email) || email.length <= 0) {
+        error.email = "Invalid email";
+      }
+      if (password.length > 255) {
+        error.password = "Password is too long!";
+      }
+      if (password.length < 0) {
+        error.password = "Password is required";
+      }
+      if (password !== confirmPassword) {
+        error.confirmPassword =
+          "Confirm Password field must be the same as the Password field";
+      }
+      if (isNaN(Number(zip))) {
+        // console.log("BAD ZIp");
+        error.zipcode = "Invalid Zip code";
+      }
 
 			return setErrors(error);
 		} else {

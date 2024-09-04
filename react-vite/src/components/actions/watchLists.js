@@ -35,7 +35,7 @@ export const deleteWatchlist = async ({ request }) => {
     });
 
     if (response.ok) {
-      const message = await response.json();
+      // const message = await response.json();
       // console.log(message)
       return redirect("/watchlist");
     }
