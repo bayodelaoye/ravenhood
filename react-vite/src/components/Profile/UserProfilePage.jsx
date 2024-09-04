@@ -27,7 +27,7 @@ const UserProfilePage = () => {
 		}
 	}, [userPortfolios, currentUser, navigate]);
 
-	if (!currentUser) return;
+	if (!currentUser) return <NuHomePage />;
 
 	const portfolios = userPortfolios.portfolios.map((portfolio) => portfolio);
 	const totalAmount = portfolios.reduce((acc, curr) => {
