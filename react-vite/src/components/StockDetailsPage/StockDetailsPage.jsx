@@ -379,7 +379,7 @@ function StockDetailsPage() {
                     </select>
                     <select
                       name="portfolio-type"
-                      onClick={(e) => setPortfolioType(e.target.value)}
+                      onChange={(e) => setPortfolioType(e.target.value)}
                       className="select-buy-sell"
                     >
                       <option value="" selected disabled hidden>
