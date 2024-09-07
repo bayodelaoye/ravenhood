@@ -40,21 +40,21 @@ https://ravenhood-project.onrender.com
 * Successful Response: HTTP Status Code 200
 ```python
 {
-     "id": self.id,
-     "first_name": self.first_name,
-     "last_name": self.last_name,
-     "email": self.email,
-     "username": self.username,
-     "address": self.address,
-     "city": self.city,
-     "state": self.state,
-     "zip": self.zip,
-     "phone": self.phone,
-     "ssn": self.ssn,
-     "birthday": self.birthday,
-     "citizenship": self.citizenship,
-     "image": self.image,
-     "created_at": self.created_at,
+     "id": INT,
+     "first_name": STRING,
+     "last_name": STRING,
+     "email": STRING,
+     "username": STRING,
+     "address": STRING,
+     "city": STRING,
+     "state": STRING,
+     "zip": INT,
+     "phone": INT,
+     "ssn": INT,
+     "birthday": DATE,
+     "citizenship": STRING,
+     "image": STRING,
+     "created_at": DATE,
 }
 ```
 * Error Response: HTTP Status Code 401
@@ -83,21 +83,21 @@ https://ravenhood-project.onrender.com
 * Successful Response: HTTP Status 201
 ```python
 {
-     "id": self.id,
-     "first_name": self.first_name,
-     "last_name": self.last_name,
-     "email": self.email,
-     "username": self.username,
-     "address": self.address,
-     "city": self.city,
-     "state": self.state,
-     "zip": self.zip,
-     "phone": self.phone,
-     "ssn": self.ssn,
-     "birthday": self.birthday,
-     "citizenship": self.citizenship,
-     "image": self.image,
-     "created_at": self.created_at,
+     "id": INT,
+     "first_name": STRING,
+     "last_name": STRING,
+     "email": STRING,
+     "username": STRING,
+     "address": STRING,
+     "city": STRING,
+     "state": STRING,
+     "zip": INT,
+     "phone": INT,
+     "ssn": STRING,
+     "birthday": DATE,
+     "citizenship": STRING,
+     "image": STRING,
+     "created_at": DATE,
 }
 ```
 * Error Response: HTTP Status 400
@@ -114,21 +114,21 @@ https://ravenhood-project.onrender.com
 * Successful Response: HTTP Status 200
 ```python
 {
-     "id": self.id,
-     "first_name": self.first_name,
-     "last_name": self.last_name,
-     "email": self.email,
-     "username": self.username,
-     "address": self.address,
-     "city": self.city,
-     "state": self.state,
-     "zip": self.zip,
-     "phone": self.phone,
-     "ssn": self.ssn,
-     "birthday": self.birthday,
-     "citizenship": self.citizenship,
-     "image": self.image,
-     "created_at": self.created_at,
+     "id": INT,
+     "first_name": STRING,
+     "last_name": STRING,
+     "email": STRING,
+     "username": STRING,
+     "address": STRING,
+     "city": STRING,
+     "state": STRING,
+     "zip": INT,
+     "phone": INT,
+     "ssn": INT,
+     "birthday": DATE,
+     "citizenship": STRING,
+     "image": STRING,
+     "created_at": DATE,
 }
 ```
 * Error Response: HTTP Status 400
@@ -174,13 +174,13 @@ https://ravenhood-project.onrender.com
 * Successful Response: HTTP Status 201
 ```python
 {
-     "id": self.id,
-     "user_id": self.user_id,
-     "portfolio_name": self.portfolio_name,
-     "cash_balance": self.cash_balance,
-     "total_amount": self.total_amount,
-     "is_active": self.is_active,
-     "updated_at": self.updated_at,
+     "id": INT,
+     "user_id": INT,
+     "portfolio_name": STRING,
+     "cash_balance": NUMERIC,
+     "total_amount": NUMERIC,
+     "is_active": BOOLEAN,
+     "updated_at": DATE,
 }
 ```
 * Error Response: HTTP Status 400
@@ -250,13 +250,13 @@ https://ravenhood-project.onrender.com
 ```python
 [
    {
-        "id": self.id,
-        "user_id": self.user_id,
-        "portfolio_name": self.portfolio_name,
-        "cash_balance": self.cash_balance,
-        "total_amount": self.total_amount,
-        "is_active": self.is_active,
-        "updated_at": self.updated_at,
+        "id": INT,
+        "user_id": INT,
+        "portfolio_name": STRING,
+        "cash_balance": NUMERIC,
+        "total_amount": NUMERIC,
+        "is_active": BOOLEAN,
+        "updated_at": DATE,
    }
 ]
 ```
@@ -276,14 +276,14 @@ https://ravenhood-project.onrender.com
 ```python
 [
    {
-         "id": self.id,
-         "portfolio_id": self.portfolio_id,
-         "type": self.type,
-         "date": self.date,
-         "stock": self.stock,
-         "quantity": self.quantity,
-         "transaction_price": self.transaction_price,
-         "created_at": self.created_at,
+         "id": INT,
+         "portfolio_id": INT,
+         "type": STRING,
+         "date": DATE,
+         "stock": STRING,
+         "quantity": INT,
+         "transaction_price": NUMERIC,
+         "created_at": DATE,
    }
 ]
 ```
@@ -312,14 +312,14 @@ https://ravenhood-project.onrender.com
 * Successful Response: HTTP 201
 ```python
 {
-     "id": self.id,
-     "portfolio_id": self.portfolio_id,
-     "type": self.type,
-     "date": self.date,
-     "stock": self.stock,
-     "quantity": self.quantity,
-     "transaction_price": self.transaction_price,
-     "created_at": self.created_at,
+     "id": INT,
+     "portfolio_id": INT,
+     "type": STRING,
+     "date": DATE,
+     "stock": STRING,
+     "quantity": INT,
+     "transaction_price": NUMERIC,
+     "created_at": DATE,
 }
 ```
 * Error Response1: HTTP Status 400
@@ -345,25 +345,25 @@ https://ravenhood-project.onrender.com
 * Successful Response: HTTP Status 200
 ```python
 {
-     "id": self.id,
-     "company_name": self.company_name,
-     "ticker_symbol": self.ticker_symbol,
-     "current_price": self.current_price,
-     "description": self.description,
-     "ceo": self.ceo,
-     "employeee": self.employees,
-     "headquarters": self.headquarters,
-     "founded": self.founded,
-     "market_cap_billions": self.market_cap_billions,
-     "price_earnings_ratio": self.price_earnings_ratio,
-     "divident_yield": self.dividend_yield,
-     "average_volume": self.average_volume,
-     "high_today": self.high_today,
-     "low_today": self.low_today,
-     "open_price": self.open_price,
-     "volume": self.volume,
-     "fifty_two_week_high": self.fifty_two_week_high,
-     "fifty_two_week_low": self.fifty_two_week_low
+     "id": INT,
+     "company_name": STRING,
+     "ticker_symbol": STRING,
+     "current_price": NUMERIC,
+     "description": STRING,
+     "ceo": STRING,
+     "employeee": INT,
+     "headquarters": STRING,
+     "founded": INT,
+     "market_cap_billions": NUMERIC,
+     "price_earnings_ratio": NUMERIC,
+     "divident_yield": NUMERIC,
+     "average_volume": NUMERIC,
+     "high_today": NUMERIC,
+     "low_today": NUMERIC,
+     "open_price": NUMERIC,
+     "volume": NUMERIC,
+     "fifty_two_week_high": NUMERIC,
+     "fifty_two_week_low": NUMERIC
 }
 ```
 * Error Response: HTTP Status 404
@@ -384,10 +384,10 @@ https://ravenhood-project.onrender.com
 ```python
 [
    {
-        "id": self.id,
-        "name": self.name,
-        "updated_at": self.updated_at,
-        "stocks": [stock.to_dict() for stock in self.watch_list_watch_list_stocks]
+        "id": INT,
+        "name": STRING,
+        "updated_at": DATE,
+        "stocks": ARRAY_OF_STOCK_OBJECTS
    }
 ]
 ```
@@ -412,10 +412,10 @@ https://ravenhood-project.onrender.com
 * Success Response: HTTP Status 201
 ```python
 {
-     "id": self.id,
-     "user_id": self.user_id,
-     "name": self.name,
-     "updated_at": self.updated_at
+     "id": INT,
+     "user_id": INT,
+     "name": STRING,
+     "updated_at": DATE
 }
 ```
 * Error Response: HTTP Status 400
