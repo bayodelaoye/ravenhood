@@ -66,7 +66,7 @@ const AddStockToWatchListModal = ({
           <div className="watchlist-form-container">
             <Form method="post" onSubmit={submitAddToWatchList}>
               <select
-                onClick={(e) => setwatchList(e.target.value)}
+                onChange={(e) => setwatchList(e.target.value)}
                 className="select-watchlist"
               >
                 <option value="" selected disabled hidden>
