@@ -480,5 +480,5 @@ https://ravenhood-project.onrender.com
 4. WatchList
 
 # Connect
-**Bayode Olaoye**: [LinkedIn](https://www.linkedin.com/in/bayode-olaoye/)
-**Tyler Kim**: [LinkedIn](https://www.linkedin.com/in/tylothedino/)
+#### **Bayode Olaoye**: [LinkedIn](https://www.linkedin.com/in/bayode-olaoye/)
+#### **Tyler Kim**: [LinkedIn](https://www.linkedin.com/in/tylothedino/)
