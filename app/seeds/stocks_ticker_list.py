@@ -1087,14 +1087,14 @@ nasdaq = [
         "name": "NEWTG",
         "founded": "2020"
     },
-    {
-        "name": "NEWTI",
-        "founded": "2020"
-    },
-    {
-        "name": "NEWTZ",
-        "founded": "2020"
-    },
+    # {
+    #     "name": "NEWTI",
+    #     "founded": "2020"
+    # },
+    # {
+    #     "name": "NEWTZ",
+    #     "founded": "2020"
+    # },
     {
         "name": "NEXA",
         "founded": "1956"
