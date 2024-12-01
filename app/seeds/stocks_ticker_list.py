@@ -7,10 +7,10 @@ nasdaq = [
         "name": "AA",
         "founded": "1881"
     },
-    {
-        "name": "AACI",
-        "founded": "2007"
-    },
+    # {
+    #     "name": "AACI",
+    #     "founded": "2007"
+    # },
     {
         "name": "AAPL", 
         "founded": "1976"
@@ -27,10 +27,10 @@ nasdaq = [
         "name": "AEYE",
         "founded": "2012"
     },
-    {
-        "name": "AEZS",
-        "founded": "2001"
-    },
+    # {
+    #     "name": "AEZS",
+    #     "founded": "2001"
+    # },
     {
         "name": "AFB",
         "founded": "1939"
@@ -555,10 +555,10 @@ nasdaq = [
         "name":'GOOG', 
         "founded": "1998"
     },
-    {
-        "name": "HMNF",
-        "founded": "2008"
-    },
+    # {
+    #     "name": "HMNF",
+    #     "founded": "2008"
+    # },
     {
         "name": "HMST",
         "founded": "1989"
@@ -579,10 +579,10 @@ nasdaq = [
         "name": "HNNAZ",
         "founded": "2003"
     },
-    {
-        "name": "HNRA",
-        "founded": "2007"
-    },
+    # {
+    #     "name": "HNRA",
+    #     "founded": "2007"
+    # },
     {
         "name": "HNRG",
         "founded": "2006"
@@ -663,10 +663,10 @@ nasdaq = [
         "name": "IFF",
         "founded": "1889"
     },
-    {
-        "name": "IFIN",
-        "founded": "2006"
-    },
+    # {
+    #     "name": "IFIN",
+    #     "founded": "2006"
+    # },
     {
         "name": "IFN",
         "founded": "2001"
@@ -935,10 +935,10 @@ nasdaq = [
         "name": "LCUT",
         "founded": "1975"
     },
-    {
-        "name": "LCW",
-        "founded": "2007"
-    },
+    # {
+    #     "name": "LCW",
+    #     "founded": "2007"
+    # },
     {
         "name": "LDI",
         "founded": "2009"
@@ -1227,10 +1227,10 @@ nasdaq = [
         "name": "PDM",
         "founded": "1987"
     },
-    {
-        "name": "PDO",
-        "founded": "2021"
-    },
+    # {
+    #     "name": "PDO",
+    #     "founded": "2021"
+    # },
     {
         "name": "PDS",
         "founded": "1997"
@@ -1251,10 +1251,10 @@ nasdaq = [
         "name": "PDYN",
         "founded": "2021"
     },
-    {
-        "name": "PDYNW",
-        "founded": "2021"
-    },
+    # {
+    #     "name": "PDYNW",
+    #     "founded": "2021"
+    # },
     {
         "name": "PEB",
         "founded": "1997"
@@ -1271,10 +1271,10 @@ nasdaq = [
         "name": "PECO",
         "founded": "1881"
     },
-    {
-        "name": "QLI",
-        "founded": "2005"
-    },
+    # {
+    #     "name": "QLI",
+    #     "founded": "2005"
+    # },
     {
         "name": "QLYS",
         "founded": "1997"
@@ -1387,10 +1387,10 @@ nasdaq = [
         "name": "RBCAA",
         "founded": "2006"
     },
-    {
-        "name": "RBCP",
-        "founded": "2002"
-    },
+    # {
+    #     "name": "RBCP",
+    #     "founded": "2002"
+    # },
     {
         "name": "RBKB",
         "founded": "1905"
