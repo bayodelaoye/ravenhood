@@ -3,10 +3,10 @@ nasdaq = [
         "name": "A",
         "founded": "1905"
     },
-    {
-        "name": "AA",
-        "founded": "1881"
-    },
+    # {
+    #     "name": "AA",
+    #     "founded": "1881"
+    # },
     # {
     #     "name": "AACI",
     #     "founded": "2007"
@@ -19,54 +19,54 @@ nasdaq = [
         "name": "AESI",
         "founded": "2020"
     },
-    {
-        "name": "AEVA",
-        "founded": "2020"
-    },
-    {
-        "name": "AEYE",
-        "founded": "2012"
-    },
+    # {
+    #     "name": "AEVA",
+    #     "founded": "2020"
+    # },
+    # {
+    #     "name": "AEYE",
+    #     "founded": "2012"
+    # },
     # {
     #     "name": "AEZS",
     #     "founded": "2001"
     # },
-    {
-        "name": "AFB",
-        "founded": "1939"
-    },
-    {
-        "name": "AFBI",
-        "founded": "2000"
-    },
-    {
-        "name": "AFCG",
-        "founded": "2004"
-    },
+    # {
+    #     "name": "AFB",
+    #     "founded": "1939"
+    # },
+    # {
+    #     "name": "AFBI",
+    #     "founded": "2000"
+    # },
+    # {
+    #     "name": "AFCG",
+    #     "founded": "2004"
+    # },
     {
         "name": "AFG",
         "founded": "1959"
     },
-    {
-        "name": "AFGB",
-        "founded": "2003"
-    },
-    {
-        "name": "AFGC",
-        "founded": "2020"
-    },
-    {
-        "name": "AFGD",
-        "founded": "2022"
-    },
-    {
-        "name": "AFGE",
-        "founded": "2022"
-    },
-    {
-        "name": "AFJKU",
-        "founded": "2021"
-    },
+    # {
+    #     "name": "AFGB",
+    #     "founded": "2003"
+    # },
+    # {
+    #     "name": "AFGC",
+    #     "founded": "2020"
+    # },
+    # {
+    #     "name": "AFGD",
+    #     "founded": "2022"
+    # },
+    # {
+    #     "name": "AFGE",
+    #     "founded": "2022"
+    # },
+    # {
+    #     "name": "AFJKU",
+    #     "founded": "2021"
+    # },
     {
         "name": "AFL",
         "founded": "1959"
