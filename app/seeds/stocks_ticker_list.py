@@ -9,7 +9,7 @@ nasdaq = [
     #     "founded": "2007"
     # },
     {"name": "AAPL", "founded": "1976"},
-    {"name": "AESI", "founded": "2020"},
+    # {"name": "AESI", "founded": "2020"},
     # {
     #     "name": "AEVA",
     #     "founded": "2020"
@@ -34,7 +34,7 @@ nasdaq = [
     #     "name": "AFCG",
     #     "founded": "2004"
     # },
-    {"name": "AFG", "founded": "1959"},
+    # {"name": "AFG", "founded": "1959"},
     # {
     #     "name": "AFGB",
     #     "founded": "2003"
@@ -55,7 +55,7 @@ nasdaq = [
     #     "name": "AFJKU",
     #     "founded": "2021"
     # },
-    {"name": "AFL", "founded": "1959"},
+    # {"name": "AFL", "founded": "1959"},
     {"name": "AFMD", "founded": "2011"},
     {"name": "AFRI", "founded": "2019"},
     {"name": "AFRM", "founded": "2012"},

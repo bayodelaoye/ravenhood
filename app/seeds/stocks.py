@@ -24,6 +24,20 @@ def seed_stocks():
             ceo = stock_info.get("companyOfficers", [])
             ceo_name = ceo[0]["name"] if ceo else None
 
+            # Extract and check dividend yield
+            dividend_yield = (
+                round(stock_info.get("dividendYield", 0) * 100, 2)
+                if "dividendYield" in stock_info
+                else None
+            )
+
+            # Check if dividend_yield is greater than 99.99
+            if dividend_yield and dividend_yield > 99.99:
+                print(
+                    f"Warning: Dividend yield for {i['name']} is greater than 99.99. Setting it to 99.99."
+                )
+                dividend_yield = 99.99  # Set it to 99.99 or flag as an error
+
             new_stock = Stock(
                 company_name=stock_info.get("shortName"),
                 ticker_symbol=stock_info.get("symbol"),
@@ -43,11 +57,7 @@ def seed_stocks():
                     if "trailingPE" in stock_info
                     else None
                 ),
-                dividend_yield=(
-                    round(stock_info.get("dividendYield", 0) * 100, 2)
-                    if "dividendYield" in stock_info
-                    else None
-                ),
+                dividend_yield=dividend_yield,
                 average_volume=stock_info.get("averageVolume"),
                 high_today=round(stock_info.get("dayHigh", 0), 2),
                 low_today=round(stock_info.get("dayLow", 0), 2),
