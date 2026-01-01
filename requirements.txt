@@ -24,7 +24,7 @@ werkzeug==2.2.2; python_version >= '3.7'
 wtforms==3.0.1; python_version >= '3.7'
 zipp==3.17.0; python_version >= '3.8'
 numpy==1.23.5
-yfinance
+yfinance<0.2.40
 boto3
 # psycopg2 # If using dev container
 # boto3 # If using AWS
