@@ -1,7 +1,9 @@
-from .db import db, environment, SCHEMA
 from datetime import datetime
+
+from .db import SCHEMA, db, environment
 from .portfolio_stocks import portfolio_stocks
 from .watch_list_stocks import watch_list_stocks
+
 
 class Stock(db.Model):
     __tablename__ = "stocks"
@@ -43,25 +45,32 @@ class Stock(db.Model):
         back_populates="watch_list_watch_list_stocks",
     )
 
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "company_name": self.company_name,
-            "ticker_symbol": self.ticker_symbol,
-            "current_price": self.current_price,
-            "description": self.description,
-            "ceo": self.ceo,
-            "employeee": self.employees,
-            "headquarters": self.headquarters,
-            "founded": self.founded,
-            "market_cap_billions": self.market_cap_billions,
-            "price_earnings_ratio": self.price_earnings_ratio,
-            "divident_yield": self.dividend_yield,
-            "average_volume": self.average_volume,
-            "high_today": self.high_today,
-            "low_today": self.low_today,
-            "open_price": self.open_price,
-            "volume": self.volume,
-            "fifty_two_week_high": self.fifty_two_week_high,
-            "fifty_two_week_low": self.fifty_two_week_low
-        }
+
+def to_dict(self):
+    return {
+        "id": self.id,
+        "company_name": self.company_name,
+        "ticker_symbol": self.ticker_symbol,
+        "current_price": float(self.current_price) if self.current_price else None,
+        "description": self.description,
+        "ceo": self.ceo,
+        "employees": self.employees,
+        "headquarters": self.headquarters,
+        "founded": self.founded,
+        "market_cap_billions": self.market_cap_billions,
+        "price_earnings_ratio": (
+            float(self.price_earnings_ratio) if self.price_earnings_ratio else None
+        ),
+        "dividend_yield": (float(self.dividend_yield) if self.dividend_yield else None),
+        "average_volume": self.average_volume,
+        "high_today": float(self.high_today) if self.high_today else None,
+        "low_today": float(self.low_today) if self.low_today else None,
+        "open_price": float(self.open_price) if self.open_price else None,
+        "volume": self.volume,
+        "fifty_two_week_high": (
+            float(self.fifty_two_week_high) if self.fifty_two_week_high else None
+        ),
+        "fifty_two_week_low": (
+            float(self.fifty_two_week_low) if self.fifty_two_week_low else None
+        ),
+    }

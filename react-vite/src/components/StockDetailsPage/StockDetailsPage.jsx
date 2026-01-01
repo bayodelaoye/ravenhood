@@ -23,6 +23,7 @@ function StockDetailsPage() {
   let [portfolioType, setPortfolioType] = useState("");
   const [shares, setShares] = useState(0);
   const [timeLineBtn, setTimeLineBtn] = useState("");
+  const [liveData, setLiveData] = useState({});
   const [formErrors, setFormErrors] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -75,6 +76,23 @@ function StockDetailsPage() {
       setWatchListsWithoutStock(filteredWatchLists);
     }
   }, [userWatchLists]);
+
+  useEffect(() => {
+    const fetchLiveData = async () => {
+      try {
+        const response = await fetch(
+          `/api/stocks/${stockDetails.ticker_symbol}/live`
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setLiveData(data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch live stock data:", err);
+      }
+    };
+    fetchLiveData();
+  }, [stockDetails.ticker_symbol]);
 
   useEffect(() => {
     if (timeLineBtn === "") {
@@ -155,14 +173,23 @@ function StockDetailsPage() {
           <div className="stock-info-container">
             <div className="company-name-price">
               <h3>{stockDetails.company_name}</h3>
-              <p>${stockDetails.current_price}</p>
+              {/* ✅ UPDATED: Use liveData if available, fallback to DB */}
+              <p>
+                $
+                {liveData.current_price ??
+                  stockDetails.current_price ??
+                  "Unavailable"}
+              </p>
             </div>
+
             <LineGraph
               stock={stockDetails}
               timeline={timeLineBtn}
               state={state}
             />
+
             <div className="time-line">
+              {/* ...timeline buttons unchanged... */}
               <div
                 className="time-line-btn one-day"
                 value="one-day"
@@ -213,45 +240,30 @@ function StockDetailsPage() {
                 ALL
               </div>
             </div>
+
             <div className="stock-details">
               <div className="about-company about-info-bold">
                 About {stockDetails.ticker_symbol}
               </div>
               <div className="company-description">
-                <p>
-                  {stockDetails.description
-                    ? stockDetails.description
-                    : "Unavailable"}
-                </p>
+                <p>{stockDetails.description ?? "Unavailable"}</p>
               </div>
               <div className="company-info-container">
                 <div className="info-text">
                   <p className="about-info-bold">CEO</p>
-                  <p>{stockDetails.ceo ? stockDetails.ceo : "Unavailable"}</p>
+                  <p>{stockDetails.ceo ?? "Unavailable"}</p>
                 </div>
                 <div className="info-text">
                   <p className="about-info-bold">Employees</p>
-                  <p>
-                    {stockDetails.employees
-                      ? stockDetails.employees
-                      : "Unavailable"}
-                  </p>
+                  <p>{stockDetails.employees ?? "Unavailable"}</p>
                 </div>
                 <div className="info-text">
                   <p className="about-info-bold">Headquarters</p>
-                  <p>
-                    {stockDetails.headquarters
-                      ? stockDetails.headquarters
-                      : "Unavailable"}
-                  </p>
+                  <p>{stockDetails.headquarters ?? "Unavailable"}</p>
                 </div>
                 <div className="info-text">
                   <p className="about-info-bold">Founded</p>
-                  <p>
-                    {stockDetails.founded
-                      ? stockDetails.founded
-                      : "Unavailable"}
-                  </p>
+                  <p>{stockDetails.founded ?? "Unavailable"}</p>
                 </div>
               </div>
             </div>
@@ -260,99 +272,80 @@ function StockDetailsPage() {
               <div className="about-company about-info-bold">
                 {stockDetails.ticker_symbol} Key Statistics
               </div>
-
               <div className="company-info-container">
                 <div className="company-info-col">
                   <div className="info-text">
                     <p className="about-info-bold">Market cap</p>
                     <p>
-                      {stockDetails.market_cap_billions
-                        ? stockDetails.market_cap_billions
-                        : "Unavailable"}
+                      {liveData.market_cap ??
+                        stockDetails.market_cap_billions ??
+                        "Unavailable"}
                     </p>
                   </div>
                   <div className="info-text">
                     <p className="about-info-bold">High today</p>
                     <p>
-                      {stockDetails.high_today
-                        ? stockDetails.high_today
-                        : "Unavailable"}
+                      {liveData.day_high ??
+                        stockDetails.high_today ??
+                        "Unavailable"}
                     </p>
                   </div>
                   <div className="info-text">
                     <p className="about-info-bold">52 Week high</p>
-                    <p>
-                      {stockDetails.fifty_two_week_high
-                        ? stockDetails.fifty_two_week_high
-                        : "Unavailable"}
-                    </p>
+                    <p>{stockDetails.fifty_two_week_high ?? "Unavailable"}</p>
                   </div>
                 </div>
+
                 <div className="company-info-col">
                   <div className="info-text">
                     <p className="about-info-bold">Price-Earnings ratio</p>
-                    <p>
-                      {stockDetails.price_earnings_ratio
-                        ? stockDetails.price_earnings_ratio
-                        : "Unavailable"}
-                    </p>
+                    <p>{stockDetails.price_earnings_ratio ?? "Unavailable"}</p>
                   </div>
                   <div className="info-text">
                     <p className="about-info-bold">Low today</p>
                     <p>
-                      {stockDetails.low_today
-                        ? stockDetails.low_today
-                        : "Unavailable"}
+                      {liveData.day_low ??
+                        stockDetails.low_today ??
+                        "Unavailable"}
                     </p>
                   </div>
                   <div className="info-text">
                     <p className="about-info-bold">52 Week low</p>
-                    <p>
-                      {stockDetails.fifty_two_week_low
-                        ? stockDetails.fifty_two_week_low
-                        : "Unavailable"}
-                    </p>
+                    <p>{stockDetails.fifty_two_week_low ?? "Unavailable"}</p>
                   </div>
                 </div>
+
                 <div className="company-info-col">
                   <div className="info-text">
                     <p className="about-info-bold">Dividend yield</p>
-                    <p>
-                      {stockDetails.dividend_yield
-                        ? stockDetails.dividend_yield
-                        : "Unavailable"}
-                    </p>
+                    <p>{stockDetails.dividend_yield ?? "Unavailable"}</p>
                   </div>
                   <div className="info-text">
                     <p className="about-info-bold">Open price</p>
                     <p>
-                      {stockDetails.open_price
-                        ? stockDetails.open_price
-                        : "Unavailable"}
+                      {liveData.open ??
+                        stockDetails.open_price ??
+                        "Unavailable"}
                     </p>
                   </div>
                 </div>
+
                 <div className="company-info-col">
                   <div className="info-text">
                     <p className="about-info-bold">Average volume</p>
-                    <p>
-                      {stockDetails.average_volume
-                        ? stockDetails.average_volume
-                        : "Unavailable"}
-                    </p>
+                    <p>{stockDetails.average_volume ?? "Unavailable"}</p>
                   </div>
                   <div className="info-text">
                     <p className="about-info-bold">Volume</p>
                     <p>
-                      {stockDetails.volume
-                        ? stockDetails.volume
-                        : "Unavailable"}
+                      {liveData.volume ?? stockDetails.volume ?? "Unavailable"}
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
           {currentUser ? (
             <div className="buy-sell-watch-container">
               <div className="buy-container">
